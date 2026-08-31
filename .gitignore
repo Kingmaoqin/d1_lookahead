@@ -1,0 +1,7 @@
+data/
+*.npz
+*.npy
+__pycache__/
+*.pyc
+logs/*.log
+rescue_audit/logs/*.log

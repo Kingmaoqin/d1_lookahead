@@ -1,0 +1,98 @@
+{
+  "confidence (p1)": {
+    "mean": 0.6049284049284048,
+    "per_seed": [
+      0.6103896103896104,
+      0.6,
+      0.6043956043956044
+    ]
+  },
+  "logp1": {
+    "mean": 0.6049284049284048,
+    "per_seed": [
+      0.6103896103896104,
+      0.6,
+      0.6043956043956044
+    ]
+  },
+  "scalar+history controls": {
+    "mean": 0.5940448440448441,
+    "per_seed": [
+      0.6493506493506493,
+      0.5833333333333334,
+      0.5494505494505495
+    ]
+  },
+  "output-distribution controls": {
+    "mean": 0.5866133866133866,
+    "per_seed": [
+      0.6103896103896104,
+      0.6,
+      0.5494505494505495
+    ]
+  },
+  "ALL cheap controls": {
+    "mean": 0.5462870462870463,
+    "per_seed": [
+      0.5454545454545454,
+      0.5,
+      0.5934065934065934
+    ]
+  },
+  "future-stability (persist - flips)": {
+    "mean": 0.5077644577644578,
+    "per_seed": [
+      0.5454545454545454,
+      0.48333333333333334,
+      0.4945054945054945
+    ]
+  },
+  "HIDDEN linear probe": {
+    "mean": 0.7035298035298035,
+    "per_seed": [
+      0.7402597402597403,
+      0.7,
+      0.6703296703296703
+    ]
+  },
+  "_hidden_above_chance": {
+    "accuracy": 0.6724501910426198,
+    "excess": 0.1724501910426198,
+    "ci_lo": 0.06810770750988147,
+    "ci_hi": 0.2701149425287356,
+    "ci_excludes_zero": true
+  },
+  "_gap_hidden_minus_cheap": {
+    "mean": 0.07992829347101986,
+    "ci_lo": -0.048079819277108485,
+    "ci_hi": 0.21278388716232371,
+    "ci_excludes_zero": false
+  },
+  "_gap_vs_best_control": {
+    "control": "confidence (p1)",
+    "mean": 0.0675199358672731,
+    "ci_lo": -0.06253324468085106,
+    "ci_hi": 0.1961243872549019,
+    "ci_excludes_zero": false
+  },
+  "_n_pairs_per_seed": [
+    154,
+    120,
+    182
+  ],
+  "_config": {
+    "tags": [
+      "c3",
+      "d3"
+    ],
+    "target": "A_pertok",
+    "seeds": 3,
+    "match_tol": 0.25,
+    "min_gap_sd": 1.0,
+    "mode": "caliper",
+    "ladder": false,
+    "n_boot": 1000,
+    "out": null,
+    "tag": "k24conf"
+  }
+}

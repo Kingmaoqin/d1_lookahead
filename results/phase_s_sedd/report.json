@@ -1,0 +1,28 @@
+{
+  "model": "louaaron/sedd-small",
+  "provenance": "Stanford (US), ICML 2024, OpenWebText, absorbing graph; non-Chinese-origin; lab independent of MDLM",
+  "S1_sedd_nll": {
+    "0.2": 1.543692459678961,
+    "0.4": 2.253389983644829,
+    "0.6": 3.351105950378917,
+    "0.8": 5.101702122097445
+  },
+  "S1_mdlm_nll": {
+    "0.2": 1.854636461466405,
+    "0.4": 2.526711654982843,
+    "0.6": 3.585041497253917,
+    "0.8": 5.291728984992902
+  },
+  "S1_pass": true,
+  "S2_d2": 0.756217277486911,
+  "S2_ref_d2": 0.893760907504363,
+  "S2_maxrep": 0.019290123456790122,
+  "S2_ref_maxrep": 0.009149029982363315,
+  "S2_pass": true,
+  "S3_between": 0.18734769268744525,
+  "S3_within": 0.15863101973709978,
+  "S3_pass": true,
+  "S5_pass": true,
+  "S4_pass": true,
+  "ALL_PASS": true
+}

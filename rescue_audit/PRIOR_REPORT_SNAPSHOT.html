@@ -1,0 +1,1538 @@
+<!doctype html><html><head><!-- frame-runtime --><base href="/_f/1788136325-3922/"><script>window.__FRAME_PREAMBLE={"v":1,"capabilities":{"artifact":"artifact.C-rTGjvr.js","assets":"assets.8Gk803W0.js","comments":"comments.vw5vQdGA.js","db":"db.h-3sndFg.js","downloads":"downloads.C3GSvEDP.js","embed":"embed.CxGAyc-v.js","mcp":"mcp.Bvma3qD7.js","network":"network.B5UA9Su4.js","notifications":"notifications.ssU4jy7G.js","permissions":"permissions.BNySkLV5.js","room":"room.BMMoe2BY.js","sample":"sample.BW2Uysoh.js","self":"artifact.C-rTGjvr.js","user":"user.BpKav-Rf.js"},"transforms":"_transforms.DSB5x63f.js","comments":"_comments.C6E0cR5g.js","translate":"_translate.5HCW4BJh.js"}</script><script>(function(){"use strict";var te=["light","dark","system"],re=/^[A-Za-z0-9_-]{1,64}$/,$=/^[a-zA-Z_:][a-zA-Z0-9_:.-]{0,127}$/,ne=new Set(["class","hidden","value","checked","style","title","alt","placeholder","lang","dir","role","tabindex","disabled","readonly","contenteditable","open","colspan","rowspan"]);function oe(e){const t=e.toLowerCase();return t.startsWith("data-")||t.startsWith("aria-")||ne.has(t)}var Be="http://www.w3.org/1999/xhtml",se="http://www.w3.org/2000/svg",ae=new Set(["script","style","iframe","noscript","noframes","noembed","xmp","plaintext","template","title","textarea","object","embed"]),ie=new Set(["script","style"]);function ce(e){const t=e.localName.toLowerCase();return e.namespaceURI==="http://www.w3.org/1999/xhtml"?!ae.has(t):e.namespaceURI===se?!ie.has(t):!1}function M(e,t){return e===t||(e===160||e===32)&&(t===160||t===32)}function le(e,t){const r=e.length,n=t.length;let s=0;for(;s<r&&s<n&&M(e.charCodeAt(s),t.charCodeAt(s));)s++;let o=0;for(;o<r-s&&o<n-s&&M(e.charCodeAt(r-1-o),t.charCodeAt(n-1-o));)o++;return{p:s,s:o}}function ue(e,t){const r=e.firstChild;if(e.childNodes.length!==1||r===null||r.nodeType!==Node.TEXT_NODE){e.textContent=t;return}const n=r.data,s=n.length,o=t.length,{p:i,s:c}=le(n,t);i===s&&c===0&&s===o||r.replaceData(i,s-i-c,t.slice(i,o-c));const h=r.data,p=e.ownerDocument.getSelection?.()??null,w=p!==null&&p.rangeCount>0&&(p.anchorNode===r||p.focusNode===r)?{anchor:p.anchorNode,anchorOffset:p.anchorOffset,focus:p.focusNode,focusOffset:p.focusOffset}:null;let m=-1,g=-1;for(let f=0;f<h.length&&f<t.length;f++){const v=h.charCodeAt(f),b=t.charCodeAt(f);v!==b&&M(v,b)&&(m<0&&(m=f),g=f)}const a=m>=0;if(a&&r.replaceData(m,g-m+1,t.slice(m,g+1)),a&&w!==null&&w.anchor!==null&&w.focus!==null)try{p.setBaseAndExtent(w.anchor,w.anchorOffset,w.focus,w.focusOffset)}catch{}}var fe=new Set(["html","head","body","frameset"]);function de(e){return e.namespaceURI==="http://www.w3.org/1999/xhtml"&&fe.has(e.localName)}function pe(e){if(e===null||typeof e!="object")return!1;const t=e;if(typeof t.target!="string"||!re.test(t.target)||t.text!==void 0&&typeof t.text!="string")return!1;if(t.attrsSet!==void 0){if(t.attrsSet===null||typeof t.attrsSet!="object")return!1;for(const[r,n]of Object.entries(t.attrsSet))if(!$.test(r)||typeof n!="string")return!1}if(t.attrsRemoved!==void 0){if(!Array.isArray(t.attrsRemoved))return!1;for(const r of t.attrsRemoved)if(typeof r!="string"||!$.test(r))return!1}return!0}function me(e,t){if(e===null||typeof e!="object")return!1;const{seq:r,elements:n}=e;if(typeof r!="number"||!Number.isSafeInteger(r)||!Array.isArray(n)||n.length===0||n.length>64)return!1;for(let s=0;s<n.length;s++)if(!t(n[s]))return!1;return!0}function he(e){return e===null||typeof e!="object"?!1:me(e.__frame_patch,pe)}function _e(e){if(e===null||typeof e!="object")return!1;const t=e.__frame_init;return t!==null&&typeof t=="object"}function ve(e){return e!==null&&typeof e=="object"&&e.__frame_size_poke===!0}function ye(e){if(e===null||typeof e!="object")return!1;const t=e.__frame_theme;if(t===null||typeof t!="object")return!1;const r=t.theme;return typeof r=="string"&&te.includes(r)}var A=/^[\w.-]+\.js$/;function we(e,t,r){return r?"inert":typeof t=="string"&&A.test(t)?e?[t]:"inert":e?"inert":"framed"}function ge(){return{post(e,t){parent.postMessage(e,t)},on(e){const t=r=>{r.source===parent&&e(r.data,r.origin,r.isTrusted)};return addEventListener("message",t),()=>removeEventListener("message",t)}}}function be(){return{post:()=>{},on:()=>()=>{}}}var j="__frame_scroll",Ee=150,Ae=310,Se=160,Te=3e4;function ke(){let e=0,t=!1,r=!1,n=!1,s=0,o=null;const i=l=>{try{sessionStorage.setItem(j,JSON.stringify({y:l}))}catch{}},c=()=>{if(clearTimeout(e),o===null)return;const l=o;o=null,i(l)},h=()=>{if(t){t=!1;return}r=!0,o=scrollY,clearTimeout(e),e=setTimeout(c,Ee)};try{addEventListener("scroll",h,{passive:!0}),addEventListener("pagehide",c)}catch{}const p=()=>{let l;try{l=sessionStorage.getItem(j)}catch{return null}if(l===null)return null;let _;try{_=JSON.parse(l)}catch{_=null}const d=_?.y;if(!(typeof d=="number"&&Number.isFinite(d)&&d>=0)){try{sessionStorage.removeItem(j)}catch{}return null}return d};let w=!1;const m=l=>{try{const _=scrollY;scrollTo({top:l,left:0,behavior:"instant"}),s=l,n=!0,clearTimeout(e),o=null,i(l);const d=scrollY;d!==_&&(t=!0),d!==l&&!w&&(w=!0,addEventListener("load",()=>{try{if(scrollY===d){const T=p();m(T!==null?T:s)}}catch{}},{once:!0}))}catch{}},g=()=>{try{return!!location.hash}catch{return!0}};let a=!1;const f=()=>{try{if(a||innerWidth>Ae||innerHeight>Se)return;a=!0;const l=Date.now(),_=()=>{try{removeEventListener("resize",_)}catch{}if(Date.now()-l>Te||r||g())return;const d=p();m(d!==null?d:s)};addEventListener("resize",_)}catch{}};let v=!1,b=!1;return{restore(){if(v||(v=!0,g()))return;const l=p();l!==null&&(m(l),f())},promoted(){if(b||(b=!0,g()))return;const l=p();l!==null?(m(l),f()):n&&m(s)}}}function Re(e,t,r,n){let s=null;try{s=window.trustedTypes?.createPolicy("frame-runtime",{createScriptURL:h=>h})??null}catch{}const o=window.Worker,i=o?.prototype,c=Object.freeze({Worker:o,workerOn:i?.addEventListener,workerPost:i?.postMessage,workerTerminate:i?.terminate,fetch:window.fetch.bind(window),preventDefault:Event.prototype.preventDefault,policy:s,origins:t});r(e).then(h=>h?.bootTopLevel?h.bootTopLevel(c,n):n.settle()).catch(()=>n.settle())}var De="modulepreload",Ie=function(e){return"/"+e},Ue={},Le=function(t,r,n){let s=Promise.resolve();function o(i){const c=new Event("vite:preloadError",{cancelable:!0});if(c.payload=i,window.dispatchEvent(c),!c.defaultPrevented)throw i}return s.then(i=>{for(const c of i||[])c.status==="rejected"&&o(c.reason);return t().catch(o)})},Oe=window===top,q=Object.getOwnPropertyDescriptor(window,"claude"),k=we(Oe,window.__FRAME_PREAMBLE?.topLevel,q?.writable===!1),N=typeof k=="object"&&k[0],y=N?be():ge();(function(){const e=Object.defineProperty,t=globalThis,r=["RTCPeerConnection","webkitRTCPeerConnection","RTCDataChannel","RTCIceCandidate","RTCSessionDescription","RTCRtpSender","RTCRtpReceiver"];let n=0;for(let s=0;s<r.length;s++){const o=r[s];try{e(t,o,{value:void 0,writable:!1,configurable:!1})}catch{try{delete t[o]}catch{}try{e(t,o,{value:void 0,writable:!1,configurable:!0})}catch{}}typeof t[o]=="function"&&n++}if(n&&k==="framed")try{y.post({__frame_rtc_lockdown_failed:n},"*")}catch{}})();var Pe=1e4,Y=Object.freeze([...window.__FRAME_PREAMBLE?.origins??["https://claude.ai","https://preview.claude.ai"]]);function X(e){for(const t of Y)if(t.endsWith(":*"))try{const r=new URL(e);if(`${r.protocol}//${r.hostname}:*`===t)return!0}catch{}else if(e===t)return!0;return!1}var R=Object.freeze({...window.__FRAME_PREAMBLE?.capabilities}),B=window.__FRAME_PREAMBLE?.transforms,D=window.__FRAME_PREAMBLE?.comments,I=window.__FRAME_PREAMBLE?.translate;function S(e){return Le(()=>import("/_runtime/"+e),void 0)}function G(e,t){return{contract:e.contract,changes:new Set(e.changes??[]),flags:new Set(e.flags??[]),capabilities:e.capabilities??{},capBudgets:e.capBudgets??{},transforms:new Map,shellOrigin:t,mount:x,hooks:O,pipe:()=>({wrap:(r,n)=>(...s)=>{try{return n(...s)}catch(o){return Promise.reject(o)}}})}}var L=null,E=null;function V(e,t,r){try{Object.defineProperty(e,t,{value:r,writable:!1,configurable:!1,enumerable:!0})}catch{try{Object.defineProperty(e,t,{value:r,writable:!1,configurable:!0,enumerable:!0})}catch{}}}var U=!1,O={editBefore:null,edit:null};function Ce(e,t,r=!1){const n=[];let s;if(r)try{O.editBefore?.(e)}catch{}for(const o of e.elements){const i=document.querySelector(`[data-id="${o.target}"]`);if(!i){s=o.target;break}if([...Object.keys(o.attrsSet??{}),...o.attrsRemoved??[]].some(c=>!oe(c))){s=o.target;break}if(o.text!==void 0&&(!ce(i)||de(i))){s=o.target;break}for(const[c,h]of Object.entries(o.attrsSet??{}))if(!J(i,c)){try{i.setAttribute(c,h)}catch{}Z(i,c,h)}for(const c of o.attrsRemoved??[])J(i,c)||(i.removeAttribute(c),Z(i,c,null));typeof o.text=="string"&&ue(i,o.text),n.push(o.target)}if(r)try{O.edit?.(e.seq,n,s)}catch{}if(s!==void 0){y.post({__frame_patch_miss:{seq:e.seq}},t);return}try{document.dispatchEvent(new CustomEvent("claude:edit",{detail:{seq:e.seq,targets:n}}))}catch{}}function Z(e,t,r){if(!(e instanceof HTMLInputElement))return;const n=t.toLowerCase();n==="checked"?e.checked=r!==null:n==="value"&&e.type!=="file"&&(e.value=r??"")}function J(e,t){const r=t.toLowerCase(),n=e;return r==="data-id"||(r==="value"||r==="checked")&&(n.__artifactSecret===!0||/^(password|hidden|file)$/.test(n.type??"")||/(^|\s)(cc-|one-time-code|current-password|new-password)/i.test(`${e.getAttribute("autocomplete")??""} ${n.autocomplete??""}`))}function Q(e){const t=document.documentElement;e==="light"||e==="dark"?(t.dataset.theme=e,t.style.colorScheme=e,U=!0):U&&(delete t.dataset.theme,t.style.colorScheme="",U=!1)}var P=new Map;function Me(){let e;const t={u:new Promise(r=>{e=r}),r:r=>{t.done=!0,e(r)},done:!1,nulled:!1};return t}function F(){for(const e of P.values())e.done||(e.nulled=!0,e.r(null))}var je=Object.freeze(Object.assign(Object.create(null),{call:Function.prototype.call,apply:Function.prototype.apply,bind:Function.prototype.bind})),x=(e,t)=>{const r=P.get(e);if(!r||r.done){r?.nulled&&E&&y.post({__frame_cap_telemetry:{kind:"cap-load-error",cap:e}},E);return}const n=typeof t=="function"?Object.setPrototypeOf(t,je):Object.assign(Object.create(null),t);typeof n.then=="function"&&delete n.then,r.r(Object.freeze(n))};function ee(){const e=q?.value??{};V(window,"claude",e);for(const t of Object.keys(R)){if(e[t]!==void 0){V(e,t,e[t]);continue}P.set(t,Me())}if(e.use===void 0){const t=r=>{if(typeof r!="string"||!Object.hasOwn(R,r))return Promise.resolve(null);const n=P.get(r);return n?n.u:Promise.resolve(e[r]??null)};try{Object.defineProperty(e,"use",{value:t,writable:!0,configurable:!0,enumerable:!1})}catch{}}}if(k==="framed"){const e=B&&A.test(B)?S(B).catch(()=>{}):Promise.resolve(void 0),t=a=>{if(a.type==="auxclick"&&a.button!==1)return;const f=a.target,v=f&&f.closest?f.closest("a[href],area[href]"):null;if(!v)return;const b=v.getAttribute("href");if(!b)return;let l;try{l=new URL(b,document.baseURI)}catch{return}if((l.protocol==="http:"||l.protocol==="https:")&&l.origin!==location.origin){a.preventDefault();const _=(v.getAttribute("target")??"").toLowerCase(),d=a.type==="auxclick"||a.metaKey||a.ctrlKey||a.shiftKey||a.altKey||!["","_self","_top","_parent"].includes(_);y.post({__frame_nav:!0,url:l.href,newTab:d},"*")}};addEventListener("click",t,!0),addEventListener("auxclick",t,!0);const r={},n=a=>{a.isTrusted&&(r.pointer=!0)},s=a=>{a.isTrusted&&(r.click=!0)};addEventListener("pointermove",n,{capture:!0,passive:!0}),addEventListener("click",s,{capture:!0,passive:!0}),e.then(a=>{a?.wireNav&&(a.wireNav(),removeEventListener("click",t,!0),removeEventListener("auxclick",t,!0),removeEventListener("pointermove",n,!0),removeEventListener("click",s,!0),a.wireEngagement?.(r))});let o=null;try{o=ke()}catch{}ee();let i=null,c=null,h=0;const p=y.on((a,f)=>{X(f)&&_e(a)&&(i=a.__frame_init,E=f,p(),clearTimeout(h),c?.())});y.post({__frame_connect:!0},"*");const w=new Promise(a=>{c=a,h=setTimeout(()=>{p(),a()},Pe)}),m=document.readyState==="loading"?new Promise(a=>document.addEventListener("DOMContentLoaded",()=>a(),{once:!0})):Promise.resolve();m.then(()=>{try{o?.restore()}catch{}});const g={cb:null};y.on((a,f)=>{if(X(f)&&ve(a)){try{o?.promoted()}catch{}g.cb?.()}}),w.then(async()=>{if(!i||!E){F();return}Q(i.theme);const a=E;let f=!1,v=!1;y.on((u,z,C)=>{if(z!==a)return;ye(u)&&Q(u.__frame_theme.theme),he(u)&&Ce(u.__frame_patch,a,C);const H=u?.__fc_mode;H&&typeof H=="object"&&!f&&D&&A.test(D)&&(f=!0,S(D).then(K=>K.install?.(a,H.on===!0)).catch(()=>{}));const W=u?.__ft_cmd;W&&typeof W=="object"&&!v&&I&&A.test(I)&&(v=!0,S(I).then(K=>K.install?.(a,W)).catch(()=>{}))});const b=Object.keys(i.capabilities??{}).filter(u=>Object.hasOwn(R,u)).map(u=>[u,R[u]]).filter(u=>typeof u[1]=="string"&&A.test(u[1])),l=await Promise.allSettled(b.map(([,u])=>S(u))),_=await e,d=E;if(_?.buildBoot||y.post({__frame_cap_telemetry:{kind:"cap-load-error",cap:"_transforms"}},d),_?.buildBoot)try{L=_.buildBoot(i,_.TRANSFORMS??{},{shellOrigin:d,mount:x,hooks:O},u=>y.post({__frame_cap_telemetry:u},d))}catch{y.post({__frame_cap_telemetry:{kind:"cap-load-error",cap:"_transforms"}},d),L=G(i,d)}else L=G(i,d);const T=u=>y.post({__frame_cap_telemetry:{kind:"cap-load-error",cap:u}},d),Ne=L;l.forEach((u,z)=>{const C=b[z][0];if(u.status!=="fulfilled"){T(C);return}try{u.value?.install?.(Ne)}catch{T(C)}}),F(),await m,y.post({__frame_ready:!0},E),e.then(u=>u?.installSizeReporter?.(d,g))})}else N&&(ee(),Re(N,Y,S,{settle:F,mount:x}))})();</script><!-- /frame-runtime --><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found]){display:none!important}</style></head><body>
+<title>Lookahead Without Looking Ahead</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap">
+
+<style>
+:root{
+  --ground:#F6F7F9; --surface:#FFFFFF; --surface-2:#F0F2F6;
+  --ink:#14161B; --ink-2:#333846; --muted:#5D6472; --faint:#868D9C;
+  --rule:#DFE3EA; --rule-2:#C9CFDA;
+  --accent:#37477A; --accent-soft:#E7EAF4;
+  --chan2:#7A5A8C; --chan2-soft:#F0E9F4;
+  --pass:#2C6E4A; --pass-soft:#E3F0E8;
+  --fail:#A6392F; --fail-soft:#F8E6E3;
+  --warn:#8A6A20; --warn-soft:#F7EFDC;
+  --shadow:0 1px 2px rgba(20,22,27,.05),0 8px 24px -12px rgba(20,22,27,.18);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#101318; --surface:#171B22; --surface-2:#1D222B;
+    --ink:#E8EAEE; --ink-2:#C6CBD6; --muted:#98A0AF; --faint:#727A8A;
+    --rule:#272D38; --rule-2:#39414F;
+    --accent:#8AA0DC; --accent-soft:#1C2333;
+    --chan2:#B79BC9; --chan2-soft:#241E2C;
+    --pass:#5EBE8A; --pass-soft:#14261C;
+    --fail:#E08278; --fail-soft:#2A1917;
+    --warn:#D4B25F; --warn-soft:#26200F;
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px -12px rgba(0,0,0,.6);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#101318; --surface:#171B22; --surface-2:#1D222B;
+  --ink:#E8EAEE; --ink-2:#C6CBD6; --muted:#98A0AF; --faint:#727A8A;
+  --rule:#272D38; --rule-2:#39414F;
+  --accent:#8AA0DC; --accent-soft:#1C2333;
+  --chan2:#B79BC9; --chan2-soft:#241E2C;
+  --pass:#5EBE8A; --pass-soft:#14261C;
+  --fail:#E08278; --fail-soft:#2A1917;
+  --warn:#D4B25F; --warn-soft:#26200F;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px -12px rgba(0,0,0,.6);
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--ground); color:var(--ink);
+  font-family:"IBM Plex Sans","PingFang SC","Microsoft YaHei","Noto Sans CJK SC",system-ui,sans-serif;
+  font-size:16px; line-height:1.72; -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px 120px}
+h1,h2,h3,h4{font-family:"Source Serif 4","Noto Serif SC","Songti SC",Georgia,serif;text-wrap:balance;margin:0}
+p{margin:0}
+a{color:var(--accent)}
+code,.mono{font-family:"IBM Plex Mono",ui-monospace,SFMono-Regular,monospace;font-variant-ligatures:none}
+
+/* ---------- masthead ---------- */
+.masthead{padding:76px 0 34px;border-bottom:2px solid var(--ink);margin-bottom:8px}
+.eyebrow{font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.masthead h1{font-size:clamp(38px,6vw,62px);line-height:1.06;font-weight:700;letter-spacing:-.018em;margin:16px 0 6px}
+.masthead .zh{font-size:clamp(17px,2.2vw,21px);color:var(--ink-2);font-weight:600;font-family:inherit;margin-bottom:20px}
+.meta-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:2px 26px;margin-top:26px;
+  border-top:1px solid var(--rule);padding-top:18px}
+.meta-grid dt{font-size:11px;letter-spacing:.11em;text-transform:uppercase;color:var(--faint);font-weight:600}
+.meta-grid dd{margin:2px 0 12px;font-size:14.5px;color:var(--ink-2);font-family:"IBM Plex Mono",monospace}
+
+/* ---------- verdict banner ---------- */
+.verdict{background:var(--surface);border:1px solid var(--rule);border-left:4px solid var(--fail);
+  border-radius:3px;padding:22px 26px;margin:30px 0 12px;box-shadow:var(--shadow)}
+.verdict h2{font-size:20px;font-weight:700;margin-bottom:8px}
+.verdict p{color:var(--ink-2);font-size:15px;max-width:74ch}
+
+/* ---------- section scaffolding ---------- */
+section{margin-top:66px;scroll-margin-top:20px}
+.sec-head{display:flex;align-items:baseline;gap:14px;border-bottom:1px solid var(--rule-2);padding-bottom:10px;margin-bottom:26px;flex-wrap:wrap}
+.sec-head h2{font-size:27px;font-weight:700;letter-spacing:-.01em}
+.sec-num{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--accent);font-weight:600;
+  letter-spacing:.08em;padding-top:4px}
+h3{font-size:19px;font-weight:600;margin:34px 0 10px;letter-spacing:-.005em}
+h4{font-size:15.5px;font-weight:700;margin:22px 0 7px;font-family:inherit;color:var(--ink-2)}
+.prose p+p{margin-top:13px}
+.prose{max-width:70ch}
+.prose ul,.prose ol{max-width:70ch;padding-left:20px;margin:12px 0}
+.prose li{margin:5px 0}
+.lede{font-size:17px;color:var(--ink-2);max-width:66ch}
+
+/* ---------- day entries ---------- */
+.day{display:grid;grid-template-columns:132px 1fr;gap:30px;padding:34px 0;border-top:1px solid var(--rule)}
+.day:first-of-type{border-top:none}
+.day-rail{position:sticky;top:16px;align-self:start}
+.day-date{font-family:"IBM Plex Mono",monospace;font-size:15px;font-weight:600;color:var(--ink);letter-spacing:-.02em}
+.day-dow{font-size:11px;letter-spacing:.11em;text-transform:uppercase;color:var(--faint);margin-top:2px;font-weight:600}
+.day-tag{display:inline-block;margin-top:11px;font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;
+  font-weight:600;padding:3px 8px;border-radius:2px;background:var(--accent-soft);color:var(--accent)}
+.day-body h3:first-child{margin-top:0}
+@media(max-width:760px){
+  .day{grid-template-columns:1fr;gap:12px}
+  .day-rail{position:static;display:flex;align-items:baseline;gap:12px}
+  .day-tag{margin-top:0}
+}
+
+/* ---------- math ---------- */
+.math{background:var(--surface);border:1px solid var(--rule);border-radius:3px;
+  padding:16px 20px;margin:16px 0;overflow-x:auto;
+  font-family:"IBM Plex Mono",monospace;font-size:13.5px;line-height:2.0;color:var(--ink)}
+.math .lbl{color:var(--faint);font-size:11px;letter-spacing:.09em;text-transform:uppercase;
+  display:block;margin-bottom:9px;font-family:"IBM Plex Sans",sans-serif;font-weight:600}
+.math .note{color:var(--muted);font-size:12.5px;line-height:1.6;display:block;margin-top:10px;
+  font-family:"IBM Plex Sans","PingFang SC",sans-serif;white-space:normal}
+.math em{color:var(--accent);font-style:normal;font-weight:600}
+sub,sup{font-size:.72em;line-height:0}
+
+/* ---------- tables ---------- */
+.tw{overflow-x:auto;margin:18px 0;border:1px solid var(--rule);border-radius:3px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:13.5px;font-variant-numeric:tabular-nums}
+th{text-align:left;font-weight:600;font-size:11px;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--muted);padding:11px 14px;border-bottom:1px solid var(--rule-2);white-space:nowrap;background:var(--surface-2)}
+td{padding:9px 14px;border-bottom:1px solid var(--rule);color:var(--ink-2)}
+tr:last-child td{border-bottom:none}
+td.num,th.num{text-align:right;font-family:"IBM Plex Mono",monospace}
+td.name{color:var(--ink);font-weight:500}
+tbody tr.hl td{background:var(--accent-soft)}
+tbody tr.hl td.name{font-weight:600;color:var(--ink)}
+caption{caption-side:bottom;text-align:left;padding:10px 14px;font-size:12.5px;color:var(--muted);line-height:1.6}
+
+/* ---------- chips ---------- */
+.chip{display:inline-block;font-family:"IBM Plex Mono",monospace;font-size:11px;font-weight:600;
+  padding:2px 7px;border-radius:2px;letter-spacing:.04em;white-space:nowrap}
+.chip.pass{background:var(--pass-soft);color:var(--pass)}
+.chip.fail{background:var(--fail-soft);color:var(--fail)}
+.chip.warn{background:var(--warn-soft);color:var(--warn)}
+.chip.info{background:var(--accent-soft);color:var(--accent)}
+.chip.c2{background:var(--chan2-soft);color:var(--chan2)}
+
+/* ---------- callouts ---------- */
+.callout{border:1px solid var(--rule);border-left:3px solid var(--accent);background:var(--surface);
+  border-radius:3px;padding:16px 20px;margin:20px 0;max-width:78ch}
+.callout.defect{border-left-color:var(--fail)}
+.callout.fix{border-left-color:var(--pass)}
+.callout.caution{border-left-color:var(--warn)}
+.callout .ct{font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;
+  color:var(--fail);margin-bottom:7px;display:block}
+.callout.fix .ct{color:var(--pass)}
+.callout.caution .ct{color:var(--warn)}
+.callout:not(.defect):not(.fix):not(.caution) .ct{color:var(--accent)}
+.callout p{font-size:14.5px;color:var(--ink-2)}
+.callout p+p{margin-top:10px}
+
+/* ---------- channel cards ---------- */
+.chan{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin:22px 0}
+.chan-card{background:var(--surface);border:1px solid var(--rule);border-radius:3px;padding:18px 20px}
+.chan-card.state{border-top:3px solid var(--accent)}
+.chan-card.cand{border-top:3px solid var(--chan2)}
+.chan-card h4{margin:0 0 4px;font-size:14px}
+.chan-card .sub{font-size:12px;color:var(--faint);font-family:"IBM Plex Mono",monospace;margin-bottom:12px}
+.chan-card .big{font-size:29px;font-weight:600;font-family:"IBM Plex Mono",monospace;letter-spacing:-.02em}
+.chan-card.state .big{color:var(--accent)}
+.chan-card.cand .big{color:var(--chan2)}
+.chan-card .cap{font-size:12.5px;color:var(--muted);margin-top:6px;line-height:1.55}
+
+/* ---------- glossary ---------- */
+.gloss{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:0 30px}
+.gloss div{border-top:1px solid var(--rule);padding:12px 0}
+.gloss dt{font-weight:600;font-size:14px;color:var(--ink);font-family:"IBM Plex Mono",monospace}
+.gloss dd{margin:3px 0 0;font-size:13.5px;color:var(--muted);line-height:1.6}
+
+/* ---------- toc ---------- */
+.toc{background:var(--surface);border:1px solid var(--rule);border-radius:3px;padding:20px 24px;margin:34px 0 0}
+.toc h4{margin:0 0 12px;font-size:11px;letter-spacing:.11em;text-transform:uppercase;color:var(--faint)}
+.toc ol{margin:0;padding-left:0;list-style:none;columns:2;column-gap:34px}
+.toc li{margin:5px 0;font-size:14px;break-inside:avoid}
+.toc a{text-decoration:none;color:var(--ink-2)}
+.toc a:hover{color:var(--accent);text-decoration:underline}
+.toc .n{font-family:"IBM Plex Mono",monospace;font-size:11.5px;color:var(--faint);margin-right:8px}
+
+footer{margin-top:80px;padding-top:22px;border-top:2px solid var(--ink);font-size:13px;color:var(--muted);max-width:76ch}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:2px}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+
+<div class="wrap">
+
+<header class="masthead">
+  <div class="eyebrow">Direction 1 · 研究工作汇报 · Phase S – Phase 0A</div>
+  <h1>Lookahead Without<br>Looking Ahead</h1>
+  <div class="zh">冻结扩散语言模型的表征里，究竟藏着"未来路径价值"，还是只藏着"当前状态好坏"？</div>
+  <p class="lede">一份逐日记录的完整实验汇报：从基座选型、估计量设计、三轮缺陷修复，到两个参考策略、两个骨干模型上一致的否定判定。</p>
+
+  <dl class="meta-grid">
+    <div><dt>实际工作区间</dt><dd>2026-08-19 → 08-29（11 天）</dd></div>
+    <div><dt>代码规模</dt><dd>3,239 行 / 18 个模块</dd></div>
+    <div><dt>oracle 标签总量</dt><dd>≈ 129,000 例（9 次采集）</dd></div>
+    <div><dt>GPU 时长</dt><dd>≈ 70 卡时（4× A100 共享）</dd></div>
+    <div><dt>表征门判定</dt><dd>GATE FAILED → KILL（3 组条件）</dd></div>
+  </dl>
+
+  <nav class="toc">
+    <h4>目录</h4>
+    <ol>
+      <li><span class="n">00</span><a href="#glossary">术语表：读本文前先看这里</a></li>
+      <li><span class="n">01</span><a href="#thesis">科学命题与判定标准</a></li>
+      <li><span class="n">02</span><a href="#d0819">08-19 · 搭建、基座认证、首轮采集</a></li>
+      <li><span class="n">03</span><a href="#d0823">08-23 · 审计发现致命缺陷与重采</a></li>
+      <li><span class="n">04</span><a href="#d0824">08-24 · K=24 主分析</a></li>
+      <li><span class="n">05</span><a href="#d0825">08-25 · 堵漏洞、第二骨干、稳健性</a></li>
+      <li><span class="n">06</span><a href="#d0827">08-26/27 · 第二骨干复现与最后一处张力</a></li>
+      <li><span class="n">07</span><a href="#d0828">08-27/28 · 第三基座与 task-utility 解锁</a></li>
+      <li><span class="n">08</span><a href="#d0829">08-29 · AR→扩散改造：自己造一个基座</a></li>
+      <li><span class="n">09</span><a href="#d0830">08-30 · V 读出补充采集与选择性生成</a></li>
+      <li><span class="n">10</span><a href="#math">算法与数学公式汇总</a></li>
+      <li><span class="n">11</span><a href="#results">实验设置与结果总表</a></li>
+      <li><span class="n">12</span><a href="#defects">缺陷清单：十七个 bug 及其后果</a></li>
+      <li><span class="n">13</span><a href="#interp">结果解读</a></li>
+      <li><span class="n">14</span><a href="#todo">剩余工作与范围限制</a></li>
+    </ol>
+  </nav>
+</header>
+
+<div class="verdict">
+  <h2>一句话结论</h2>
+  <p><strong>冻结的掩码扩散语言模型，其隐藏表征线性携带的是"当前状态的价值 <span class="mono">V</span>"，而不是"某个候选动作的优势 <span class="mono">A</span>"。</strong>前者的增量 <span class="mono">ΔR² = +0.183 / +0.320</span>，在 layer×timestep 网格的 95–96% 格子里为正；后者在同状态内的排序能力停在随机水平（78 个格子里只有 40/78 与 30/78 为正）。08-30 把这条正结论推到了可用形式：<strong>冻结状态能预测这次生成最终答不答得对</strong>（AUC 0.890 对廉价特征 0.823，95% CI 排除 0），据此在半途砍掉一半在飞生成可省 30% 解码算力、留下那半的准确率从 56.7% 升到 86.9%——但题内 R² 为负、99.1% 的方差在题间，说明它读的是<strong>题目难度</strong>而非前瞻，因此仍是次要发现，不推翻 KILL 判定。四道预注册门禁中，G1 通过、G2 与 G3 失败 —— <strong>两个参考策略、两个独立骨干（MDLM 与 SEDD）、三个推演视界上判定完全一致</strong>。</p>
+</div>
+
+<!-- ============ GLOSSARY ============ -->
+<section id="glossary">
+  <div class="sec-head"><span class="sec-num">00</span><h2>术语表</h2></div>
+  <p class="prose lede" style="margin-bottom:22px">本文出现的每个非通用术语都在此处解释一次；正文中再次出现时会用括号简短提示。</p>
+
+  <dl class="gloss">
+    <div><dt>DLM / 扩散语言模型</dt><dd>Diffusion Language Model。不像 GPT 那样从左到右逐词生成，而是从"全是掩码"的状态出发，反复迭代、每轮揭开若干个位置，直到填满整句。</dd></div>
+    <div><dt>掩码扩散 / masked diffusion</dt><dd>扩散语言模型的一种：加噪过程就是把词替换成特殊符号 <span class="mono">[MASK]</span>；去噪过程就是把 <span class="mono">[MASK]</span> 还原成真词。</dd></div>
+    <div><dt>absorbing（吸收态）</dt><dd>指 <span class="mono">[MASK]</span> 这个状态"只进不出"——一旦某位置在加噪中变成掩码就不再变化。是掩码扩散的标准数学设定。</dd></div>
+    <div><dt>unmasking order（揭示顺序）</dt><dd>解码时先揭开哪个位置、后揭开哪个位置。这是扩散语言模型独有的自由度，也是本研究的研究对象。</dd></div>
+    <div><dt>π_ref（参考策略）</dt><dd>一个固定下来的、可复现的解码器。所有"价值"都是相对于它定义的——换了 π_ref，同一个动作的优势值就不同。</dd></div>
+    <div><dt>ancestral sampling（祖先采样）</dt><dd>按模型自身的反向扩散过程解码：揭示顺序是均匀随机排列。它是掩码扩散模型"原本设计的"采样方式。</dd></div>
+    <div><dt>confidence 解码</dt><dd>每步挑模型最有把握（top-1 概率最高）的位置先揭开。是 MaskGIT / LLaDA 等工作的主流做法，也是 POKE / LookUM 实际操作的解码器。</dd></div>
+    <div><dt>rollout（推演）</dt><dd>从某个中间状态出发，让 π_ref 一路解码下去，看最终得到什么。本研究用它来"实测"未来价值，而不是估计。</dd></div>
+    <div><dt>Path-LL（路径对数似然）</dt><dd>Path Log-Likelihood。把一条解码轨迹上每次提交的词的对数概率加起来，衡量"这条路走得好不好"。POKE 论文提出的指标。</dd></div>
+    <div><dt>Q / V / A</dt><dd>强化学习记号。<span class="mono">V(s)</span>＝在状态 s 下按 π_ref 走的期望回报；<span class="mono">Q(s,a)</span>＝先做动作 a 再按 π_ref 走的期望回报；<span class="mono">A = Q − V</span>＝这个动作比"照常走"好多少，称为优势（advantage）。</dd></div>
+    <div><dt>CRN（共同随机数）</dt><dd>Common Random Numbers。让两条要对比的推演使用完全相同的随机数，这样它们的差值就只反映"动作不同"，而不掺杂随机波动。是方差缩减的标准手段。</dd></div>
+    <div><dt>Rao-Blackwell 化</dt><dd>一种方差缩减技巧：把"抽样得到的随机量"换成它的条件期望。期望不变（由全期望公式保证），方差严格更小。</dd></div>
+    <div><dt>probe（探针）</dt><dd>在冻结（不再训练）的模型隐藏状态上训练的一个小预测器。用它能不能预测某个量，来判断该量是否"被编码在表征里"。</dd></div>
+    <div><dt>linear probe（线性探针）</dt><dd>探针只允许是线性函数。若线性可读，才能说这个量被"线性表示"；若只有非线性能读出，则不能下这个结论。</dd></div>
+    <div><dt>ridge 回归 / 岭回归</dt><dd>带 L2 正则的线性回归。正则强度记作 α，α 越大模型越保守。</dd></div>
+    <div><dt>ΔR²（增量决定系数）</dt><dd>加入隐藏表征后，模型在留出集上的 R² 比只用"廉价控制特征"高出多少。本研究的主统计量。</dd></div>
+    <div><dt>within-state R²（同状态内 R²）</dt><dd>先把每个状态内部的均值从标签和预测里都减掉，再算 R²。它剥离了"这个状态好不好"，只剩"同一状态里哪个候选更好"。</dd></div>
+    <div><dt>concordance（一致率）</dt><dd>同一状态内任取两个候选，探针判断"谁的优势更大"判对的比例。随机猜是 0.5。这是调度器真正面对的决策。</dd></div>
+    <div><dt>noise ceiling（噪声天花板）</dt><dd>因为标签本身有测量噪声，任何预测器的 R² 都不可能超过某个上限。报告 R² 时必须同时报这个上限，否则数字没有意义。</dd></div>
+    <div><dt>SNR（信噪比）</dt><dd>标签里"真实信号方差"与"测量噪声方差"之比。低于 1 意味着噪声比信号大，此时的零结果没有信息量。</dd></div>
+    <div><dt>cluster bootstrap（聚类自助法）</dt><dd>重抽样时以"文档"为单位整块抽取，而不是逐条抽。因为同一文档里的样本互相依赖，逐条抽会低估不确定性。</dd></div>
+    <div><dt>kill gate（终止门禁）</dt><dd>开工前就写死的一组量化标准。达不到就终止方向，不允许事后加模型容量去"抢救"。</dd></div>
+    <div><dt>pre-registration（预注册）</dt><dd>在看到结果之前把假设、指标、阈值全部写死并存档，防止事后挑选有利的分析方式。</dd></div>
+    <div><dt>POKE / LookUM</dt><dd>两篇相关工作。它们在推理时花额外算力"向前模拟"来挑选揭示路径。本研究要问的是：它们花算力去搜的那个量，是不是本来就能从冻结表征里直接读出来。</dd></div>
+  </dl>
+</section>
+
+<!-- ============ THESIS ============ -->
+<section id="thesis">
+  <div class="sec-head"><span class="sec-num">01</span><h2>科学命题与判定标准</h2></div>
+
+  <div class="prose">
+    <h3>要检验的那一句话</h3>
+    <p>整个方向立在一句话上，它必须被实证支持，否则方向终止：</p>
+  </div>
+
+  <div class="callout">
+    <span class="ct">待检验命题</span>
+    <p>冻结的扩散语言模型表征，<strong>线性地</strong>暴露了"另一个候选解码动作的、由推演定义的未来路径价值"——而这个量<strong>无法</strong>从模型自身暴露的输出分布或廉价轨迹统计量中恢复。</p>
+  </div>
+
+  <div class="prose">
+    <p>这里每个限定词都是必要的。"线性地"排除了用大容量非线性头硬拟合；"由推演定义"意味着标签是实际跑出来的，不是从输出分布推导的；"无法从输出分布恢复"要求探针必须打败强控制组，而不只是打败置信度这一个标量。</p>
+
+    <h3>为什么这个问题值得问</h3>
+    <p>POKE 与 LookUM 这类工作在推理时花额外算力做"前瞻"（lookahead）：从当前状态向前模拟若干步，估计每个候选揭示动作的未来收益，再据此挑路径。如果这个被搜索的量本来就线性写在冻结模型的隐藏状态里，那么一次前向传播读出即可，前瞻搜索就是浪费。这是"表征发现优先"的研究：先问信息在不在，再谈能不能省算力。</p>
+
+    <h3>四道预注册门禁</h3>
+    <p>阈值在看到任何全量结果前写死（存于 <span class="mono">docs/PREREGISTRATION.md</span>）。四道全过才继续，任何一道失败即终止：</p>
+  </div>
+
+  <div class="tw">
+  <table>
+    <thead><tr><th>门</th><th>名称</th><th>阈值</th><th>它防的是什么</th></tr></thead>
+    <tbody>
+      <tr><td class="name">G1</td><td>增量预测</td><td class="mono">ΔR² ≥ 0.010 且自助置信区间排除 0</td><td>表征是否带来任何可复现的额外预测力</td></tr>
+      <tr><td class="name">G2</td><td>候选排序</td><td class="mono">Δconcordance ≥ 0.020 且三个划分种子同号</td><td>额外预测力是否转化为"选得对"</td></tr>
+      <tr><td class="name">G3</td><td>配对候选</td><td class="mono">准确率 ≥ 0.55 且相对控制组 gap ≥ 0.03、CI 排除 0</td><td>在把暴露信号匹配掉之后是否还剩信息</td></tr>
+      <tr><td class="name">G4</td><td>稳健性</td><td class="mono">过半时间步为正 + 自然抽样层为正</td><td>结果是否只来自某个窄切片</td></tr>
+    </tbody>
+    <caption>G2 特意与 G1 分开：G1 是<strong>池化</strong>统计量，一个只懂"状态好坏"的读出就能满足它，却对任何决策毫无帮助。事后证明这正是本研究的关键。</caption>
+  </table>
+  </div>
+</section>
+
+<!-- ============ 08-19 ============ -->
+<section id="d0819">
+  <div class="sec-head"><span class="sec-num">02</span><h2>08-19 · 搭建、基座认证、首轮采集</h2></div>
+
+  <div class="day">
+    <div class="day-rail">
+      <div class="day-date">08-19</div><div class="day-dow">Wed · 10:48</div>
+      <span class="day-tag">Phase S</span>
+    </div>
+    <div class="day-body">
+      <h3>计划</h3>
+      <div class="prose">
+        <p>当日目标：选定一个<strong>非中国来源</strong>的掩码扩散骨干（这是任务书的硬性条款，排除 Qwen / DeepSeek / GLM / LLaDA / Dream 等），验证它能稳定生成、能干净地导出隐藏状态，然后冻结它并开始采集 oracle 标签。</p>
+      </div>
+
+      <h3>基座选型与验证</h3>
+      <div class="prose">
+        <p>选定 <span class="mono">kuleshov-group/mdlm-owt</span>：MDLM（Sahoo 等，NeurIPS 2024），康奈尔大学，Apache-2.0 许可，OpenWebText 语料，1.696 亿参数、12 层、隐藏维 768、GPT-2 分词器加一个 <span class="mono">[MASK]</span> 符号（词表 50258）。来源合规。</p>
+        <p>障碍：官方建模代码硬依赖 <span class="mono">flash_attn</span>（一个高效注意力库），本机没有。于是重写了一份无 flash-attn 的骨干（<span class="mono">src/mdlm_local.py</span>）。重写必须证明忠实，否则后续一切无意义。用两种方式验证：</p>
+      </div>
+
+      <div class="math">
+        <span class="lbl">验证一 · 连续时间掩码扩散的 NELBO（负证据下界）</span>
+        L = E<sub>t~U(0,1)</sub> [ (1/t) · Σ<sub>i: z<sub>t</sub><sup>i</sup>=MASK</sub> −log p<sub>θ</sub>(x<sup>i</sup> | z<sub>t</sub>) ]
+        <span class="note">采用线性噪声表 α<sub>t</sub> = 1 − t（t 即掩码比例）。用分层低差异采样降低蒙特卡洛方差。困惑度 = exp(每词 NELBO)。</span>
+      </div>
+
+      <div class="tw">
+      <table>
+        <thead><tr><th>上下文长度</th><th class="num">NELBO 困惑度</th><th>说明</th></tr></thead>
+        <tbody>
+          <tr><td class="name">128</td><td class="num">53.1</td><td>远短于训练长度，偏高属正常</td></tr>
+          <tr><td class="name">256</td><td class="num">38.1</td><td>本研究采用的工作长度</td></tr>
+          <tr><td class="name">512</td><td class="num">28.3</td><td></td></tr>
+          <tr class="hl"><td class="name">1024（模型原生长度）</td><td class="num">26.9</td><td>论文公布值 23.21</td></tr>
+        </tbody>
+        <caption>26.9 对 23.21 的残差来自预处理差异：论文把语料打包（packing）并做了反分词（detokenization），我们取的是单文档随机截段。同一量级即证明重写没有实质错误。</caption>
+      </table>
+      </div>
+
+      <div class="prose">
+        <p>但"同一量级"还不够——一个碰巧能跑的错误实现也可能给出看似合理的困惑度。所以做了第二个判别性更强的验证：<strong>故意换成错误的旋转位置编码（RoPE）约定</strong>，看模型是否崩溃。</p>
+      </div>
+
+      <div class="tw">
+      <table>
+        <thead><tr><th>旋转位置编码约定</th><th class="num">NELBO 困惑度 (L=128)</th><th>倍数</th></tr></thead>
+        <tbody>
+          <tr class="hl"><td class="name">本实现 · 半split（GPT-NeoX / flash_attn 非交错）</td><td class="num">51.1</td><td>—</td></tr>
+          <tr><td class="name">错误 · 交错式（GPT-J 风格）</td><td class="num">1378.4</td><td>27×</td></tr>
+          <tr><td class="name">错误 · 共轭旋转方向</td><td class="num">2335.4</td><td>46×</td></tr>
+          <tr><td class="name">错误 · 完全关闭旋转编码</td><td class="num">2317.1</td><td>45×</td></tr>
+        </tbody>
+        <caption>定性验证同向：<span class="mono">"The capital of France is Paris. The capital of Germany is ___"</span> 在本实现下给出 <span class="mono">Berlin</span>（对数概率 −0.3），错误约定给出 <span class="mono">is</span> / <span class="mono">the</span>。后来又用逐元素对拍确认与 flash_attn 参考实现<strong>误差恰为 0.0</strong>。</caption>
+      </table>
+      </div>
+
+      <h3>关键发现一：置信度解码在此基座上崩溃</h3>
+      <div class="prose">
+        <p>原计划让 π_ref（参考策略）用 confidence 解码——因为 POKE / LookUM 正是在这种解码器上操作的。实测发现它会陷入复读环。</p>
+      </div>
+
+      <div class="tw">
+      <table>
+        <thead><tr><th>揭示顺序</th><th>取词方式</th><th class="num">distinct-1</th><th class="num">distinct-2</th><th class="num">最大重复 4-gram 占比</th></tr></thead>
+        <tbody>
+          <tr><td class="name">真实文本（参照）</td><td>—</td><td class="num">0.596</td><td class="num">0.856</td><td class="num">0.011</td></tr>
+          <tr><td class="name">confidence</td><td>采样</td><td class="num">0.171</td><td class="num">0.217</td><td class="num">0.074</td></tr>
+          <tr><td class="name">confidence</td><td>argmax</td><td class="num">0.137</td><td class="num">0.171</td><td class="num">0.079</td></tr>
+          <tr><td class="name">margin（top1−top2 间隔）</td><td>采样</td><td class="num">0.278</td><td class="num">0.428</td><td class="num">0.050</td></tr>
+          <tr><td class="name">从左到右</td><td>采样</td><td class="num">0.317</td><td class="num">0.484</td><td class="num">0.141</td></tr>
+          <tr class="hl"><td class="name">随机顺序（祖先采样）</td><td>采样</td><td class="num">0.383</td><td class="num">0.669</td><td class="num">0.020</td></tr>
+        </tbody>
+        <caption>distinct-n ＝ 每条样本内不重复 n 元组的比例，越接近真实文本越好。当日结论：只有接近随机的顺序才连贯，因此 π_ref 定为祖先采样。<strong>这个结论后来被审计推翻了一半——见 08-25。</strong></caption>
+      </table>
+      </div>
+
+      <div class="prose">
+        <p>这个选择有一个额外好处：随机顺序的参考策略与"位置"无关，因此优势标签不会与置信度机械纠缠——否则控制组与标签共享成分，比较就不干净了。</p>
+      </div>
+
+      <h3>关键发现二：朴素蒙特卡洛标签不可用</h3>
+      <div class="prose">
+        <p>标签采集的试点（pilot，96 例，K=8）暴露出一个致命问题：<strong>推演噪声大于候选间信号</strong>。信噪比只有 0.1–0.6。若不修，任何探针都无法预测一个几乎全是噪声的标签，研究会产出一个<strong>假的否定结论</strong>。</p>
+        <p>解法是 Rao-Blackwell 化：把每次提交的打分从"实际抽到那个词的对数概率"换成"该分布下的条件期望"。由全期望公式（tower property），两者期望相同，但后者方差严格更小。</p>
+      </div>
+
+      <div class="math">
+        <span class="lbl">Rao-Blackwell 化的路径打分</span>
+        原始（蒙特卡洛）： G<sub>MC</sub> = Σ<sub>t</sub> log p<sub>θ</sub>(x<sub>t</sub> | s<sub>t</sub>),  x<sub>t</sub> ~ π<sub>ref</sub>(·|s<sub>t</sub>)<br>
+        改进（RB）：    G<sub>RB</sub> = Σ<sub>t</sub> <em>rb</em><sub>t</sub>,  <em>rb</em><sub>t</sub> = E<sub>x~π<sub>ref</sub>(·|s<sub>t</sub>)</sub>[ log p<sub>θ</sub>(x|s<sub>t</sub>) ] = Σ<sub>v∈top-k</sub> p<sub>trunc</sub>(v) · log p<sub>full</sub>(v)
+        <span class="note">全期望公式保证 E[G<sub>MC</sub>] = E[G<sub>RB</sub>]：对每一项取"给定当前状态"的条件期望即可，而轨迹仍然靠<strong>抽样</strong>推进，只是<strong>打分</strong>换成了期望。注意 p<sub>trunc</sub> 是 top-k 截断后的采样分布，p<sub>full</sub> 是完整 softmax——两者不同是刻意的：策略从截断分布取词，打分始终用完整分布。</span>
+      </div>
+
+      <div class="tw">
+      <table>
+        <thead><tr><th>horizon</th><th>估计量</th><th class="num">sd(A_full)</th><th class="num">标准误</th><th class="num">信噪比</th><th class="num">sd(A_future)</th><th class="num">信噪比</th></tr></thead>
+        <tbody>
+          <tr><td class="name">8</td><td>蒙特卡洛</td><td class="num">0.0891</td><td class="num">0.0819</td><td class="num">0.18</td><td class="num">0.1043</td><td class="num">0.57</td></tr>
+          <tr class="hl"><td class="name">8</td><td>Rao-Blackwell</td><td class="num">0.0732</td><td class="num">0.0332</td><td class="num">3.85</td><td class="num">0.0622</td><td class="num">2.79</td></tr>
+          <tr><td class="name">16</td><td>蒙特卡洛</td><td class="num">0.0584</td><td class="num">0.0559</td><td class="num">0.09</td><td class="num">0.0693</td><td class="num">0.47</td></tr>
+          <tr class="hl"><td class="name">16</td><td>Rao-Blackwell</td><td class="num">0.0387</td><td class="num">0.0217</td><td class="num">2.18</td><td class="num">0.0454</td><td class="num">3.35</td></tr>
+          <tr><td class="name">不截断</td><td>Rao-Blackwell</td><td class="num">0.0241</td><td class="num">0.0182</td><td class="num">0.74</td><td class="num">0.0272</td><td class="num">1.21</td></tr>
+        </tbody>
+        <caption>据此把 horizon（推演视界，即决策点之后计分的提交次数）定为 <span class="mono">H=16</span>：更长的视界会把单个词的影响稀释在更多未来随机性里。</caption>
+      </table>
+      </div>
+
+      <h3>Phase S 资格认证结果</h3>
+      <div class="prose"><p>五道基座门禁全部通过，基座合格，冻结（所有参数 <span class="mono">requires_grad_(False)</span>），此后不再训练。</p></div>
+
+      <div class="tw">
+      <table>
+        <thead><tr><th>门</th><th>检查项</th><th>结果</th><th></th></tr></thead>
+        <tbody>
+          <tr><td class="name">S1</td><td>数值保真度</td><td class="mono">NELBO 困惑度 34.9 @ L=256</td><td><span class="chip pass">PASS</span></td></tr>
+          <tr><td class="name">S2</td><td>生成连贯性</td><td class="mono">distinct-2 0.700 vs 真实文本 0.897；重复 4-gram 0.021 vs 0.010</td><td><span class="chip pass">PASS</span></td></tr>
+          <tr><td class="name">S3</td><td>Path-LL 方差非退化</td><td class="mono">跨提示 sd 0.233；同提示跨种子 sd 0.224</td><td><span class="chip pass">PASS</span></td></tr>
+          <tr><td class="name">S4</td><td>隐藏状态可稳定导出</td><td class="mono">13 层 × (B,256,768)，全有限</td><td><span class="chip pass">PASS</span></td></tr>
+          <tr><td class="name">S5</td><td>π_ref 轨迹完成率</td><td class="mono">0 条未完成</td><td><span class="chip pass">PASS</span></td></tr>
+        </tbody>
+      </table>
+      </div>
+
+      <div class="prose">
+        <p>当日 12:44 起首轮 oracle 标签采集（标签 <span class="mono">a</span>/<span class="mono">b</span>，K=8，14,400 例）。同时写下预注册文档与先行研究重搜（arXiv，2026-08-19），确认无正面撞车，但发现 arXiv 2605.20187 已确立"掩码扩散模型隐藏态支持单次前向读出"，因此这句话不再能算作本研究的新颖性——新颖性必须锁定在"由推演定义的路径价值"上。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 08-23 ============ -->
+<section id="d0823">
+  <div class="sec-head"><span class="sec-num">03</span><h2>08-23 · 审计发现致命缺陷与重采</h2></div>
+
+  <div class="day">
+    <div class="day-rail">
+      <div class="day-date">08-23</div><div class="day-dow">Sun</div>
+      <span class="day-tag" style="background:var(--fail-soft);color:var(--fail)">审计</span>
+    </div>
+    <div class="day-body">
+      <h3>计划</h3>
+      <div class="prose">
+        <p>派出两个互不通气的独立审计代理：一个查实现正确性，一个查实验设计与统计。两者都因会话额度中断，未跑完，剩余项由本人接手完成。审计找到的问题足以推翻当时的全部结论。</p>
+      </div>
+
+      <div class="callout defect">
+        <span class="ct">致命缺陷 1 · 主标签在代数上被状态价值污染</span>
+        <p>Q 分支对 <strong>17</strong> 次提交取平均（1 次强制动作 + 16 次推演），V 分支只对 <strong>16</strong> 次。这个分母失配把 <span class="mono">−V/17</span> 直接注入了标签。</p>
+        <p>实测恒等式精确成立到浮点精度：<span class="mono">max|误差| = 6.0e-08</span>，<strong>相关系数 = 1.000000</strong>。后果是 <span class="mono">corr(A_full, −V) = +0.589</span>——所谓"优势"标签有一半以上按构造就是状态价值本身。</p>
+      </div>
+
+      <div class="math">
+        <span class="lbl">污染恒等式（已实测验证）</span>
+        A<sub>full</sub><sup>(错)</sup> = (ℓ<sub>i</sub> + S<sub>Q</sub>)/17 − S<sub>V</sub>/16 ≡ [ (ℓ<sub>i</sub> − <em>V</em>) + 16·A<sub>future</sub> ] / 17
+        <span class="note">其中 ℓ<sub>i</sub> = log p<sub>θ</sub>(x̂<sub>i</sub>|s<sub>t</sub>) 是被强制动作自身的对数概率，S<sub>Q</sub>、S<sub>V</sub> 是两支推演的路径打分和，<em>V</em> = S<sub>V</sub>/16 就是状态价值。由于隐藏态以 R²=0.93 预测 V，它当然能预测我们亲手注入标签的 V 分量——当时的头条结论因此是循环论证。</span>
+      </div>
+
+      <div class="callout defect">
+        <span class="ct">致命缺陷 2 · 两分支消耗的位置数不同</span>
+        <p>Q 分支填了 17 个被掩位置，V 分支填了 16 个。于是"提交一个容易的词"会显得有害——仅仅因为它把一个容易的提交从未来的池子里拿走了（称为<strong>耗尽效应</strong>，depletion）。</p>
+        <p>实测：<span class="mono">corr(A_future, logp_action) = −0.440</span>，且随扩散进度单调恶化到 <span class="mono">−0.710</span>。也就是说 A_future 很大程度上在测"这个词有多容易"，还带个负号，而不是规划价值。</p>
+      </div>
+
+      <h3>修复：让两分支消耗相同数量的位置</h3>
+      <div class="math">
+        <span class="lbl">修正后的估计量（当前定义）</span>
+        Q 分支： 强制提交 (i, x̂<sub>i</sub>)，再走 H 次 π<sub>ref</sub> 提交 → 共 <em>H+1</em> 个位置，路径打分 = ℓ<sub>i</sub> + S<sub>Q</sub><br>
+        V 分支： 直接走 <em>H+1</em> 次 π<sub>ref</sub> 提交       → 共 <em>H+1</em> 个位置，路径打分 = S<sub>V</sub><br><br>
+        <em>A<sub>full</sub></em>   = [ ℓ<sub>i</sub> + S<sub>Q</sub> − S<sub>V</sub> ] / (H+1)<br>
+        <em>A<sub>future</sub></em> = [ S<sub>Q</sub> − (S<sub>V</sub> − v<sub>first</sub>) ] / H
+        <span class="note">v<sub>first</sub> 是 V 分支在决策点自己那一次提交的打分，扣掉它之后两侧都是"决策之后的 H 次提交"，可比。为此给推演函数新增了 <span class="mono">first_ll</span> 返回值。A<sub>full</sub> 对应 POKE 字面意义的 Path-LL 优势；A<sub>future</sub> 只保留动作的下游效应，是更难也更有意思的目标——因为动作自身的对数概率本身就是一个廉价控制特征。</span>
+      </div>
+
+      <div class="callout fix">
+        <span class="ct">修复验证</span>
+        <p><span class="mono">V_n = n_commit = 17</span>（两分支位置数相等）；污染恒等式被打破（相关系数 <span class="mono">1.000000 → 0.931</span>）；耗尽效应从 <span class="mono">−0.440</span> 降到 <span class="mono">−0.171</span>。</p>
+      </div>
+
+      <h3>诚实代价：修正后的标签更噪</h3>
+      <div class="prose"><p>这一点必须讲清楚，否则会被误读为"修复让结果变差了"。旧标签的"信号"里有相当一部分<strong>就是那个污染项</strong>——V 在状态间变化很大，看起来像信号。去掉之后剩下的是真实的、更小的优势信号。</p></div>
+
+      <div class="tw">
+      <table>
+        <thead><tr><th>标签</th><th class="num">修复前 SNR</th><th class="num">修复后 SNR</th><th class="num">修复前天花板</th><th class="num">修复后天花板</th></tr></thead>
+        <tbody>
+          <tr><td class="name">A_full</td><td class="num">3.11</td><td class="num">2.05</td><td class="num">0.757</td><td class="num">0.672</td></tr>
+          <tr><td class="name">A_future</td><td class="num">1.52</td><td class="num"><strong>0.74</strong></td><td class="num">0.603</td><td class="num">0.426</td></tr>
+        </tbody>
+        <caption>A_future 的信噪比跌破 1，意味着噪声大于信号，它的零结果<strong>没有信息量</strong>——这在当时被明确写为限制，并在 08-25 通过提高 K 修复。</caption>
+      </table>
+      </div>
+
+      <div class="prose">
+        <p>当日重采了修正标签（<span class="mono">a2</span>/<span class="mono">b2</span>，K=8，16:41），随后按 PI 决定加跑了 confidence 参考策略的第二臂（<span class="mono">c1</span>/<span class="mono">c2</span>，20:40），并在 23:04 与 23:35 启动了 K=24 的两臂正式采集（<span class="mono">c3</span>/<span class="mono">d3</span> 与 <span class="mono">a3</span>/<span class="mono">b3</span>）。</p>
+      </div>
+
+      <h3>同期修复的第三个问题：两块岭回归</h3>
+      <div class="prose">
+        <p>合成自测（synthetic self-test，用已知答案的人造数据检验分析管道）暴露出：<strong>单一正则强度 α 无法同时正则化 100 维的控制块和 1536 维的隐藏块</strong>。纯噪声隐藏块下 ΔR² 会是 <span class="mono">−0.0605</span> 而非 0——零点没有对准，阈值和置信区间都失去意义。</p>
+      </div>
+
+      <div class="math">
+        <span class="lbl">两块岭回归（分块正则）</span>
+        min<sub>w<sub>c</sub>,w<sub>h</sub></sub>  ‖y − X<sub>c</sub>w<sub>c</sub> − X<sub>h</sub>w<sub>h</sub>‖²  +  α‖w<sub>c</sub>‖²  +  (α/γ²)‖w<sub>h</sub>‖²<br>
+        ≡  单一 α 的岭回归作用于  [ X<sub>c</sub> , <em>γ</em>·X<sub>h</sub> ]
+        <span class="note">在验证集上同时搜索 α 与 γ，且<strong>网格包含 γ = 0</strong>——该点精确复现"只用控制特征"的模型，因此增广模型<strong>嵌套</strong>基线模型，ΔR² 不会因为多加维度而系统性变负。修复后同一合成零假设给出 <span class="mono">−0.0004</span>。</span>
+      </div>
+
+      <div class="tw">
+      <table>
+        <thead><tr><th>合成自测场景</th><th>正确层是否找到</th><th class="num">ΔR²</th><th class="num">Δconcordance</th><th>判定</th></tr></thead>
+        <tbody>
+          <tr><td class="name">隐藏块是纯噪声</td><td>—</td><td class="num">−0.0004</td><td class="num">−0.0008</td><td><span class="chip pass">无假阳性</span></td></tr>
+          <tr><td class="name">隐藏块含真实线性信号（第 8 层）</td><td><strong>第 8 层</strong></td><td class="num">+0.3210</td><td class="num">+0.1209</td><td><span class="chip pass">能检出</span></td></tr>
+          <tr><td class="name">隐藏块只含非线性信号</td><td>—</td><td class="num">+0.0004</td><td class="num">+0.0002</td><td><span class="chip pass">线性探针正确地不声称</span></td></tr>
+        </tbody>
+        <caption>另在真实特征上做标签置换负控制：ΔR² = −0.0019，各指标全在随机水平，无泄漏。</caption>
+      </table>
+      </div>
+
+      <div class="callout caution">
+        <span class="ct">同期修复 · 控制特征被削弱</span>
+        <p><span class="mono">flip_count</span>（argmax 翻转次数）与 <span class="mono">persistence</span>（稳定持续步数）原本只在 6 个记录点累积，而非每一步。这两个是 TraceLock 式的轨迹稳定性控制特征——<strong>被削弱的控制会让研究偏向自己的假设</strong>，不是保守错误。</p>
+        <p>因为 π_ref 轨迹在给定种子下完全确定，写了修复脚本重走轨迹精确重算：<span class="mono">flip_count</span> 均值从 <strong>0.66 修正到 9.40</strong>（最大值 3 → 42），14,400 条记录全部匹配、零失配。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 08-24 ============ -->
+<section id="d0824">
+  <div class="sec-head"><span class="sec-num">04</span><h2>08-24 · K=24 主分析</h2></div>
+
+  <div class="day">
+    <div class="day-rail">
+      <div class="day-date">08-24</div><div class="day-dow">Mon</div>
+      <span class="day-tag">Phase 0A</span>
+    </div>
+    <div class="day-body">
+      <h3>计划</h3>
+      <div class="prose"><p>K=24 的两臂采集在凌晨完成（ancestral 臂各 3.16 小时，confidence 臂各 1.45 小时）。当日跑主分析：标签诊断 → Experiment 1 → Experiment 1b 分解 → Experiment 2 配对候选 → 门禁判定。</p></div>
+
+      <h3>实验设置（两臂共用）</h3>
+      <div class="tw">
+      <table>
+        <thead><tr><th>项目</th><th>取值</th><th>说明</th></tr></thead>
+        <tbody>
+          <tr><td class="name">序列长度 / 前缀</td><td class="mono">L=256 / prefix=64</td><td>前 64 词可见作为条件，后 192 个位置全掩码待生成</td></tr>
+          <tr><td class="name">π_ref · 臂 1</td><td class="mono">ancestral，每步 1 个位置</td><td>均匀随机揭示顺序 = 模型自身的反向扩散过程</td></tr>
+          <tr><td class="name">π_ref · 臂 2</td><td class="mono">confidence，order_temp=2.0</td><td>唯一能通过连贯性门的置信度设置</td></tr>
+          <tr><td class="name">取词</td><td class="mono">top-k=50，温度 1.0</td><td>Gumbel-max 抽样，打分始终用完整 softmax</td></tr>
+          <tr><td class="name">推演视界 H</td><td class="mono">16</td><td>决策点之后计分的提交次数</td></tr>
+          <tr><td class="name">配对推演数 K</td><td class="mono">24</td><td>每个分支的 CRN 耦合推演次数</td></tr>
+          <tr><td class="name">记录时间点</td><td class="mono">扩散进度 0.10–0.60，6 个 bin</td><td>上限 0.60 见 08-25 的 horizon 可比性修复</td></tr>
+          <tr><td class="name">样本规模</td><td class="mono">400 文档 / 2,400 状态 / 每状态 6 候选 = 14,400 例</td><td>每臂</td></tr>
+          <tr><td class="name">数据划分</td><td class="mono">按文档 60/15/25</td><td>同一文档的状态绝不跨划分，防泄漏</td></tr>
+        </tbody>
+      </table>
+      </div>
+
+      <h3>控制特征层级（探针必须打败的对象）</h3>
+      <div class="prose"><p>任务书要求探针打败的不只是置信度这一个标量，而是<strong>强输出侧控制组</strong>：</p>
+        <ul>
+          <li><strong>C1 · 置信度标量</strong>（8 维）：top-1 概率、其对数、top-k 支撑上的熵、top1−top2 的概率差与对数差、top-2 概率、最大 logit、top-k logit 标准差。</li>
+          <li><strong>C2 · 轨迹统计</strong>（12 维）：归一化时间步、掩码比例、归一化位置、±8 窗口内已观测比例、左/右/最近的已观测距离、时序 KL 散度（当前分布与上一步分布之差）、argmax 翻转次数、稳定持续步数、top-1 概率变化量、剩余掩码比例。</li>
+          <li><strong>C3 · 输出分布</strong>（80 维）：排序后的前 16 个对数概率，加上对<strong>完整</strong>对数概率向量（50258 维）的一个固定 Johnson–Lindenstrauss 随机投影（降到 64 维，种子固定，跨所有运行与划分完全一致）。</li>
+          <li><strong>H · 隐藏表征</strong>（1536 维）：<span class="mono">[h<sub>i,t</sub> ; h<sub>global,t</sub>]</span>，即候选位置自身的隐藏向量，拼上该状态所有位置隐藏向量的均值。</li>
+        </ul>
+      </div>
+
+      <div class="math">
+        <span class="lbl">主统计量</span>
+        <em>ΔR²</em> = R²( C1+C2+C3 + <em>H</em> ) − R²( C1+C2+C3 )
+        <span class="note">注意比较的不是"隐藏态 vs 置信度"，而是"强控制组 vs 强控制组＋隐藏态"。层与两个正则强度都只在<strong>验证集</strong>上选，绝不看测试集。</span>
+      </div>
+
+      <h3>关键的第二个统计量：同状态内 R²</h3>
+      <div class="math">
+        <span class="lbl">within-state R²（剥离状态级成分）</span>
+        ỹ<sub>n</sub> = y<sub>n</sub> − mean<sub>{m: state(m)=state(n)}</sub>(y<sub>m</sub>),  p̃<sub>n</sub> = pred<sub>n</sub> − mean<sub>state</sub>(pred)<br>
+        R²<sub>within</sub> = 1 − Σ(ỹ − p̃)² / Σ ỹ²
+        <span class="note">为什么必须有它：<span class="mono">h_global</span> 在同一状态内是<strong>常数</strong>，因此在这个指标下恰好得 0 分。它把"探针知道这个<em>状态</em>好"与"探针知道哪个<em>候选</em>更好"分开——后者才是调度器面对的决策。管道自检显示 <span class="mono">h_global</span> 的 within-R² 恰为 0.0000、concordance 恰为 0.5000，与理论完全吻合。</span>
+      </div>
+
+      <h3>结果 · Experiment 1（主目标 A_full）</h3>
+      <div class="tw">
+      <table>
+        <thead><tr><th>特征块</th><th class="num">臂1 R²</th><th class="num">臂1 within-R²</th><th class="num">臂1 concord</th><th class="num">臂2 R²</th><th class="num">臂2 within-R²</th><th class="num">臂2 concord</th></tr></thead>
+        <tbody>
+          <tr><td class="name">cheap（C1+C2+C3）</td><td class="num">0.362</td><td class="num">0.386</td><td class="num">0.696</td><td class="num">0.283</td><td class="num">0.360</td><td class="num">0.699</td></tr>
+          <tr><td class="name">h_global 单独</td><td class="num">0.178</td><td class="num"><strong>−0.000</strong></td><td class="num"><strong>0.500</strong></td><td class="num">0.067</td><td class="num"><strong>−0.000</strong></td><td class="num"><strong>0.500</strong></td></tr>
+          <tr><td class="name">h_i 单独</td><td class="num">0.169</td><td class="num">0.030</td><td class="num">0.561</td><td class="num">0.096</td><td class="num">0.084</td><td class="num">0.586</td></tr>
+          <tr><td class="name">cheap + h_i</td><td class="num">0.383</td><td class="num">0.384</td><td class="num">0.695</td><td class="num">0.311</td><td class="num">0.363</td><td class="num">0.701</td></tr>
+          <tr class="hl"><td class="name">cheap + 隐藏（主）</td><td class="num">0.420</td><td class="num">0.413</td><td class="num">0.707</td><td class="num">0.352</td><td class="num">0.387</td><td class="num">0.710</td></tr>
+        </tbody>
+        <caption>注意 <span class="mono">cheap + h_i</span> 的 within-R²（0.384 / 0.363）并不高于 <span class="mono">cheap</span> 单独（0.386 / 0.360）——<strong>候选自身的隐藏向量没有带来同状态内的增益</strong>。这是当日最重要的观察。</caption>
+      </table>
+      </div>
+
+      <h3>解读</h3>
+      <div class="prose">
+        <p>ΔR² 在两臂都显著为正，但把它拆开看，增益并非来自能够区分候选的部分。<span class="mono">h_global</span> 在一个状态内对所有候选取值相同，结构上<strong>不可能</strong>用来在候选间做选择——它能提升的是拟合优度，并通过"遗漏变量校正"（omitted-variable correction，即补上一个此前缺失的解释变量后，其他变量的系数变得更准）让廉价特征排得略好一点。</p>
+        <p>这正是预注册要求四道门齐过、而不是只看一个头条数字的理由。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 08-25 ============ -->
+<section id="d0825">
+  <div class="sec-head"><span class="sec-num">05</span><h2>08-25 · 堵漏洞、第二骨干、稳健性</h2></div>
+
+  <div class="day">
+    <div class="day-rail">
+      <div class="day-date">08-25</div><div class="day-dow">Tue</div>
+      <span class="day-tag">收尾</span>
+    </div>
+    <div class="day-body">
+      <h3>计划</h3>
+      <div class="prose"><p>当日目标是把否定结论做到<strong>攻不破</strong>。负结果的软肋与正结果相反：它会被"你没找够"和"一个模型说明不了什么"驳回。所以当日全部工作都针对这两个质疑。</p></div>
+
+      <div class="callout defect">
+        <span class="ct">缺陷 3 · 我自己新引入的重抽样泄漏</span>
+        <p>为把拟合方差纳入置信区间，新写了 refit-bootstrap（每次重抽样都<strong>重新划分并重新拟合</strong>两个模型）。第一版把文档有放回抽完<strong>再</strong>切 train/test，重复文档会同时落进两边——这就是泄漏。</p>
+        <p>症状：refit 点估计 <span class="mono">+0.0748</span> 远高于固定模型 bootstrap 的 <span class="mono">+0.0499</span>。一个只增加方差的重抽样<strong>不应该把点估计推这么远</strong>。改为在各自不相交的划分内部重抽（并加断言检查 train/test 文档不重叠）后回到 <span class="mono">+0.0506</span>，与固定模型吻合。</p>
+      </div>
+
+      <h3>诚实推断确实改变了一个判定</h3>
+      <div class="tw">
+      <table>
+        <thead><tr><th>统计量</th><th>臂1 ancestral</th><th>臂2 confidence</th></tr></thead>
+        <tbody>
+          <tr><td class="name">ΔR²</td><td class="mono">+0.051 [+0.029,+0.071] <span class="chip pass">排除 0</span></td><td class="mono">+0.093 [+0.064,+0.128] <span class="chip pass">排除 0</span></td></tr>
+          <tr><td class="name">Δwithin-R²</td><td class="mono">+0.025 [+0.014,+0.040] <span class="chip pass">排除 0</span></td><td class="mono">+0.031 [+0.020,+0.046] <span class="chip pass">排除 0</span></td></tr>
+          <tr><td class="name">Δconcordance</td><td class="mono">+0.008 [<strong>−0.002</strong>,+0.017] <span class="chip fail">含 0</span></td><td class="mono">+0.013 [+0.000,+0.026] 排除 0</td></tr>
+        </tbody>
+        <caption>臂 1 的 Δconcordance 在固定模型 bootstrap 下 CI 排除 0，加入拟合方差后<strong>变为含 0</strong>。这正是新增 refit-bootstrap 要抓的情形。G1 则在两臂都存活。</caption>
+      </table>
+      </div>
+
+      <div class="callout defect">
+        <span class="ct">缺陷 4 · 非线性上界不可信</span>
+        <p>原 MLP（多层感知机，作为"非线性容量上界"的对照）得分 <span class="mono">0.450</span>，<strong>低于</strong>线性控制组的 <span class="mono">0.518</span>。这是欠训症状，不是"信息不存在"的证据。</p>
+        <p>病因：标签标准差只有 0.06，均方误差量级 ~4e-3，被 <span class="mono">weight_decay=1e-2</span> 的权重衰减压垮，网络被拉向常数。重建：标准化目标 + 超参网格搜索（学习率 × 权重衰减 × 隐藏宽度）+ 验证集早停。</p>
+      </div>
+
+      <div class="tw">
+      <table>
+        <thead><tr><th>模型（臂1，第 9 层）</th><th class="num">R²</th><th class="num">within-R²</th><th class="num">concordance</th></tr></thead>
+        <tbody>
+          <tr><td class="name">cheap（线性）</td><td class="num">0.5162</td><td class="num">0.5588</td><td class="num">0.7788</td></tr>
+          <tr><td class="name">cheap（MLP）</td><td class="num">0.5186</td><td class="num">0.5533</td><td class="num">0.7721</td></tr>
+          <tr><td class="name">cheap + h_i（线性）</td><td class="num">0.5316</td><td class="num">0.5641</td><td class="num">0.7758</td></tr>
+          <tr><td class="name">cheap + h_i（<strong>MLP</strong>）</td><td class="num">0.4715</td><td class="num">0.4779</td><td class="num">0.7522</td></tr>
+        </tbody>
+        <caption>重建后 MLP 在控制集上追平线性（0.5186 vs 0.5162），证明训练正常，是可信上界。此时加入 <span class="mono">h_i</span>：线性 concordance 0.7758、MLP 0.7522，<strong>都不超过 cheap 单独的 0.7788</strong>。臂 2 同向。"也许只是线性探针太弱"这个质疑就此关闭。</caption>
+      </table>
+      </div>
+
+      <div class="callout defect">
+        <span class="ct">缺陷 5 · Experiment 2 的判据与 1b 不一致</span>
+        <p>配对候选实验的"隐藏"分数用的是 <span class="mono">cheap + [h_i ; h_global]</span>。但 <span class="mono">h_global</span> 在同一状态内是常数，无法直接区分配对——它却会改变廉价特征的拟合系数，从而<strong>间接</strong>影响排序。这与 1b 的候选级判据不是一回事。</p>
+      </div>
+
+      <div class="tw">
+      <table>
+        <thead><tr><th>臂</th><th class="num">含 h_global</th><th class="num">仅 cheap + h_i</th><th class="num">最好的单一控制</th><th>相对最好控制的 gap</th></tr></thead>
+        <tbody>
+          <tr><td class="name">ancestral</td><td class="num">0.610</td><td class="num"><strong>0.581</strong></td><td class="num">0.577（输出分布）</td><td class="mono">+0.044 <span class="chip fail">CI 含 0</span></td></tr>
+          <tr><td class="name">confidence</td><td class="num">0.635</td><td class="num"><strong>0.577</strong></td><td class="num"><strong>0.601</strong>（标量+历史）</td><td class="mono">−0.011 <span class="chip fail">被控制反超</span></td></tr>
+        </tbody>
+        <caption>剥掉 <span class="mono">h_global</span> 后，隐藏探针从 0.61–0.63 掉到 ~0.58，臂 1 与控制持平、臂 2 被控制反超。之前看起来强劲的配对结果，确实是状态级通道经由系数变化的间接效果。</caption>
+      </table>
+      </div>
+
+      <h3>缺陷 6：一个被 SEDD 显存压力逼出的潜伏 bug</h3>
+      <div class="callout defect">
+        <span class="ct">缺陷 6 · OOM 重试静默丢弃数据</span>
+        <p>推演的分块执行写成 <span class="mono">for a in range(0, N, mb)</span>，而 OOM（显存溢出）重试时在循环内部把 <span class="mono">mb</span> 减半——<strong>步长仍是原值，每块只处理一半行，另一半被静默跳过</strong>。144 行返回 72 行。</p>
+        <p>此前所有运行都没触发 OOM，所以从未暴露。改为按实际处理量推进，并加了长度断言。同时把 SEDD 的前向改为原地操作（原先 <span class="mono">float()</span> + <span class="mono">scatter</span> + <span class="mono">clone</span> 各复制一份 2.5 GB 张量）。</p>
+      </div>
+
+      <h3>第二骨干：SEDD</h3>
+      <div class="prose">
+        <p>按 PI 决定开启第二骨干。选 <span class="mono">louaaron/sedd-small</span>：SEDD（Score Entropy Discrete Diffusion，Lou / Meng / Ermon，ICML 2024），斯坦福，OpenWebText，absorbing 图，loglinear 噪声表。西方来源、且来自与康奈尔 MDLM 组<strong>相互独立</strong>的实验室。</p>
+        <p>它与 MDLM 逐键同形（169.6M / 768 / 12 层），因为 MDLM 本就是在 SEDD 代码基上做的。但两者在本研究依赖的两点上真正不同：<strong>训练目标</strong>（SEDD 学的是分数比，用 score-entropy 损失；MDLM 直接学掩码词似然）与<strong>时间条件</strong>（SEDD 真正使用 σ 条件，而 MDLM-owt 出厂设置 <span class="mono">time_conditioning: false</span> 直接把它置零）。</p>
+        <p>官方只发布权重不发布建模代码，因此骨干由本人重建。输出参数化是真正不同的部分：</p>
+      </div>
+
+      <div class="math">
+        <span class="lbl">SEDD 的输出解读与噪声水平换算</span>
+        SEDD-absorb 输出的是<strong>对数分数比</strong>：位置 i 上第 j 项 ≈ log[ p<sub>t</sub>(…j…) / p<sub>t</sub>(…MASK…) ]<br>
+        当前实际存在的词那一项被强制置 0；scale_by_sigma 时再减去 log(expm1(σ)) + log(V−1)<br><br>
+        两者对 j 都是常数 ⟹ 对<strong>被掩位置</strong>，去噪条件分布为<br>
+        &nbsp;&nbsp; p<sub>θ</sub>(x<sub>i</sub> = j | s<sub>t</sub>) = softmax<sub>j ≠ MASK</sub> ( 原始输出[i, j] )<br><br>
+        噪声水平换算（absorbing + loglinear）： P(被掩) = 1 − e<sup>−σ</sup>  ⟹  <em>σ = −log(1 − 掩码比例)</em>
+        <span class="note">实现中踩到一个坑：σ 是<strong>直接</strong>传给条件嵌入的，不是 log(σ)。传 log(σ) 会让模型在所有噪声水平坍缩成与位置无关的虚词预测——唯独 σ≈1 时碰巧可用，因为 log(1)=0 恰好是中性值。用 <span class="mono">"…Germany is ___"</span> 探针在多个 σ 上对拍才定位到。</span>
+      </div>
+
+      <div class="tw">
+      <table>
+        <thead><tr><th>Phase S 门</th><th>检查</th><th class="num">SEDD</th><th class="num">MDLM（参照）</th><th></th></tr></thead>
+        <tbody>
+          <tr><td class="name">S1</td><td>真词条件 NLL @ 掩码率 0.2</td><td class="num"><strong>1.544</strong></td><td class="num">1.855</td><td><span class="chip pass">PASS</span></td></tr>
+          <tr><td class="name">S1</td><td>@ 掩码率 0.4 / 0.6 / 0.8</td><td class="num">2.253 / 3.351 / 5.102</td><td class="num">2.527 / 3.585 / 5.292</td><td><span class="chip pass">PASS</span></td></tr>
+          <tr><td class="name">S2</td><td>生成 distinct-2（真实文本 0.894）</td><td class="num"><strong>0.756</strong></td><td class="num">0.697</td><td><span class="chip pass">PASS</span></td></tr>
+          <tr><td class="name">S2</td><td>最大重复 4-gram（真实 0.009）</td><td class="num">0.019</td><td class="num">0.022</td><td><span class="chip pass">PASS</span></td></tr>
+          <tr><td class="name">S3</td><td>Path-LL 跨提示 / 跨种子 sd</td><td class="num">0.187 / 0.159</td><td class="num">0.233 / 0.224</td><td><span class="chip pass">PASS</span></td></tr>
+          <tr><td class="name">S4 / S5</td><td>隐藏态一致性 / 轨迹完成</td><td class="num">13 层稳定 / 0 未完成</td><td class="num">同</td><td><span class="chip pass">PASS</span></td></tr>
+        </tbody>
+        <caption>S1 不能沿用 MDLM 的 NELBO 公式（SEDD 优化的是 score-entropy 损失，掩码扩散 ELBO 对它不适用），改用<strong>骨干无关</strong>的指标：被掩位置上真词的平均负对数似然。SEDD 在每个掩码率上都<strong>更低（更好）</strong>，生成连贯性也更好。</caption>
+      </table>
+      </div>
+
+      <h3>置信度崩溃结论的修正</h3>
+      <div class="callout caution">
+        <span class="ct">缺陷 7 · Phase-S 的置信度规则用错了</span>
+        <p>08-19 的 confidence 解码器按<strong>被抽到那个词</strong>的概率排序；标准规则（MaskGIT / LLaDA，也是 POKE / LookUM 实际使用的）是按 <strong>top-1 最大概率</strong>排序。同提示同种子的对照 A/B：标准规则 distinct-2 = <span class="mono">0.447</span>，我的规则 = <span class="mono">0.202</span>（随机序 0.706，真实文本 0.867）。<strong>崩溃程度被夸大了约 2.2 倍。</strong></p>
+      </div>
+
+      <div class="tw">
+      <table>
+        <thead><tr><th>π_ref</th><th class="num">distinct-2</th><th class="num">最大重复 4-gram</th><th>S2 门（需 &gt;0.626 且 &lt;0.027）</th></tr></thead>
+        <tbody>
+          <tr><td class="name">ancestral</td><td class="num">0.697</td><td class="num">0.022</td><td><span class="chip pass">PASS</span></td></tr>
+          <tr><td class="name">confidence, order_temp 0.5</td><td class="num">0.502</td><td class="num">0.055</td><td><span class="chip fail">FAIL</span></td></tr>
+          <tr><td class="name">confidence, order_temp 1.0</td><td class="num">0.577</td><td class="num">0.030</td><td><span class="chip fail">FAIL</span></td></tr>
+          <tr><td class="name">confidence, order_temp 1.5</td><td class="num">0.600</td><td class="num">0.032</td><td><span class="chip fail">FAIL</span></td></tr>
+          <tr class="hl"><td class="name">confidence, order_temp 2.0</td><td class="num">0.627</td><td class="num">0.025</td><td><span class="chip pass">PASS</span></td></tr>
+        </tbody>
+        <caption>用正确规则在 n=48 上重新认证：真正由置信度驱动的顺序<strong>仍然不过</strong>连贯性门，只有噪声化到 order_temp ≥ 2.0 才勉强通过。<strong>结论存活，量级错了。</strong>臂 2 因此采用 order_temp=2.0——这也意味着一个完全由置信度驱动的 π_ref 在本基座上根本不可得。</caption>
+      </table>
+      </div>
+
+      <h3>视界敏感性</h3>
+      <div class="tw">
+      <table>
+        <thead><tr><th>运行</th><th class="num">h_i within-R² 正格数 / 中位</th><th class="num">h_i <strong>concordance</strong> 正格数 / 中位</th><th class="num">h_global R² 正格数 / 中位</th></tr></thead>
+        <tbody>
+          <tr><td class="name">H=8（K=16）</td><td class="num">42/78 · +0.0005</td><td class="num"><strong>31/78</strong> · +0.0000</td><td class="num"><strong>75/78</strong> · +0.0489</td></tr>
+          <tr><td class="name">H=16（K=24）</td><td class="num">49/78 · +0.0017</td><td class="num"><strong>40/78</strong> · +0.0007</td><td class="num"><strong>75/78</strong> · +0.0312</td></tr>
+        </tbody>
+        <caption>网格是 13 层 × 6 个时间步 bin = 78 格。两个视界下候选通道都在随机水平（40/78 与 31/78 约等于一半），状态通道都是 75/78。<strong>判定不依赖视界。</strong></caption>
+      </table>
+      </div>
+
+      <div class="callout fix">
+        <span class="ct">同期修复 · 另外三处</span>
+        <p><strong>K=8 → 24</strong>：A_future 信噪比 0.74/0.59 低于 1，零结果无信息；提到 K=24 后升至 <strong>1.64 / 1.36</strong>，天花板 0.43→0.62、0.37→0.58。代价是 3 倍推演算力。</p>
+        <p><strong>视界可比性</strong>：H=16 在扩散进度 10% 处覆盖剩余掩码的 9%，在 85% 处却覆盖 55%——不同 bin 的标签不在同一尺度上。<span class="mono">record_fracs</span> 上限收到 0.60，使该比值全程落在 [0.09, 0.21]。代价是不再覆盖轨迹后段。</p>
+        <p><strong>G4 判据</strong>：原先取每个 bin 在 13 层上的<strong>最大值</strong>——13 个含噪格子取最大几乎必然为正，是选择偏倚统计量。改为在验证集选定的层上评估（判定不变）。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ 08-26/27 ============ -->
+<section id="d0827">
+  <div class="sec-head"><span class="sec-num">06</span><h2>08-26/27 · 第二骨干复现与最后一处张力</h2></div>
+
+  <div class="day">
+    <div class="day-rail">
+      <div class="day-date">08-26/27</div><div class="day-dow">Wed–Thu</div>
+      <span class="day-tag">复现</span>
+    </div>
+    <div class="day-body">
+      <h3>计划</h3>
+      <div class="prose"><p>SEDD 第二骨干与 H=32 视界采集完成。当日跑完整复现分析、补齐视界扫描、回填状态价值的逐种子副本。</p></div>
+
+      <h3>SEDD 标签质量 —— 全部运行中最好的一批</h3>
+      <div class="tw"><table>
+        <thead><tr><th>指标</th><th class="num">SEDD</th><th class="num">MDLM ancestral</th></tr></thead>
+        <tbody>
+          <tr><td class="name">A_full 信噪比 / 天花板</td><td class="num"><strong>6.13 / 0.860</strong></td><td class="num">5.34 / 0.842</td></tr>
+          <tr><td class="name">A_future 信噪比 / 天花板</td><td class="num">1.68 / 0.627</td><td class="num">1.64 / 0.621</td></tr>
+          <tr><td class="name">Rao-Blackwell 降噪 / CRN 缩减</td><td class="num">4.3× / 7.8×</td><td class="num">4.3× / 7.1×</td></tr>
+        </tbody>
+      </table></div>
+
+      <h3>复现判定</h3>
+      <div class="tw"><table>
+        <thead><tr><th>门</th><th>阈值</th><th>SEDD 结果</th><th></th></tr></thead>
+        <tbody>
+          <tr><td class="name">G1</td><td class="mono">ΔR² ≥ 0.010</td><td class="mono">+0.051 [+0.032,+0.071]</td><td><span class="chip pass">PASS</span></td></tr>
+          <tr><td class="name">G2</td><td class="mono">Δconc ≥ 0.020</td><td class="mono">+0.006（逐种子 0.003/0.005/0.008）</td><td><span class="chip fail">FAIL</span></td></tr>
+          <tr><td class="name">G3</td><td class="mono">acc ≥ 0.55, gap ≥ 0.03, CI 排除 0</td><td class="mono">caliper 通过 / strict 失败（见下）</td><td><span class="chip warn">分歧</span></td></tr>
+          <tr><td class="name">G4</td><td class="mono">过半 bin 为正</td><td class="mono">5/6 bins，自然层 +0.051</td><td><span class="chip pass">PASS</span></td></tr>
+        </tbody>
+        <caption><strong>GATE FAILED → KILL。</strong>G2 在任何分析口径下都失败，因此判定不依赖 G3 如何裁定。</caption>
+      </table></div>
+
+      <h3>唯一一处两骨干真正不同的地方，以及它如何收敛</h3>
+      <div class="prose">
+        <p>SEDD 的配对候选结果<strong>强于</strong> MDLM 任何一臂。这值得追而不是挥手带过，所以用四种口径交叉检验：</p>
+      </div>
+
+      <div class="tw"><table>
+        <thead><tr><th>证据</th><th>评估总体</th><th>SEDD 结果</th></tr></thead>
+        <tbody>
+          <tr><td class="name">exp1 Δconcordance（全量数据探针）</td><td>所有同状态配对</td><td class="mono">+0.006，CI <strong>含 0</strong></td></tr>
+          <tr><td class="name">exp1 加入 h_i 后的 concordance 增量</td><td>所有同状态配对</td><td class="mono"><strong>−0.0003</strong> —— h_i 毫无贡献</td></tr>
+          <tr><td class="name">exp1b 逐 bin 网格，h_i concordance</td><td>逐时间步 bin</td><td class="mono"><strong>38/78</strong> 格为正 —— 随机水平</td></tr>
+          <tr><td class="name">exp2 <strong>caliper</strong> 匹配</td><td>cheap 被匹配到无信息的配对</td><td class="mono">0.634 vs 0.572，gap +0.105，CI 排除 0</td></tr>
+          <tr><td class="name">exp2 <strong>strict</strong> 匹配（非循环）</td><td>逐坐标匹配的配对</td><td class="mono">0.689 vs 0.678，gap +0.048，CI <strong>含 0</strong></td></tr>
+        </tbody>
+        <caption>四项里三项说无候选级效应。唯一说有的那项带<strong>已知循环性</strong>：caliper 按 cheap 预测匹配，<strong>按构造</strong>把 cheap 在这些配对上推向随机，从而机械放大"相对 cheap 的 gap"。strict 不按 cheap 预测匹配，效应即失去显著性。</caption>
+      </table></div>
+
+      <div class="callout fix">
+        <span class="ct">但这个理由不能随便用 —— 所以先做了安慰剂测试</span>
+        <p>"匹配造成循环性"这套说辞可以被用来解释掉<strong>任何</strong>正结果，因此必须先证明配对机制本身没有偏差。做法：把隐藏块换成<strong>同形状的高斯噪声</strong>重跑。</p>
+        <div class="tw" style="margin-top:14px"><table>
+          <thead><tr><th>SEDD · caliper 匹配</th><th class="num">真实 h_i</th><th class="num">安慰剂噪声</th></tr></thead>
+          <tbody>
+            <tr><td class="name">cheap + h_i 准确率</td><td class="num">0.634</td><td class="num">0.568</td></tr>
+            <tr><td class="name">相对最好单一控制的 gap</td><td class="num">+0.105 <span class="chip pass">CI 排除 0</span></td><td class="num"><strong>−0.012</strong> <span class="chip fail">CI 含 0</span></td></tr>
+          </tbody>
+        </table></div>
+        <p style="margin-top:12px">安慰剂<strong>没有</strong>打败控制组——两块 ridge 正确地选了 <span class="mono">γ ≈ 0</span> 退化成 cheap 模型。所以配对筛选并不偏向"逃过匹配的那个块"，SEDD 的 0.634 是<strong>真实但不稳健</strong>的信号，而非选择产物。</p>
+      </div>
+
+      <div class="prose">
+        <p><strong>诚实的读法</strong>：SEDD 比 MDLM 多携带一些候选级信号——但只在"暴露控制被匹配到无信息"的那个子总体上可见，且经不起非循环匹配的检验。不足以过门，而 G2 无论如何都不过。</p>
+      </div>
+
+      <h3>视界扫描补齐</h3>
+      <div class="tw"><table>
+        <thead><tr><th>运行</th><th class="num">h_i within-R² 正格 / 中位</th><th class="num">h_i <strong>concordance</strong> 正格 / 中位</th><th class="num">h_global R² 正格 / 中位</th></tr></thead>
+        <tbody>
+          <tr><td class="name">H=8（K=16）</td><td class="num">42/78 · +0.0005</td><td class="num">31/78 · +0.0000</td><td class="num">75/78 · +0.0489</td></tr>
+          <tr><td class="name">H=16（K=24）</td><td class="num">49/78 · +0.0017</td><td class="num">40/78 · +0.0007</td><td class="num">75/78 · +0.0312</td></tr>
+          <tr><td class="name"><strong>H=32（K=16）</strong></td><td class="num">36/78 · +0.0000</td><td class="num"><strong>30/78</strong> · +0.0000</td><td class="num"><strong>36/78</strong> · +0.0000</td></tr>
+          <tr><td class="name">SEDD H=16（K=24）</td><td class="num">48/78 · +0.0016</td><td class="num">38/78 · +0.0000</td><td class="num">72/78 · +0.0493</td></tr>
+        </tbody>
+        <caption>候选通道在<strong>每个</strong>视界、<strong>两个</strong>骨干上都停在随机水平。H=32 时连<strong>状态</strong>通道也被冲淡（36/78，中位 0.0000）——更长的视界把单次提交的影响稀释进更多未来随机性，这正是选 H=16 要避开的。</caption>
+      </table></div>
+
+      <h3>状态价值 V 补上了噪声天花板</h3>
+      <div class="prose">
+        <p>逐种子回填完成（只重跑 V 分支，约完整采集的 1/7 成本；脚本带断言——重算均值必须复现已存的 <span class="mono">V_pertok</span>，否则报错拒写）。</p>
+      </div>
+      <div class="tw"><table>
+        <thead><tr><th>臂</th><th class="num">V 信噪比</th><th class="num">V 的 R² 天花板</th><th class="num">ΔR²</th></tr></thead>
+        <tbody>
+          <tr><td class="name">MDLM ancestral</td><td class="num">170.0</td><td class="num"><strong>0.9942</strong></td><td class="num">+0.183 [+0.153,+0.248]</td></tr>
+          <tr><td class="name">MDLM confidence</td><td class="num">119.9</td><td class="num"><strong>0.9917</strong></td><td class="num">+0.320 [+0.313,+0.415]</td></tr>
+          <tr><td class="name">SEDD ancestral</td><td class="num">153.7</td><td class="num"><strong>0.9935</strong></td><td class="num">+0.051（A_full）</td></tr>
+        </tbody>
+        <caption>V 估计得极精确，衰减可忽略——状态价值结果几乎不需要天花板校正，因此现在可以作为<strong>独立的次要发现</strong>陈述，而不只是作为优势结果的陪衬。</caption>
+      </table></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ 08-27/28 ============ -->
+<section id="d0828">
+  <div class="sec-head"><span class="sec-num">07</span><h2>08-27/28 · 第三基座与 task-utility 解锁</h2></div>
+
+  <div class="day">
+    <div class="day-rail">
+      <div class="day-date">08-27/28</div><div class="day-dow">Thu–Fri</div>
+      <span class="day-tag" style="background:var(--pass-soft);color:var(--pass)">新基座</span>
+    </div>
+    <div class="day-body">
+      <h3>计划：补上唯一一项做不了的交付物</h3>
+      <div class="prose">
+        <p>brief 要求在可验证任务上另做一版 <strong>task-utility（任务效用）标签</strong>，用精确答案或单元测试奖励构造，作为外部效度检查。前两个基座都做不了——MDLM-owt 与 SEDD-small 是无条件的 OpenWebText 模型，没有任务可对可错。</p>
+        <p>难点是硬性条款：<strong>禁用 LLaDA / Dream</strong>，而几乎所有能做可验证任务的指令型扩散 LLM 都是这两个。brief 给的备选路径是在西方 AR 底座上做 LoRA 适配转成扩散模型。</p>
+      </div>
+
+      <div class="callout fix">
+        <span class="ct">找到了不需要转换的基座</span>
+        <p><strong>NVIDIA Nemotron-Labs-Diffusion-3B</strong>：NVIDIA（美国来源，合规）、指令微调、原生带掩码扩散模式。它让 brief 备选的 AR→DLM LoRA 转换<strong>变得不必要</strong>。</p>
+      </div>
+
+      <div class="tw"><table>
+        <thead><tr><th>前置检查</th><th>结果</th></tr></thead>
+        <tbody>
+          <tr><td class="name">来源合规</td><td>NVIDIA（美国），NVIDIA Open Model License</td></tr>
+          <tr><td class="name">是否掩码扩散</td><td><span class="mono">mask_token_id=100</span>，<span class="mono">dlm_paradigm: bidirectional</span></td></tr>
+          <tr><td class="name">注意力模式</td><td><strong>默认前向即双向</strong>——<span class="mono">modeling_ministral.py:421</span> 只在传 <span class="mono">use_causal_mask=True</span> 时才建因果掩码，那是 AR 模式的路径。实测：改变被掩位置<strong>之后</strong>的文本，该位置预测最大变化 <strong>0.95</strong>（从 <span class="mono">XX</span> 变为 <span class="mono">Berlin</span>），因果注意力不可能做到</td></tr>
+          <tr><td class="name">隐藏态导出</td><td><span class="mono">output_hidden_states=True</span> 返回 <strong>None</strong>；改用 decoder 层的 forward hook，取到 26 层 (B,L,3072)，全有限</td></tr>
+          <tr><td class="name">规模</td><td>26 层、隐藏 3072、词表 <strong>131072</strong>（MDLM 的 2.6 倍，所有 top-k 与投影都改为分块）</td></tr>
+          <tr><td class="name">定性探针</td><td><span class="mono">Berlin</span> 对数概率 <strong>−0.01</strong>（MDLM 为 −0.30）</td></tr>
+        </tbody>
+      </table></div>
+
+      <h3>π_ref 改写为 block diffusion，以及温度这个主因</h3>
+      <div class="prose">
+        <p>Nemotron 原生解码是块扩散：左到右按 <span class="mono">block_length=32</span> 推进，块内把置信度超过阈值的位置<strong>并行</strong>提交。手写复现的初版只有 33.3%，而原生 <span class="mono">generate</span> 是 66.7%。扫参定位到主因是<strong>取词温度</strong>——数学任务对采样噪声极敏感：</p>
+      </div>
+      <div class="tw"><table>
+        <thead><tr><th>temperature</th><th>top_k</th><th>threshold</th><th class="num">GSM8K</th></tr></thead>
+        <tbody>
+          <tr><td class="name">1.00</td><td>50</td><td>0.9</td><td class="num">25.0%</td></tr>
+          <tr><td class="name">0.50</td><td>50</td><td>0.9</td><td class="num">54.2%</td></tr>
+          <tr class="hl"><td class="name">0.20</td><td>50</td><td>0.9</td><td class="num"><strong>62.5%</strong></td></tr>
+          <tr><td class="name">1.00</td><td>5</td><td>0.9</td><td class="num">37.5%</td></tr>
+          <tr><td class="name">0.01（贪心）</td><td>1</td><td>0.8</td><td class="num">62.5%</td></tr>
+        </tbody>
+        <caption>采用 <span class="mono">temp=0.2</span>：与原生的差距落在 N=24 的采样噪声内，同时<strong>保留随机性</strong>——贪心虽同样准确，但会让 CRN 配对失去意义，也让"期望价值"退化为单次实现值。</caption>
+      </table></div>
+
+      <div class="callout fix">
+        <span class="ct">改设计顺带消灭了一整类 bug</span>
+        <p>任务奖励必须推演<strong>到完成</strong>才能判对错，而推演到完成意味着两支分支自动填满<strong>全部</strong>剩余位置。在 MDLM 上折腾了一整轮的<strong>分母失配</strong>与<strong>耗尽效应</strong>，在这个基座上结构性地不可能发生。同一批推演还同时产出 task-utility 与 Path-LL 两个标签。</p>
+      </div>
+
+      <h3>Phase S 资格认证 —— S3 是决定性的一道门</h3>
+      <div class="prose">
+        <p>task-utility 优势 <span class="mono">A_task = P(答对 | 提交 a_i 后按 π_ref) − P(答对 | 按 π_ref)</span> 要非零，奖励必须在<strong>同一状态的不同推演之间</strong>变化。若 π_ref 近乎确定，每题正确概率非 0 即 1，<span class="mono">A_task</span> 恒等于 0，方向就此止步。这是本轮唯一可能直接杀死该实验的检查。</p>
+      </div>
+      <div class="tw"><table>
+        <thead><tr><th>门</th><th>检查</th><th>结果（48 题 × 8 次推演）</th><th></th></tr></thead>
+        <tbody>
+          <tr><td class="name">S1</td><td>任务能力非退化</td><td class="mono">GSM8K 59.9%（原生参照 66.7%）</td><td><span class="chip pass">PASS</span></td></tr>
+          <tr class="hl"><td class="name">S3</td><td><strong>同题内奖励方差</strong></td><td class="mono">方差 0.0534；<strong>结果混合题 15/48 = 31.2%</strong>（正确率 0.25–0.875）；题间方差 0.187</td><td><span class="chip pass">PASS</span></td></tr>
+          <tr><td class="name">S4</td><td>隐藏态一致性</td><td class="mono">26 层，跨步稳定</td><td><span class="chip pass">PASS</span></td></tr>
+          <tr><td class="name">S5</td><td>推演完成率</td><td class="mono">0 条未完成，平均 NFE 386</td><td><span class="chip pass">PASS</span></td></tr>
+        </tbody>
+        <caption>48 题中 19 题全对、14 题全错、<strong>15 题结果混合</strong>。近三分之一的题目在不同种子下会走向不同结局，因此 <span class="mono">A_task</span> 对相当一部分状态是非零的。<strong>SUBSTRATE QUALIFIED。</strong></caption>
+      </table></div>
+
+      <h3>硬件：一次实测推翻了直觉方案</h3>
+      <div class="prose">
+        <p>模型权重 7.35 GB，而同租户在每块卡上占了约 73 GB，只留下 7–8 GB。首次 Phase S 运行被同租户挤掉而中途死亡。直觉方案是把模型<strong>分片</strong>到多卡，实测确实稳（3 卡各约 3 GB 权重、峰值 3.4 GB、余量 2–3 GB），但吞吐反而更差：</p>
+      </div>
+      <div class="tw"><table>
+        <thead><tr><th>方案</th><th class="num">全局吞吐</th><th class="num">显存余量</th><th>结论</th></tr></thead>
+        <tbody>
+          <tr><td class="name">分片 3 卡，B=24</td><td class="num">1.0 条/秒</td><td class="num">2–3 GB</td><td>稳但浪费 2/3 算力</td></tr>
+          <tr class="hl"><td class="name">三个独立单卡，B=2</td><td class="num"><strong>4.6 条/秒</strong></td><td class="num">0.2 GB</td><td><strong>快 4.6 倍</strong>，但脆弱</td></tr>
+        </tbody>
+        <caption>流水线并行同一时刻只有一块卡在算。因此选<strong>单卡 + OOM 韧性</strong>：OOM 时 micro-batch 减半，减到 1 仍不行就等同租户释放（上限 180 秒）而非崩掉丢整轮，并加了长度断言防止静默丢数据——正是之前在 MDLM 上踩过的坑。两种方案的代码都保留在 <span class="mono">nemotron_local.load_nemotron(shard=…)</span>。</caption>
+      </table></div>
+
+      <h3>本轮抓到的 bug</h3>
+      <div class="callout defect">
+        <span class="ct">缺陷 9 · top-k 张量越界（自写）</span>
+        <p><span class="mono">update_hist</span> 用 <span class="mono">gather(-1, idx)</span> 去索引形状 (B,L,50) 的 top-k 对数概率，但 <span class="mono">idx</span> 装的是<strong>词表 id</strong>（最大 131071）——直接越界。词表 131072 让稠密保存上一步分布需要约 70 GB，不可行。</p>
+        <p>改为在相邻两步的 top-k 集合之间用 <span class="mono">searchsorted</span> 做交集查找，未命中落到地板值 −30。已用构造样例验证：查 id 9 → −3.0、id 7（缺失）→ −30.0、id 2 → −2.0。</p>
+      </div>
+      <div class="callout defect">
+        <span class="ct">缺陷 10 · pgrep 模式匹配到自身</span>
+        <p><span class="mono">pgrep -f phase_s_nemotron | xargs kill</span> 把执行它的 shell 自己也杀了（命令行里含该字符串），第二次重复同一错误。改用 <span class="mono">[p]hase_s_nemo</span> 方括号规避。无科学后果，但记录在案。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ 08-29 ============ -->
+<section id="d0829">
+  <div class="sec-head"><span class="sec-num">08</span><h2>08-29 · AR→扩散改造：自己造一个基座</h2></div>
+
+  <div class="day">
+    <div class="day-rail">
+      <div class="day-date">08-29</div><div class="day-dow">Sat · 01:57–08:28</div>
+      <span class="day-tag" style="background:var(--chan2-soft);color:var(--chan2)">造模型</span>
+    </div>
+    <div class="day-body">
+      <h3>为什么转向造模型</h3>
+      <div class="prose">
+        <p>前面十天做的是<strong>探测</strong>：模型是别人的、全程冻结，产出是"表征里有没有这个信息"的科学结论。PI 提出要走业界主流路线——<strong>把现有 AR 模型改造并训练成扩散模型</strong>。这是另一类工作：产出是<strong>一个模型</strong>，不是一个结论。</p>
+        <p>原计划的"基座选择"章节两条路都允许：AR→双向适配（LAD / DiffuLLaMA 风格，<span class="mono">treating the conversion purely as infrastructure</span>），或现成的 MDLM/SEDD。此前选了后者，因为计划开篇写着 <span class="mono">Prefer the cheapest substrate</span>。这一轮改走前者。</p>
+      </div>
+
+      <div class="callout">
+        <span class="ct">先腾显存 —— 但只动该动的</span>
+        <p>四块卡被占了 90%。查进程属主发现：<strong>五个大进程里两个是 PI 自己的 vLLM 服务</strong>（Qwen2.5-72B 端口 8010、Qwen2.5-32B 端口 8009，已连续运行 3–5 天），另三个属于另一位用户 ryu11。只关掉前两个（启动命令已存档可原样重启），ryu11 的一个没动。释放 GPU1 81GB + GPU3 76GB。</p>
+      </div>
+
+      <h3>配方：DiffuLLaMA / DiffuGPT 路线的三个部件</h3>
+      <div class="math">
+        <span class="lbl">目标函数 · 吸收态掩码扩散的连续时间 ELBO</span>
+        L = E<sub>t~U(0,1)</sub> [ (1/t) · Σ<sub>i: z<sub>t</sub><sup>i</sup>=MASK</sub> −log p<sub>θ</sub>(x<sub>i</sub> | z<sub>t</sub>) ]
+        <span class="note">线性噪声表 α<sub>t</sub>=1−t，即每个 token 独立以概率 t 被掩。<em>1/t 权重</em>是让它成为对数似然下界而非任意去噪损失的关键。</span>
+      </div>
+      <div class="tw"><table>
+        <thead><tr><th>部件</th><th>做法</th><th>为什么必须这样</th></tr></thead>
+        <tbody>
+          <tr><td class="name">因果→双向<strong>退火</strong></td><td>进度 p 时位置 i 可见 i+round(p·L)</td><td>突然切换会毁掉预训练表征。p=0 精确复现原模型，p=1 完全双向</td></tr>
+          <tr><td class="name"><strong>Shift</strong> 对齐淡出</td><td>训练初期把 logits 左移一位</td><td>AR 在位置 i 预测第 i+1 个词，扩散在位置 i 预测第 i 个。左移复用预训练的头，让训练<strong>从模型原生对齐出发</strong></td></tr>
+          <tr><td class="name">新增 <span class="mono">[MASK]</span></td><td>词表 49152→49216，嵌入初始化为<strong>现有嵌入均值</strong></td><td>随机向量在训好的嵌入空间里离流形太远，白白浪费早期训练</td></tr>
+        </tbody>
+      </table></div>
+
+      <div class="callout fix">
+        <span class="ct">手术正确性的决定性验证</span>
+        <p>step 0（全因果 + shift）的损失必须与原始 AR 模型完全一致——这一条同时验证掩码补丁、shift 对齐、扩词表三处：</p>
+        <p style="font-family:'IBM Plex Mono',monospace;font-size:13px">原始 AR 损失 <strong>3.312130</strong> · 改造后 step0 <strong>3.312133</strong> · 差 <strong>2.6e-06</strong></p>
+      </div>
+
+      <div class="callout defect">
+        <span class="ct">缺陷 11 · 返回 None 会静默把"完全双向"变回因果</span>
+        <p>退火曲线暴露：width=4/16 变化 0.99（双向生效），但 <strong>width=64 与 1e6 变化 0.0000</strong>。原因是我写了 <span class="mono">width &gt;= L 时返回 None</span>——而在 transformers 里 <span class="mono">create_causal_mask</span> 返回 <span class="mono">None</span> 不等于"无掩码"，SDPA 会因为没有 mask 而走 <span class="mono">is_causal=True</span> 的默认路径。</p>
+        <p><strong>不修的话会训出一个"用扩散目标训练的因果模型"，且毫无征兆。</strong> 改成任何情况都返回显式掩码后，退火单调放开：0 → 0.987 → 0.994 → 0.9998。</p>
+      </div>
+
+      <h3>语料与训练</h3>
+      <div class="prose">
+        <p><strong>70% FineWeb-Edu + 30% smoltalk</strong>。第二个是关键：smoltalk 是 SmolLM2-Instruct <strong>自己的 SFT 数据集</strong>，用它能把分布偏移压到最小，唯一变的是目标函数而非内容分布——目的是保住 GSM8K 所需的指令能力。共 690,706 块 = <strong>7.07 亿 token</strong>，训练消耗 1.97 亿，即 3.5 个 epoch 的唯一数据，重复不是瓶颈。</p>
+      </div>
+      <div class="tw"><table>
+        <thead><tr><th>设置</th><th>值</th></tr></thead>
+        <tbody>
+          <tr><td class="name">底座</td><td>SmolLM2-1.7B-Instruct（HuggingFace，美/法来源，非门控）</td></tr>
+          <tr><td class="name">步数 / 有效批量</td><td>6000 步 × (4 × 8 累积 × 1024) = 1.97 亿 token</td></tr>
+          <tr><td class="name">退火 / shift 淡出</td><td>各 2000 步</td></tr>
+          <tr><td class="name">学习率 / 精度</td><td>1e-5 余弦衰减，bf16，梯度检查点</td></tr>
+          <tr><td class="name">显存 / 吞吐</td><td>17.1 GB，8,481 tok/s，单卡 6.5 小时</td></tr>
+        </tbody>
+      </table></div>
+
+      <h3>结果：四道门 2 通过 / 2 失败</h3>
+      <div class="tw"><table>
+        <thead><tr><th>门</th><th>检验</th><th>结果</th><th></th></tr></thead>
+        <tbody>
+          <tr class="hl"><td class="name">E1</td><td>留出集双向 NELBO/token，对比<strong>未改造</strong>模型</td><td class="mono">6.663 vs 10.004 — <strong>改善 33.4%</strong></td><td><span class="chip pass">PASS</span></td></tr>
+          <tr><td class="name">E2</td><td>生成连贯性，对比同语料<strong>真实文本</strong></td><td class="mono">distinct-2 <strong>0.127</strong> vs 0.877；重复4gram <strong>0.608</strong> vs 0.014</td><td><span class="chip fail">FAIL</span></td></tr>
+          <tr><td class="name">E3</td><td>任务能力保留（扩散模式 GSM8K）</td><td class="mono"><strong>0.0%</strong> vs 原 AR 模型 21.9%</td><td><span class="chip fail">FAIL</span></td></tr>
+          <tr><td class="name">E4</td><td>新增 mask 嵌入是否被训动</td><td class="mono">漂移 0.085</td><td><span class="chip pass">PASS</span></td></tr>
+        </tbody>
+        <caption>生成样本：<span class="mono">,",",""....&nbsp;&nbsp;&nbsp;..&nbsp;&nbsp;())&nbsp;&nbsp;.&nbsp;.</span> —— 纯符号。NELBO 轨迹 10.049(基线) → 8.325 → 7.555 → 7.040 → 6.951 → 6.753 → 6.729 → 6.725 → <strong>此后 2500 步完全走平在 6.722</strong>。</caption>
+      </table></div>
+
+      <h3>证据支持"量不够"，而非"配方有误"</h3>
+      <div class="tw"><table>
+        <thead><tr><th>掩码率</th><th class="num">改造后 NLL</th><th class="num">未改造 NLL</th><th class="num">改善</th></tr></thead>
+        <tbody>
+          <tr><td class="name">0.1</td><td class="num">6.106</td><td class="num">9.330</td><td class="num">34.6%</td></tr>
+          <tr><td class="name">0.3</td><td class="num">6.214</td><td class="num">9.446</td><td class="num">34.2%</td></tr>
+          <tr><td class="name">0.5</td><td class="num">6.601</td><td class="num">9.727</td><td class="num">32.1%</td></tr>
+          <tr><td class="name">0.7</td><td class="num">7.009</td><td class="num">9.928</td><td class="num">29.4%</td></tr>
+          <tr><td class="name">0.9</td><td class="num">7.492</td><td class="num">11.291</td><td class="num">33.6%</td></tr>
+        </tbody>
+        <caption><strong>五个掩码率上全部为正且幅度均匀（29–35%）</strong>。灾难性遗忘会让<strong>低</strong>掩码率反而变差（那里上下文最充足、最接近原模型的原生场景），结构性失效会让曲线断裂——两者都没发生。加上 E4 通过与 step0 的 2.6e-06 等价性，三条独立证据指向同一结论。</caption>
+      </table></div>
+
+      <div class="callout caution">
+        <span class="ct">一个差点被误判的坑</span>
+        <p>第一次看 E2 用的是置信度排序解码，结果是垃圾。但<strong>本项目前面刚在 MDLM 上记录过这个失效模式</strong>：置信度排序会让一个<strong>健康</strong>模型的 distinct-2 从 0.70 崩到 0.22。所以必须先归因才能采信。用同一批提示与种子改随机序重测：</p>
+        <div class="tw" style="margin-top:12px"><table>
+          <thead><tr><th>解码顺序</th><th class="num">distinct-2</th><th class="num">重复4gram</th></tr></thead>
+          <tbody>
+            <tr><td class="name">真实文本</td><td class="num">0.824</td><td class="num">0.019</td></tr>
+            <tr><td class="name">confidence T=1.0</td><td class="num">0.389</td><td class="num">0.093</td></tr>
+            <tr><td class="name">random T=1.0</td><td class="num"><strong>0.513</strong></td><td class="num">0.069</td></tr>
+          </tbody>
+        </table></div>
+        <p style="margin-top:12px">随机序确实更好，确认了那个已知混淆存在——但离真实文本仍差得远，且样本是<strong>符号乱码</strong>而非"语法不通的句子"。与 MDLM 那次有本质区别：MDLM 换随机序后立刻能生成通顺英文。<strong>这次崩溃在模型，不在解码器。</strong></p>
+      </div>
+
+      <h3>规模对照，以及 E3 归零的代价</h3>
+      <div class="tw"><table>
+        <thead><tr><th>工作</th><th>模型规模</th><th class="num">训练 token</th><th class="num">相对本轮</th></tr></thead>
+        <tbody>
+          <tr class="hl"><td class="name">本轮</td><td>1.7B</td><td class="num"><strong>0.197B</strong></td><td class="num">1×</td></tr>
+          <tr><td class="name">DiffuGPT</td><td>124M（小 14 倍）</td><td class="num">33B</td><td class="num">168×</td></tr>
+          <tr><td class="name">DiffuLLaMA</td><td>7B</td><td class="num">65B</td><td class="num">330×</td></tr>
+        </tbody>
+        <caption>NELBO 改善 33% 与生成崩溃并不矛盾：<strong>填空</strong>（上下文充足）与<strong>从全掩码自举生成</strong>难度差一个量级，前者先学会，后者要靠量堆。</caption>
+      </table></div>
+
+      <div class="callout defect">
+        <span class="ct">E3 归零对整个项目的影响</span>
+        <p>GSM8K 从 21.9% 掉到 <strong>0%</strong>，掺 30% smoltalk 没能保住任务能力。这意味着改造出的模型<strong>无法支撑 task-utility 标签</strong>——而那正是造它的全部理由。它落回了 MDLM-owt 与 SEDD-small 所在的位置：一个没有对错可言的无条件模型。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 08-30 V READOUT ============ -->
+<section id="d0830">
+  <div class="sec-head"><span class="sec-num">09</span><h2>08-30 · V 读出的补充采集：一个干净的正结果，和它<em>不是</em>什么</h2></div>
+
+  <div class="day">
+    <div class="day-rail">
+      <div class="day-date">08-30</div><div class="day-dow">Sun · 16:40–20:10</div>
+      <span class="day-tag" style="background:var(--chan2-soft);color:var(--chan2)">补采+分析</span>
+    </div>
+    <div class="day-body">
+
+      <h3>计划：把唯一的正发现推到"可用"，并检验它经不经得起追问</h3>
+      <div class="prose">
+        <p>全项目只有一条正结论：<strong>状态价值 V 是线性可读的</strong>（ΔR² = +0.183 / +0.320）。但那是在代理标签 Path-LL（路径对数似然，见术语表）上测的，"可读"停留在统计量层面。这一轮要问的是它的<strong>可用形式</strong>：</p>
+        <p style="font-weight:600;font-size:15.5px;margin:14px 0;padding-left:14px;border-left:3px solid var(--chan2)">在生成进行到一半时做一次前向，能不能预测这次生成最终答对没有？</p>
+        <p>如果能，用途是直接的：<strong>提前放弃注定失败的生成</strong>，把算力挪到别处。这是审稿人真正会看的那条曲线。</p>
+        <p>要这么问必须重采一轮，原因是<strong>样本量</strong>：此前的 task-utility 数据只有 <strong>560 个状态</strong>（V<sub>reward</sub> 在一个状态内恒定，所以那 2 240 行候选对它不提供额外信息）。按 60/15/25 划分只剩 84 个验证状态，却要在其上选一个层加两个正则强度——选择噪声压过信号，表现为"cheap+hidden 联合探针比任一单独块都<strong>更差</strong>"，那是欠功效的特征，不是真结果。</p>
+      </div>
+
+      <div class="math">
+        <span class="lbl">本轮标签 · 任务成功价值</span>
+        V<sub>reward</sub>(s<sub>t</sub>) = P( 最终答案正确 | 从 s<sub>t</sub> 起遵循 π<sub>ref</sub> )  ≈ (1/K) Σ<sub>k=1..K</sub> 1[ EM( rollout<sub>k</sub>(s<sub>t</sub>) ) ]
+        <span class="note">K=8 条推演一路跑到生成结束，用 GSM8K 精确匹配（EM，exact match：抽出最后一个数字与标准答案比对）打分。<em>只需 V 分支</em>——不做 Q 分支、不做候选动作，因此成本约为上一轮任务采集的 1/5。全程推理，无反向传播，骨干冻结。</span>
+      </div>
+
+      <div class="tw"><table>
+        <thead><tr><th>设置</th><th>值</th></tr></thead>
+        <tbody>
+          <tr><td class="name">骨干</td><td>Nemotron-Labs-Diffusion-3B（NVIDIA），冻结</td></tr>
+          <tr><td class="name">π_ref</td><td>block diffusion，阈值提交（与 08-27/28 同一策略，未改）</td></tr>
+          <tr><td class="name">题量 / 记录点</td><td>GSM8K test 前 800 题 × 6 个记录点（去噪进度 10 / 25 / 40 / 55 / 70 / 85%）</td></tr>
+          <tr><td class="name">实得样本</td><td><strong>4 411 个状态 / 800 题</strong>（5.51 状态/题）</td></tr>
+          <tr><td class="name">推演</td><td>每状态 K=8 条至生成结束，gen_len=160</td></tr>
+          <tr><td class="name">特征</td><td><em>状态级</em>：掩码位上置信度/熵/margin 的均值·方差·分位数等 18 维 + 平均对数概率向量的 64 维固定 JL 投影 = 82 维</td></tr>
+          <tr><td class="name">隐藏块</td><td>26 层 × 3072 维，两种池化（全位置均值 / 仅掩码位均值），层与池化在<strong>验证集上</strong>选</td></tr>
+          <tr><td class="name">划分</td><td>按<strong>题</strong>不重叠 480 / 120 / 200，行数 2 655 / 658 / 1 098</td></tr>
+          <tr><td class="name">机时</td><td>GPU1 8 887s + GPU3 9 024s ≈ <strong>5.0 GPU·小时</strong>，零失败</td></tr>
+        </tbody>
+        <caption>特征必须是<strong>状态级</strong>而非逐候选位置级：目标 V<sub>reward</sub> 是一个状态一个值，用某一个位置的置信度去预测它是错配的。</caption>
+      </table></div>
+
+      <div class="callout">
+        <span class="ct">先看标签本身：52.3% 全对，38.7% 全错</span>
+        <p>均值 0.5711、标准差 0.4806。噪声天花板 <strong>0.9913</strong>（噪声方差 0.0020 / 观测方差 0.2310）——K=8 足够，标签几乎无噪，任何低 R² 都不能推给测量误差。</p>
+      </div>
+
+      <h3>诊断性事实：V<sub>reward</sub> 的方差有 99.1% 在<strong>题</strong>之间</h3>
+      <div class="prose">
+        <p>这是本轮最重要的一个数，它决定了后面所有数字该怎么读。</p>
+      </div>
+      <div class="tw"><table>
+        <thead><tr><th>数据集</th><th>题内 sd（均值）</th><th>题间 sd</th><th>题间方差占比</th></tr></thead>
+        <tbody>
+          <tr><td class="name">本轮 vreadA+B（800 题）</td><td class="num">0.0439</td><td class="num">0.4649</td><td class="num"><strong>99.1%</strong></td></tr>
+          <tr><td class="name">旧数据 taskA（135 题）</td><td class="num">0.0412</td><td class="num">0.4540</td><td class="num">99.2%</td></tr>
+          <tr><td class="name">旧数据 taskB（138 题）</td><td class="num">0.0308</td><td class="num">0.4655</td><td class="num">99.6%</td></tr>
+        </tbody>
+        <caption>在<strong>此前独立采集</strong>的 task-utility 数据上复现了同一结构，所以这不是本轮记录点安排造出来的产物，而是 π_ref 在此基座上的稳健性质：一道题的成败在去噪 10% 时就基本定死，沿轨迹几乎不动。</caption>
+      </table></div>
+
+      <h3>结果一：隐藏表征确实打败廉价控制，且两道证伪控制归零</h3>
+      <div class="tw"><table>
+        <thead><tr><th>探针</th><th>选中超参</th><th>测试 R²</th><th>Spearman ρ</th><th>AUC</th></tr></thead>
+        <tbody>
+          <tr><td class="name">cheap（仅控制特征）</td><td>α=21.5</td><td class="num">0.3380</td><td class="num">0.5845</td><td class="num">0.8229</td></tr>
+          <tr><td class="name"><strong>hidden（仅隐藏块）</strong></td><td>第 18 层，掩码位池化</td><td class="num"><strong>0.4812</strong></td><td class="num"><strong>0.6859</strong></td><td class="num"><strong>0.8896</strong></td></tr>
+          <tr><td class="name">cheap + hidden（两块岭）</td><td>γ=3.0, α=2.15e4</td><td class="num">0.4697</td><td class="num">0.6833</td><td class="num">0.8885</td></tr>
+          <tr><td class="name">增量 Δ（两块 − cheap）</td><td>—</td><td class="num"><strong>+0.1317</strong></td><td>—</td><td class="num"><strong>+0.0655</strong></td></tr>
+          <tr><td class="name">安慰剂（隐藏块换等尺度高斯噪声）</td><td>—</td><td class="num" style="color:var(--pass);font-weight:600">−0.0001</td><td>—</td><td>—</td></tr>
+          <tr><td class="name">标签置换（负控制）</td><td>—</td><td class="num" style="color:var(--pass);font-weight:600">−0.0019</td><td>—</td><td>—</td></tr>
+        </tbody>
+        <caption>聚类 bootstrap（按题整块重抽，2 000 次）95% 置信区间：ΔR² <strong>[+0.069, +0.197]</strong>、ΔAUC（两块）<strong>[+0.035, +0.099]</strong>、ΔAUC（仅隐藏）<strong>[+0.038, +0.098]</strong>——<strong>三者均不含 0</strong>。γ 网格含 0，故增广模型嵌套基线。</caption>
+      </table></div>
+      <div class="prose">
+        <p>与 560 状态的试点相比，扩到 4 411 状态后<strong>联合探针不再劣于单块</strong>（试点里 cheap+hidden 的 AUC 0.841 低于 hidden 单独的 0.883，那正是欠功效的症状）。两道证伪控制现在都精确落在 0 上，试点里 −0.57 的标签置换 R² 也随样本量消失——确认那是小样本产物。</p>
+      </div>
+
+      <div class="callout defect">
+        <span class="ct">一处我在中途读错、被全量数据推翻的推断</span>
+        <p>只用首个分片（304 状态）试跑时，分层 AUC 沿去噪进度看着是平的（0.952 / 0.924 / 0.929），我据此判断"信息在第一个记录点就已全部到位，后续去噪不增加任何东西"。<strong>全量数据不支持这个说法</strong>：题级 AUC 从 10% 处的 0.864 单调升到 85% 处的 0.951（+0.087），廉价特征同样升（0.800→0.912，+0.113）。看得见的答案越多，判断越准——这是常识，不是发现。真正稳定的是<strong>差距</strong>，见下。</p>
+      </div>
+
+      <h3>结果二：按记录点、以"题"为单位重新拟合</h3>
+      <div class="prose">
+        <p>既然 V<sub>reward</sub> 在题内几乎不动，一道题的 6 个状态就近似是同一个观测的 6 份拷贝——<strong>有效样本量是题数 800，不是状态数 4 411</strong>。因此在每个记录点上独立重拟合，此时每一行都是一道不同的题。</p>
+      </div>
+      <div class="tw"><table>
+        <thead><tr><th>记录点</th><th>去噪进度</th><th>n（题）</th><th>AUC cheap</th><th>AUC hidden</th><th>差距</th><th>R² cheap</th><th>R² 两块</th></tr></thead>
+        <tbody>
+          <tr><td class="name">0</td><td class="num">10.0%</td><td class="num">800</td><td class="num">0.7995</td><td class="num">0.8637</td><td class="num"><strong>+0.0643</strong></td><td class="num">+0.2769</td><td class="num">+0.4016</td></tr>
+          <tr><td class="name">1</td><td class="num">25.6%</td><td class="num">800</td><td class="num">0.8135</td><td class="num">0.8641</td><td class="num">+0.0506</td><td class="num">+0.3386</td><td class="num">+0.4189</td></tr>
+          <tr><td class="name">2</td><td class="num">40.0%</td><td class="num">800</td><td class="num">0.8294</td><td class="num">0.8805</td><td class="num">+0.0511</td><td class="num">+0.3476</td><td class="num">+0.4778</td></tr>
+          <tr><td class="name">3</td><td class="num">55.6%</td><td class="num">800</td><td class="num">0.8497</td><td class="num">0.9035</td><td class="num">+0.0538</td><td class="num">+0.3833</td><td class="num">+0.5119</td></tr>
+          <tr><td class="name">4</td><td class="num">71.2%</td><td class="num">770</td><td class="num">0.8606</td><td class="num">0.8905</td><td class="num">+0.0300</td><td class="num">+0.4585</td><td class="num">+0.5370</td></tr>
+          <tr><td class="name">5</td><td class="num">85.6%</td><td class="num">441</td><td class="num">0.9124</td><td class="num">0.9510</td><td class="num">+0.0386</td><td class="num">+0.4910</td><td class="num">+0.6189</td></tr>
+        </tbody>
+        <caption>隐藏块相对廉价特征的优势在整个去噪过程中<strong>基本恒定</strong>（最小 +0.030，最大 +0.064，均值 +0.048），<strong>并不随答案逐渐显现而累积</strong>。记录点 5 的 n 降到 441，因为不少题在 85% 之前就已填满。</caption>
+      </table></div>
+
+      <h3>结果三：这个决定性的追问——是"读懂了题"还是"跟住了这条轨迹"</h3>
+      <div class="prose">
+        <p>一个探针完全可以只看<strong>题目</strong>、判断它难，就拿到高 AUC，全程不看那半句已生成的答案。那仍然有用，但那是<strong>另一个命题</strong>。把每题均值从标签和预测里同时减掉，剩下的就只有"沿这条轨迹 V 怎么动"：</p>
+      </div>
+      <div class="tw"><table>
+        <thead><tr><th>探针</th><th>题内 R²（扣除题目难度后）</th></tr></thead>
+        <tbody>
+          <tr><td class="name">cheap</td><td class="num" style="color:var(--fail);font-weight:600">−0.7443</td></tr>
+          <tr><td class="name">hidden</td><td class="num" style="color:var(--fail);font-weight:600">−0.5210</td></tr>
+          <tr><td class="name">cheap + hidden</td><td class="num" style="color:var(--fail);font-weight:600">−0.6344</td></tr>
+        </tbody>
+        <caption>三者全为强负——扣掉题目难度后<strong>没有任何可读出的轨迹信号</strong>。这与全项目主结论是同一件事的两个侧面：<strong>水平量（level）被编码，差分量（differential）没有。</strong>此前是 V 可读而 A 不可读，这里是"题的难度"可读而"题内的轨迹波动"不可读。</caption>
+      </table></div>
+
+      <h3>结果四：实用后果——选择性生成与算力账</h3>
+      <div class="prose">
+        <p>操作方式：在去噪进度中位 40% 处按预测价值给在飞的生成排序，砍掉最差的一批，报告<strong>留下来那批</strong>的准确率。被砍掉的生成省下各自剩余 60% 的解码，故节省算力 = (1−覆盖率) × 60%。</p>
+      </div>
+      <div class="tw"><table>
+        <thead><tr><th>覆盖率</th><th>节省算力</th><th>cheap</th><th><strong>hidden</strong></th><th>oracle</th><th>random</th><th>hidden − cheap</th></tr></thead>
+        <tbody>
+          <tr><td class="name">100%（全留）</td><td class="num">0%</td><td colspan="4" style="text-align:center">0.5667（基线准确率）</td><td>—</td></tr>
+          <tr><td class="name">90%</td><td class="num">6.0%</td><td class="num">0.6210</td><td class="num">0.6198</td><td class="num">0.6298</td><td class="num">0.5681</td><td class="num">−0.0011</td></tr>
+          <tr><td class="name">80%</td><td class="num">12.0%</td><td class="num">0.6818</td><td class="num">0.6881</td><td class="num">0.7087</td><td class="num">0.5679</td><td class="num">+0.0063</td></tr>
+          <tr><td class="name">70%</td><td class="num">18.0%</td><td class="num">0.7487</td><td class="num">0.7723</td><td class="num">0.8102</td><td class="num">0.5654</td><td class="num">+0.0236</td></tr>
+          <tr><td class="name">60%</td><td class="num">24.0%</td><td class="num">0.7960</td><td class="num">0.8260</td><td class="num">0.9432</td><td class="num">0.5604</td><td class="num">+0.0300</td></tr>
+          <tr><td class="name"><strong>50%</strong></td><td class="num"><strong>30.0%</strong></td><td class="num">0.8078</td><td class="num"><strong>0.8691</strong></td><td class="num">1.0000</td><td class="num">0.5608</td><td class="num"><strong>+0.0612</strong></td></tr>
+          <tr><td class="name">30%</td><td class="num">42.0%</td><td class="num">0.8207</td><td class="num">0.9001</td><td class="num">1.0000</td><td class="num">0.5722</td><td class="num">+0.0794</td></tr>
+        </tbody>
+        <caption>风险-覆盖曲线下面积：cheap 0.7722 · <strong>hidden 0.8186</strong> · 两块 0.8200 · oracle 0.8878 · random 0.5501。一句话版本：<strong>在半途砍掉一半，省下 30% 解码算力，留下那半的准确率从 56.7% 升到 86.9%</strong>；隐藏表征在该工作点比免费的廉价特征多 6.1 个百分点。注意覆盖率 90% 处 hidden 与 cheap 打平甚至略低——优势要到砍得够狠时才显现。</caption>
+      </table></div>
+
+      <h3>解读：它是什么，以及它明确不是什么</h3>
+      <div class="prose">
+        <p><strong>是什么。</strong>一个冻结的扩散语言模型，其中间层隐藏状态<strong>线性</strong>携带"这次生成会不会成功"的信息，超出输出分布本身能提供的部分（ΔAUC +0.066，95% CI [+0.035, +0.099]，两道证伪控制归零）。这把项目唯一的正结论从代理统计量推进到了一个可直接使用的操作点。</p>
+        <p><strong>不是什么。</strong>这<strong>不是前瞻（lookahead）</strong>。题内 R² 全负、99.1% 的方差在题间、隐藏块的优势不随去噪累积——三条证据一致指向：探针读到的是<strong>"这道题对我有多难"</strong>，一种自我认知/难度预测，而不是"这条解码路径走得好不好"。原任务书的命题是后者，本轮不构成对它的支持，更不构成对 08-24 至 08-28 那个 KILL 判定的推翻。</p>
+        <p><strong>与任务书的关系。</strong>任务书把 <span class="mono">V<sub>PathLL</sub><sup>π_ref</sup></span> 明确列为<em>次要分析</em>，所以做这件事在协议之内；同时它写明 kill 之后不得加容量来抢救——本轮全程线性探针、骨干冻结、无强化学习、无稀疏自编码器、无联合微调，符合该约束。<strong>但把次要发现改写成主命题是不诚实的</strong>，报告按次要发现记录。</p>
+      </div>
+
+      <div class="callout">
+        <span class="ct">范围限制（必须与结果同时引用）</span>
+        <p>单一骨干（Nemotron-3B）、单一任务（GSM8K）、单一 π_ref（block diffusion 阈值提交）。上面每一个数字都<strong>条件于这三者</strong>。V 的可读性此前在 MDLM 与 SEDD 上有复现，但那是 Path-LL 标签；<span class="mono">V<sub>reward</sub></span> 这个任务成功形式<strong>只在一个基座上测过</strong>，一般性尚无证据。另外，覆盖率 50% 处 oracle 达到 1.0000，说明测试集中"必错题"的比例足够高使得完美排序可以完全避开它们——这也提醒这条曲线的绝对高度依赖题目难度分布。</p>
+      </div>
+
+      <h3>产出文件</h3>
+      <div class="tw"><table>
+        <thead><tr><th>文件</th><th>内容</th></tr></thead>
+        <tbody>
+          <tr><td class="name"><span class="mono">scripts/collect_v_readout.py</span></td><td>V-only 采集器；状态级特征；已用修复后的跨阈记录逻辑（缺陷 12）</td></tr>
+          <tr><td class="name"><span class="mono">scripts/analyze_v_readout.py</span></td><td>三探针 + 两道证伪控制 + 聚类 bootstrap + 题内分解 + 逐记录点题级拟合 + 选择性生成曲线</td></tr>
+          <tr><td class="name"><span class="mono">data/labels_vreadA/ · labels_vreadB/</span></td><td>16 个分片，4 411 状态，含逐种子奖励 V_seeds 以便复算噪声天花板</td></tr>
+          <tr><td class="name"><span class="mono">data/v_readout_results.json</span></td><td>全部数值结果</td></tr>
+        </tbody>
+      </table></div>
+
+      <div class="callout defect">
+        <span class="ct">本轮自造并修掉的三个 bug</span>
+        <p><span class="mono">auc()</span> 内把 <span class="mono">npos</span> 写成 <span class="mono">np</span>，遮蔽了 numpy 模块（修后与 sklearn 的 <span class="mono">roc_auc_score</span> 逐位一致：0.71664762 对 0.71664762）；<span class="mono">noise_ceiling()</span> 返回三元组却按标量格式化；<span class="mono">cluster_bootstrap()</span> 只接受标量统计量，而三个 Δ 必须落在<strong>同一个</strong>重抽样副本上才能给出联合置信区间——改为在本地做联合重采样。</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ MATH ============ -->
+<section id="math">
+  <div class="sec-head"><span class="sec-num">10</span><h2>算法与数学公式汇总</h2></div>
+
+  <h3>参考策略 π_ref</h3>
+  <div class="math">
+    <span class="lbl">每步一次提交的解码循环</span>
+    给定状态 s<sub>t</sub>（= 词序列，被掩位置填 [MASK]）与掩码集合 M：<br><br>
+    1. logits ← f<sub>θ</sub>(s<sub>t</sub>)                       <span style="color:var(--faint)">// 冻结骨干，一次前向</span><br>
+    2. 对每个被掩位置取 top-k（k=50），得截断对数概率 lp<sub>top</sub><br>
+    3. 提议词 ← argmax<sub>slot</sub> ( lp<sub>top</sub>/τ + Gumbel )   <span style="color:var(--faint)">// τ=1.0；Gumbel-max ≡ 从 softmax(lp/τ) 抽样</span><br>
+    4. 排序分数 sc:<br>
+    &nbsp;&nbsp;&nbsp; ancestral  → sc = order_key（每条推演固定的随机排列键）<br>
+    &nbsp;&nbsp;&nbsp; confidence → sc = lp<sub>top</sub>[…,0] / order_temp + Gumbel<br>
+    5. 提交 sc 最大的那个<strong>被掩</strong>位置；重复直到填满
+    <span class="note">用"每条推演固定的随机键 + 取最大"来实现均匀随机排列，而不是每步现抽——这样两条被耦合的推演会走<strong>同一个排列</strong>，耦合更紧。</span>
+  </div>
+
+  <h3>共同随机数（CRN）</h3>
+  <div class="math">
+    <span class="lbl">按 (种子, 流, 位置, 词ID) 索引的计数器型随机数</span>
+    u = splitmix64( seed·C<sub>0</sub> ⊕ stream ⊕ position·C<sub>1</sub> ⊕ token_id·C<sub>2</sub> ) / 2<sup>53</sup><br>
+    Gumbel = −log(−log u)
+    <span class="note">关键设计：噪声按<strong>绝对位置与词 ID</strong> 索引，而<strong>不</strong>按步数或 top-k 内的名次。因为 Q 分支比 V 分支"快一步"，按步数索引会立刻失同步；按名次索引则在两分支 top-k 集合稍有差异时就完全打乱。每个位置每条推演只被揭示一次，故没有噪声被重复使用，π_ref 的边缘分布严格正确。</span>
+  </div>
+
+  <div class="callout fix">
+    <span class="ct">CRN 的决定性验证 · no-op 测试</span>
+    <p>强迫 Q 分支提交 V 分支<strong>本来就会提交</strong>的那个动作。若耦合完美，两条轨迹必须逐词完全相同、优势必须恰好为 0。实测：三种排序规则（ancestral / confidence 两档）全部 <strong>30/30 轨迹相同，误差恰为 0.000e+00</strong>。真实动作下 token 一致率 96–97%，逐种子 Path-LL 相关 0.925。</p>
+  </div>
+
+  <h3>探针与推断</h3>
+  <div class="math">
+    <span class="lbl">岭回归的 Gram 矩阵特征分解解法</span>
+    XᵀX = VΛVᵀ  ⟹  w(α) = V · diag( 1/(λ + α) ) · Vᵀ (Xᵀy)
+    <span class="note">比对 X 做 SVD 快约一个数量级（n≈9k、d≈1.6k 时），因为层扫描要拟合 13×3×2 个探针。在 GPU 上执行；与 sklearn 的 Ridge 对拍相对误差 1e-7（fp64）/ 1e-6（GPU fp32）。</span>
+  </div>
+
+  <div class="math">
+    <span class="lbl">噪声天花板与信噪比</span>
+    观测方差 Var(Ā),  噪声方差 = E<sub>n</sub>[ Var<sub>k</sub>(A<sub>n,k</sub>) / K ]<br><br>
+    天花板 = ( Var(Ā) − 噪声 ) / Var(Ā)   <span style="color:var(--faint)">// 任何预测器 R² 的上限</span><br>
+    SNR   = ( Var(Ā) − 噪声 ) / 噪声      <span style="color:var(--faint)">// 低于 1 则零结果无信息</span>
+    <span class="note">A<sub>n,k</sub> 是第 n 个候选、第 k 条推演的配对差值。因为存了逐种子副本，这两个量可以直接算，不必假设。</span>
+  </div>
+
+  <div class="math">
+    <span class="lbl">refit-bootstrap（把拟合方差纳入区间）</span>
+    对 b = 1…B：<br>
+    &nbsp;&nbsp; 在<strong>各自不相交</strong>的 train / val / test 文档池<strong>内部</strong>分别有放回重抽<br>
+    &nbsp;&nbsp; 在重抽的 train 上<strong>重新拟合</strong>两个模型，在重抽的 test 上评估，记录 Δ<br>
+    取 Δ 的 2.5 / 97.5 分位数为 95% 区间
+    <span class="note">必须在划分内部重抽：先把全体文档有放回抽完再切分，会让重复文档同时落进 train 与 test（泄漏）。默认的固定模型 bootstrap 只重抽测试集，捕捉不到拟合方差，区间偏窄——而 G1 是唯一通过的门，区间偏窄会让"排除 0"过于容易。</span>
+  </div>
+</section>
+
+<!-- ============ RESULTS ============ -->
+<section id="results">
+  <div class="sec-head"><span class="sec-num">11</span><h2>实验设置与结果总表</h2></div>
+
+  <h3>全部标签采集</h3>
+  <div class="tw">
+  <table>
+    <thead><tr><th>标签</th><th>日期</th><th>骨干</th><th>π_ref</th><th class="num">K</th><th class="num">H</th><th class="num">样本</th><th class="num">耗时</th><th>用途</th></tr></thead>
+    <tbody>
+      <tr><td class="name">a / b</td><td>08-19</td><td>MDLM</td><td>ancestral</td><td class="num">8</td><td class="num">16</td><td class="num">14,400</td><td class="num">2×0.98h</td><td><span class="chip fail">已作废（污染）</span></td></tr>
+      <tr><td class="name">a2 / b2</td><td>08-23</td><td>MDLM</td><td>ancestral</td><td class="num">8</td><td class="num">16</td><td class="num">14,400</td><td class="num">2×0.50h</td><td>标签修复后首版</td></tr>
+      <tr><td class="name">c1 / c2</td><td>08-23</td><td>MDLM</td><td>confidence</td><td class="num">8</td><td class="num">16</td><td class="num">14,400</td><td class="num">2×0.52h</td><td>第二参考策略首版</td></tr>
+      <tr class="hl"><td class="name">a3 / b3</td><td>08-23→24</td><td>MDLM</td><td>ancestral</td><td class="num">24</td><td class="num">16</td><td class="num">14,400</td><td class="num">2×3.2h</td><td><strong>正式 · 臂 1</strong></td></tr>
+      <tr class="hl"><td class="name">c3 / d3</td><td>08-23→24</td><td>MDLM</td><td>confidence</td><td class="num">24</td><td class="num">16</td><td class="num">14,400</td><td class="num">2×1.45h</td><td><strong>正式 · 臂 2</strong></td></tr>
+      <tr><td class="name">h8a / h8b</td><td>08-25</td><td>MDLM</td><td>ancestral</td><td class="num">16</td><td class="num">8</td><td class="num">14,400</td><td class="num">2×0.51h</td><td>视界敏感性</td></tr>
+      <tr><td class="name">h32a / h32b</td><td>08-25→26</td><td>MDLM</td><td>ancestral</td><td class="num">16</td><td class="num">32</td><td class="num">14,400</td><td class="num">2×1.9h</td><td>视界敏感性</td></tr>
+      <tr class="hl"><td class="name">s1 / s2</td><td>08-25→26</td><td><strong>SEDD</strong></td><td>ancestral</td><td class="num">24</td><td class="num">16</td><td class="num">14,400</td><td class="num">2×1.74h</td><td><strong>第二骨干复现 · 完成</strong></td></tr>
+      <tr class="hl"><td class="name">Phase S</td><td>08-27</td><td><strong>Nemotron-3B</strong></td><td>block diffusion</td><td class="num">8</td><td class="num">到完成</td><td class="num">48×8</td><td class="num">0.15h</td><td><strong>第三骨干资格认证 · 4/4 通过</strong></td></tr>
+      <tr><td class="name">task-utility</td><td>08-29</td><td><strong>Nemotron-3B</strong></td><td>block diffusion</td><td class="num">8</td><td class="num">到完成</td><td class="num">273×~2</td><td class="num">~6h</td><td>A_task 候选级；560 个不同状态——对 V_reward 而言功效不足</td></tr>
+      <tr class="hl"><td class="name"><strong>vreadA / vreadB</strong></td><td>08-30</td><td><strong>Nemotron-3B</strong></td><td>block diffusion</td><td class="num">8</td><td class="num">到完成</td><td class="num">800×6</td><td class="num">5.0h</td><td><strong>V_reward 状态级；4 411 状态 / 800 题，零失败</strong></td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3>标签质量（K=24 正式两臂）</h3>
+  <div class="tw">
+  <table>
+    <thead><tr><th>指标</th><th class="num">臂1 ancestral</th><th class="num">臂2 confidence</th></tr></thead>
+    <tbody>
+      <tr><td class="name">A_full 信噪比 / 天花板</td><td class="num"><strong>5.34</strong> / 0.842</td><td class="num"><strong>4.23</strong> / 0.809</td></tr>
+      <tr><td class="name">A_future 信噪比 / 天花板</td><td class="num">1.64 / 0.621</td><td class="num">1.36 / 0.577</td></tr>
+      <tr><td class="name">Rao-Blackwell 降噪倍数</td><td class="num">4.3×</td><td class="num">3.7×</td></tr>
+      <tr><td class="name">CRN 方差缩减倍数</td><td class="num">7.1×</td><td class="num">5.5×</td></tr>
+      <tr><td class="name">corr(A_full, 动作自身对数概率)</td><td class="num">+0.429</td><td class="num">+0.504</td></tr>
+      <tr><td class="name">同状态内方差占总方差</td><td class="num">62.2%</td><td class="num">67.4%</td></tr>
+    </tbody>
+    <caption>臂 2 耦合更松是预期之内：confidence 顺序依赖状态，两分支可能在<strong>哪个位置</strong>该提交上就分岔；ancestral 的排列是固定的。同状态内方差占 62–67%，说明候选间有充足对比度可测——负结果不是"没得可测"。</caption>
+  </table>
+  </div>
+
+  <h3>核心分解：信号究竟在哪个通道</h3>
+  <div class="chan">
+    <div class="chan-card state">
+      <h4>状态级通道 · h_global</h4>
+      <div class="sub">ΔR² over cheap controls</div>
+      <div class="big">75/78</div>
+      <div class="cap">MDLM anc：78 个 layer×timestep 格子里 75 格为正，中位 +0.031。<br>MDLM conf：74/78，中位 +0.062。<br><strong>SEDD：72/78，中位 +0.049。</strong><br>系统性、平滑、符号一致。</div>
+    </div>
+    <div class="chan-card cand">
+      <h4>候选级通道 · h_i</h4>
+      <div class="sub">Δ within-state concordance</div>
+      <div class="big">40/78</div>
+      <div class="cap">MDLM anc：40/78 格为正，中位 +0.0007。<br>MDLM conf：<strong>30/78</strong>，中位 +0.0000。<br><strong>SEDD：38/78，中位 +0.0000。</strong><br>约等于一半 —— 随机水平。</div>
+    </div>
+  </div>
+
+  <div class="prose">
+    <p>这是全研究最关键的一张对比。<span class="mono">h_global</span> 在同一状态内是常数，<strong>结构上不可能</strong>用来在候选之间做选择；<span class="mono">h_i</span> 是唯一逐候选变化的部分，它<strong>能</strong>做选择，但实测做不到。</p>
+  </div>
+
+  <h3>配对候选实验（Experiment 2）</h3>
+  <div class="tw">
+  <table>
+    <thead><tr><th>排序依据</th><th class="num">臂1 准确率</th><th class="num">臂2 准确率</th></tr></thead>
+    <tbody>
+      <tr><td class="name">置信度 p1</td><td class="num">0.569</td><td class="num">0.568</td></tr>
+      <tr><td class="name">标量 + 历史控制</td><td class="num">0.544</td><td class="num"><strong>0.601</strong></td></tr>
+      <tr><td class="name">输出分布控制</td><td class="num"><strong>0.577</strong></td><td class="num">0.535</td></tr>
+      <tr><td class="name">全部廉价控制</td><td class="num">0.573</td><td class="num">0.528</td></tr>
+      <tr><td class="name">轨迹稳定性（TraceLock 式）</td><td class="num">0.476</td><td class="num">0.550</td></tr>
+      <tr><td class="name">cheap + [h_i ; h_global]</td><td class="num">0.610</td><td class="num">0.635</td></tr>
+      <tr class="hl"><td class="name">cheap + h_i（主判据）</td><td class="num">0.581</td><td class="num">0.577</td></tr>
+    </tbody>
+    <caption>配对方式：同一状态内，在置信度、熵、两种间隔、时间步、掩码比例、时序 KL、翻转次数、稳定步数、前 8 个对数概率、完整对数概率投影上全部匹配，但真实优势差异显著。每种子 260–388 对。相对最好单一控制的 gap：臂 1 <span class="mono">+0.044</span>、臂 2 <span class="mono">−0.011</span>，两者 CI 均含 0。</caption>
+  </table>
+  </div>
+
+  <h3>门禁判定 · 两臂</h3>
+  <div class="tw">
+  <table>
+    <thead><tr><th>门</th><th>阈值</th><th>MDLM ancestral</th><th>MDLM confidence</th><th>SEDD ancestral</th></tr></thead>
+    <tbody>
+      <tr><td class="name">G1 增量预测</td><td class="mono">ΔR² ≥ 0.010，CI 排除 0</td><td class="mono">+0.050 <span class="chip pass">PASS</span></td><td class="mono">+0.086 <span class="chip pass">PASS</span></td><td class="mono">+0.051 <span class="chip pass">PASS</span></td></tr>
+      <tr><td class="name">G2 候选排序</td><td class="mono">Δconc ≥ 0.020</td><td class="mono">+0.012 <span class="chip fail">FAIL</span></td><td class="mono">+0.014 <span class="chip fail">FAIL</span></td><td class="mono">+0.006 <span class="chip fail">FAIL</span></td></tr>
+      <tr><td class="name">G3 配对候选</td><td class="mono">acc ≥ 0.55，gap ≥ 0.03，CI 排除 0</td><td class="mono">0.581，gap +0.019 <span class="chip fail">FAIL</span></td><td class="mono">0.577，gap +0.027 <span class="chip fail">FAIL</span></td><td class="mono">strict: gap +0.048 <span class="chip fail">FAIL</span></td></tr>
+      <tr><td class="name">G4 稳健性</td><td class="mono">过半 bin 为正 + 自然层为正</td><td class="mono">6/6，+0.056 <span class="chip pass">PASS</span></td><td class="mono">6/6，+0.113 <span class="chip pass">PASS</span></td><td class="mono">5/6，+0.051 <span class="chip pass">PASS</span></td></tr>
+    </tbody>
+    <caption>三个版本的实验（污染标签 / K=8 修正 / K=24 修正）、两个参考策略、<strong>两个独立骨干</strong>、三个推演视界，判定始终一致。</caption>
+  </table>
+  </div>
+
+  <h3>次要正发现：状态价值 V 的可解码性</h3>
+  <div class="tw">
+  <table>
+    <thead><tr><th>特征块</th><th class="num">臂1 R²</th><th class="num">臂2 R²</th></tr></thead>
+    <tbody>
+      <tr><td class="name">全部廉价控制</td><td class="num">0.737</td><td class="num">0.604</td></tr>
+      <tr class="hl"><td class="name">h_global 单独</td><td class="num"><strong>0.920</strong></td><td class="num"><strong>0.925</strong></td></tr>
+      <tr><td class="name">cheap + 隐藏</td><td class="num">0.920</td><td class="num">0.924</td></tr>
+      <tr><td class="name"><strong>ΔR²</strong></td><td class="num"><strong>+0.183</strong> [+0.153,+0.248]</td><td class="num"><strong>+0.320</strong> [+0.313,+0.415]</td></tr>
+    </tbody>
+    <caption>大、稳健、两个参考策略与两个骨干下都成立。逐种子回填后 V 的噪声天花板为 <strong>0.9917–0.9942</strong>（信噪比 120–170），衰减可忽略，因此这些 ΔR² 几乎无需天花板校正。这是全研究唯一一个扎实的正面发现。</caption>
+  </table>
+  </div>
+</section>
+
+<!-- ============ DEFECTS ============ -->
+<section id="defects">
+  <div class="sec-head"><span class="sec-num">12</span><h2>缺陷清单：十七个 bug 及其后果</h2></div>
+  <p class="prose lede" style="margin-bottom:20px">全部列出，包括我自己在修复与新建代码过程中引入的六个（7b、7c、11、14、15、16）。每一个都注明"若不修会怎样"。</p>
+
+  <div class="tw">
+  <table>
+    <thead><tr><th class="num">#</th><th>缺陷</th><th>发现方式</th><th>若不修的后果</th><th>状态</th></tr></thead>
+    <tbody>
+      <tr><td class="num">1</td><td class="name">朴素蒙特卡洛标签噪声大于信号（SNR 0.1–0.6）</td><td>试点方差诊断</td><td><strong>产出假的否定结论</strong>——没有探针能预测几乎全是噪声的标签</td><td><span class="chip pass">已修 · RB 化</span></td></tr>
+      <tr><td class="num">2</td><td class="name">Q/V 分母失配，把 −V/17 注入主标签</td><td>独立审计</td><td>头条结论沦为循环论证（corr = 1.000000）</td><td><span class="chip pass">已修 · 分支等长</span></td></tr>
+      <tr><td class="num">3</td><td class="name">两分支消耗位置数不同 → 耗尽效应</td><td>独立审计</td><td>A_future 实测的是"词有多容易"取负号，非规划价值</td><td><span class="chip pass">已修</span></td></tr>
+      <tr><td class="num">4</td><td class="name">单一 α 无法同时正则化 100 维与 1536 维块</td><td>合成自测</td><td>ΔR² 零点在 −0.06，阈值与 CI 全部失效</td><td><span class="chip pass">已修 · 两块岭回归</span></td></tr>
+      <tr><td class="num">5</td><td class="name">flip_count / persistence 只在记录点累积</td><td>代码复查</td><td><strong>削弱控制组 = 偏向自己的假设</strong>（均值 0.66 应为 9.40）</td><td><span class="chip pass">已修 · 重走轨迹重算</span></td></tr>
+      <tr><td class="num">6</td><td class="name">Phase-S 置信度按"被抽到的词"而非 top-1 排序</td><td>独立审计</td><td>崩溃程度夸大 2.2 倍，排除 confidence π_ref 的理由过弱</td><td><span class="chip warn">已修 · 结论存活</span></td></tr>
+      <tr><td class="num">7</td><td class="name">refit-bootstrap 先抽后切 → train/test 泄漏<br><span style="color:var(--faint);font-weight:400">（本人在修复过程中新引入）</span></td><td>点估计异常偏移</td><td>G1 的区间被人为收窄，"排除 0"过于容易</td><td><span class="chip pass">已修 · 划分内重抽</span></td></tr>
+      <tr><td class="num">7b</td><td class="name">OOM 重试静默丢弃一半行<br><span style="color:var(--faint);font-weight:400">（潜伏，被 SEDD 显存压力逼出）</span></td><td>SEDD 采集崩溃</td><td>任何触发 OOM 的采集都会缺数据</td><td><span class="chip pass">已修 · 加长度断言</span></td></tr>
+      <tr><td class="num">7c</td><td class="name">MLP 非线性上界欠训（被权重衰减压垮）</td><td>得分低于线性控制</td><td>无法回应"也许只是线性探针太弱"</td><td><span class="chip pass">已修 · 标准化+超参搜索</span></td></tr>
+      <tr><td class="num">9</td><td class="name">top-k 张量越界：用词表 id 索引 (B,L,50) 张量<br><span style="color:var(--faint);font-weight:400">（Nemotron 接入时自写）</span></td><td>代码复查</td><td>运行时崩溃；词表 131072 使稠密保存需约 70GB</td><td><span class="chip pass">已修 · searchsorted 交集查找</span></td></tr>
+      <tr><td class="num">10</td><td class="name">pgrep 模式匹配到执行它的 shell 自身<br><span style="color:var(--faint);font-weight:400">（重复犯了两次）</span></td><td>父进程被杀</td><td>无科学后果，浪费一次运行</td><td><span class="chip pass">已修 · 方括号规避</span></td></tr>
+      <tr><td class="num">11</td><td class="name">退火掩码在 width≥L 时返回 <span class="mono">None</span><br><span style="color:var(--faint);font-weight:400">（AR→扩散改造时自写）</span></td><td>退火曲线：width=64 与 1e6 变化恰为 0.0000</td><td><strong>会训出一个"用扩散目标训练的因果模型"，且毫无征兆</strong>——transformers 里 None 不等于无掩码，SDPA 回落 <span class="mono">is_causal=True</span></td><td><span class="chip pass">已修 · 任何情况都返回显式掩码</span></td></tr>
+      <tr><td class="num">12</td><td class="name">记录点用<strong>精确相等</strong>判断已填位置数<br><span style="color:var(--faint);font-weight:400">（任务采集器自写）</span></td><td>实得记录点数远少于设计值</td><td>block diffusion 每步提交多个位置，计数器会<strong>跳过</strong>记录点：4 个点平均只命中 1.96 个，损失 56% 样本</td><td><span class="chip pass">已修 · 改为跨阈触发；为保持两半同质，未回改在飞的 taskB</span></td></tr>
+      <tr><td class="num">13</td><td class="name">exp1 的 <span class="mono">SEEDKEY</span> 映射缺 <span class="mono">A_task_seeds</span></td><td>噪声天花板报成 n/a</td><td>无法判断低 R² 是信号弱还是标签噪声——报 R² 而不报天花板，数字没有意义</td><td><span class="chip pass">已修</span></td></tr>
+      <tr><td class="num">14</td><td class="name"><span class="mono">auc()</span> 内把 <span class="mono">npos</span> 写成 <span class="mono">np</span>，<strong>遮蔽了 numpy 模块</strong><br><span style="color:var(--faint);font-weight:400">（08-30 分析脚本自写）</span></td><td>运行时报错</td><td>崩溃即暴露，无静默风险；修后与 sklearn <span class="mono">roc_auc_score</span> 逐位一致</td><td><span class="chip pass">已修 · 已对拍</span></td></tr>
+      <tr><td class="num">15</td><td class="name"><span class="mono">noise_ceiling()</span> 返回三元组却按标量格式化<br><span style="color:var(--faint);font-weight:400">（08-30 自写）</span></td><td>运行时报错</td><td>崩溃即暴露</td><td><span class="chip pass">已修</span></td></tr>
+      <tr><td class="num">16</td><td class="name"><span class="mono">cluster_bootstrap()</span> 只接受标量统计量<br><span style="color:var(--faint);font-weight:400">（08-30 自写）</span></td><td>运行时报错</td><td>三个 Δ 必须落在<strong>同一个</strong>重抽样副本上才能给出联合置信区间，分三次调用会得到互不相容的区间</td><td><span class="chip pass">已修 · 本地联合重采样</span></td></tr>
+      <tr><td class="num">8</td><td class="name">配对候选实验的<strong>安慰剂控制</strong>（隐藏块换随机噪声）</td><td>为检验"匹配循环性"这套说辞不被滥用</td><td>若安慰剂也打败控制组，则任何配对结果都不可信</td><td><span class="chip pass">已验 · 安慰剂 −0.012 不打败控制</span></td></tr>
+    </tbody>
+    <caption>验证为<strong>正确</strong>的部分同样记录在案：splitmix64 与参考实现逐位一致；旋转位置编码与 flash_attn 参考误差恰为 0.0；<span class="mono">expected_logp</span> 与蒙特卡洛在 1.1σ 内；岭回归对 sklearn 1e-7；两块嵌套在 γ=0 处预测完全相同；文档级划分无泄漏；CRN no-op 测试 30/30 误差为 0。</caption>
+  </table>
+  </div>
+</section>
+
+<!-- ============ INTERPRETATION ============ -->
+<section id="interp">
+  <div class="sec-head"><span class="sec-num">13</span><h2>结果解读</h2></div>
+
+  <div class="prose">
+    <h3>命题未获支持</h3>
+    <p>在两个参考策略、<strong>两个独立骨干</strong>、三个推演视界、充足功效下，那句要检验的话没有得到支持。数据支持的是一句<strong>更窄且实质不同</strong>的陈述：</p>
+  </div>
+
+  <div class="callout fix">
+    <span class="ct">数据支持的陈述</span>
+    <p>在 MDLM-owt 上，冻结的掩码扩散表征<strong>线性地</strong>暴露了由推演定义的<strong>状态价值</strong> <span class="mono">V<sup>π_ref</sup></span>，远超强输出分布与轨迹控制组（ΔR² <strong>+0.183</strong> / <strong>+0.320</strong>，状态级通道在 95–96% 的 layer×timestep 格子里为正）。</p>
+    <p>它<strong>没有</strong>在候选层面暴露<strong>动作优势</strong>：<span class="mono">h_i</span>——表征中唯一逐候选变化的部分——在同状态内的排序停在随机水平（concordance 正格数 MDLM 40/78 与 30/78、SEDD 38/78），在非循环匹配的配对候选上与暴露输出控制无显著差异。</p>
+  </div>
+
+  <div class="prose">
+    <h3>为什么 G1 过了却不构成证据</h3>
+    <p>ΔR² 在两臂都通过 G1，并且在 refit-bootstrap（含拟合方差）下存活。但 G1 是一个<strong>池化</strong>统计量：把所有状态混在一起算 R²，一个只懂"这个状态好不好"的读出就能满足它，却对任何具体决策毫无帮助。</p>
+    <p><span class="mono">h_global</span> 在一个状态的所有候选上取值相同。它提升拟合优度，并通过遗漏变量校正让廉价特征排得略好——但它<strong>自己无法在候选之间做选择</strong>。这就是 G1 通过而 G2、G3 失败的机制，也正是预注册要求四门齐过、而不是只看一个头条数字的理由。</p>
+
+    <h3>与 POKE / LookUM 的关系</h3>
+    <p>POKE 与 LookUM 花测试时算力估计的是<strong>动作之间的比较</strong>。本研究的结论是：它们那个目标里能从冻结表征廉价读出的部分，恰恰是<strong>在被比较的动作之间不变</strong>的那部分。换句话说，可读出的是共同的基线，不是区分动作的差值——而后者才是搜索真正在找的东西。</p>
+
+    <h3>SEDD 的例外，以及它为什么不改变结论</h3>
+    <p>SEDD 上出现了唯一一处两骨干的实质差异：在 caliper 匹配下，<span class="mono">cheap + h_i</span> 拿到 0.634，相对最好控制 gap +0.105 且 CI 排除 0——这在 MDLM 两臂都没有出现。</p>
+    <p>这一条被追查到底而非挥手带过。先做<strong>安慰剂测试</strong>确认配对机制本身不偏（随机噪声隐藏块 gap −0.012，不打败控制），排除"程序产物"这个解释；再用<strong>非循环的 strict 匹配</strong>复验，效应失去显著性（gap +0.048，CI 含 0）；同时全量数据探针显示 <span class="mono">h_i</span> 对 concordance 的增量是 <strong>−0.0003</strong>。</p>
+    <p>结论：SEDD 确实比 MDLM 多携带一点候选级信号，但只在"暴露控制被匹配到无信息"的子总体上可见，且经不起非循环检验。而 G2 无论如何都不过——判定不依赖 G3 如何裁定。</p>
+
+    <h3>三轮实验的教训</h3>
+    <p>同一个陷阱在三个版本里重复出现：污染标签、K=8 修正、K=24 修正——每一轮的池化 ΔR² 都是正的且显著，每一轮拆开看都是状态级通道。区别只在于第一轮的信号有三分之二是我自己注入标签的污染。</p>
+    <p>所以对任何后续基座的建议是：<strong>先跑 Experiment 1b</strong>（把 <span class="mono">h_i</span> 与 <span class="mono">h_global</span> 分开），再看别的。"一个真实发现"与"一个状态价值读出就能满足的池化 ΔR²"之间的全部差别都住在这个分离里。</p>
+  </div>
+</section>
+
+<!-- ============ TODO ============ -->
+<section id="todo">
+  <div class="sec-head"><span class="sec-num">14</span><h2>剩余工作与范围限制</h2></div>
+
+  <h3>按协议明确不做的</h3>
+  <div class="prose">
+    <p>门禁判定为 KILL，任务书写明："If killed: stop. Do not add RL, SAEs, a Transformer controller, or joint fine-tuning."</p>
+    <ul>
+      <li><strong>Phase 0B 解码器实验与质量-墙钟 Pareto 曲线</strong>——门未过，协议关闭。</li>
+      <li><strong>任何增加容量的做法</strong>（强化学习、稀疏自编码器、Transformer 规模的控制器、联合微调）——kill 之后明令禁止。</li>
+    </ul>
+  </div>
+
+  <h3>已完成（08-26/27）</h3>
+  <div class="tw">
+  <table>
+    <thead><tr><th>项目</th><th>结果</th></tr></thead>
+    <tbody>
+      <tr><td class="name">SEDD 第二骨干采集 + 全套分析</td><td>GATE FAILED → KILL，与 MDLM 两臂一致；标签质量为全部运行中最好（A_full 信噪比 6.13）</td></tr>
+      <tr><td class="name">H=32 视界敏感性</td><td>候选通道仍在随机水平；连状态通道也被冲淡（36/78）</td></tr>
+      <tr><td class="name">V 逐种子回填（MDLM 两臂）</td><td>天花板 0.9917 / 0.9942，断言通过</td></tr>
+      <tr><td class="name">配对实验安慰剂控制</td><td>随机噪声隐藏块不打败控制组（gap −0.012），配对机制无偏差</td></tr>
+    </tbody>
+    <caption>第二骨干在<strong>负</strong>结果下的地位与正结果相反：正结果需要复现才能声称一般性；负结果最容易被"换个模型就不一样"驳回，因此复现证据反而更关键。这是对预注册协议的<strong>刻意偏离</strong>，理由已记录在案。</caption>
+  </table>
+  </div>
+
+  <h3>已完成（08-29 / 08-30）</h3>
+  <div class="tw">
+  <table>
+    <thead><tr><th>项目</th><th>结果</th></tr></thead>
+    <tbody>
+      <tr><td class="name">task-utility 标签（第三基座解锁后）</td><td>γ=0 在每次拟合中被选中；"这次提交会不会改变答案"的 AUC 用廉价特征是 0.6690，加隐藏块<strong>仍是 0.6690</strong>——信息全在暴露的输出分布里</td></tr>
+      <tr><td class="name">AR→扩散改造（SmolLM2-1.7B-Instruct）</td><td>四道门 2 通过 / 2 失败；NELBO −33.4%，各掩码率一致改善（29–35%）排除遗忘假说；1.97 亿 token 对 DiffuGPT 330 亿</td></tr>
+      <tr><td class="name"><strong>V_reward 补充采集与选择性生成</strong></td><td>800 题 / 4 411 状态；ΔR² +0.132 [+0.069,+0.197]、ΔAUC +0.066 [+0.035,+0.099]，安慰剂与标签置换均归零；<strong>但题内 R² 全负，判定为难度预测而非前瞻</strong></td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3>下一步的三个选项（尚未决定）</h3>
+  <div class="prose">
+    <ul>
+      <li><strong>把 V_reward 的可读性做成跨基座结论。</strong>目前只在 Nemotron-3B、GSM8K、单一 π_ref 上测过。若要作为独立贡献，至少需要第二个基座与第二个任务；这在协议之内（任务书把 V 列为次要分析），且全程线性探针、骨干冻结，不触碰 kill 后的容量禁令。</li>
+      <li><strong>把"难度预测"当作正题来做。</strong>题内 R² 为负这件事本身有内容：它说明扩散语言模型的成败在去噪 10% 时就已决定，中途没有可挽回的分叉。这与"前瞻式解码能带来收益"的前提直接冲突，是对 POKE / LookUM 一类工作的一个可检验的负面预测。</li>
+      <li><strong>停在这里。</strong>门禁判定是 KILL，本轮结果没有推翻它。任何把次要发现改写成主命题的做法都不诚实。</li>
+    </ul>
+    <p class="mono" style="font-size:12.5px;color:var(--muted)">注：改造出的扩散模型<strong>不能</strong>作为贡献声称——任务书"What NOT to claim"明确写有 <span class="mono">AR→DLM conversion is a contribution</span>，且其算力仅为 DiffuGPT 的 1/170、任务能力为 0。</p>
+  </div>
+
+  <h3>诚实的范围限制</h3>
+  <div class="prose">
+    <ul>
+      <li><strong>规模单一</strong>：两个骨干都是 1.7 亿参数、OpenWebText。复现跨了<strong>实验室与训练目标</strong>（康奈尔的掩码似然 vs 斯坦福的 score-entropy），但没有跨<strong>规模</strong>——结论不自动迁移到推理规模的扩散语言模型。</li>
+      <li><strong>不覆盖轨迹后段</strong>：为保证视界可比，记录点上限 0.60，扩散进度 60% 之后的状态在本研究范围之外。</li>
+      <li><strong>完全由置信度驱动的 π_ref 在本基座不可得</strong>：即便用正确的 top-1 规则，它仍不过连贯性门；臂 2 必须噪声化到 order_temp=2.0，因此只是<strong>部分</strong>由置信度驱动。</li>
+      <li><strong>A_future 仍是较弱的目标</strong>（K=24 下 SNR 1.64 / 1.36 / 1.68）。</li>
+      <li><strong>三个"种子"是同一批数据的重划分</strong>，不是独立重复实验——它们衡量的是划分敏感性，不是抽样方差。refit-bootstrap 才是诚实的不确定性估计。</li>
+      <li><strong>G3 的裁定取决于匹配口径</strong>：caliper（预注册的主口径）在 SEDD 上通过，strict（非循环）不通过。本报告以 strict 为准并写明理由，但这是一个<strong>需要 PI 复核的判断</strong>，不是纯客观事实。</li>
+      <li><strong>本轮修复是我自己审自己的代码</strong>。两个独立审计代理都因额度中断。若要真正独立的复核，重点应放在 refit-bootstrap 的重抽样结构、Experiment 2 的打分定义与匹配口径——这三处恰好都是我自己发现有问题的。</li>
+    </ul>
+  </div>
+
+  <h3>能让这个方向复活的最便宜的事</h3>
+  <div class="callout">
+    <span class="ct">不是加容量</span>
+    <p>而是换一个<strong>置信度解码原生连贯</strong>的基座，使 π_ref 可以就是 POKE / LookUM 实际运行的那个解码器，并且状态处的候选集合真正存在竞争。在任何后续基座上，都应<strong>先</strong>跑 Experiment 1b 并全程把 <span class="mono">h_i</span> 与 <span class="mono">h_global</span> 分开。</p>
+  </div>
+</section>
+
+<footer>
+  <p><strong>项目路径</strong> <span class="mono">/home/xqin5/diffusion_LLM/d1_lookahead/</span> · 相关文档：<span class="mono">AUDIT.md</span>（三轮审计）、<span class="mono">PREREGISTRATION.md</span>（预注册与 4 项更正）、<span class="mono">FINDINGS.md</span>（最终报告）、<span class="mono">EXPERIMENT_QUEUE.md</span>（队列）、<span class="mono">PRIOR_ART_UPDATE.md</span>（先行研究重搜）。</p>
+  <p style="margin-top:10px">汇报区间 2026-08-19 → 08-25。所有数值取自 <span class="mono">results/</span> 下的 JSON 产物，非追述。</p>
+</footer>
+
+</div>
+
+</body></html>

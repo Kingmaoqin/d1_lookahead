@@ -1,0 +1,43 @@
+{
+  "model": "kuleshov-group/mdlm-owt",
+  "provenance": "Cornell / Cornell Tech (US), Apache-2.0, OpenWebText; non-Chinese-origin",
+  "params_M": 169.627218,
+  "config": {
+    "device": "cuda",
+    "seq_len": 256,
+    "prefix_len": 64,
+    "temperature": 1.0,
+    "top_k": 50,
+    "n_ppl_docs": 48,
+    "n_mc": 96,
+    "n_gen_prompts": 48,
+    "n_seeds": 3,
+    "batch": 6,
+    "out": null
+  },
+  "S1_nelbo_ppl": 34.901398145902945,
+  "S1_nats_per_token": 3.552526889893132,
+  "S1_published_reference": 23.21,
+  "S1_pass": true,
+  "S2_distinct1": 0.40288628472222215,
+  "S2_distinct2": 0.699607329842932,
+  "S2_distinct3": 0.8257675438596491,
+  "S2_max_repeat_frac": 0.02072310405643739,
+  "S2_ref_distinct2": 0.8972513089005235,
+  "S2_ref_max_repeat_frac": 0.010030864197530864,
+  "S2_pass": true,
+  "S3_pathll_mean": -1.9966660645548941,
+  "S3_between_prompt_sd": 0.2326275794676219,
+  "S3_within_seed_sd": 0.22414233664947303,
+  "S3_pass": true,
+  "S5_incomplete": 0,
+  "S5_pass": true,
+  "S4_shapes": "(13, (2, 256, 768))",
+  "S4_pass": true,
+  "samples": [
+    " Americans and 30 percent of African Americans.\n\nYet this is still in many ways a bittersweet victory, given that the 2016 election is the first in 50 years without the full protections of the Voting Rights Act. We\u2019re seeing the clear impact of that decision this year, with five-hour lines in Arizona ||>>  and six-hour lines in other elections across the country. Out of all Arizona Elections in Phoenix County, and the all Arizona Elections in Ohio, we\u2019re seeing lines. Many coming out of the Commonwealth for Arizona Elections in Arizona and the Commonwealth and Arizona Elections in Ohio are seeing lines in the third and fourth weeks of time, with just the fifth week for Arizona.\n\nWe\u2019re also connecting with people. Some people are already engaged in something that some people are trying to take part of, some people are part of, some people have been attempting to present this to other people of their own, to people in places that already know is that there is to be to people in their own. Some voters are really seeing the impact, as a result of, it will be for the first time in fifty years without the full protections of the Voting Rights Act.\n\nThat\u2019s also why there is a celebration in every D.",
+    "s guest post by Zarathustra, of the excellent Mental Nurse blog, flagged up the existence of a right-wing campaign group calling itself \u2018Nurses for Reform\u2019, and as Lib Con\u2019s resident data hound that naturally prompted me to ask a very pertinant question:\n\nJust ||>>  what do I do about the idea of Reform?\n\nSo what did I give my answer to that question, Zarathustra\u2019s answer, \u201cNational Students for Reform is a serious right-wing political lobby group focused on not to be anything about electoral politics in the U.S., not to say, not to be anything about the United States. Without being anything about the U.S., there is access to a lot of very good reasons for people to make it to the U.S., with none of those reasons making plenty of people to make it to the U.S. The following: \u201cIn this sphere, especially in the propaganda operations of some of the big political parties in Europe, and in particular, Europe and elsewhere, they say some things about the U.S., a couple things about a lot of Europe and elsewhere. With none of those reasons, people make it to the U.S., generally",
+    " fabric, especially into its union history. But labor has suffered reversals before, and it suffered a large one on Jan. 3, when the Machinists union voted by a narrow margin to abandon the Boeing pension plan. At stake was a key production line.\n\nNow union members and leaders are asking themselves \u2013 ||>>  what affect you be on the jobs jobs? and \u2013 how will the new benefits, benefits, benefits, benefits shape these jobs?\n\nWho will be the first to take the new jobs jobs?\n\nWhat will work in their new jobs?\n\nHow is it a low-wage worker to get a high-wage worker in that same job? How is it all made for that?\n\nWhy will the state-by-tener state workers?\n\nAdvertisement\n\nThe following: no answers.\n\nWhy? There are no answers.\n\nThe answer: many questions about what is best for workers and workers.\n\nThe questions should not work here.\n\nThe questions should not work everywhere.\n\nWhy? There is no answer.\n\nAnswer: There are many questions about what is best for workers and workers.\n\nNow members of the general assembly are recognizing that what is best for workers and workers"
+  ],
+  "ALL_PASS": true
+}

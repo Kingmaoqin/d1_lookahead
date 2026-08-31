@@ -1,0 +1,4 @@
+--- 父进程 1369563 完整命令行:
+/home/xqin5/.conda/envs/p08_skilloverload/bin/python3.12 /home/xqin5/.conda/envs/p08_skilloverload/bin/vllm serve Qwen/Qwen2.5-72B-Instruct-AWQ --served-model-name qwen25-72b --port 8010 --max-model-len 16384 --gpu-memory-utilization 0.90 --quantization awq_marlin --enable-auto-tool-choice --tool-call-parser hermes 
+--- 父进程 1825004 完整命令行:
+/home/xqin5/.conda/envs/p08_skilloverload/bin/python3.12 /home/xqin5/.conda/envs/p08_skilloverload/bin/vllm serve Qwen/Qwen2.5-32B-Instruct-AWQ --served-model-name qwen25-32b --port 8009 --max-model-len 16384 --gpu-memory-utilization 0.90 --quantization awq_marlin --enable-auto-tool-choice --tool-call-parser hermes 

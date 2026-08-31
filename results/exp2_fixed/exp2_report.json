@@ -1,0 +1,98 @@
+{
+  "confidence (p1)": {
+    "mean": 0.5739669687038108,
+    "per_seed": [
+      0.5350877192982456,
+      0.6153846153846154,
+      0.5714285714285714
+    ]
+  },
+  "logp1": {
+    "mean": 0.5739669687038108,
+    "per_seed": [
+      0.5350877192982456,
+      0.6153846153846154,
+      0.5714285714285714
+    ]
+  },
+  "scalar+history controls": {
+    "mean": 0.5473459289248763,
+    "per_seed": [
+      0.6228070175438597,
+      0.5192307692307693,
+      0.5
+    ]
+  },
+  "output-distribution controls": {
+    "mean": 0.6023873787031682,
+    "per_seed": [
+      0.49122807017543857,
+      0.6730769230769231,
+      0.6428571428571429
+    ]
+  },
+  "ALL cheap controls": {
+    "mean": 0.5292397660818714,
+    "per_seed": [
+      0.5877192982456141,
+      0.5,
+      0.5
+    ]
+  },
+  "future-stability (persist - flips)": {
+    "mean": 0.46312094338410126,
+    "per_seed": [
+      0.4649122807017544,
+      0.4423076923076923,
+      0.48214285714285715
+    ]
+  },
+  "HIDDEN linear probe": {
+    "mean": 0.5324770258980785,
+    "per_seed": [
+      0.543859649122807,
+      0.5,
+      0.5535714285714286
+    ]
+  },
+  "_hidden_above_chance": {
+    "accuracy": 0.5502461734164836,
+    "excess": 0.05024617341648367,
+    "ci_lo": -0.09259259259259262,
+    "ci_hi": 0.19495308716707022,
+    "ci_excludes_zero": false
+  },
+  "_gap_hidden_minus_cheap": {
+    "mean": 0.05103426152706851,
+    "ci_lo": -0.09263626834381548,
+    "ci_hi": 0.20370370370370366,
+    "ci_excludes_zero": false
+  },
+  "_gap_vs_best_control": {
+    "control": "output-distribution controls",
+    "mean": -0.09208713551884215,
+    "ci_lo": -0.2549019607843137,
+    "ci_hi": 0.05783730158730147,
+    "ci_excludes_zero": false
+  },
+  "_n_pairs_per_seed": [
+    114,
+    104,
+    112
+  ],
+  "_config": {
+    "tags": [
+      "a2",
+      "b2"
+    ],
+    "target": "A_pertok",
+    "seeds": 3,
+    "match_tol": 0.25,
+    "min_gap_sd": 1.0,
+    "mode": "caliper",
+    "ladder": false,
+    "n_boot": 1000,
+    "out": null,
+    "tag": "fixed"
+  }
+}

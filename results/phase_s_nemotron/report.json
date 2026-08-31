@@ -1,0 +1,24 @@
+{
+  "model": "nvidia/Nemotron-Labs-Diffusion-3B",
+  "provenance": "NVIDIA (US), NVIDIA Open Model License; non-Chinese-origin; instruction-tuned masked diffusion with a native block-diffusion mode",
+  "config": {
+    "n_prompts": 48,
+    "K": 8,
+    "gen_len": 160,
+    "batch": 2,
+    "temperature": 0.2,
+    "threshold": 0.9,
+    "top_k": 50
+  },
+  "S1_accuracy": 0.5989583134651184,
+  "S1_pass": true,
+  "S3_within_prompt_var": 0.0533854179084301,
+  "S3_frac_mixed": 0.3125,
+  "S3_between_var": 0.1868218183517456,
+  "S3_pass": true,
+  "S4_pass": true,
+  "S5_pass": true,
+  "mean_nfe": 386.3958333333333,
+  "seconds": 556.6310844421387,
+  "ALL_PASS": true
+}

@@ -1,0 +1,1884 @@
+你现在接手一个已经完成大量实验、但准备进行一次**高强度 rescue + independent audit + expanded probing study** 的 diffusion language model 研究项目。
+
+项目目录：
+
+`/home/xqin5/diffusion_LLM/d1_lookahead`
+
+前期完整实验报告：
+
+`https://claude.ai/code/artifact/95b0fc3b-64e6-46f7-8ae5-6dad5de34acc`
+
+---
+
+# 0. 第一件事：必须先读前期报告，不能直接跑新实验
+
+开始任何修改之前，请首先完整阅读上面的 Claude artifact 前期报告。
+
+这不是可选项。
+
+请尝试：
+
+1. 直接打开 artifact URL；
+2. 如果当前 Claude Code / browser 环境可以访问，完整阅读；
+3. 如果可以下载/导出，保存一个 snapshot 到：
+
+`/home/xqin5/diffusion_LLM/d1_lookahead/rescue_audit/PRIOR_REPORT_SNAPSHOT.md`
+
+4. 如果 URL 因 authentication/session 原因无法访问，不要假装看过。明确记录：
+
+   * 尝试方式；
+   * 错误信息；
+   * 是否需要登录；
+5. 然后在本地项目中寻找该 artifact 对应内容，例如：
+
+   * FINDINGS.md
+   * AUDIT.md
+   * PREREGISTRATION.md
+   * research report
+   * pasted markdown/report export
+   * docs/
+   * logs/
+   * results/
+
+如果本地存在相同或近似报告，请逐节对照。
+
+创建：
+
+`rescue_audit/REPORT_TO_CODE_AUDIT.md`
+
+至少记录：
+
+* artifact/report 中的每个 headline result；
+* 对应运行脚本；
+* 对应 data/result artifact；
+* 是否能从当前代码重新复现；
+* 是否发现 report 与 code/result 不一致。
+
+**不能只看总结。要真正理解整个 08-19 到 08-30 的实验过程、17 个已知 bug、每次修复为什么改变结论。**
+
+---
+
+# 1. 研究问题
+
+原方向研究：
+
+> POKE / LookUM 等方法为了判断当前应该优先 unmask 哪个位置，需要 rollout / lookahead 到未来。
+
+我们的核心问题是：
+
+> 它们未来搜索得到的 candidate-specific future value，是否其实已经存在于当前 frozen DLM representation 中，只是我们以前使用的 readout 太简单，没把它读出来？
+
+正式对象：
+
+$$
+V^\pi(s)
+$$
+
+= 当前状态在 reference policy 下的未来状态价值。
+
+$$
+Q^\pi(s,a)
+$$
+
+= 当前先执行 action \(a\)，再按 reference policy 继续时的未来价值。
+
+$$
+A^\pi(s,a)
+=
+Q^\pi(s,a)-V^\pi(s)
+$$
+
+= candidate action 的 advantage。
+
+已有工作较稳定地发现：
+
+* \(V\) 很容易从 hidden state 预测；
+* additive linear probe 对 candidate-level \(A\) 的排序提升很弱；
+* 原始 gate 因 G2/G3 失败而 KILL。
+
+但**这次不要把旧 KILL 当成真理**。
+
+我们要认真检验：
+
+> Action advantage 真的不存在于 representation 中，还是只是没有以此前假设的“单一局部 hidden state 上的线性标量”形式存在？
+
+---
+
+# 2. 这次允许更大胆探索
+
+这次 rescue 的精神是：
+
+> 尽可能认真寻找真实 signal，不是尽可能寻找 p < 0.05。
+
+因此：
+
+### Exploratory 阶段允许
+
+* 多种 probe；
+* 多种 loss；
+* 多种 representation；
+* 多种 layer combination；
+* 多种 timestep representation；
+* 多种 ranking metric；
+* 多种 statistical diagnostic；
+* 更大的样本量；
+* 更多 candidate；
+* 更多 rollout；
+* 更多 horizon；
+* 更多 backbone；
+* capable 3B DLM 上扩大 task-utility 实验。
+
+### 但最终必须
+
+把 exploratory 和 confirmatory 完全分开。
+
+任何 exploratory 阶段找到的最好结果，都必须：
+
+1. 固定 architecture；
+2. 固定 features；
+3. 固定 layer；
+4. 固定 timestep policy；
+5. 固定 hyperparameters；
+6. 固定 statistical endpoint；
+7. 写 preregistration；
+8. 在**全新的 untouched holdout** 上只验证一次。
+
+如果新 holdout 消失，就不能 claim rescue 成功。
+
+---
+
+# 3. 第一阶段：独立代码审计
+
+此前已经实际发现很多足以改变结论的 bug，因此请默认：
+
+> 还可能存在未知 bug。
+
+不要只做 code reading。
+
+至少用四种方式审计。
+
+## 3.1 Static audit
+
+逐文件检查：
+
+* rollout；
+* Q/V branching；
+* CRN；
+* Rao-Blackwell；
+* Path-LL；
+* task reward；
+* candidate extraction；
+* hidden-state extraction；
+* trajectory features；
+* train/val/test split；
+* regression；
+* MLP；
+* matching；
+* bootstrap；
+* metric calculation。
+
+## 3.2 Independent reference implementation
+
+重新写一个：
+
+**慢、简单、可读、尽可能不复用现有 optimized 代码路径**
+
+的 reference rollout implementation。
+
+在小规模上逐项对拍：
+
+* state；
+* selected position；
+* selected token；
+* Q；
+* V；
+* A；
+* first reward；
+* Path-LL；
+* CRN；
+* final sequence。
+
+## 3.3 Exact toy environment
+
+建立一个极小 finite-state masked diffusion toy problem。
+
+未来路径可以穷举。
+
+因此：
+
+$$
+Q,V,A
+$$
+
+有 exact ground truth。
+
+验证：
+
+* Monte Carlo estimator；
+* CRN；
+* Rao-Blackwell；
+* branch alignment；
+* horizon；
+* normalization；
+* advantage。
+
+## 3.4 Independent sub-agent audit
+
+如果环境支持 sub-agent：
+
+启动至少两个独立审计：
+
+### Auditor A
+
+只负责 implementation / rollout / label correctness。
+
+### Auditor B
+
+只负责 statistics / leakage / probe / evaluation。
+
+两者开始时不要共享彼此结论。
+
+最后汇总 discrepancy。
+
+如果没有 sub-agent 功能，则自己做两个完全分开的 audit pass。
+
+---
+
+# 4. 特别检查旧 MLP 到底排除了什么
+
+不要再简单写：
+
+> “MLP 以前试过，所以 nonlinear representation 已经排除。”
+
+必须重新查清旧实验：
+
+* 输入是否只有 \(h_i\)？
+* 是否包含 \(h_{global}\)？
+* 是否包含 candidate × global interaction？
+* 是否包含 action token embedding？
+* 是否包含 temporal delta？
+* 是否跨所有 layers？
+* 是否跨所有 timesteps？
+* loss 是 MSE 还是 ranking？
+* seed 几个？
+* sample size 多大？
+* normalization 怎么做？
+* hyperparameter search 多宽？
+* early stopping 是否正确？
+* test 有没有参与 model selection？
+
+然后写：
+
+`rescue_audit/WHAT_OLD_MLP_DID_AND_DID_NOT_TEST.md`
+
+---
+
+# 5. 最重要的新假设：candidate value 可能是 relational representation
+
+以前认为：
+
+> h_global 在同一 state 内对所有 candidate 相同，所以不能帮助 candidate ranking。
+
+对 additive linear model：
+
+$$
+f(i,s)
+=
+w_i^Th_i+w_g^Th_g
+$$
+
+确实如此。
+
+因为：
+
+$$
+f(i,s)-f(j,s)
+=
+w_i^T(h_i-h_j)
+$$
+
+但是如果真实编码是：
+
+$$
+f(i,s)
+=
+h_i^TWh_g
+$$
+
+那么：
+
+$$
+f(i,s)-f(j,s)
+=
+(h_i-h_j)^TWh_g
+$$
+
+此时：
+
+> h_global 虽然不随 candidate 改变，却决定“在这个 state 下应该如何解释不同的 h_i”。
+
+因此这次必须重点测试：
+
+$$
+\boxed{
+\text{candidate representation}
+\times
+\text{global state representation}
+}
+$$
+
+是否携带 action advantage。
+
+---
+
+# 6. Probe family：尽量充分，但容量必须受控
+
+请至少实现下面这些 probe。
+
+所有 probe：
+
+* backbone frozen；
+* train/val/test 严格分开；
+* test 不参与任何选择；
+* hyperparameters validation-only；
+* 至少 3–5 random initializations；
+* 保存完整 config。
+
+---
+
+## P0. Original ridge probe
+
+完整复现旧 baseline：
+
+* cheap only；
+* h_i only；
+* h_global only；
+* cheap + h_i；
+* cheap + [h_i ; h_global]；
+* two-block ridge。
+
+作为 anchor。
+
+---
+
+## P1. Residualized linear probe
+
+先用 cross-fitting：
+
+$$
+\hat A_{cheap}
+=
+f(C)
+$$
+
+得到 out-of-fold residual：
+
+$$
+r=A-\hat A_{cheap}
+$$
+
+然后只问：
+
+$$
+h_i\rightarrow r
+$$
+
+能不能预测。
+
+再测：
+
+$$
+[h_i,h_g]\rightarrow r
+$$
+
+这样直接测：
+
+> hidden representation 是否包含 cheap/output controls 没解释掉的剩余 advantage。
+
+报告：
+
+* partial \(R^2\)；
+* residual Spearman；
+* residual pairwise concordance。
+
+---
+
+## P2. Low-rank bilinear probe
+
+核心：
+
+$$
+\hat A_i
+=
+h_i^TUV^Th_g
++
+w_i^Th_i
++
+w_g^Th_g
++b
+$$
+
+rank：
+
+* 2
+* 4
+* 8
+* 16
+* 32
+* 64
+
+validation 选择。
+
+必须做：
+
+* shuffled h_global；
+* Gaussian h_global；
+* Gaussian h_i；
+* label permutation；
+* capacity-matched controls。
+
+这是本轮最关键 probe 之一。
+
+---
+
+## P3. FiLM / gated state-conditioned probe
+
+令：
+
+$$
+\gamma(s),\beta(s)=g(h_g)
+$$
+
+然后：
+
+$$
+\tilde h_i
+=
+\gamma(s)\odot h_i+\beta(s)
+$$
+
+再预测 A。
+
+保持 g 很小，例如一层或两层 MLP。
+
+目的：
+
+> state 是否在调制 candidate representation 的解释方式？
+
+---
+
+## P4. Relational MLP
+
+输入：
+
+$$
+[
+h_i,\,
+h_g,\,
+h_i-h_g,\,
+|h_i-h_g|,\,
+h_i\odot h_g
+]
+$$
+
+必要时 train-only PCA / projection 到 128–512 维。
+
+MLP：
+
+* 1 hidden layer；
+* 2 hidden layers；
+
+width：
+
+* 64
+* 128
+* 256
+* 512
+* 1024
+
+控制 parameter count。
+
+---
+
+## P5. Kernel probe
+
+测试：
+
+* RBF kernel ridge；
+* polynomial degree-2 kernel；
+* random Fourier feature approximation。
+
+高维时先 train-only PCA。
+
+目的：
+
+> 是否存在低复杂度 nonlinear decodability？
+
+---
+
+## P6. Tree / boosting diagnostic
+
+只作为 exploratory nonlinear upper-bound diagnostic。
+
+如果环境允许：
+
+* XGBoost；
+* LightGBM；
+* HistGradientBoosting。
+
+输入必须是降维后的 hidden + controls。
+
+不能拿它单独作为“representation linearly exists”的证据。
+
+但如果：
+
+* linear = 0；
+* bilinear = 0；
+* MLP = 0；
+* boosting 明显 > 0；
+
+说明可能存在高度 nonlinear structure，值得进一步定位。
+
+必须有 equal-capacity cheap-only baseline。
+
+---
+
+## P7. Direct pairwise logistic ranker
+
+不要先回归 A。
+
+对同一 state candidate \(i,j\)：
+
+目标：
+
+$$
+y_{ij}
+=
+1[A_i>A_j]
+$$
+
+输入：
+
+$$
+h_i-h_j
+$$
+
+先做 linear pairwise probe。
+
+再做：
+
+$$
+[
+h_i-h_j,\,
+h_g,\,
+(h_i-h_j)\odot h_g
+]
+$$
+
+训练 pairwise logistic loss。
+
+---
+
+## P8. RankNet / Siamese pairwise MLP
+
+训练：
+
+$$
+P(A_i>A_j)
+$$
+
+而不是直接回归 A。
+
+使用共享 candidate encoder。
+
+必须控制网络大小。
+
+至少测试：
+
+* candidate-only；
+* candidate + state-conditioned；
+* cheap-only；
+* cheap + hidden。
+
+---
+
+## P9. Listwise ranker
+
+一个 state 同时有多个 candidate。
+
+测试一个非常小的 listwise scoring model。
+
+loss 可以尝试：
+
+* ListNet；
+* softmax cross-entropy over oracle ranks；
+* Plackett–Luce style ranking likelihood。
+
+不要使用 Transformer-sized controller。
+
+目的：
+
+> regression objective 是否掩盖了真正的相对排序信息？
+
+---
+
+## P10. Action-conditioned probe
+
+Action 不只是位置 i，而是：
+
+$$
+a_i=(i,\hat x_i)
+$$
+
+因此加入：
+
+* proposed token embedding；
+* unembedding vector；
+* positional embedding；
+* top-1 token representation；
+* \(h_i\) × token embedding；
+* \(h_g\) × token embedding。
+
+分别报告：
+
+1. controls；
+2. action embedding；
+3. hidden；
+4. hidden + action；
+5. controls + hidden + action。
+
+---
+
+## P11. Temporal-delta probe
+
+测试：
+
+$$
+h_{i,t}
+$$
+
+以及：
+
+$$
+h_{i,t-1}
+$$
+
+$$
+\Delta h_i
+=
+h_{i,t}-h_{i,t-1}
+$$
+
+以及 global：
+
+$$
+\Delta h_g
+=
+h_{g,t}-h_{g,t-1}
+$$
+
+加入：
+
+* cosine change；
+* L2 change；
+* candidate/global delta interaction；
+* probability/logit delta。
+
+绝对禁止 \(t+1\) 信息。
+
+---
+
+## P12. Multi-layer probe
+
+不要只测试 single best layer。
+
+测试：
+
+### learned scalar mix
+
+$$
+h^{mix}
+=
+\sum_l\alpha_lh^{(l)}
+$$
+
+### sparse layer mix
+
+用 L1 / sparsemax 类约束，让 mixture 不使用所有 layer。
+
+### predefined adjacent combinations
+
+* mid + late；
+* best val layer ± 1；
+* best val layer ± 2。
+
+不能在 test 上挑 layer。
+
+---
+
+## P13. Partial Least Squares / CCA diagnostic
+
+作为 representation diagnostic：
+
+* PLS regression；
+* regularized CCA；
+
+测试 hidden representation 与 A/residual-A 是否存在低维共享子空间。
+
+不作为 headline proof，但可帮助定位。
+
+---
+
+# 7. 不只回归：增加完整 ranking / decision metric 套件
+
+Primary metrics 不要只有 R²。
+
+至少报告：
+
+### Candidate ranking
+
+* pairwise concordance；
+* pairwise AUC；
+* Kendall \(\tau\)；
+* Spearman \(\rho\)。
+
+### Selection
+
+* oracle-best top-1 accuracy；
+* top-2 recall；
+* top-3 recall；
+* top-m recall。
+
+### Decision quality
+
+定义：
+
+$$
+Regret
+=
+A_{oracle-best}
+-
+A_{selected}
+$$
+
+报告：
+
+* mean regret；
+* median regret；
+* normalized regret；
+* worst-quartile regret。
+
+### Regression
+
+* pooled R²；
+* within-state R²；
+* partial R²；
+* noise-ceiling-normalized R²；
+* MAE；
+* RMSE。
+
+### Ranking quality
+
+可以额外报告：
+
+* state-wise rank correlation；
+* normalized rank regret；
+* appropriate listwise score。
+
+不要只挑好看的指标。
+
+---
+
+# 8. 多套统计方法，但每套都必须事先定义
+
+我们希望从多个角度确认，而不是赌一个 CI。
+
+---
+
+## S1. Cluster refit bootstrap
+
+cluster unit：
+
+* document；
+* prompt；
+* trajectory；
+
+视数据结构确定。
+
+每个 bootstrap：
+
+重新 fit probe。
+
+报告：
+
+* point estimate；
+* 95% percentile CI；
+* BCa CI 如果实现稳定。
+
+---
+
+## S2. Paired permutation / randomization test
+
+对：
+
+$$
+\Delta concordance
+$$
+
+$$
+\Delta regret
+$$
+
+$$
+\Delta top1
+$$
+
+做 state-level paired permutation。
+
+---
+
+## S3. Wilcoxon / sign test
+
+在 state-level 比较：
+
+* baseline regret；
+* hidden probe regret。
+
+作为 nonparametric corroboration。
+
+---
+
+## S4. Cross-fitted residual test
+
+先预测：
+
+$$
+A\sim cheap
+$$
+
+再用严格 out-of-fold residual：
+
+$$
+r_A
+$$
+
+测试：
+
+$$
+r_A\sim hidden
+$$
+
+报告：
+
+* cross-fitted partial R²；
+* residual correlation；
+* permutation significance。
+
+---
+
+## S5. Hierarchical / mixed-effects analysis
+
+如果实现合理：
+
+建立 hierarchical model：
+
+* candidate nested in state；
+* state nested in prompt/document；
+* timestep；
+* backbone。
+
+目标是估计：
+
+> hidden probe 相对 baseline 的 ranking/regret improvement 是否在不同 state/backbone/timestep 上具有稳定正 effect。
+
+可用 frequentist mixed model 或 Bayesian hierarchical model。
+
+Bayesian 结果报告：
+
+* posterior mean；
+* 95% credible interval；
+* \(P(\Delta>0)\)。
+
+这只能作为补充证据。
+
+---
+
+## S6. Conditional-independence diagnostics
+
+可以探索：
+
+> A 是否在给定 cheap/output features 后仍与 H 条件相关？
+
+允许尝试：
+
+* residual HSIC；
+* kernel conditional independence；
+* generalized covariance measure；
+* nearest-neighbor conditional MI；
+* distance correlation on cross-fitted residuals。
+
+但：
+
+**这些只能作为 secondary diagnostic。**
+
+不能因为某个高维 CI estimator 给 p<0.05 就宣称成功。
+
+必须检查：
+
+* Type-I calibration；
+* label permutation；
+* synthetic null；
+* synthetic nonlinear positive。
+
+---
+
+# 9. 多重比较必须正式处理
+
+我们这次会尝试很多：
+
+* probe；
+* layer；
+* timestep；
+* horizon；
+* metric。
+
+因此 exploratory 阶段至少使用一种：
+
+* BH-FDR；
+* Benjamini–Yekutieli；
+* max-T / max-statistic permutation；
+* Westfall–Young permutation correction。
+
+最好同时报告：
+
+* uncorrected；
+* corrected。
+
+最终 fresh confirmatory test 不需要承担整个 exploratory search 的所有 comparison，因为 architecture 已提前锁死。
+
+---
+
+# 10. Synthetic tests 必须比以前更全面
+
+创建：
+
+`rescue_audit/synthetic/`
+
+至少四类。
+
+---
+
+## Synthetic A — linear
+
+$$
+A=w^Th_i+\epsilon
+$$
+
+应当：
+
+* linear 成功；
+* nonlinear 也成功。
+
+---
+
+## Synthetic B — bilinear
+
+$$
+A=h_i^TWh_g+\epsilon
+$$
+
+必须出现：
+
+* h_i linear 失败；
+* additive [h_i;h_g] linear 失败；
+* bilinear 成功；
+* relational MLP 成功；
+* shuffled h_global 失败。
+
+这是本次 rescue 最重要 self-test。
+
+---
+
+## Synthetic C — temporal
+
+$$
+A=w^T(h_t-h_{t-1})+\epsilon
+$$
+
+要求：
+
+* static probe 弱；
+* temporal-delta probe 成功。
+
+---
+
+## Synthetic D — ranking-only
+
+制造一个：
+
+* absolute A scale 随 state 大幅变化；
+* candidate relative order 有稳定 hidden signal。
+
+要求：
+
+* pooled regression 容易被 state-level variance 干扰；
+* direct pairwise/listwise ranking 能恢复 candidate order。
+
+---
+
+## Synthetic E — nonlinear
+
+例如：
+
+$$
+A=\sin(u^Th_i)+\cos(v^Th_g)+\epsilon
+$$
+
+验证 nonlinear probe。
+
+---
+
+## Synthetic F — null
+
+A 完全独立。
+
+所有 probe：
+
+* held-out Δ≈0；
+* permutation calibrated；
+* multiple-testing correction 后不能出现系统性假阳性。
+
+---
+
+# 11. 扩大实验规模
+
+这次不要只在原来 14,400 candidate examples 上反复挖。
+
+但也不要一开始烧掉所有 GPU。
+
+分阶段扩。
+
+---
+
+# Phase R0 — Audit
+
+无大规模新采集。
+
+完成：
+
+* report audit；
+* code audit；
+* synthetic；
+* old-result reproduction。
+
+---
+
+# Phase R1 — Existing-data broad screen
+
+使用现有：
+
+* MDLM ancestral；
+* MDLM confidence；
+* SEDD ancestral；
+* Nemotron task utility；
+
+完整跑 P0–P13。
+
+这里是 exploratory。
+
+---
+
+# Phase R2 — Expanded MDLM/SEDD label collection
+
+如果 R1 任意几个合理 probe 显示 candidate-level signal：
+
+扩大样本量。
+
+原实验约：
+
+* 400 docs；
+* 2,400 states；
+* 6 candidates/state；
+* 14,400 examples；
+* K=24。
+
+新采集建议目标至少提升约 2–4 倍。
+
+Aim：
+
+* 800–1,200 documents；
+* 5,000–8,000 independent states；
+* 每 state 8–12 candidates；
+* 40,000–80,000 candidate examples/backbone。
+
+Rollout：
+
+* K=24 起；
+* 关键 subset K=32/48；
+* 如果 noise ceiling 仍限制，则 K=64 on subset。
+
+不要机械全量 K=64。
+
+用 variance/power analysis 决定。
+
+---
+
+# 12. 增加 horizon 扫描
+
+已有：
+
+* H=8；
+* H=16；
+* H=32。
+
+新增探索：
+
+* H=4；
+* H=12；
+* H=24；
+* H=48；
+
+必要时小 subset H=64。
+
+目的不是找哪个 H 显著。
+
+而是判断：
+
+> representation 是否主要编码 short-, medium-, 或 long-horizon advantage？
+
+画：
+
+$$
+\text{decodability}
+\times
+\text{horizon}
+$$
+
+surface/heatmap。
+
+如果 signal 只在某个 horizon 出现，fresh test 必须预先锁定该 horizon。
+
+---
+
+# 13. 更重要：扩大 capable 3B DLM 的 A_task 实验
+
+之前 Nemotron task-utility candidate-level experiment 的独立 state 数量相对小。
+
+这次必须认真扩大。
+
+模型：
+
+`NVIDIA Nemotron-Labs-Diffusion-3B`
+
+保持 frozen。
+
+首先重新审核旧 task-utility collection。
+
+然后在 GSM8K 上扩大 candidate-level：
+
+建议目标：
+
+* 800–1,200 problems；
+* 每题多个 early/mid denoising state；
+* 总计至少 3,000–5,000 independent states；
+* 每 state 6–10 candidate actions；
+* 18,000–50,000 candidate examples。
+
+对每个 candidate：
+
+构造：
+
+$$
+A_{task}
+=
+P(correct|s,a,\pi)
+-
+P(correct|s,\pi)
+$$
+
+rollout 到完成。
+
+K：
+
+* pilot K=8；
+* 检查 SNR/noise ceiling；
+* 如不足升到 K=16；
+* 高不确定 subset K=24/32。
+
+不要浪费 compute 在已经接近 0/1 的 state。
+
+可以使用 adaptive rollout allocation，但必须保证 estimator correctness。
+
+---
+
+# 14. 增加第二个 verifiable task
+
+在 Nemotron 上寻找至少一个额外 qualified task。
+
+优先：
+
+* MBPP / code with unit tests；
+* 一个严格 exact-match reasoning task；
+* 另一个数学 benchmark，如果模型能力非退化。
+
+先做 substrate qualification。
+
+如果：
+
+* accuracy 太接近 0；
+* accuracy 太接近 1；
+* within-state reward variance 几乎为 0；
+
+则不能用。
+
+目标是：
+
+> 检验 action-value decodability 是否 task-dependent。
+
+---
+
+# 15. Candidate 数量也要增加
+
+以前每 state 6 candidate。
+
+这可能太少，而且 candidate diversity 不够。
+
+测试：
+
+* top-confidence candidates；
+* medium-confidence candidates；
+* uncertainty-matched candidates；
+* high-instability candidates；
+* random masked candidates。
+
+每 state 可取：
+
+* 8；
+* 12；
+* 16；
+
+但必须保存 natural test distribution。
+
+不要只采人为挑过的“容易显著”candidate。
+
+最终至少分别报告：
+
+### natural candidate set
+
+和
+
+### informative/challenging candidate set。
+
+---
+
+# 16. Candidate proposal 也要审计
+
+当前：
+
+$$
+a_i=(i,\arg\max_vp(v|s))
+$$
+
+但未来价值可能取决于：
+
+* position；
+* token；
+* token uncertainty；
+* alternative token choice。
+
+所以 exploratory 可以增加一个小实验：
+
+对同一 position：
+
+不仅测试 top-1 token action；
+
+还测试：
+
+* top-2；
+* top-3；
+* sampled plausible token。
+
+这样可以形成：
+
+$$
+A(s,i,x)
+$$
+
+而不仅是：
+
+$$
+A(s,i,\hat x_i)
+$$
+
+目的：
+
+> 判断 hidden state 是否对“位置价值”弱，但对“position-token action value”有信息。
+
+这是 exploratory。
+
+如成功，需要 fresh confirmatory test。
+
+---
+
+# 17. 不只 Path-LL
+
+保留：
+
+### Primary proxy reward
+
+POKE-style Path-LL。
+
+但扩大 secondary：
+
+### downstream task reward
+
+* exact match；
+* unit-test pass；
+* task-specific machine-verifiable reward。
+
+### hybrid diagnostic
+
+分别研究：
+
+$$
+A_{PathLL}
+$$
+
+$$
+A_{task}
+$$
+
+不要把两者混成一个标签。
+
+再计算：
+
+> 两种 advantage 之间本身相关多少？
+
+如果 Path-LL 与 task advantage 相关很弱，那么“probe 读不出 Path-LL A”不能简单外推到 task A。
+
+---
+
+# 18. Layer × timestep × horizon 三维分析
+
+旧工作主要是：
+
+layer × timestep。
+
+这次对最好几个 probe 增加：
+
+$$
+layer\times timestep\times horizon
+$$
+
+不要只展示最大值。
+
+至少输出：
+
+* mean effect；
+* median effect；
+* positive fraction；
+* corrected significance；
+* smoothness/stability。
+
+重点找：
+
+> candidate-level information 是否只在某个计算阶段短暂出现。
+
+---
+
+# 19. Representation geometry diagnostics
+
+除了 supervised probe，可以增加 exploratory geometry。
+
+例如：
+
+* PCA；
+* supervised PLS；
+* CKA；
+* RSA；
+* within-state candidate distance；
+* advantage-conditioned clustering；
+* local neighborhood analysis。
+
+问：
+
+> Oracle advantage 相近的 candidate hidden representation 是否在 embedding geometry 中更近？
+
+这不能替代 probe，但可能解释“为什么 linear 不工作”。
+
+---
+
+# 20. Fisher / gradient diagnostic（如果成本允许）
+
+不对 backbone 训练。
+
+但允许 exploratory 地计算：
+
+* gradient of candidate logit wrt hidden；
+* gradient norm；
+* local Jacobian projection；
+* directional derivative；
+
+看这些 local sensitivity features 是否预测 future advantage。
+
+这属于：
+
+> 当前 representation 的 local geometry
+
+而不是改 backbone。
+
+如果成本过高，只做 subset。
+
+---
+
+# 21. Fresh confirmatory holdout
+
+这是最重要的纪律。
+
+探索结束后：
+
+选出最多：
+
+* 1 个 primary probe；
+* 1 个 secondary probe；
+
+不能带十几个方法进 final test。
+
+创建：
+
+`rescue_audit/RESCUE_PREREGISTRATION.md`
+
+写死：
+
+* backbone；
+* task；
+* candidate definition；
+* probe；
+* layer；
+* timestep；
+* horizon；
+* K；
+* loss；
+* optimizer；
+* hyperparameters；
+* primary metric；
+* secondary metrics；
+* statistical test；
+* success threshold。
+
+git commit。
+
+然后采：
+
+**完全新的 prompts/documents/problems/states。**
+
+fresh test 至少不小于旧 test set。
+
+如果 compute 允许：
+
+aim for 2× old test size。
+
+---
+
+# 22. Rescue 成功标准
+
+不要要求每个指标都 p<0.05。
+
+但必须出现**一致且有实际意义的 decision improvement**。
+
+Primary success 可以定义为：
+
+$$
+\Delta pairwise\ concordance \ge 0.02
+$$
+
+同时：
+
+* refit bootstrap CI > 0；
+* paired permutation p < 0.05。
+
+并且至少满足下面若干：
+
+* top-1 candidate accuracy 提升；
+* regret 显著下降；
+* top-k recall 提升；
+* within-state R² 提升；
+* matched candidate improvement；
+* effect 跨 timestep；
+* effect 跨 seeds。
+
+必须：
+
+* Gaussian control = 0；
+* label permutation = 0；
+* shuffled h_global = 0（如果 state-conditioned probe 成功）；
+* capacity-matched cheap probe 不产生同样 gain。
+
+---
+
+# 23. 如果不同统计方法结论不一致
+
+不要选择显著的那个。
+
+建立 evidence table：
+
+| Probe | ΔConcord | ΔRegret | ΔTop1 | Δwithin-R² | Bootstrap CI | Permutation p | FDR | Fresh holdout |
+| ----- | -------: | ------: | ----: | ---------: | ------------ | ------------: | --: | ------------- |
+
+然后解释：
+
+* 哪些结果稳定；
+* 哪些仅某个 metric 有效；
+* 哪些受 outlier 驱动；
+* 哪些只在 exploratory data 出现。
+
+---
+
+# 24. 最新 prior-art
+
+开始新实验前重新搜索截至当前日期的：
+
+* POKE / POKE-SMC
+* LookUM
+* AdaLook
+* Learning Unmasking Policies
+* Probing Functional Correctness in Diffusion Language Models
+* Unsure but Certain
+* TraceLock
+* SAS / Scheduling Thoughts
+* nonlinear probing language models
+* bilinear probes hidden states
+* state-conditioned probes
+* action-value representation probing
+* amortized lookahead diffusion language models
+
+尤其确认：
+
+> 是否已经有人直接研究 frozen DLM hidden representation 中 rollout-defined action advantage 的 nonlinear / relational decodability。
+
+保存：
+
+`rescue_audit/PRIOR_ART_RESCUE_2026_08_31.md`
+
+---
+
+# 25. 不要忘记原有 V positive finding
+
+原方向 rescue 不代表丢掉 V。
+
+始终并行维护：
+
+$$
+V\text{ decodability}
+$$
+
+和：
+
+$$
+A\text{ decodability}
+$$
+
+最终可能有三种科学结果。
+
+---
+
+## Outcome 1 — REVIVE
+
+发现：
+
+> A 的确存在，但以前 linear/additive probe 读不出来。
+
+例如：
+
+$$
+A_i\approx h_i^TWh_g
+$$
+
+并在 fresh holdout 和第二 backbone/task 上复现。
+
+这是非常强的结果。
+
+---
+
+## Outcome 2 — PARTIAL
+
+只有：
+
+* 某些 timestep；
+* 某些 horizon；
+* 某些 task；
+* 某些 candidate subset；
+
+有弱但真实的 A signal。
+
+则不要夸大。
+
+研究问题变成：
+
+> Under what conditions does action foresight emerge?
+
+---
+
+## Outcome 3 — KILL CONFIRMED
+
+经过：
+
+* code audit；
+* exact toy validation；
+* linear；
+* bilinear；
+* FiLM；
+* MLP；
+* kernel；
+* boosting；
+* pairwise ranking；
+* listwise ranking；
+* temporal；
+* multi-layer；
+* action-conditioned；
+* larger data；
+* capable 3B DLM；
+* more candidates；
+* multiple horizons；
+* multiple statistical analyses；
+
+仍然没有 robust candidate-level signal。
+
+那么 negative result 会比现在强得多：
+
+> DLM representations strongly expose state value but fail to expose local counterfactual action value even under broad nonlinear and state-conditioned readouts.
+
+这本身可能成为很好的 paper。
+
+---
+
+# 26. 实验规模策略
+
+我们的 GPU 资源大致是：
+
+4× A100 80GB 单节点。
+
+这次可以明显比以前多花算力。
+
+但按 evidence 逐步增加。
+
+目标不是死守原来的 70 GPU-hours。
+
+如果 R1/R2 显示真正有希望，可以继续扩大：
+
+* labels；
+* states；
+* candidates；
+* K；
+* backbones/tasks。
+
+建议预留总 budget：
+
+**原项目的约 2–4 倍 compute 是可以接受的，只要每次扩容都有明确 scientific reason。**
+
+不要为了省算力导致：
+
+* SNR < 1；
+* validation 太小；
+* candidate 数太少；
+* capable DLM 实验严重欠功效。
+
+---
+
+# 27. 每个重要结果做 power / uncertainty analysis
+
+对：
+
+* concordance；
+* regret；
+* top1；
+* within-R²；
+
+估算当前 CI width。
+
+回答：
+
+> 如果真实 effect 是 +0.02 concordance，我们现在有多少 power？
+
+然后用这个决定下一轮样本量。
+
+不要凭感觉决定 400 / 800 / 1600。
+
+---
+
+# 28. 保存所有 exploratory trial
+
+禁止只留下成功实验。
+
+创建：
+
+`rescue_audit/EXPERIMENT_REGISTRY.csv`
+
+字段至少：
+
+* experiment_id；
+* date；
+* git_hash；
+* dataset；
+* backbone；
+* probe；
+* features；
+* layer；
+* timestep；
+* horizon；
+* K；
+* seeds；
+* primary_metric；
+* result；
+* status；
+* exploratory/confirmatory；
+* output_path。
+
+这样最终可以诚实计算：
+
+> 我们到底试过多少方法？
+
+---
+
+# 29. 最终输出
+
+必须生成：
+
+`rescue_audit/FINAL_RESCUE_REPORT.md`
+
+结构：
+
+## 1. Prior report reconstruction
+
+原报告到底做了什么。
+
+## 2. Code audit
+
+新发现的 bug / 无 bug。
+
+## 3. Old result reproduction
+
+是否复现。
+
+## 4. Synthetic validation
+
+每类 synthetic probe 是否按预期工作。
+
+## 5. Expanded probe benchmark
+
+P0–P13 全部结果。
+
+## 6. Statistical robustness
+
+bootstrap / permutation / FDR / residual tests / hierarchical diagnostics。
+
+## 7. Expanded-data experiments
+
+MDLM / SEDD。
+
+## 8. Nemotron-3B action utility
+
+大样本结果。
+
+## 9. Horizon / timestep / layer
+
+完整图。
+
+## 10. Fresh holdout
+
+单独报告。
+
+## 11. Replication
+
+第二 backbone/task。
+
+## 12. Final verdict
+
+只能：
+
+### REVIVE
+
+### PARTIAL
+
+### KILL CONFIRMED
+
+---
+
+# 30. 如果真的找到 signal
+
+不要马上停。
+
+必须问：
+
+> 它是真 representation signal，还是 probe 本身重新学会了 future-value function？
+
+因此分析：
+
+* parameter count；
+* training sample complexity；
+* shuffled hidden controls；
+* cross-model transfer；
+* frozen probe transfer across timestep；
+* frozen probe transfer across dataset；
+* linearization of nonlinear probe。
+
+如果一个 tiny rank-8 bilinear probe 就稳定成功，比 2-layer 1024 MLP 才成功更有说服力。
+
+---
+
+# 31. 如果发现代码 bug
+
+如果任何 bug 会实质改变旧 KILL：
+
+立即：
+
+1. 记录旧结果为什么错；
+2. 不删除旧结果；
+3. 修复；
+4. 重跑受影响实验；
+5. 标明 affected / unaffected experiments；
+6. 更新 `REPORT_TO_CODE_AUDIT.md`。
+
+不要为了维护旧报告而弱化 bug。
+
+---
+
+# 32. 立即开始
+
+不要先给我一个计划然后停。
+
+直接：
+
+`cd /home/xqin5/diffusion_LLM/d1_lookahead`
+
+然后：
+
+1. 打开并完整阅读前期 artifact：
+   `https://claude.ai/code/artifact/95b0fc3b-64e6-46f7-8ae5-6dad5de34acc`
+2. 重建 artifact → code → result provenance；
+3. 创建 rescue_audit；
+4. 独立 audit；
+5. 运行 exact toy validation；
+6. 复现 old baseline；
+7. 实现 P0–P13；
+8. 在已有数据上进行 broad exploratory screen；
+9. 做多指标、多统计方法分析；
+10. 增加 candidate / state / rollout / horizon；
+11. 扩大 Nemotron-3B A_task；
+12. 根据 power/SNR 扩大数据；
+13. 锁定最佳 scientific hypothesis；
+14. 写 rescue preregistration；
+15. 收 fresh holdout；
+16. confirm；
+17. 如果成功，再 replicate；
+18. 写 FINAL_RESCUE_REPORT.md。
+
+不要因为旧 KILL 而保守。
+
+也不要因为我们希望 revive 而降低统计标准。
+
+最终真正要回答的是：
+
+> **Does the current diffusion-language-model representation contain actionable information about the counterfactual future value of alternative unmasking actions—and if so, is that information linear, nonlinear, relational, temporal, action-conditioned, or distributed across layers?**
+
+把这个问题尽可能彻底地做完。

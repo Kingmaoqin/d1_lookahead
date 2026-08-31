@@ -1,0 +1,35 @@
+{
+  "target": "A_pertok",
+  "G1": true,
+  "G2": false,
+  "G3": false,
+  "G4": true,
+  "passed": false,
+  "delta_r2": {
+    "per_seed": [
+      0.09322380045951728,
+      0.09156211472436815,
+      0.0717405007938694
+    ],
+    "mean": 0.08550880532591827,
+    "boot_mean": 0.09302933760345336,
+    "ci_lo": 0.06997927456850686,
+    "ci_hi": 0.11674189990646075,
+    "ci_excludes_zero": true
+  },
+  "delta_concordance": {
+    "per_seed": [
+      0.011666666666666714,
+      0.014555555555555544,
+      0.01633333333333331
+    ],
+    "mean": 0.01418518518518519,
+    "boot_mean": 0.0117766022005205,
+    "ci_lo": 0.0,
+    "ci_hi": 0.02439861289861291,
+    "ci_excludes_zero": false
+  },
+  "noise_ceiling": 0.8089139304556611,
+  "bins_positive_frac": 1.0,
+  "natural_stratum_delta_r2": 0.11266204767441546
+}

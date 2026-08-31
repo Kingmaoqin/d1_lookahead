@@ -1,0 +1,98 @@
+{
+  "confidence (p1)": {
+    "mean": 0.6052520859312428,
+    "per_seed": [
+      0.5918367346938775,
+      0.6557377049180327,
+      0.5681818181818182
+    ]
+  },
+  "logp1": {
+    "mean": 0.6052520859312428,
+    "per_seed": [
+      0.5918367346938775,
+      0.6557377049180327,
+      0.5681818181818182
+    ]
+  },
+  "scalar+history controls": {
+    "mean": 0.4899961474902927,
+    "per_seed": [
+      0.45918367346938777,
+      0.4426229508196721,
+      0.5681818181818182
+    ]
+  },
+  "output-distribution controls": {
+    "mean": 0.6257565619392317,
+    "per_seed": [
+      0.673469387755102,
+      0.5901639344262295,
+      0.6136363636363636
+    ]
+  },
+  "ALL cheap controls": {
+    "mean": 0.49881383253748596,
+    "per_seed": [
+      0.45918367346938777,
+      0.4918032786885246,
+      0.5454545454545454
+    ]
+  },
+  "future-stability (persist - flips)": {
+    "mean": 0.5666218052049433,
+    "per_seed": [
+      0.5510204081632653,
+      0.6147540983606558,
+      0.5340909090909091
+    ]
+  },
+  "HIDDEN linear probe": {
+    "mean": 0.6031889656011437,
+    "per_seed": [
+      0.6020408163265306,
+      0.639344262295082,
+      0.5681818181818182
+    ]
+  },
+  "_hidden_above_chance": {
+    "accuracy": 0.5687548263892683,
+    "excess": 0.06875482638926832,
+    "ci_lo": -0.06818181818181818,
+    "ci_hi": 0.21119047619047615,
+    "ci_excludes_zero": false
+  },
+  "_gap_hidden_minus_cheap": {
+    "mean": 0.019631270927275978,
+    "ci_lo": -0.09090909090909088,
+    "ci_hi": 0.1395348837209302,
+    "ci_excludes_zero": false
+  },
+  "_gap_vs_best_control": {
+    "control": "output-distribution controls",
+    "mean": -0.04767811787304084,
+    "ci_lo": -0.19565217391304346,
+    "ci_hi": 0.10260416666666665,
+    "ci_excludes_zero": false
+  },
+  "_n_pairs_per_seed": [
+    98,
+    122,
+    88
+  ],
+  "_config": {
+    "tags": [
+      "a",
+      "b"
+    ],
+    "target": "A_pertok",
+    "seeds": 3,
+    "match_tol": 0.5,
+    "min_gap_sd": 0.5,
+    "mode": "strict",
+    "ladder": false,
+    "n_boot": 1000,
+    "out": null,
+    "tag": "strict"
+  }
+}

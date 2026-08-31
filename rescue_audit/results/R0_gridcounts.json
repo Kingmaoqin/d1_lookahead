@@ -1,0 +1,226 @@
+{
+  "MDLM_anc": {
+    "within_r2_h_local": {
+      "n_cells": 78,
+      "n_positive": 49,
+      "median": 0.0017496632151172697,
+      "max": 0.015972211762672606,
+      "shape": [
+        13,
+        6
+      ]
+    },
+    "concordance_h_local": {
+      "n_cells": 78,
+      "n_positive": 40,
+      "median": 0.0006666666666666488,
+      "max": 0.01733333333333331,
+      "shape": [
+        13,
+        6
+      ]
+    },
+    "r2_h_global": {
+      "n_cells": 78,
+      "n_positive": 75,
+      "median": 0.031214814881620867,
+      "max": 0.07658718041677925,
+      "shape": [
+        13,
+        6
+      ]
+    }
+  },
+  "MDLM_conf": {
+    "within_r2_h_local": {
+      "n_cells": 78,
+      "n_positive": 44,
+      "median": 0.00017532209605675142,
+      "max": 0.039835962895315546,
+      "shape": [
+        13,
+        6
+      ]
+    },
+    "concordance_h_local": {
+      "n_cells": 78,
+      "n_positive": 30,
+      "median": 0.0,
+      "max": 0.008000000000000007,
+      "shape": [
+        13,
+        6
+      ]
+    },
+    "r2_h_global": {
+      "n_cells": 78,
+      "n_positive": 74,
+      "median": 0.06178669989496555,
+      "max": 0.12021371269252201,
+      "shape": [
+        13,
+        6
+      ]
+    }
+  },
+  "SEDD_anc": {
+    "within_r2_h_local": {
+      "n_cells": 78,
+      "n_positive": 48,
+      "median": 0.0016043294263367591,
+      "max": 0.013188642291482977,
+      "shape": [
+        13,
+        6
+      ]
+    },
+    "concordance_h_local": {
+      "n_cells": 78,
+      "n_positive": 38,
+      "median": 0.0,
+      "max": 0.011333333333333306,
+      "shape": [
+        13,
+        6
+      ]
+    },
+    "r2_h_global": {
+      "n_cells": 78,
+      "n_positive": 72,
+      "median": 0.049311669913383316,
+      "max": 0.09245676196773789,
+      "shape": [
+        13,
+        6
+      ]
+    }
+  },
+  "MDLM_H8": {
+    "within_r2_h_local": {
+      "n_cells": 78,
+      "n_positive": 42,
+      "median": 0.0005281465287162446,
+      "max": 0.028054687731596473,
+      "shape": [
+        13,
+        6
+      ]
+    },
+    "concordance_h_local": {
+      "n_cells": 78,
+      "n_positive": 31,
+      "median": 0.0,
+      "max": 0.008666666666666711,
+      "shape": [
+        13,
+        6
+      ]
+    },
+    "r2_h_global": {
+      "n_cells": 78,
+      "n_positive": 75,
+      "median": 0.04888252244877883,
+      "max": 0.09039638248096393,
+      "shape": [
+        13,
+        6
+      ]
+    }
+  },
+  "MDLM_H32": {
+    "within_r2_h_local": {
+      "n_cells": 78,
+      "n_positive": 36,
+      "median": 0.0,
+      "max": 0.02140879450494504,
+      "shape": [
+        13,
+        6
+      ]
+    },
+    "concordance_h_local": {
+      "n_cells": 78,
+      "n_positive": 30,
+      "median": 0.0,
+      "max": 0.011333333333333306,
+      "shape": [
+        13,
+        6
+      ]
+    },
+    "r2_h_global": {
+      "n_cells": 78,
+      "n_positive": 36,
+      "median": 0.0,
+      "max": 0.02754697363356995,
+      "shape": [
+        13,
+        6
+      ]
+    }
+  },
+  "MDLM_K8_v2": {
+    "within_r2_h_local": {
+      "n_cells": 78,
+      "n_positive": 49,
+      "median": 0.0015925397045646883,
+      "max": 0.02646339243019813,
+      "shape": [
+        13,
+        6
+      ]
+    },
+    "concordance_h_local": {
+      "n_cells": 78,
+      "n_positive": 27,
+      "median": 0.0,
+      "max": 0.012666666666666604,
+      "shape": [
+        13,
+        6
+      ]
+    },
+    "r2_h_global": {
+      "n_cells": 78,
+      "n_positive": 53,
+      "median": 0.007625174360929132,
+      "max": 0.03583246980747201,
+      "shape": [
+        13,
+        6
+      ]
+    }
+  },
+  "Nemotron_task": {
+    "within_r2_h_local": {
+      "n_cells": 52,
+      "n_positive": 7,
+      "median": 0.0,
+      "max": 0.04737610133369874,
+      "shape": [
+        13,
+        4
+      ]
+    },
+    "concordance_h_local": {
+      "n_cells": 52,
+      "n_positive": 11,
+      "median": 0.0,
+      "max": 0.275,
+      "shape": [
+        13,
+        4
+      ]
+    },
+    "r2_h_global": {
+      "n_cells": 52,
+      "n_positive": 5,
+      "median": -0.00040291140725878805,
+      "max": 0.018009045813969893,
+      "shape": [
+        13,
+        4
+      ]
+    }
+  }
+}

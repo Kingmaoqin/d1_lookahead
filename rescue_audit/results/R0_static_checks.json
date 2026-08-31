@@ -1,0 +1,402 @@
+{
+  "MDLM_anc_K24_H16": {
+    "tags": [
+      "a3",
+      "b3"
+    ],
+    "n_examples": 14400,
+    "n_states": 2400,
+    "n_docs": 400,
+    "branch_lengths": {
+      "V_n_unique": [
+        17.0
+      ],
+      "n_commit_unique": [
+        17.0
+      ],
+      "V_n_equals_n_commit_frac": 1.0
+    },
+    "corr_Afull_negV": 0.4142764897170476,
+    "corr_Afuture_logpaction": -0.2779393264892008,
+    "corr_Afull_logpaction": 0.4284849017325975,
+    "contamination_identity": {
+      "H": 16,
+      "max_abs_err": 0.05805961787700653,
+      "corr": 0.9665527990572547
+    },
+    "ceiling_A_full": {
+      "ceiling": 0.8422684761216724,
+      "snr": 5.3398867608189065,
+      "noise_var": 0.0005455542705021799,
+      "obs_var": 0.0034587522968649864
+    },
+    "ceiling_A_future": {
+      "ceiling": 0.6209069665768082,
+      "snr": 1.637874906246755,
+      "noise_var": 0.0008453011978417635,
+      "obs_var": 0.0022297988180071115
+    },
+    "ceiling_V": {
+      "ceiling": 0.9941509074085929,
+      "snr": 169.96669002455354,
+      "noise_var": 0.0031448935624212027,
+      "obs_var": 0.5376720428466797
+    },
+    "vardecomp_A_pertok": {
+      "within_frac": 0.6218734109820825,
+      "between_frac": 0.3781265890179175
+    },
+    "vardecomp_A_future": {
+      "within_frac": 0.6122733216832869,
+      "between_frac": 0.3877266783167132
+    },
+    "label_sd": {
+      "A_pertok": 0.05881115794181824,
+      "A_future": 0.04722074419260025,
+      "V_pertok": 0.733261227607727
+    },
+    "stratum_counts": {
+      "0": 7200,
+      "1": 7200
+    }
+  },
+  "MDLM_conf_K24_H16": {
+    "tags": [
+      "c3",
+      "d3"
+    ],
+    "n_examples": 14400,
+    "n_states": 2400,
+    "n_docs": 400,
+    "branch_lengths": {
+      "V_n_unique": [
+        17.0
+      ],
+      "n_commit_unique": [
+        17.0
+      ],
+      "V_n_equals_n_commit_frac": 1.0
+    },
+    "corr_Afull_negV": 0.3286874475517439,
+    "corr_Afuture_logpaction": -0.2237399545365181,
+    "corr_Afull_logpaction": 0.5035522388802758,
+    "contamination_identity": {
+      "H": 16,
+      "max_abs_err": 0.08336712419986725,
+      "corr": 0.9666839560217793
+    },
+    "ceiling_A_full": {
+      "ceiling": 0.8089139304556611,
+      "snr": 4.233243859087087,
+      "noise_var": 0.0008610491058789194,
+      "obs_var": 0.004506079945713282
+    },
+    "ceiling_A_future": {
+      "ceiling": 0.5767094555917579,
+      "snr": 1.3624435112246471,
+      "noise_var": 0.0012420531129464507,
+      "obs_var": 0.0029342803172767162
+    },
+    "ceiling_V": {
+      "ceiling": 0.9917276143937274,
+      "snr": 119.8841134341875,
+      "noise_var": 0.0035201183054596186,
+      "obs_var": 0.42552638053894043
+    },
+    "vardecomp_A_pertok": {
+      "within_frac": 0.6738708716661967,
+      "between_frac": 0.32612912833380314
+    },
+    "vardecomp_A_future": {
+      "within_frac": 0.6449906159639915,
+      "between_frac": 0.3550093840360085
+    },
+    "label_sd": {
+      "A_pertok": 0.06712733954191208,
+      "A_future": 0.05416899919509888,
+      "V_pertok": 0.652323842048645
+    },
+    "stratum_counts": {
+      "0": 7200,
+      "1": 7200
+    }
+  },
+  "SEDD_anc_K24_H16": {
+    "tags": [
+      "s1",
+      "s2"
+    ],
+    "n_examples": 14400,
+    "n_states": 2400,
+    "n_docs": 400,
+    "branch_lengths": {
+      "V_n_unique": [
+        17.0
+      ],
+      "n_commit_unique": [
+        17.0
+      ],
+      "V_n_equals_n_commit_frac": 1.0
+    },
+    "corr_Afull_negV": 0.39948792666474725,
+    "corr_Afuture_logpaction": -0.28197613544910655,
+    "corr_Afull_logpaction": 0.48227503574792585,
+    "contamination_identity": {
+      "H": 16,
+      "max_abs_err": 0.06041339412331581,
+      "corr": 0.9706468862972112
+    },
+    "ceiling_A_full": {
+      "ceiling": 0.8596784548818136,
+      "snr": 6.126489372375042,
+      "noise_var": 0.0005001226672902703,
+      "obs_var": 0.0035641188733279705
+    },
+    "ceiling_A_future": {
+      "ceiling": 0.6265594947229983,
+      "snr": 1.6778027178874027,
+      "noise_var": 0.000794406863860786,
+      "obs_var": 0.0021272648591548204
+    },
+    "ceiling_V": {
+      "ceiling": 0.9935367863317736,
+      "snr": 153.72179187206106,
+      "noise_var": 0.0031568268314003944,
+      "obs_var": 0.4884299039840698
+    },
+    "vardecomp_A_pertok": {
+      "within_frac": 0.640582833960086,
+      "between_frac": 0.35941716603991397
+    },
+    "vardecomp_A_future": {
+      "within_frac": 0.6092453862151671,
+      "between_frac": 0.39075461378483284
+    },
+    "label_sd": {
+      "A_pertok": 0.059700243175029755,
+      "A_future": 0.04612228274345398,
+      "V_pertok": 0.6988776326179504
+    },
+    "stratum_counts": {
+      "0": 7200,
+      "1": 7200
+    }
+  },
+  "MDLM_anc_K16_H8": {
+    "tags": [
+      "h8a",
+      "h8b"
+    ],
+    "n_examples": 14400,
+    "n_states": 2400,
+    "n_docs": 400,
+    "branch_lengths": {
+      "V_n_unique": [
+        9.0
+      ],
+      "n_commit_unique": [
+        9.0
+      ],
+      "V_n_equals_n_commit_frac": 1.0
+    },
+    "corr_Afull_negV": 0.45995140110118016,
+    "corr_Afuture_logpaction": -0.20085094597988365,
+    "corr_Afull_logpaction": 0.5377035146096689,
+    "contamination_identity": {
+      "H": 8,
+      "max_abs_err": 0.11864624172449112,
+      "corr": 0.9576492129526867
+    },
+    "ceiling_A_full": {
+      "ceiling": 0.8553773693240576,
+      "snr": 5.91454715853366,
+      "noise_var": 0.0016995363403111696,
+      "obs_var": 0.011751524172723293
+    },
+    "ceiling_A_future": {
+      "ceiling": 0.308533137556735,
+      "snr": 0.4462009017562288,
+      "noise_var": 0.003486277535557747,
+      "obs_var": 0.005041857715696096
+    },
+    "vardecomp_A_pertok": {
+      "within_frac": 0.5844713235583487,
+      "between_frac": 0.41552867644165126
+    },
+    "vardecomp_A_future": {
+      "within_frac": 0.374453698086156,
+      "between_frac": 0.625546301913844
+    },
+    "label_sd": {
+      "A_pertok": 0.10840445011854172,
+      "A_future": 0.07100603729486465,
+      "V_pertok": 0.7731354236602783
+    },
+    "stratum_counts": {
+      "0": 7200,
+      "1": 7200
+    }
+  },
+  "MDLM_anc_K16_H32": {
+    "tags": [
+      "h32a",
+      "h32b"
+    ],
+    "n_examples": 14400,
+    "n_states": 2400,
+    "n_docs": 400,
+    "branch_lengths": {
+      "V_n_unique": [
+        33.0
+      ],
+      "n_commit_unique": [
+        33.0
+      ],
+      "V_n_equals_n_commit_frac": 1.0
+    },
+    "corr_Afull_negV": 0.2977014094659163,
+    "corr_Afuture_logpaction": -0.27463297775643736,
+    "corr_Afull_logpaction": 0.18372578266381318,
+    "contamination_identity": {
+      "H": 32,
+      "max_abs_err": 0.04281260073184967,
+      "corr": 0.9717804025264213
+    },
+    "ceiling_A_full": {
+      "ceiling": 0.6562751621039491,
+      "snr": 1.9093038667820086,
+      "noise_var": 0.0006294037448242307,
+      "obs_var": 0.0018311267485842109
+    },
+    "ceiling_A_future": {
+      "ceiling": 0.5948831059413101,
+      "snr": 1.4684233480895725,
+      "noise_var": 0.0007544599357061088,
+      "obs_var": 0.0018623265204951167
+    },
+    "ceiling_V": {
+      "ceiling": 0.994598835039094,
+      "snr": 184.14524315366506,
+      "noise_var": 0.0024371969047933817,
+      "obs_var": 0.45123541355133057
+    },
+    "vardecomp_A_pertok": {
+      "within_frac": 0.6325627298405652,
+      "between_frac": 0.36743727015943484
+    },
+    "vardecomp_A_future": {
+      "within_frac": 0.6586603855414568,
+      "between_frac": 0.3413396144585432
+    },
+    "label_sd": {
+      "A_pertok": 0.04279166832566261,
+      "A_future": 0.04315468296408653,
+      "V_pertok": 0.6717405915260315
+    },
+    "stratum_counts": {
+      "0": 7200,
+      "1": 7200
+    }
+  },
+  "MDLM_anc_K8_v2": {
+    "tags": [
+      "a2",
+      "b2"
+    ],
+    "n_examples": 14400,
+    "n_states": 2400,
+    "n_docs": 400,
+    "branch_lengths": {
+      "V_n_unique": [
+        17.0
+      ],
+      "n_commit_unique": [
+        17.0
+      ],
+      "V_n_equals_n_commit_frac": 1.0
+    },
+    "corr_Afull_negV": 0.4446121909613806,
+    "corr_Afuture_logpaction": -0.25620010662206305,
+    "corr_Afull_logpaction": 0.24255852847834827,
+    "contamination_identity": {
+      "H": 16,
+      "max_abs_err": 0.09411439299583435,
+      "corr": 0.9328574996455901
+    },
+    "ceiling_A_full": {
+      "ceiling": 0.6721599133019192,
+      "snr": 2.050267616970631,
+      "noise_var": 0.001353742554783821,
+      "obs_var": 0.00412927707657218
+    },
+    "ceiling_A_future": {
+      "ceiling": 0.4261737025395365,
+      "snr": 0.7426876468116205,
+      "noise_var": 0.0021651694551110268,
+      "obs_var": 0.0037732140626758337
+    },
+    "vardecomp_A_pertok": {
+      "within_frac": 0.5526682460615275,
+      "between_frac": 0.4473317539384725
+    },
+    "vardecomp_A_future": {
+      "within_frac": 0.5329578382327488,
+      "between_frac": 0.4670421617672513
+    },
+    "label_sd": {
+      "A_pertok": 0.06425945460796356,
+      "A_future": 0.061426494270563126,
+      "V_pertok": 0.8278783559799194
+    },
+    "stratum_counts": {
+      "0": 7200,
+      "1": 7200
+    }
+  },
+  "MDLM_anc_K8_v1_CONTAMINATED": {
+    "tags": [
+      "a",
+      "b"
+    ],
+    "n_examples": 14400,
+    "n_states": 2400,
+    "n_docs": 400,
+    "corr_Afull_negV": 0.5884998513562215,
+    "corr_Afuture_logpaction": -0.43996105773729866,
+    "corr_Afull_logpaction": 0.14950763532799682,
+    "contamination_identity": {
+      "H": 16,
+      "max_abs_err": 5.960464477539063e-08,
+      "corr": 0.9999999999999964
+    },
+    "ceiling_A_full": {
+      "ceiling": 0.7569843574165489,
+      "snr": 3.1149614459760633,
+      "noise_var": 0.000950180517975241,
+      "obs_var": 0.003909956198185682
+    },
+    "ceiling_A_future": {
+      "ceiling": 0.602686064605239,
+      "snr": 1.5169013994095761,
+      "noise_var": 0.0009793161880224943,
+      "obs_var": 0.0024648422840982676
+    },
+    "vardecomp_A_pertok": {
+      "within_frac": 0.507148467399646,
+      "between_frac": 0.4928515326003539
+    },
+    "vardecomp_A_future": {
+      "within_frac": 0.7103219449006343,
+      "between_frac": 0.2896780550993658
+    },
+    "label_sd": {
+      "A_pertok": 0.06252964586019516,
+      "A_future": 0.04964717850089073,
+      "V_pertok": 0.8334263563156128
+    },
+    "stratum_counts": {
+      "0": 7200,
+      "1": 7200
+    }
+  }
+}

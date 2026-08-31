@@ -1,0 +1,107 @@
+{
+  "confidence (p1)": {
+    "mean": 0.5552618290158057,
+    "per_seed": [
+      0.5962732919254659,
+      0.526829268292683,
+      0.5426829268292683
+    ]
+  },
+  "logp1": {
+    "mean": 0.5552618290158057,
+    "per_seed": [
+      0.5962732919254659,
+      0.526829268292683,
+      0.5426829268292683
+    ]
+  },
+  "scalar+history controls": {
+    "mean": 0.5720850376205625,
+    "per_seed": [
+      0.65527950310559,
+      0.5121951219512195,
+      0.5487804878048781
+    ]
+  },
+  "output-distribution controls": {
+    "mean": 0.5182977326667676,
+    "per_seed": [
+      0.5341614906832298,
+      0.526829268292683,
+      0.49390243902439024
+    ]
+  },
+  "ALL cheap controls": {
+    "mean": 0.5613644397313539,
+    "per_seed": [
+      0.6304347826086957,
+      0.5170731707317073,
+      0.5365853658536586
+    ]
+  },
+  "future-stability (persist - flips)": {
+    "mean": 0.4509783871130637,
+    "per_seed": [
+      0.4937888198757764,
+      0.45365853658536587,
+      0.4054878048780488
+    ]
+  },
+  "HIDDEN [h_i; h_global]": {
+    "mean": 0.5613644397313539,
+    "per_seed": [
+      0.6304347826086957,
+      0.5170731707317073,
+      0.5365853658536586
+    ]
+  },
+  "HIDDEN linear probe": {
+    "mean": 0.5678685047720043,
+    "per_seed": [
+      0.6304347826086957,
+      0.5365853658536586,
+      0.5365853658536586
+    ]
+  },
+  "_hidden_above_chance": {
+    "accuracy": 0.5373071946749991,
+    "excess": 0.03730719467499914,
+    "ci_lo": -0.03125988700564971,
+    "ci_hi": 0.10943822008527623,
+    "ci_excludes_zero": false
+  },
+  "_gap_hidden_minus_cheap": {
+    "mean": 0.0,
+    "ci_lo": 0.0,
+    "ci_hi": 0.0,
+    "ci_excludes_zero": false
+  },
+  "_gap_vs_best_control": {
+    "control": "scalar+history controls",
+    "mean": -0.0122122912963114,
+    "ci_lo": -0.04473603625673686,
+    "ci_hi": 0.01961508885850994,
+    "ci_excludes_zero": false
+  },
+  "_n_pairs_per_seed": [
+    322,
+    410,
+    328
+  ],
+  "_config": {
+    "tags": [
+      "s1",
+      "s2"
+    ],
+    "target": "A_pertok",
+    "seeds": 3,
+    "match_tol": 0.25,
+    "min_gap_sd": 0.5,
+    "mode": "caliper",
+    "ladder": false,
+    "n_boot": 500,
+    "out": null,
+    "tag": "seddplacebo",
+    "placebo": true
+  }
+}

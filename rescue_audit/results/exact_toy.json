@@ -1,0 +1,30 @@
+{
+  "status": "VALIDATED",
+  "state": [
+    -1,
+    -1,
+    -1
+  ],
+  "action": [
+    1,
+    1
+  ],
+  "horizon": 2,
+  "exact": {
+    "Q": -0.5174794885959143,
+    "V": -0.5302499542583016,
+    "A_full": 0.01277046566238719,
+    "A_future": 0.027384328440127614,
+    "V_first": -0.6766899206668516
+  },
+  "mc_mean_crn": 0.012083437853009063,
+  "mc_mean_independent": 0.012071454293622287,
+  "variance_crn": 0.00549194324247637,
+  "variance_independent": 0.0062068834721673875,
+  "rb_equals_expected_realized_pathll": true,
+  "branch_commit_counts": {
+    "Q": 3,
+    "V": 3
+  },
+  "noop_identical": true
+}
