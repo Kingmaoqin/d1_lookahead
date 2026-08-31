@@ -81,8 +81,14 @@ def build(scenario, hi, hg, sid, rng, snr=2.0, dim=64):
         noise = rng.normal(0, 1.0 / np.sqrt(max(snr, 1e-9)), size=len(Zi))
         return 5.0 * state_part + 1.0 * cand_part + noise
     elif scenario == "E_nonlinear":
-        u = rng.normal(size=dim); v = rng.normal(size=dim)
-        sig = np.sin(Zi @ u / np.sqrt(dim) * 3) + np.cos(Zg @ v / np.sqrt(dim) * 3)
+        # 频率必须温和：第一版用 sin(Zi@u/sqrt(dim)*3)，自变量方差约 9，
+        # 得到的是高频、在本样本量下**不可学**的函数——那测的是样本量，
+        # 不是探针。改为把投影标准化到单位方差后再过温和非线性。
+        u = rng.normal(size=dim); v = rng.normal(size=dim); w = rng.normal(size=dim)
+        zi = Zi @ u; zi /= (zi.std() + 1e-12)
+        zg = Zg @ v; zg /= (zg.std() + 1e-12)
+        zw = Zi @ w; zw /= (zw.std() + 1e-12)
+        sig = np.tanh(1.5 * zi) + 0.7 * (zw ** 2 - 1.0) + 0.5 * np.cos(zg)
     elif scenario == "F_null":
         return rng.normal(size=len(hi))
     else:

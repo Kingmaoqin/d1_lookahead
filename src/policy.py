@@ -174,7 +174,7 @@ def sample_tokens(lp_top, idx, seeds, positions, cfg):
 
 
 @torch.no_grad()
-def rollout(model, ids, mask, seeds, cfg, horizon=None):
+def rollout(model, ids, mask, seeds, cfg, horizon=None, return_trace=False):
     """Run pi_ref to completion (or `horizon` commits) from (ids, mask).
 
     Returns path_ll (B,) float64 -- the future Path-LL -- and n_commit (B,).
@@ -194,6 +194,7 @@ def rollout(model, ids, mask, seeds, cfg, horizon=None):
     first_ll = torch.zeros(B, device=ids.device, dtype=torch.float64)
     first_ll_rb = torch.zeros(B, device=ids.device, dtype=torch.float64)
     n_done = torch.zeros(B, device=ids.device, dtype=torch.long)
+    trace = []
     steps = 0
     while mask.any() and (horizon is None or steps < horizon):
         logits, _ = forward_raw(model, ids)
@@ -206,6 +207,10 @@ def rollout(model, ids, mask, seeds, cfg, horizon=None):
         sel = torch.zeros_like(mask)
         sel.scatter_(1, score.argmax(1, keepdim=True), True)
         sel &= mask
+        if return_trace:
+            pos_sel = score.argmax(1)
+            tok_sel = proposed.gather(1, pos_sel[:, None]).squeeze(1)
+            trace.append((pos_sel.detach().cpu(), tok_sel.detach().cpu()))
         step_ll = (logp * sel).sum(1).double()
         step_rb = (rb * sel).sum(1).double()
         if steps == 0:
@@ -217,10 +222,13 @@ def rollout(model, ids, mask, seeds, cfg, horizon=None):
         ids = torch.where(sel, proposed, ids)
         mask = mask & ~sel
         steps += 1
-    return {"path_ll": path_ll, "path_ll_rb": path_ll_rb,
+    out = {"path_ll": path_ll, "path_ll_rb": path_ll_rb,
             "first_ll": first_ll, "first_ll_rb": first_ll_rb,
             "n_commit": n_done, "ids": ids,
             "incomplete": int(mask.any(1).sum().item())}
+    if return_trace:
+        out["trace"] = trace
+    return out
 
 
 def make_initial_state(token_windows, cfg, device):

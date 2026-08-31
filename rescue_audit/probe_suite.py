@@ -109,6 +109,26 @@ def fit_ridge(Xtr, ytr, Xva, yva, alphas=None):
     alphas = np.logspace(-3, 6, 10) if alphas is None else alphas
     scaler = StandardScaler().fit(Xtr)
     xt, xv = scaler.transform(Xtr), scaler.transform(Xva)
+    try:
+        import torch
+        use_gpu = torch.cuda.is_available()
+    except Exception:
+        use_gpu = False
+    if use_gpu:
+        # One Gram eigendecomposition serves the entire alpha path.
+        xg=torch.as_tensor(xt,dtype=torch.float32,device='cuda')
+        yg=torch.as_tensor((ytr-ytr.mean()).astype(np.float32),device='cuda')
+        G=(xg.T@xg).double(); b=(xg.T@yg).double()
+        lam,V=torch.linalg.eigh(G); lam=lam.clamp(min=0); vb=V.T@b
+        best=None
+        xvg=torch.as_tensor(xv,dtype=torch.float32,device='cuda')
+        for a in alphas:
+            w=(V@(vb/(lam+float(a)))).float()
+            pred=(xvg@w).cpu().numpy()+float(ytr.mean())
+            loss=float(np.mean((pred-yva)**2))
+            if best is None or loss<best[0]: best=(loss,float(a),w.cpu().numpy())
+        return {"scaler":scaler,"w":best[2],"b":float(ytr.mean()),
+                "alpha":best[1],"val_mse":best[0],"solver":"gpu_gram_eigh"}
     best = None
     for a in alphas:
         # LSQR is much more stable and faster than repeatedly factorising an
@@ -122,6 +142,8 @@ def fit_ridge(Xtr, ytr, Xva, yva, alphas=None):
 
 
 def predict_sklearn(m, X):
+    if "w" in m:
+        return m["scaler"].transform(X) @ m["w"] + m["b"]
     return m["model"].predict(m["scaler"].transform(X))
 
 
@@ -268,7 +290,8 @@ def fit_torch_score(kind, xc, hi, hg, y, state, tr, va, te, cfg: SuiteConfig,
     tensors=[torch.as_tensor(x,device=dev) for x in (xc_,hi_,hg_)]
     ta=torch.as_tensor(ac_,device=dev) if ac_ is not None else None
     tl=torch.as_tensor(layers,device=dev) if layers is not None else None
-    ty=torch.as_tensor(y.astype(np.float32),device=dev)
+    ym=float(y[tr].mean()); ys=float(y[tr].std()) or 1.0
+    ty=torch.as_tensor(((y-ym)/ys).astype(np.float32),device=dev)
     ptr=make_pairs(state,y,tr,seed=cfg.seed) if objective=="pairwise" else None
     groups=[np.where(state==s)[0] for s in np.unique(state[tr])] if objective=="listwise" else None
     best,bad=None,0
@@ -277,7 +300,7 @@ def fit_torch_score(kind, xc, hi, hg, y, state, tr, va, te, cfg: SuiteConfig,
         with torch.no_grad():
             p=net(tensors[0][ix],tensors[1][ix],tensors[2][ix],
                   None if ta is None else ta[ix],None if tl is None else tl[ix])
-        return p.cpu().numpy()
+        return p.cpu().numpy()*ys+ym
     for ep in range(cfg.epochs):
         net.train(); opt.zero_grad()
         if objective=="mse":
@@ -297,7 +320,7 @@ def fit_torch_score(kind, xc, hi, hg, y, state, tr, va, te, cfg: SuiteConfig,
             for ix in gs:
                 ii=torch.as_tensor(ix,device=dev)
                 s=net(tensors[0][ii],tensors[1][ii],tensors[2][ii],None if ta is None else ta[ii],None if tl is None else tl[ii])
-                target=torch.softmax(ty[ii]/max(float(np.std(y[tr])),1e-3),0)
+                target=torch.softmax(ty[ii],0)
                 losses.append(-(target*torch.log_softmax(s,0)).sum())
             loss=torch.stack(losses).mean()
         loss.backward(); opt.step()
