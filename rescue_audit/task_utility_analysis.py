@@ -85,33 +85,36 @@ def main():
     ragged = len(rep["group_sizes"]) > 1
     which = ["P0", "P2k", "P13"] if ragged else ["P0", "P2k", "P7k", "P13"]
     rep["probe_screen"] = {}
+    sp = RD.doc_splits(d, seed=0)
+    RD.check_split_disjoint(d, sp)
+    doc = {k: d["doc_id"][v] for k, v in sp.items()}
+    s_ = SC.split_sid(d, sp)
+    nL = d["H_i"].shape[1]
+
+    # 每层只准备一次（3072 维的 PCA 很贵），两个目标、两种准则共用
+    preps = {}
+    for L in range(nL):
+        preps[L] = SC.prepare(d, sp, L, pca_dim=64, groups=groups)
+    print(f"  prepared {nL} layers", flush=True)
+
     for tgt in ("A_task", "A_pertok"):
         rep["probe_screen"][tgt] = {}
+        y = SC.split_targets(d, sp, tgt)
         for crit in ("pooled_r2", "within_r2"):
             best = None
-            for L in range(d["H_i"].shape[1]):
-                sp = RD.doc_splits(d, seed=0)
-                prep = SC.prepare(d, sp, L, pca_dim=64, groups=groups)
-                y = SC.split_targets(d, sp, tgt)
-                s_ = SC.split_sid(d, sp)
-                doc = {k: d["doc_id"][v] for k, v in sp.items()}
-                R = SC.run_probes(prep, y, s_, doc, crit, which=["P0"],
+            for L in range(nL):
+                R = SC.run_probes(preps[L], y, s_, doc, crit, which=["P0"],
                                   kron_dims=(16,))
                 v = R["P0_cheap+H"]["val_score"]
                 if best is None or v > best[1]:
                     best = (L, v)
             L = best[0]
-            sp = RD.doc_splits(d, seed=0)
-            prep = SC.prepare(d, sp, L, pca_dim=64, groups=groups)
-            y = SC.split_targets(d, sp, tgt)
-            s_ = SC.split_sid(d, sp)
-            doc = {k: d["doc_id"][v] for k, v in sp.items()}
-            R = SC.run_probes(prep, y, s_, doc, crit, which=which,
+            R = SC.run_probes(preps[L], y, s_, doc, crit, which=which,
                               kron_dims=(16, 32), seeds=(0, 1, 2), epochs=300)
             sc = SC.score_all(R, y["test"], s_["test"])
             rep["probe_screen"][tgt][crit] = {"layer": int(L), "probes": sc}
             base = sc.get("P0_cheap", {})
-            print(f"\n[task] target={tgt} crit={crit} layer={L}")
+            print(f"\n[task] target={tgt} crit={crit} layer={L}", flush=True)
             for k, v in sorted(sc.items(),
                                key=lambda kv: -(kv[1].get("concordance") or 0)):
                 print(f"   {k:22s} within={v['within_r2']:+.4f} "
