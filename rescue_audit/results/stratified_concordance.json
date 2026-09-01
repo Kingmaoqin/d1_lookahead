@@ -1,0 +1,129 @@
+{
+  "config": {
+    "arms": [
+      "MDLM_anc",
+      "SEDD_anc",
+      "FRESH_MDLM_anc"
+    ],
+    "layer": 8,
+    "target": "A_pertok",
+    "n_rep": 30,
+    "out": "/home/xqin5/diffusion_LLM/d1_lookahead/rescue_audit/results/stratified_concordance.json"
+  },
+  "arms": {
+    "MDLM_anc": {
+      "n_pairs": {
+        "within_nat": 1800,
+        "within_inf": 1800,
+        "cross": 5400,
+        "all": 9000
+      },
+      "cheap": {
+        "within_nat": 0.7783333333333333,
+        "within_inf": 0.7505555555555555,
+        "cross": 0.787962962962963,
+        "all": 0.7785555555555556
+      },
+      "cheap+H": {
+        "within_nat": 0.7833333333333333,
+        "within_inf": 0.7761111111111111,
+        "cross": 0.795,
+        "all": 0.7888888888888889
+      },
+      "confidence_only": {
+        "within_nat": 0.7666666666666667,
+        "within_inf": 0.7494444444444445,
+        "cross": 0.7835185185185185,
+        "all": 0.7733333333333333
+      },
+      "split_half_reliability": {
+        "within_nat": 0.7819629629629629,
+        "within_inf": 0.7715740740740741,
+        "cross": 0.7998456790123458,
+        "all": 0.7906148148148149
+      },
+      "delta_hidden": {
+        "within_nat": 0.0050000000000000044,
+        "within_inf": 0.025555555555555554,
+        "cross": 0.007037037037037064,
+        "all": 0.010333333333333306
+      }
+    },
+    "SEDD_anc": {
+      "n_pairs": {
+        "within_nat": 1800,
+        "within_inf": 1800,
+        "cross": 5400,
+        "all": 9000
+      },
+      "cheap": {
+        "within_nat": 0.8016666666666666,
+        "within_inf": 0.7783333333333333,
+        "cross": 0.820925925925926,
+        "all": 0.8085555555555556
+      },
+      "cheap+H": {
+        "within_nat": 0.8027777777777778,
+        "within_inf": 0.7861111111111111,
+        "cross": 0.8235185185185185,
+        "all": 0.8118888888888889
+      },
+      "confidence_only": {
+        "within_nat": 0.7983333333333333,
+        "within_inf": 0.7733333333333333,
+        "cross": 0.8172222222222222,
+        "all": 0.8046666666666666
+      },
+      "split_half_reliability": {
+        "within_nat": 0.7964074074074073,
+        "within_inf": 0.7802407407407408,
+        "cross": 0.8114506172839507,
+        "all": 0.8021999999999999
+      },
+      "delta_hidden": {
+        "within_nat": 0.0011111111111111738,
+        "within_inf": 0.007777777777777772,
+        "cross": 0.002592592592592591,
+        "all": 0.0033333333333332993
+      }
+    },
+    "FRESH_MDLM_anc": {
+      "n_pairs": {
+        "within_nat": 900,
+        "within_inf": 900,
+        "cross": 2700,
+        "all": 4500
+      },
+      "cheap": {
+        "within_nat": 0.75,
+        "within_inf": 0.7077777777777777,
+        "cross": 0.7596296296296297,
+        "all": 0.7473333333333333
+      },
+      "cheap+H": {
+        "within_nat": 0.7633333333333333,
+        "within_inf": 0.7277777777777777,
+        "cross": 0.7707407407407407,
+        "all": 0.7606666666666667
+      },
+      "confidence_only": {
+        "within_nat": 0.7266666666666667,
+        "within_inf": 0.7044444444444444,
+        "cross": 0.7462962962962963,
+        "all": 0.734
+      },
+      "split_half_reliability": {
+        "within_nat": 0.7597037037037037,
+        "within_inf": 0.798,
+        "cross": 0.7987407407407408,
+        "all": 0.7907851851851853
+      },
+      "delta_hidden": {
+        "within_nat": 0.013333333333333308,
+        "within_inf": 0.020000000000000018,
+        "cross": 0.011111111111111072,
+        "all": 0.01333333333333342
+      }
+    }
+  }
+}
