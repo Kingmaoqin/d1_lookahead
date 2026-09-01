@@ -258,7 +258,18 @@ def main():
     shard, n_ex, sid = [], 0, 0
     t0 = time.time()
     for k, (o, stratum) in enumerate(todo):
-        r = rows[o["qi"] - args.offset]
+        # DEFECT 18 (rescue 轮发现)：screen() 里的 `qi` 是 `rows` 内的**局部
+        # 下标**（`for qi, r in enumerate(rows)`），不是绝对题号。这里原先写的
+        # 是 `rows[o["qi"] - args.offset]`，把它当绝对题号用。
+        #   offset=0   (taskA)：qi-0 == qi，碰巧正确；
+        #   offset=220 (taskB)：len(rows) 恰好也是 220，负索引绕回 rows[qi]，
+        #                       又一次碰巧正确；
+        #   offset=440 (taskC)：qi-440 ∈ [-440,-181]，越界 -> IndexError。
+        # 也就是说这个 bug 在两次历史采集里都被巧合掩盖，既没报错也没取错行，
+        # 因此 taskA/taskB 的数据是干净的；它只挡住新的 offset。
+        assert 0 <= o["qi"] < len(rows), (
+            f'screen qi {o["qi"]} 超出 rows 范围 {len(rows)}')
+        r = rows[o["qi"]]
         try:
             out = collect_prompt(model, tok, r, cfg, pcfg, dev, gen,
                                  cfg.seed_base + args.offset * 131 + o["qi"],
