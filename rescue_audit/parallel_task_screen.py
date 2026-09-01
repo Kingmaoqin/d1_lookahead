@@ -12,7 +12,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 sys.path[:0] = [os.path.join(ROOT, "scripts"), os.path.join(ROOT, "src")]
 
-from collect_task_labels import gsm8k, prompt_ids  # noqa: E402
+from collect_task_labels import gsm8k, svamp, prompt_ids  # noqa: E402
 from nemotron_local import load_nemotron, get_tokenizer  # noqa: E402
 from nemotron_policy import make_state, safe_block_rollout  # noqa: E402
 import collect_task as CT  # noqa: E402
@@ -22,6 +22,7 @@ import collect_task as CT  # noqa: E402
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--tag", required=True)
+    ap.add_argument("--dataset", choices=["gsm8k", "svamp"], default="gsm8k")
     ap.add_argument("--offset", type=int, required=True)
     ap.add_argument("--n-screen", type=int, required=True)
     ap.add_argument("--K", type=int, default=8)
@@ -39,7 +40,8 @@ def main():
     if os.path.exists(final):
         print("screen cache already complete", final)
         return
-    rows = gsm8k(args.offset + args.n_screen)[args.offset:]
+    loader = gsm8k if args.dataset == "gsm8k" else svamp
+    rows = loader(args.offset + args.n_screen)[args.offset:]
     cfg = CT.TaskCollectConfig(gen_len=args.gen_len, K=args.K,
                                n_cand=6, n_cand_conf=3,
                                rollout_batch=args.rollout_batch)
