@@ -25,9 +25,21 @@ def main():
     ap.add_argument('--include_stale_history',action='store_true',
                     help='include legacy C2 flip/persistence columns even though '
                          'the independent audit found them shifted by one state')
+    ap.add_argument('--prompt_stratum',choices=['all','natural','informative'],
+                    default='all', help='task-utility prompt substrate subset')
     ap.add_argument('--out',default=None)
     args=ap.parse_args()
-    d=D.load_labels(args.tags); y=d[args.target].astype(np.float32)
+    d=D.load_labels(args.tags)
+    if args.prompt_stratum != 'all':
+        if 'prompt_stratum' not in d:
+            raise ValueError('--prompt_stratum requires task-utility shards')
+        want = 0 if args.prompt_stratum == 'natural' else 1
+        keep = d['prompt_stratum'] == want
+        n0 = len(keep)
+        for key,val in list(d.items()):
+            if isinstance(val,np.ndarray) and val.ndim and len(val) == n0:
+                d[key] = val[keep]
+    y=d[args.target].astype(np.float32)
     ceiling=None
     sk={'A_pertok':'A_full_seeds','A_future':'A_future_seeds','A_task':'A_task_seeds'}.get(args.target)
     if sk in d: ceiling=P.noise_ceiling(d[sk])[0]

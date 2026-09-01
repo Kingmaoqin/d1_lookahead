@@ -25,7 +25,7 @@ held-out metrics are reported separately. This is the same "informative stratum
 + natural stratum" pattern the Path-LL collector already uses, and every example
 carries its `prompt_stratum` so the two can never be silently pooled.
 """
-import argparse, json, os, sys, time
+import argparse, glob, json, os, sys, time
 
 import numpy as np
 import torch
@@ -211,6 +211,10 @@ def main():
     ap.add_argument("--offset", type=int, default=0)
     ap.add_argument("--tag", default="task")
     ap.add_argument("--device", default="cuda")
+    ap.add_argument("--resume", action="store_true",
+                    help="append after complete existing shards, skipping their doc_ids")
+    ap.add_argument("--num_workers", type=int, default=1)
+    ap.add_argument("--worker_index", type=int, default=0)
     args = ap.parse_args()
     dev = args.device
     outdir = os.path.join(ROOT, "data", f"labels_{args.tag}")
@@ -225,7 +229,10 @@ def main():
     rows = gsm8k(args.offset + args.n_screen)[args.offset:]
     for i, r in enumerate(rows):
         r["_qi"] = args.offset + i
-    gen = torch.Generator(device=dev).manual_seed(4242 + args.offset)
+    if not (0 <= args.worker_index < args.num_workers):
+        raise ValueError("worker_index must be in [0, num_workers)")
+    gen = torch.Generator(device=dev).manual_seed(
+        4242 + args.offset + 1_000_003 * args.worker_index)
 
     # Screening costs ~27 min for 220 prompts, so cache it. An earlier launch
     # was SIGTERM'd by session teardown 20 prompts in; repeating that work on
@@ -255,7 +262,25 @@ def main():
           f"selected {len(pick_m)} mixed (oversampled) + {len(pick_o)} natural",
           flush=True)
     todo = [(o, 1) for o in pick_m] + [(o, 0) for o in pick_o]
-    shard, n_ex, sid = [], 0, 0
+    todo = [(o, s) for j, (o, s) in enumerate(todo)
+            if j % args.num_workers == args.worker_index]
+    print(f"[task] worker {args.worker_index}/{args.num_workers}: "
+          f"assigned {len(todo)} prompts", flush=True)
+    completed_docs = set()
+    existing_examples = 0
+    sid = 0
+    if args.resume:
+        old_shards = sorted(glob.glob(os.path.join(outdir, "shard_*.npz")))
+        for path in old_shards:
+            with np.load(path) as z:
+                completed_docs.update(map(int, np.unique(z["doc_id"])))
+                existing_examples += int(len(z["doc_id"]))
+        if old_shards:
+            sid = max(int(os.path.basename(p).split("_")[-1].split(".")[0])
+                      for p in old_shards) + 1
+        print(f"[task] resume: {len(completed_docs)} complete prompts / "
+              f"{existing_examples} examples; next shard={sid}", flush=True)
+    shard, new_examples = [], 0
     t0 = time.time()
     for k, (o, stratum) in enumerate(todo):
         # DEFECT 18 (rescue 轮发现)：screen() 里的 `qi` 是 `rows` 内的**局部
@@ -270,6 +295,10 @@ def main():
         assert 0 <= o["qi"] < len(rows), (
             f'screen qi {o["qi"]} 超出 rows 范围 {len(rows)}')
         r = rows[o["qi"]]
+        if int(r["_qi"]) in completed_docs:
+            print(f"  {k+1}/{len(todo)} prompt {int(r['_qi'])} already complete; skip",
+                  flush=True)
+            continue
         try:
             out = collect_prompt(model, tok, r, cfg, pcfg, dev, gen,
                                  cfg.seed_base + args.offset * 131 + o["qi"],
@@ -277,20 +306,35 @@ def main():
         except Exception as e:
             print(f"  prompt {o['qi']} failed: {type(e).__name__}: {e}", flush=True)
             continue
-        shard.extend(out); n_ex += sum(len(x["position"]) for x in out)
+        shard.extend(out); new_examples += sum(len(x["position"]) for x in out)
         el = time.time() - t0
-        print(f"  {k+1}/{len(todo)} prompts, {n_ex} examples, {el:.0f}s, "
+        print(f"  {k+1}/{len(todo)} prompts, {existing_examples + new_examples} "
+              f"total examples, {el:.0f}s, "
               f"eta {el/(k+1)*(len(todo)-k-1):.0f}s", flush=True)
-        if n_ex and (sum(len(x['position']) for x in shard) >= 400
-                     or k == len(todo) - 1):
+        if shard and (sum(len(x['position']) for x in shard) >= 400
+                      or k == len(todo) - 1):
             d = {kk: np.concatenate([x[kk] for x in shard], 0) for kk in shard[0]}
-            np.savez_compressed(os.path.join(outdir, f"shard_{sid:03d}.npz"), **d)
+            prefix = ("shard" if args.num_workers == 1
+                      else f"shard_w{args.worker_index}")
+            np.savez_compressed(os.path.join(outdir, f"{prefix}_{sid:03d}.npz"), **d)
             shard, sid = [], sid + 1
-    json.dump({**vars(args), "n_examples": n_ex, "seconds": time.time() - t0,
+    total_examples = existing_examples + new_examples
+    json.dump({**vars(args), "n_examples": total_examples,
+               "n_existing_examples": existing_examples,
+               "n_new_examples": new_examples,
+               "resume_rng_note": ("on resume, the candidate-selection generator "
+                                   "restarts from the configured seed; completed "
+                                   "documents are skipped, so the remaining prompts "
+                                   "remain valid draws from the prespecified proposal "
+                                   "but do not reproduce an uninterrupted RNG stream"),
+               "seconds": time.time() - t0,
                "estimand": "A_task = P(correct|commit a_i, then pi_ref) - "
                            "P(correct|pi_ref), CRN-paired, rollouts to completion"},
-              open(os.path.join(outdir, "meta.json"), "w"), indent=2)
-    print(f"[task] done: {n_ex} examples in {time.time()-t0:.0f}s -> {outdir}")
+              open(os.path.join(outdir, ("meta.json" if args.num_workers == 1
+                                        else f"meta_worker{args.worker_index}.json")),
+                   "w"), indent=2)
+    print(f"[task] done: {total_examples} examples in {time.time()-t0:.0f}s "
+          f"-> {outdir}")
 
 
 if __name__ == "__main__":

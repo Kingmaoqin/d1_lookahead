@@ -1,5 +1,12 @@
 # FINAL RESCUE REPORT
 
+> **执行状态更新（2026-08-31 21:00 CDT）：本文件尚未封版。** 预注册的
+> Path-LL fresh holdout 已完成，但任务书要求的 expanded Nemotron task-utility
+> 采集 `labels_taskC` 仍在进行；独立三划分广筛和标签可靠性审计也在本文件初稿
+> 之后补跑。下文的 `KILL CONFIRMED` 目前只指 **MDLM/SEDD 的 Path-LL 代理奖励**，
+> 不能当作整个冲刺实验已经完成。taskC 分析、自然/挑战子群和最终证据表将在
+> 采集结束后追加，再封版。
+
 Direction 1 —— "Lookahead Without Looking Ahead" 的 rescue + independent audit +
 expanded probing 轮次。
 
@@ -26,8 +33,9 @@ expanded probing 轮次。
 
 ## 1. 前期报告重建
 
-前期 artifact（"Lookahead Without Looking Ahead"，155 KB / 1538 行）经
-Claude Code `Artifact` 工具完整读取，快照存于
+前期 artifact（"Lookahead Without Looking Ahead"）最初无法直接访问；用户随后
+下载并提供了 `/home/xqin5/diffusion_LLM/d1_lookahead/文档内容`。该文件经标准化
+空白后与自动生成的报告快照核对为完整包含关系，快照存于
 `rescue_audit/PRIOR_REPORT_SNAPSHOT.html`。逐节对照见
 `rescue_audit/REPORT_TO_CODE_AUDIT.md`。
 
@@ -242,6 +250,25 @@ A_future 目标同向（最好的 Δconc +0.0096±0.0010）。
 >
 > fresh holdout 有 1,200 states / 200 docs，SE 预计再缩小约 √2 倍。
 
+### 6.3 标签排序可靠性：cheap 并未触顶
+
+补充审计 `rescue_audit/results/label_reliability.json` 把 24 条 rollout seeds
+反复分成不相交两半，测量 within-state 排序可靠性，并用方差可靠性模型折算
+“潜在真值的完美预测器”相对 K=24 观测标签的 concordance 参照：
+
+| 数据 | cheap | cheap+H | 可靠性折算参照 | cheap 以上空间 |
+|---|---:|---:|---:|---:|
+| MDLM ancestral | 0.7786 | 0.7892 | 0.8887 | 0.1102 |
+| MDLM confidence | 0.7660 | 0.7788 | 0.8751 | 0.1091 |
+| SEDD ancestral | 0.8086 | 0.8112 | 0.8988 | 0.0902 |
+| fresh MDLM ancestral | 0.7473 | 0.7536 | 0.8863 | 0.1390 |
+
+这排除了一个重要替代解释：关系型探针没有增益，**不是因为 cheap 已经顶到
+K=24 标签的排序天花板**。早期脚本曾把 `concordance` 对 `1/m` 的线性截距
+0.793 误称为“无噪声上限”；这是错误的（无并列时两份无噪测量的排序一致率应
+趋近 1），已在脚本和结果字段中纠正。上表仍依赖近似联合高斯的 arcsin 换算，
+因此作为可靠性参照而非严格数学上界使用。
+
 ## 7. 扩展数据实验
 
 `data/labels_freshA/` —— MDLM ancestral，K=24，H=16，prompt offset **400–599**
@@ -380,6 +407,17 @@ fresh 上不做任何拟合。
 > 也就是说：这个存活下来的效应**根本不需要候选级表征**——它整个来自
 > `h_global` 这条状态级通道，与 08-24 的结论是同一件事，只是这次用
 > 证伪对照直接演示了出来。
+
+### 10.3b 已知历史特征错位的 post-hoc 敏感性
+
+独立审计发现旧 a3/b3 的 `C2.flip_count` 与 `C2.persistence` 晚一状态，而
+freshA 已修正。预注册结果不改写；另行在旧/fresh 两边同时删除这两列并重跑
+D1（`CONFIRMATORY_freshA_posthoc_no_stale_C2.json`）：primary Δconc
+**+0.0098** [**+0.0024,+0.0174**]，关系型 `kron−additive`
+**−0.0084** [**−0.0160,−0.0013**]，低秩双线性 vs best cheap
++0.0028 [−0.0066,+0.0121]。结论与预注册 D1 一致：主效应不到 +0.020，
+关系型交互为负；因此判定不依赖这两列错位特征。该分析是看过 fresh 结果后
+新增，只能作稳健性检查，不能升级确认性证据。
 
 ### 10.4 两个设计里都复现的第二条：目标函数才是那个增益
 

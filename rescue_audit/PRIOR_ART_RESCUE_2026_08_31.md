@@ -35,20 +35,20 @@
 
 | 编号 | 标题 | 与本研究的关系 |
 |---|---|---|
-| arXiv 2602.03496 | *Lookahead Path Likelihood Optimization for Diffusion LLMs*（POKE / POKE-SMC） | 本研究代理奖励 Path-LL 的出处。POKE-SMC 与 LookUM 在同一 setting 下对比（44.3 → 45.3） |
-| arXiv 2511.05563 / OpenReview `SVI1ZnmFmx` | *Lookahead Unmasking Elicits Accurate Decoding in DLMs*（LookUM） | 把采样重构为**路径选择**：path generator + verifier + importance sampling。其开销来自"每步评估 k 条候选路径" —— 正是本研究想问能否省掉的那部分 |
-| arXiv 2607.15655 | *Adaptive Multi-Step Lookahead Decoding for DLMs*（AdaLook） | **新**。多步前瞻，明确承认"每步需要批量前向来评估假设"带来开销。若本研究的 A 可读性成立，AdaLook 的开销可被摊销；本轮结果**不支持**这一点 |
-| arXiv 2512.09106 | *Learning Unmasking Policies for Diffusion Language Models* | 把掩码扩散采样形式化为 MDP，用轻量策略（单层 Transformer）做 RL。**注意**：它训练策略，属于本研究 kill 后被禁止的"加容量"路线 |
-| arXiv 2605.24697 | *The Path Matters: Learning a Token-Commitment Policy for DLMs*（TraceLock） | **新**。frozen-D-LLM-only 设定，从 hidden states + trace 学 commitment 策略。本研究的 C2 轨迹稳定性控制特征即 TraceLock 式 |
-| arXiv 2606.23567 | *Scheduling Thoughts: Learning the Order of Thought in DLMs*（SAS） | **新**。同样是"揭示顺序"这个自由度 |
+| [arXiv 2602.03496](https://arxiv.org/abs/2602.03496) | *Lookahead Path Likelihood Optimization for Diffusion LLMs*（POKE / POKE-SMC） | 本研究代理奖励 Path-LL 的出处。POKE 训练一个未来 Path-LL value estimator；它不是对冻结表征做 decodability audit，因此是最接近但不直接撞车的工作 |
+| [arXiv 2511.05563](https://arxiv.org/abs/2511.05563) / OpenReview `SVI1ZnmFmx` | *Lookahead Unmasking Elicits Accurate Decoding in DLMs*（LookUM） | 把采样重构为**路径选择**：path generator + verifier + importance sampling。其开销来自评估多条候选路径 —— 正是本研究想问能否省掉的那部分 |
+| [arXiv 2607.15655](https://arxiv.org/abs/2607.15655) | *Adaptive Multi-Step Lookahead Decoding for DLMs*（AdaLook） | **新**。多步前瞻并自适应决定是否继续 rollout/扩分支；若本研究的 A 可读性成立，其开销可能被摊销，本轮结果不支持这一点 |
+| [arXiv 2512.09106](https://arxiv.org/abs/2512.09106) | *Learning Unmasking Policies for Diffusion Language Models* | 把掩码扩散采样形式化为 MDP，用轻量策略（单层 Transformer）做 RL。**注意**：它训练策略，属于本研究 kill 后被禁止的"加容量"路线 |
+| [arXiv 2605.24697](https://arxiv.org/abs/2605.24697) | *The Path Matters: Learning a Token-Commitment Policy for DLMs*（TraceLock） | **新**。frozen-D-LLM-only 设定，从 hidden states + trace 学 commitment 策略。本研究的 C2 轨迹稳定性控制特征即 TraceLock 式 |
+| [arXiv 2606.23567](https://arxiv.org/abs/2606.23567) | *Scheduling Thoughts: Learning the Order of Thought in DLMs*（SAS） | **新**。冻结 denoiser、训练轻量顺序策略；仍不是 frozen hidden-state probe |
 
 ### 2.2 探测方法学（本轮新增假设的先例）
 
 | 编号 | 标题 | 关系 |
 |---|---|---|
-| arXiv 2605.28527 | *What Frozen VLAs Already Know About Success* | **最接近的方法学同构**。三段式（decodability / matched-pair / online selection）与本研究几乎一一对应。matched-pair 下 Pi0.5 达 ~92% 成对排序准确率、shuffled 对照在随机水平；在线选择在 push-plate 上 26.7%→44.3%。**只用线性探针，不区分 V 与 A** |
-| arXiv 2606.02907 | *Linear Probes Detect Task Format, Not Reasoning Mode in LM Hidden States* | **对本研究 08-30 结论的独立佐证**：线性探针容易读出"任务表面属性"而非"过程状态"。与本研究"读到的是题目难度而非前瞻"高度一致 |
-| arXiv 2509.21993 | *Bilinear representation mitigates reversal curse and enables consistent model editing* | **双线性表征的先例**。支持 P2 假设在方法学上不是杜撰 |
+| [arXiv 2605.28527](https://arxiv.org/abs/2605.28527) | *What Frozen VLAs Already Know About Success* | **最接近的方法学同构**。matched-pair 下 Pi0.5 达约 92% 成对排序准确率、shuffled 对照在随机水平；在线选择在 push-plate 上 26.7%→44.3%。**只用线性探针，不区分 V 与 A** |
+| [arXiv 2606.02907](https://arxiv.org/abs/2606.02907) | *Linear Probes Detect Task Format, Not Reasoning Mode in LM Hidden States* | **对本研究 08-30 结论的独立佐证**：线性探针容易读出格式混杂而非计算过程；与本研究"读到的是题目难度而非前瞻"相呼应，但不是同一实验结论 |
+| [arXiv 2509.21993](https://arxiv.org/abs/2509.21993) | *Bilinear representation mitigates reversal curse and enables consistent model editing* | **双线性表征的先例**。支持 P2 假设在方法学上不是杜撰 |
 | arXiv 2406.13184 | *Locating and Extracting Relational Concepts in LLMs* | 关系型概念在 hidden state 中的定位；支持 P4 关系特征块 |
 | arXiv 2509.25260 | *Internal Planning in LMs: Characterizing Horizon and Branch Awareness* | **直接相关**。问 LM 内部是否有 horizon / branch 意识 —— 与本研究 §12 的 horizon 扫描、§18 的 layer×timestep×horizon 三维分析同题 |
 | arXiv 2606.00091 | *DLLM-JEPA: Joint Embedding Predictive Architectures for Masked DLMs* | **新**。JEPA 式联合嵌入预测；若 DLM 表征本就不编码未来 token 级差分，JEPA 训练目标是一条可能的补救路线（超出本研究 kill 后的容量禁令） |
