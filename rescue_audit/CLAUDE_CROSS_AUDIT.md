@@ -163,3 +163,28 @@ cheap 的正确率增益，在 coverage 70%/50%/30% 分别为 +0.0236
 [+0.0299,+0.1368]；风险—覆盖面积增益 +0.0464 [+0.0170,+0.0812]。
 这些是 held-out 文档上的实际筛选价值。正确写法是“有用的难度/自知信号，
 不是轨迹内 lookahead”，而不是把前半句删掉只留下限制。
+
+## Path-LL 候选差分的直接 centered-target 重测
+
+另一边随后正确指出：旧 `exp1b_within_state.py` 在原始 pooled 目标上拟合，再
+事后计算 within-state R²；这不是直接优化调度器面对的状态内差分。新草案
+`scripts/audit_A_fairtest.py` 把 cheap、`h_i` 和目标都在每个 state 内中心化，
+再用相同文档 split、validation 选层和嵌套分块 ridge 拟合。
+
+第一版误写目标键 `A_full`（真实键为 `A_pertok`），所以主目标被异常捕获后跳过；
+但 seed-0 的 `A_future` 已产生有效点估计与 R² 区间：
+
+| 臂 | within ceiling | Δwithin-R² | 文档 bootstrap 95% CI | Δconc | Gaussian placebo ΔR² |
+|---|---:|---:|---:|---:|---:|
+| ancestral a3/b3 | 0.791 | **+0.0124** | **[+0.0071,+0.0177]** | +0.0089 | 0.0000 |
+| confidence c3/d3 | 0.735 | **+0.0192** | **[+0.0113,+0.0268]** | +0.0100 | +0.0028 |
+
+这组结果推翻的是“候选差分精确为零”的过强措辞：直接为 centered 目标训练后，
+两臂都有小而可靠的 `h_i` 增量。它目前没有推翻预注册实用门槛：Δconcordance
+仍只有约 +0.009～+0.010，低于 +0.020。
+
+草案的 concordance bootstrap 再次把重抽到的同一文档副本保留原 state id，
+会产生此前已确认的 m² 分组缺陷；因此上述 Δconc **点估计可用，区间暂不用**。
+Δwithin-R² bootstrap 只是把重复文档作为行权重，未调用 state 分组，故不受这个
+特定缺陷影响。修正后的 `A_pertok` × 三 split 重跑正在进行，最终只能作为
+看过旧结果后的公平性/稳健性重测，不回写成预注册确认。
