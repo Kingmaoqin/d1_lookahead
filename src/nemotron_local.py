@@ -35,6 +35,7 @@ TWO IMPLEMENTATION NOTES
 import torch
 
 HF_MODEL_ID = "nvidia/Nemotron-Labs-Diffusion-3B"
+HF_REVISION = "0d51902da1f8869f83413ce642fab402fa5641e0"
 MASK_TOKEN_ID = 100
 
 
@@ -90,7 +91,7 @@ class NemotronWrapper(torch.nn.Module):
 
 
 def load_nemotron(device="cuda", dtype=torch.bfloat16, model_id=HF_MODEL_ID,
-                  shard=False, reserve_gb=1.6):
+                  shard=False, reserve_gb=1.6, revision=HF_REVISION):
     """Load the frozen backbone, optionally SHARDED across several GPUs.
 
     Sharding is not an optimisation here, it is what makes the run possible at
@@ -104,7 +105,8 @@ def load_nemotron(device="cuda", dtype=torch.bfloat16, model_id=HF_MODEL_ID,
     """
     from transformers import AutoModel
     if not shard:
-        m = AutoModel.from_pretrained(model_id, trust_remote_code=True,
+        m = AutoModel.from_pretrained(model_id, revision=revision,
+                                      trust_remote_code=True,
                                       dtype=dtype).to(device).eval()
     else:
         free = []
@@ -116,7 +118,7 @@ def load_nemotron(device="cuda", dtype=torch.bfloat16, model_id=HF_MODEL_ID,
         if not usable:
             raise RuntimeError(f"no GPU has room to spare: {free}")
         m = AutoModel.from_pretrained(
-            model_id, trust_remote_code=True, dtype=dtype,
+            model_id, revision=revision, trust_remote_code=True, dtype=dtype,
             device_map="auto", max_memory=usable).eval()
         print(f"[nemotron] sharded across {list(usable)} "
               f"(free GB: {[(i, round(f,1)) for i, f in free]})")
@@ -125,6 +127,7 @@ def load_nemotron(device="cuda", dtype=torch.bfloat16, model_id=HF_MODEL_ID,
     return NemotronWrapper(m), m.config
 
 
-def get_tokenizer(model_id=HF_MODEL_ID):
+def get_tokenizer(model_id=HF_MODEL_ID, revision=HF_REVISION):
     from transformers import AutoTokenizer
-    return AutoTokenizer.from_pretrained(model_id, trust_remote_code=True)
+    return AutoTokenizer.from_pretrained(
+        model_id, revision=revision, trust_remote_code=True)
