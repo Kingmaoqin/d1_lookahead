@@ -373,6 +373,11 @@ CI 仍覆盖 0，且后一套的 shuffled/Gaussian 控制显示非凸种子敏�
 Task C 支持“扩样”，尚不足以单独宣称“关系机制确认”。新一轮 Task D 已在
 `TASKD_PREREGISTRATION.md` 锁定后启动，目标把 taskC+taskD 补到 **3,000 states**。
 
+冻结模型封存时还得到一个重要反证：Task-C seed-0 internal test 上 bilinear
+0.5526、no-interaction 0.5239，但同训练预算的 neural cheap-only 是 **0.5908**。
+因此广筛相对 cheap ridge 的 +0.042 不是纯隐藏净增益；Task-D primary 已把更强的
+neural cheap-only 锁为主基线，避免重复 Claude 指出的目标/容量不匹配问题。
+
 ### 8.4 第二个 verifiable task：SVAMP 资格通过
 
 按任务书 §14 先做 substrate qualification：SVAMP test 前 100 题，每题 K=8

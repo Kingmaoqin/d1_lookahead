@@ -85,6 +85,11 @@ taskC 有 180 题 / 720 states / 4,320 候选，标签 within-state ceiling 约 
 出生前锁定：扩到总计 3,000 states，用冻结模型一次性区分真实 h_g、无交互、
 shuffled 与 Gaussian 控制。
 
+另一个必须保留的反证是：封存 Task-D 主模型时，在 Task-C seed-0 内部 test 上，
+bilinear = 0.5526、no-interaction = 0.5239，但同训练预算的 neural cheap-only =
+**0.5908**。所以广筛中相对 cheap ridge 的 +0.042 不能直接解释为隐藏态净增益；
+它同时混入了基线模型类差异。Task-D primary 已把这个更强 cheap-only 锁为主基线。
+
 ## 口径修正
 
 Task utility 的 A_task 大量并列。旧 `top1` 把第一个最大值指定为唯一 oracle，且
