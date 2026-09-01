@@ -1,0 +1,30 @@
+{
+ "cheap": {
+  "val_score_within_r2": 0.6054810397477353,
+  "hp": {
+   "alpha": 21.54434690031882
+  }
+ },
+ "additive_pca": {
+  "val_score_within_r2": 0.6210504396731238,
+  "hp": {
+   "alpha": 10.0,
+   "gamma": 1.0
+  }
+ },
+ "cheap+H": {
+  "val_score_within_r2": 0.622663541536704,
+  "hp": {
+   "alpha": 10.0,
+   "gamma": 0.03
+  }
+ },
+ "rank_cheap": {
+  "val_score_within_r2": 0.5740291626872358,
+  "hp": {
+   "lr": 0.003,
+   "wd": 0.0001,
+   "seed": 2
+  }
+ }
+}

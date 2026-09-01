@@ -1,0 +1,52 @@
+{
+  "cheap_only": {
+    "impl_val": -6.415423518152753,
+    "brute_val": -6.41542358577042,
+    "abs_diff": 6.761766702112482e-08,
+    "impl_gammas": [
+      1.0,
+      0.0,
+      0.0
+    ],
+    "brute_gammas": [
+      1.0,
+      0.0,
+      0.0
+    ],
+    "slice_legal": true
+  },
+  "additive": {
+    "impl_val": -1.9456572605237288,
+    "brute_val": -1.9456572228231654,
+    "abs_diff": 3.770056333785021e-08,
+    "impl_gammas": [
+      1.0,
+      3.0,
+      0.0
+    ],
+    "brute_gammas": [
+      1.0,
+      3.0,
+      0.0
+    ],
+    "slice_legal": true
+  },
+  "kron": {
+    "impl_val": -0.29741124427232485,
+    "brute_val": -0.29741123449469536,
+    "abs_diff": 9.777629483842531e-09,
+    "impl_gammas": [
+      1.0,
+      3.0,
+      0.1
+    ],
+    "brute_gammas": [
+      1.0,
+      3.0,
+      0.1
+    ],
+    "slice_legal": true
+  },
+  "nesting_kron_ge_additive": true,
+  "nesting_additive_ge_cheap": true
+}
