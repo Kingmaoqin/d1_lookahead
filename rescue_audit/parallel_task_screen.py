@@ -18,6 +18,31 @@ from nemotron_policy import make_state, safe_block_rollout  # noqa: E402
 import collect_task as CT  # noqa: E402
 
 
+def merge_parts(outdir, final, num_workers, n_screen):
+    """Merge completed worker parts atomically; return whether merge happened."""
+    parts = [os.path.join(outdir, f"screen_part_{i}.json")
+             for i in range(num_workers)]
+    if not all(os.path.exists(p) for p in parts):
+        return False
+    merged = {}
+    for part in parts:
+        with open(part) as f:
+            merged.update(json.load(f)["screen_rewards"])
+    if len(merged) != n_screen:
+        raise AssertionError(f"merged {len(merged)} != {n_screen}")
+    payload = {
+        "n_screened": len(merged),
+        "n_mixed": int(sum(0 < np.mean(v) < 1 for v in merged.values())),
+        "screen_rewards": merged,
+    }
+    tmp = final + ".tmp"
+    with open(tmp, "w") as f:
+        json.dump(payload, f)
+    os.replace(tmp, final)
+    print("merged", final, flush=True)
+    return True
+
+
 @torch.no_grad()
 def main():
     ap = argparse.ArgumentParser()
@@ -39,6 +64,10 @@ def main():
     final = os.path.join(outdir, "screen.json")
     if os.path.exists(final):
         print("screen cache already complete", final)
+        return
+    # A previous worker may have finished the last part but failed while merging.
+    # Merge before loading the model so recovery is instant and GPU-free.
+    if merge_parts(outdir, final, args.num_workers, args.n_screen):
         return
     loader = gsm8k if args.dataset == "gsm8k" else svamp
     rows = loader(args.offset + args.n_screen)[args.offset:]
@@ -72,23 +101,7 @@ def main():
     part = os.path.join(outdir, f"screen_part_{args.worker_index}.json")
     with open(part, "w") as f:
         json.dump({"screen_rewards": result}, f)
-    parts = [os.path.join(outdir, f"screen_part_{i}.json")
-             for i in range(args.num_workers)]
-    if all(os.path.exists(p) for p in parts):
-        merged = {}
-        for p in parts:
-            merged.update(json.load(open(p))["screen_rewards"])
-        if len(merged) != args.n_screen:
-            raise AssertionError(f"merged {len(merged)} != {args.n_screen}")
-        tmp = final + ".tmp"
-        with open(tmp, "w") as f:
-            json.dump({"n_screened": len(merged),
-                       "n_mixed": sum(0 < np.mean(v) < 1
-                                      for v in merged.values()),
-                       "screen_rewards": merged}, f)
-        os.replace(tmp, final)
-        print("merged", final, flush=True)
-    else:
+    if not merge_parts(outdir, final, args.num_workers, args.n_screen):
         print("part complete; waiting for peer", flush=True)
 
 
