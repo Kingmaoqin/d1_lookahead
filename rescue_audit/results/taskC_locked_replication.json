@@ -1,0 +1,196 @@
+{
+  "status": "locked replication of a pre-taskC configuration",
+  "config": {
+    "tag": "taskC",
+    "layer": 12,
+    "pca_dim": 32,
+    "splits": 3,
+    "epochs": 400,
+    "out": "/home/xqin5/diffusion_LLM/d1_lookahead/rescue_audit/results/taskC_locked_replication.json"
+  },
+  "results": [
+    {
+      "split_seed": 0,
+      "n_test_docs": 45,
+      "models": {
+        "pair_hidden": {
+          "metrics": {
+            "within_r2": 0.0018753276678556974,
+            "concordance": 0.47418738049713194,
+            "top1": 0.2388888888888889,
+            "top2": 0.4222222222222222,
+            "top3": 0.5833333333333334
+          },
+          "val_score": 0.0041042546332206165,
+          "hp": {
+            "lr": 0.001,
+            "wd": 0.01,
+            "seed": 1
+          }
+        },
+        "pair_cheap": {
+          "metrics": {
+            "within_r2": 0.001016833672846884,
+            "concordance": 0.502868068833652,
+            "top1": 0.14444444444444443,
+            "top2": 0.34444444444444444,
+            "top3": 0.5166666666666667
+          },
+          "val_score": 0.011394194051692952,
+          "hp": {
+            "lr": 0.003,
+            "wd": 0.0001,
+            "seed": 2
+          }
+        },
+        "pair_cheap_hidden": {
+          "metrics": {
+            "within_r2": 0.006879062429548166,
+            "concordance": 0.5487571701720841,
+            "top1": 0.1,
+            "top2": 0.18888888888888888,
+            "top3": 0.39444444444444443
+          },
+          "val_score": 0.005888630877051049,
+          "hp": {
+            "lr": 0.001,
+            "wd": 0.0001,
+            "seed": 1
+          }
+        }
+      },
+      "delta_pair_hidden_vs_pair_cheap": {
+        "within_r2": 0.0008584939950088133,
+        "concordance": -0.028680688336520044,
+        "top1": 0.09444444444444447
+      },
+      "delta_pair_cheap_hidden_vs_pair_cheap": {
+        "within_r2": 0.005862228756701282,
+        "concordance": 0.04588910133843216,
+        "top1": -0.044444444444444425
+      }
+    },
+    {
+      "split_seed": 1,
+      "n_test_docs": 45,
+      "models": {
+        "pair_hidden": {
+          "metrics": {
+            "within_r2": 0.005260339003019365,
+            "concordance": 0.5337078651685393,
+            "top1": 0.13333333333333333,
+            "top2": 0.34444444444444444,
+            "top3": 0.5333333333333333
+          },
+          "val_score": 0.00038756396522121594,
+          "hp": {
+            "lr": 0.003,
+            "wd": 0.01,
+            "seed": 2
+          }
+        },
+        "pair_cheap": {
+          "metrics": {
+            "within_r2": -0.022043690441275743,
+            "concordance": 0.4681647940074906,
+            "top1": 0.08333333333333333,
+            "top2": 0.2,
+            "top3": 0.3055555555555556
+          },
+          "val_score": 0.004514744324908504,
+          "hp": {
+            "lr": 0.003,
+            "wd": 0.01,
+            "seed": 0
+          }
+        },
+        "pair_cheap_hidden": {
+          "metrics": {
+            "within_r2": -0.024997021580422052,
+            "concordance": 0.47191011235955055,
+            "top1": 0.13333333333333333,
+            "top2": 0.25,
+            "top3": 0.4
+          },
+          "val_score": 0.012408454371424682,
+          "hp": {
+            "lr": 0.003,
+            "wd": 0.0001,
+            "seed": 0
+          }
+        }
+      },
+      "delta_pair_hidden_vs_pair_cheap": {
+        "within_r2": 0.027304029444295108,
+        "concordance": 0.06554307116104868,
+        "top1": 0.05
+      },
+      "delta_pair_cheap_hidden_vs_pair_cheap": {
+        "within_r2": -0.002953331139146309,
+        "concordance": 0.0037453183520599342,
+        "top1": 0.05
+      }
+    },
+    {
+      "split_seed": 2,
+      "n_test_docs": 45,
+      "models": {
+        "pair_hidden": {
+          "metrics": {
+            "within_r2": 0.0011263257593298048,
+            "concordance": 0.5292207792207793,
+            "top1": 0.17777777777777778,
+            "top2": 0.3,
+            "top3": 0.43333333333333335
+          },
+          "val_score": 0.0008397677719651497,
+          "hp": {
+            "lr": 0.003,
+            "wd": 0.0001,
+            "seed": 1
+          }
+        },
+        "pair_cheap": {
+          "metrics": {
+            "within_r2": 0.0011468850210321069,
+            "concordance": 0.512987012987013,
+            "top1": 0.11666666666666667,
+            "top2": 0.28888888888888886,
+            "top3": 0.4388888888888889
+          },
+          "val_score": 0.005185491485781291,
+          "hp": {
+            "lr": 0.001,
+            "wd": 0.0001,
+            "seed": 1
+          }
+        },
+        "pair_cheap_hidden": {
+          "metrics": {
+            "within_r2": 0.00016542289208965055,
+            "concordance": 0.5324675324675324,
+            "top1": 0.12777777777777777,
+            "top2": 0.32222222222222224,
+            "top3": 0.5
+          },
+          "val_score": 0.006860380654074905,
+          "hp": {
+            "lr": 0.003,
+            "wd": 0.01,
+            "seed": 0
+          }
+        }
+      },
+      "delta_pair_hidden_vs_pair_cheap": {
+        "within_r2": -2.0559261702302045e-05,
+        "concordance": 0.016233766233766267,
+        "top1": 0.061111111111111116
+      },
+      "delta_pair_cheap_hidden_vs_pair_cheap": {
+        "within_r2": -0.0009814621289424563,
+        "concordance": 0.01948051948051943,
+        "top1": 0.0111111111111111
+      }
+    }
+  ]
+}

@@ -10,6 +10,7 @@ Nemotron-3B 的 task-utility 采集同时存了两个标签：
 
 同时给出 A_task 上的探针族筛查（含关系型探针），以及 A_task 的噪声天花板。
 """
+import argparse
 import json
 import os
 import sys
@@ -23,12 +24,16 @@ from rlib import metrics as M            # noqa: E402
 from rlib import rdata as RD             # noqa: E402
 from rlib import screen as SC            # noqa: E402
 
-OUT = os.path.join(HERE, "results", "task_utility_analysis.json")
-os.makedirs(os.path.dirname(OUT), exist_ok=True)
-
-
 def main():
-    d = RD.load_labels(["taskA", "taskB"])
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--tags", nargs="+", default=["taskA", "taskB"])
+    ap.add_argument("--out", default=os.path.join(
+        HERE, "results", "task_utility_analysis.json"))
+    ap.add_argument("--skip-screen", action="store_true",
+                    help="only compute label quality and Path-LL/task relations")
+    args = ap.parse_args()
+    os.makedirs(os.path.dirname(os.path.abspath(args.out)), exist_ok=True)
+    d = RD.load_labels(args.tags)
     sid = d["state_id"]
     uniq, groups, _ = RD.state_groups(sid)
     sizes = np.array([len(g) for g in groups])
@@ -80,6 +85,11 @@ def main():
         "within_frac": float((wt ** 2).sum()
                              / max(((a_tk - a_tk.mean()) ** 2).sum(), 1e-12))}
 
+    if args.skip_screen:
+        json.dump(rep, open(args.out, "w"), indent=2, default=float)
+        print("\nwrote", args.out)
+        return
+
     # ---------- 3. A_task 上的探针族 ----------
     # 组大小不齐时 torch 排序探针无法整形，故只跑闭式岭族 + Kronecker
     ragged = len(rep["group_sizes"]) > 1
@@ -122,8 +132,8 @@ def main():
                       f"Dconc={v['concordance']-base.get('concordance',0):+.4f}",
                       flush=True)
 
-    json.dump(rep, open(OUT, "w"), indent=2, default=float)
-    print("\nwrote", OUT)
+    json.dump(rep, open(args.out, "w"), indent=2, default=float)
+    print("\nwrote", args.out)
 
 
 if __name__ == "__main__":

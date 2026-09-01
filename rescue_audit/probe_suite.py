@@ -66,6 +66,7 @@ def decision_metrics(y, pred, state, ceiling=None):
                if len(dy) else np.nan)
     auc = roc_auc_score(dy > 0, dp) if len(np.unique(dy > 0)) == 2 else np.nan
     regrets, norm_regrets, top1, top2, top3 = [], [], [], [], []
+    top1_value, top1_value_decision = [], []
     state_rhos, state_taus = [], []
     for s in np.unique(state):
         ix = np.where(state == s)[0]
@@ -78,6 +79,15 @@ def decision_metrics(y, pred, state, ceiling=None):
         regrets.append(r); norm_regrets.append(r / max(span, 1e-12))
         top1.append(oracle in order[:1]); top2.append(oracle in order[:2])
         top3.append(oracle in order[:3])
+        # A_task is discrete and often has several equally optimal actions.
+        # The legacy exact-index top1 arbitrarily designates the first maximum
+        # as the sole oracle and is especially misleading on all-tie states.
+        # Report a tie-aware achieved-value endpoint, plus its decision-only
+        # version that excludes states where every candidate has equal value.
+        value_hit = bool(y[order[0]] >= np.max(y[ix]) - 1e-12)
+        top1_value.append(value_hit)
+        if span > 1e-12:
+            top1_value_decision.append(value_hit)
         if np.ptp(pred[ix]) > 1e-10 and np.ptp(y[ix]) > 1e-10:
             state_rhos.append(stats.spearmanr(y[ix], pred[ix]).statistic)
             state_taus.append(stats.kendalltau(y[ix], pred[ix]).statistic)
@@ -95,6 +105,10 @@ def decision_metrics(y, pred, state, ceiling=None):
         "kendall_tau_state_mean": float(np.nanmean(state_taus)) if state_taus else np.nan,
         "spearman_state_mean": float(np.nanmean(state_rhos)) if state_rhos else np.nan,
         "top1_accuracy": float(np.mean(top1)) if top1 else np.nan,
+        "top1_value_accuracy": float(np.mean(top1_value)) if top1_value else np.nan,
+        "top1_value_accuracy_decision": (float(np.mean(top1_value_decision))
+                                           if top1_value_decision else np.nan),
+        "n_decision_states": int(len(top1_value_decision)),
         "top2_recall": float(np.mean(top2)) if top2 else np.nan,
         "top3_recall": float(np.mean(top3)) if top3 else np.nan,
         "mean_regret": float(np.mean(regrets)) if regrets else np.nan,

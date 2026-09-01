@@ -69,8 +69,20 @@ def main():
         hip,hgp,pi,pg=R.pca_pair(hi,hg,tr,args.pca_dim,seed)
 
         def add(probe,pred,hp,features):
-            report['results'].append({'seed':seed,'probe':probe,'features':features,'layer':layer,
-                'metrics':R.decision_metrics(y[te],pred,d['state_id'][te],ceiling),'hp':hp})
+            row={'seed':seed,'probe':probe,'features':features,'layer':layer,
+                 'metrics':R.decision_metrics(y[te],pred,d['state_id'][te],ceiling),'hp':hp}
+            # Candidate-level strata answer a different question from the
+            # prompt-level substrate filter above.  Fit once on the full
+            # training split, then evaluate the exact same predictions within
+            # natural/informative candidate subsets.  This directly mirrors
+            # the round-2 post-hoc finding without changing the fitted model.
+            if 'stratum' in d:
+                row['candidate_stratum_metrics']={}
+                for label,want in [('natural',0),('informative',1)]:
+                    keep=d['stratum'][te] == want
+                    row['candidate_stratum_metrics'][label]=R.decision_metrics(
+                        y[te][keep],pred[keep],d['state_id'][te][keep],ceiling)
+            report['results'].append(row)
 
         # P0 anchors.
         for name,x in [('P0_cheap',xc),('P0_hi',hi),('P0_hg',hg),('P0_cheap_hi',np.c_[xc,hi]),('P0_cheap_hi_hg',np.c_[xc,hi,hg])]:
