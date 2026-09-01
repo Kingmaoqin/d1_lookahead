@@ -276,114 +276,140 @@ ENDPOINTS = ("concordance", "pairwise_auc", "kendall_tau", "within_spearman",
              "top1", "regret_norm", "within_r2")
 
 
-def _endpoint_vals(y, pred, sid, groups):
-    out = {}
-    out["concordance"] = M.concordance(y, pred, sid, groups)
-    out["pairwise_auc"] = M.pairwise_auc(y, pred, sid, groups)
-    out["kendall_tau"] = M.kendall_tau(y, pred, sid, groups)
-    out["within_spearman"] = M.within_spearman(y, pred, sid, groups)
-    out["top1"] = M.topk_metrics(y, pred, sid, groups)["top1"]
-    out["regret_norm"] = -M.regret(y, pred, sid, groups)["regret_norm_mean"]
-    out["within_r2"] = M.within_state_r2(y, pred, sid, groups)
+def per_state_suffstats(y, pred, groups):
+    """每个 state 的充分统计量；所有 7 个端点都是它们的可加函数。
+
+    与 rlib/metrics.py 的定义逐字一致（已数值核对）。
+    """
+    from scipy import stats as sps
+    S = len(groups)
+    out = {k: np.full(S, np.nan) for k in
+           ("cc", "cn", "tau", "sp", "top1", "regn", "sse", "sst")}
+    for i, g in enumerate(groups):
+        yy = y[g].astype(np.float64); pp = pred[g].astype(np.float64)
+        c, n = M._pair_stats(yy, pp)
+        out["cc"][i] = c; out["cn"][i] = n
+        if len(g) >= 3:
+            t = sps.kendalltau(yy, pp).statistic
+            out["tau"][i] = t
+            if np.std(pp) >= 1e-12:
+                out["sp"][i] = sps.spearmanr(yy, pp).statistic
+        b = int(np.argmax(yy))
+        out["top1"][i] = 1.0 if int(np.argmax(pp)) == b else 0.0
+        r = float(yy.max() - yy[int(np.argmax(pp))])
+        rg = float(yy.max() - yy.min())
+        out["regn"][i] = r / rg if rg > 1e-12 else 0.0
+        yc = yy - yy.mean(); pc = pp - pp.mean()
+        out["sse"][i] = float(((yc - pc) ** 2).sum())
+        out["sst"][i] = float((yc ** 2).sum())
     return out
 
 
-def analyze_endpoints(nm, a="additive_pca", b="cheap", n_boot=2000, seed=0):
-    """同一份预测上比较 7 个端点的功效（文档级自助 SE + z 值 + MDE80）。"""
+def _agg(st, rows):
+    cc, cn = st["cc"][rows], st["cn"][rows]
+    ok = cn > 0
+    return {
+        "concordance": cc[ok].sum() / cn[ok].sum(),
+        "pairwise_auc": np.nanmean(np.where(ok, cc / np.maximum(cn, 1), np.nan)),
+        "kendall_tau": np.nanmean(st["tau"][rows]),
+        "within_spearman": np.nanmean(st["sp"][rows]),
+        "top1": st["top1"][rows].mean(),
+        "regret_norm": -st["regn"][rows].mean(),
+        "within_r2": 1.0 - st["sse"][rows].sum() / st["sst"][rows].sum()}
+
+
+def analyze_endpoints(nm, a="additive_pca", b="cheap", n_boot=4000, seed=0):
+    """同一份预测上比较 7 个端点的功效（文档级自助 SE + z + MDE80）。"""
     z = load(nm)
     y, sid, doc = z["y"], z["sid"], z["doc"]
     groups = _groups(sid)
     sdoc = _state_doc(groups, doc)
-    pa, pb = z["pred_" + a], z["pred_" + b]
-    obs = {k: _endpoint_vals(y, pa, sid, groups)[k]
-           - _endpoint_vals(y, pb, sid, groups)[k] for k in ENDPOINTS}
-    base = _endpoint_vals(y, pb, sid, groups)
+    sa = per_state_suffstats(y, z["pred_" + a], groups)
+    sb = per_state_suffstats(y, z["pred_" + b], groups)
+    allrows = np.arange(len(groups))
+    va, vb = _agg(sa, allrows), _agg(sb, allrows)
+    obs = {k: va[k] - vb[k] for k in ENDPOINTS}
     rng = np.random.default_rng(seed)
     docs = np.unique(sdoc)
     idx_by = {d: np.where(sdoc == d)[0] for d in docs}
-    samples = {k: [] for k in ENDPOINTS}
-    for _ in range(n_boot):
+    samples = {k: np.empty(n_boot) for k in ENDPOINTS}
+    for bi in range(n_boot):
         pick = rng.choice(docs, len(docs), replace=True)
-        st = np.concatenate([idx_by[d] for d in pick])
-        rows = np.concatenate([groups[i] for i in st])
-        # 重新编号 state 以免重复 state 被合并
-        newsid = np.concatenate([np.full(len(groups[i]), j)
-                                 for j, i in enumerate(st)])
-        _, gg = M.group_slices(newsid)
-        va = _endpoint_vals(y[rows], pa[rows], newsid, gg)
-        vb = _endpoint_vals(y[rows], pb[rows], newsid, gg)
+        rows = np.concatenate([idx_by[d] for d in pick])
+        xa, xb = _agg(sa, rows), _agg(sb, rows)
         for k in ENDPOINTS:
-            samples[k].append(va[k] - vb[k])
+            samples[k][bi] = xa[k] - xb[k]
     out = {}
     for k in ENDPOINTS:
-        v = np.array([x for x in samples[k] if np.isfinite(x)])
+        v = samples[k][np.isfinite(samples[k])]
         lo, hi = np.percentile(v, [2.5, 97.5])
         se = float(v.std())
-        out[k] = {"baseline": base[k], "delta": obs[k], "se": se,
-                  "ci": [float(lo), float(hi)], "z": obs[k] / max(se, 1e-12),
+        out[k] = {"baseline": float(vb[k]), "treatment": float(va[k]),
+                  "delta": float(obs[k]), "se": se,
+                  "ci": [float(lo), float(hi)],
+                  "z": float(obs[k] / max(se, 1e-12)),
                   "mde80_onesided": 2.486 * se,
-                  "boot_p_gt0": float((v <= 0).mean())}
+                  "boot_p_le0": float((v <= 0).mean())}
     return out
 
 
-CRIT = {
-    "within_r2": lambda y, p, s, g: M.within_state_r2(y, p, s, g),
-    "concordance": lambda y, p, s, g: M.concordance(y, p, s, g),
-    "top1": lambda y, p, s, g: M.topk_metrics(y, p, s, g)["top1"],
-    "neg_regret_norm": lambda y, p, s, g: -M.regret(
-        y, p, s, g)["regret_norm_mean"],
-}
+SEL_CRIT = ("within_r2", "concordance", "top1", "regret_norm")
 
 
-def analyze_baseline(nm, n_boot=2000, seed=0):
-    """best_cheap 的选择准则敏感性 + best-of-two 选择偏倚的方向与大小。"""
+def analyze_baseline(nm, n_boot=4000, seed=0):
+    """best_cheap 的选择准则敏感性 + best-of-two 选择的方向与大小。"""
     z = load(nm)
     yv, sv = z["y_val"], z["sid_val"]
     gv = _groups(sv)
     y, s = z["y"], z["sid"]
     g = _groups(s)
     cands = ["cheap", "rank_cheap"]
-    val = {c: {k: f(yv, z["predval_" + c], sv, gv) for k, f in CRIT.items()}
-           for c in cands}
-    test = {c: {k: f(y, z["pred_" + c], s, g) for k, f in CRIT.items()}
-            for c in cands + ["additive_pca", "cheap+H"]}
-    out = {"val_scores": val, "test_scores": test, "by_criterion": {}}
-    for k in CRIT:
+    allp = cands + ["additive_pca", "cheap+H"]
+    stv = {c: per_state_suffstats(yv, z["predval_" + c], gv) for c in cands}
+    stt = {c: per_state_suffstats(y, z["pred_" + c], g) for c in allp}
+    rv = np.arange(len(gv)); rt = np.arange(len(g))
+    val = {c: _agg(stv[c], rv) for c in cands}
+    test = {c: _agg(stt[c], rt) for c in allp}
+    out = {"val_scores": {c: {k: float(val[c][k]) for k in SEL_CRIT}
+                          for c in cands},
+           "test_scores": {c: {k: float(test[c][k]) for k in ENDPOINTS}
+                           for c in allp},
+           "by_criterion": {}}
+    for k in SEL_CRIT:
         pick = max(cands, key=lambda c: val[c][k])
         out["by_criterion"][k] = {
             "best_cheap": pick,
-            "primary_delta_conc": test["additive_pca"]["concordance"]
-            - test[pick]["concordance"],
-            "primary_delta_top1": test["additive_pca"]["top1"]
-            - test[pick]["top1"],
-            "primary_delta_regret": test["additive_pca"]["neg_regret_norm"]
-            - test[pick]["neg_regret_norm"]}
-    # best-of-two 选择的方向与大小：对 val 文档做自助，重选，看 test 表现
+            "primary_delta_conc": float(test["additive_pca"]["concordance"]
+                                        - test[pick]["concordance"]),
+            "delta_conc_cheapH": float(test["cheap+H"]["concordance"]
+                                       - test[pick]["concordance"]),
+            "primary_delta_top1": float(test["additive_pca"]["top1"]
+                                        - test[pick]["top1"]),
+            "primary_delta_regret_norm":
+                float(test["additive_pca"]["regret_norm"]
+                      - test[pick]["regret_norm"])}
     docv = sv // 10_000
     sdv = np.array([docv[x[0]] for x in gv])
     docs = np.unique(sdv)
     idx_by = {d: np.where(sdv == d)[0] for d in docs}
     rng = np.random.default_rng(seed)
-    rec = {k: [] for k in CRIT}
-    wins = {k: 0 for k in CRIT}
+    rec = {k: [] for k in SEL_CRIT}
+    wins = {k: 0 for k in SEL_CRIT}
     for _ in range(n_boot):
         pick = rng.choice(docs, len(docs), replace=True)
-        st = np.concatenate([idx_by[d] for d in pick])
-        rows = np.concatenate([gv[i] for i in st])
-        ns = np.concatenate([np.full(len(gv[i]), j) for j, i in enumerate(st)])
-        _, gg = M.group_slices(ns)
-        for k, f in CRIT.items():
-            sc = {c: f(yv[rows], z["predval_" + c][rows], ns, gg) for c in cands}
-            w = max(cands, key=lambda c: sc[c])
+        rows = np.concatenate([idx_by[d] for d in pick])
+        sc = {c: _agg(stv[c], rows) for c in cands}
+        for k in SEL_CRIT:
+            w = max(cands, key=lambda c: sc[c][k])
             wins[k] += (w == "rank_cheap")
             rec[k].append(test[w]["concordance"])
     out["selection_stability"] = {
         k: {"P_pick_rank_cheap": wins[k] / n_boot,
             "E_test_conc_of_selected": float(np.mean(rec[k])),
-            "test_conc_fixed_cheap": test["cheap"]["concordance"],
+            "test_conc_fixed_cheap": float(test["cheap"]["concordance"]),
             "selection_gain_over_fixed_cheap":
-                float(np.mean(rec[k])) - test["cheap"]["concordance"]}
-        for k in CRIT}
+                float(np.mean(rec[k])) - float(test["cheap"]["concordance"])}
+        for k in SEL_CRIT}
     return out
 
 

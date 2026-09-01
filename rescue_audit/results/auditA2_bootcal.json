@@ -1,0 +1,22 @@
+{
+  "delta_0.0": {
+    "orig": {
+      "coverage_95": 1.0,
+      "mean_CI_width": 0.09056338722829117
+    },
+    "fixed": {
+      "coverage_95": 0.945,
+      "mean_CI_width": 0.0553976736111111
+    }
+  },
+  "delta_0.026": {
+    "orig": {
+      "coverage_95": 0.9975,
+      "mean_CI_width": 0.08892215319724266
+    },
+    "fixed": {
+      "coverage_95": 0.9275,
+      "mean_CI_width": 0.05435559027777777
+    }
+  }
+}

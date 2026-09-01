@@ -350,10 +350,58 @@ def stage_arcsin():
     return rep
 
 
+# ============================================================ stage: bootcal ==
+def stage_bootcal(n_rep=400, n_doc=100, n_state=6, n_pair=3, p0=0.75,
+                  deltas=(0.0, 0.026), n_boot=800, seed=0):
+    """两种自助权重在**已知真值**上的覆盖率。
+
+    生成结构与真实 test 集一致的合成数据（100 文档 × 6 state × 3 配对），
+    带文档级随机效应制造聚类相关。真值 Δ 已知（0.0 = 零假设，0.026 = 植入
+    与 MDLM within-informative 同量级的效应）。统计 95% CI 的覆盖率与宽度。
+    """
+    rng = np.random.default_rng(seed)
+    out = {}
+    for delta in deltas:
+        cov = {"orig": 0, "fixed": 0}
+        wid = {"orig": [], "fixed": []}
+        for _ in range(n_rep):
+            u = rng.normal(0, 0.06, n_doc)                 # 文档级随机效应
+            sdoc = np.repeat(np.arange(n_doc), n_state)
+            pc = np.clip(p0 + u[sdoc], 0.02, 0.98)
+            ph = np.clip(pc + delta, 0.02, 0.98)
+            Cc = {"x": rng.binomial(n_pair, pc).astype(float)}
+            Ch = {"x": rng.binomial(n_pair, ph).astype(float)}
+            N = {"x": np.full(n_doc * n_state, float(n_pair))}
+            g = globals()
+            for mode in ("orig", "fixed"):
+                cl = np.unique(sdoc); ci = np.searchsorted(cl, sdoc)
+                r2 = np.random.default_rng(rng.integers(1 << 30))
+                v = []
+                for _ in range(n_boot):
+                    m = np.bincount(r2.choice(n_doc, n_doc, replace=True),
+                                    minlength=n_doc).astype(float)[ci]
+                    w = m * m if mode == "orig" else m
+                    den = (w * N["x"]).sum()
+                    v.append(((w * Ch["x"]).sum() - (w * Cc["x"]).sum()) / den)
+                lo, hi = np.percentile(v, [2.5, 97.5])
+                cov[mode] += int(lo <= delta <= hi)
+                wid[mode].append(hi - lo)
+        out[f"delta_{delta}"] = {
+            m: {"coverage_95": cov[m] / n_rep,
+                "mean_CI_width": float(np.mean(wid[m]))} for m in cov}
+        print(f"  真值 Δ={delta:.3f}:  orig(m²) 覆盖率 "
+              f"{cov['orig']/n_rep:.3f} 宽度 {np.mean(wid['orig']):.4f}  |  "
+              f"fixed(m) 覆盖率 {cov['fixed']/n_rep:.3f} 宽度 "
+              f"{np.mean(wid['fixed']):.4f}", flush=True)
+    return out
+
+
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--stage", required=True,
-                    choices=["nest", "boot", "capacity", "arcsin"])
+                    choices=["nest", "boot", "capacity", "arcsin", "bootcal"])
     ap.add_argument("--arm", default="MDLM_anc")
     ap.add_argument("--layer", type=int, default=8)
     ap.add_argument("--scen", default=None)
@@ -369,8 +417,10 @@ def main():
     elif a.stage == "capacity":
         r = stage_capacity(arm=a.arm, layer=a.layer, scen=a.scen,
                            widths=tuple(a.widths))
-    else:
+    elif a.stage == "arcsin":
         r = stage_arcsin()
+    else:
+        r = stage_bootcal()
     tag = a.stage + (f"_{a.arm}" + (f"_{a.scen}" if a.scen else "_real")
                      if a.stage == "capacity" else "")
     out = a.out or os.path.join(RES, f"auditA2_{tag}.json")
