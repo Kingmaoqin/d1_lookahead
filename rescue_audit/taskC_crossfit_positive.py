@@ -61,6 +61,8 @@ def bootstrap_delta(y, pa, pb, sid, doc, n_boot=4000, seed=0):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--tag", default="taskC")
+    ap.add_argument("--tags", nargs="+", default=None,
+                    help="one or more label tags; overrides --tag")
     ap.add_argument("--layer", type=int, default=2)
     ap.add_argument("--select-layer", action="store_true",
                     help="mirror broad screen: choose layer by validation MSE")
@@ -72,7 +74,8 @@ def main():
         HERE, "results", "taskC_crossfit_positive.json"))
     args = ap.parse_args()
 
-    d = D.load_labels([args.tag])
+    tags = args.tags if args.tags is not None else [args.tag]
+    d = D.load_labels(tags)
     y = d["A_task"].astype(np.float32)
     sid, doc = d["state_id"], d["doc_id"]
     xc = D.block(d, "cheap").astype(np.float32)
@@ -142,6 +145,7 @@ def main():
             y, pred["bilinear"], pred[base], sid, doc,
             n_boot=args.n_boot)
     report = {"status": "post-hoc cross-fitted verification",
+              "tags": tags,
               "config": vars(args), "n_rows": int(len(y)),
               "n_states": int(len(np.unique(sid))), "n_docs": int(len(docs)),
               "folds": fold_rows, "overall": overall,
