@@ -35,3 +35,24 @@ CUDA_VISIBLE_DEVICES=0,2 /home/xqin5/.conda/envs/p08_skilloverload/bin/python -u
 After Task D validates, run `rescue_audit/taskD_apply_frozen_primary.py` once
 before any Task-D refitting.  This preserves the preregistered frozen-transfer
 endpoint.
+
+## Locked post-collection order
+
+```bash
+python rescue_audit/validate_task_collection.py --tag taskD --expected-docs 570 --no-overlap-tag taskC --write-meta
+python rescue_audit/validate_task_collection.py --tag taskE_svamp --expected-docs 200 --write-meta
+python rescue_audit/taskD_apply_frozen_primary.py
+```
+
+Only after the frozen Task-D application has written its report:
+
+```bash
+python scripts/rescue_broad_screen.py --tags taskD --target A_task --seeds 3 --quick --include_stale_history --out rescue_audit/results/screen_taskD_all_quick
+python rescue_audit/taskC_crossfit_positive.py --tags taskC taskD --select-layer --rank 4 --folds 5 --epochs 25 --n-boot 10000 --out rescue_audit/results/taskCD_crossfit_confirmatory.json
+python scripts/rescue_broad_screen.py --tags taskE_svamp --target A_task --seeds 3 --quick --include_stale_history --out rescue_audit/results/screen_taskE_svamp_all_quick
+python rescue_audit/taskC_crossfit_positive.py --tag taskE_svamp --select-layer --rank 4 --folds 5 --epochs 25 --n-boot 10000 --out rescue_audit/results/taskE_svamp_crossfit.json
+```
+
+The `include_stale_history` flag is unfortunately named: for Task C/D/E the
+history coordinates are correctly aligned, and the flag means retain those
+valid coordinates.  It does not declare these new datasets stale.
