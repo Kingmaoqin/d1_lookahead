@@ -367,6 +367,12 @@ within-state **+0.062**，Path-LL 直接排序 A_task 的 concordance **0.570**�
 **有可重复正信号、需要更大规模确认**。详细的 Claude 交叉审计见
 `CLAUDE_CROSS_AUDIT.md`。
 
+补充五折 OOF：独立初始化下 bilinear−cheap **+0.0149**、交互净增益
+**+0.0072**；匹配广筛初始化下分别为 **+0.0270 / +0.0265**。两套 bootstrap
+CI 仍覆盖 0，且后一套的 shuffled/Gaussian 控制显示非凸种子敏感性。因此
+Task C 支持“扩样”，尚不足以单独宣称“关系机制确认”。新一轮 Task D 已在
+`TASKD_PREREGISTRATION.md` 锁定后启动，目标把 taskC+taskD 补到 **3,000 states**。
+
 ## 9. Layer × timestep × horizon（§12 / §18）
 
 `rescue_audit/horizon_timestep_layer.py`，三个视界臂 × 6 个时间步 bin，

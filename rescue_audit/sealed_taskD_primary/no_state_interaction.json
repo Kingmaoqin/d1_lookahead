@@ -1,0 +1,46 @@
+{
+  "name": "no_state_interaction",
+  "layer": 0,
+  "rank": 4,
+  "taskC_internal_test_metrics": {
+    "r2": -0.0808258229343386,
+    "within_r2": -0.1250187907613487,
+    "ceiling_normalized_r2": NaN,
+    "mae": 0.13435906171798706,
+    "rmse": 0.25206485390663147,
+    "spearman": 0.10737988147901327,
+    "pairwise_concordance": 0.5239005736137667,
+    "pairwise_auc": 0.5529347633920678,
+    "kendall_tau_state_mean": 0.0177130313196814,
+    "spearman_state_mean": 0.020273944960670694,
+    "top1_accuracy": 0.1388888888888889,
+    "top1_value_accuracy": 0.8388888888888889,
+    "top1_value_accuracy_decision": 0.5245901639344263,
+    "n_decision_states": 61,
+    "top2_recall": 0.3388888888888889,
+    "top3_recall": 0.55,
+    "mean_regret": 0.06736111111111111,
+    "median_regret": 0.0,
+    "normalized_regret": 0.11425264550264552,
+    "worst_quartile_regret": 0.26944444444444443,
+    "n_states": 180,
+    "n_pairs": 523
+  },
+  "hp": {
+    "kind": "bilinear",
+    "objective": "mse",
+    "rank": 4,
+    "best_epoch": 1,
+    "config": {
+      "seed": 0,
+      "pca_dim": 64,
+      "epochs": 25,
+      "patience": 8,
+      "batch_size": 512,
+      "lr": 0.001,
+      "weight_decay": 0.0001,
+      "device": "cuda"
+    },
+    "n_params": 741
+  }
+}

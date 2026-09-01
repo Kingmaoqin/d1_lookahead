@@ -259,7 +259,8 @@ def torch_available(device="cuda"):
 
 
 def fit_torch_score(kind, xc, hi, hg, y, state, tr, va, te, cfg: SuiteConfig,
-                    rank=8, action=None, objective="mse", layers=None):
+                    rank=8, action=None, objective="mse", layers=None,
+                    return_artifact=False):
     """P2/P3/P4/P8/P9/P10/P12 small controlled neural scorers."""
     import torch
     import torch.nn as nn
@@ -268,9 +269,10 @@ def fit_torch_score(kind, xc, hi, hg, y, state, tr, va, te, cfg: SuiteConfig,
     rng = np.random.default_rng(cfg.seed)
     # All blocks are standardized using train only.
     arrays = [xc, hi, hg] + ([] if action is None else [action])
-    norm = []
+    norm, norm_mu, norm_sd = [], [], []
     for x in arrays:
         mu, sd = x[tr].mean(0), x[tr].std(0); sd[sd < 1e-7] = 1
+        norm_mu.append(mu.astype(np.float32)); norm_sd.append(sd.astype(np.float32))
         norm.append(((x-mu)/sd).astype(np.float32))
     xc_, hi_, hg_ = norm[:3]; ac_ = norm[3] if action is not None else None
     dc, di, dg = xc_.shape[1], hi_.shape[1], hg_.shape[1]
@@ -344,4 +346,13 @@ def fit_torch_score(kind, xc, hi, hg, y, state, tr, va, te, cfg: SuiteConfig,
         else: bad+=1
         if bad>=cfg.patience: break
     net.load_state_dict(best[1]); pred=score(te)
-    return pred,{"kind":kind,"objective":objective,"rank":rank,"best_epoch":best[2],"config":asdict(cfg),"n_params":sum(p.numel() for p in net.parameters())}
+    hp={"kind":kind,"objective":objective,"rank":rank,"best_epoch":best[2],
+        "config":asdict(cfg),"n_params":sum(p.numel() for p in net.parameters())}
+    if not return_artifact:
+        return pred,hp
+    artifact={"state_dict": {k:v.detach().cpu().numpy()
+                              for k,v in net.state_dict().items()},
+              "norm_mu": norm_mu, "norm_sd": norm_sd,
+              "ym": ym, "ys": ys, "kind": kind, "rank": rank,
+              "objective": objective, "hp": hp}
+    return pred,hp,artifact

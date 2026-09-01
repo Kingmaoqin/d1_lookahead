@@ -70,6 +70,21 @@ taskC 有 180 题 / 720 states / 4,320 候选，标签 within-state ceiling 约 
 第 3 项正在用五折、每文档仅预测一次的原协议做最后区间估计；在该结果完成前，
 它应标为强探索性正结果，而不是预注册确认性结果。
 
+### 五折复核后的精确限定
+
+五折 OOF 保留了正方向，但暴露出非凸训练种子敏感性：
+
+* 使用独立初始化 100–104：bilinear−cheap = +0.0149，
+  bilinear−no-interaction = +0.0072；
+* 严格匹配广筛初始化 0–4：bilinear−cheap = +0.0270，
+  bilinear−no-interaction = +0.0265。
+
+两套区间都覆盖 0；而第二套中 shuffled/Gaussian 控制偶尔能追平真实 h_g。
+因此可以自信说 **task utility 上存在值得扩样的候选排序信号**，但还不能把它
+唯一归因于真实状态调制。这个不确定性已通过 `TASKD_PREREGISTRATION.md` 在新数据
+出生前锁定：扩到总计 3,000 states，用冻结模型一次性区分真实 h_g、无交互、
+shuffled 与 Gaussian 控制。
+
 ## 口径修正
 
 Task utility 的 A_task 大量并列。旧 `top1` 把第一个最大值指定为唯一 oracle，且
