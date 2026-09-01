@@ -56,6 +56,18 @@ def gsm8k(n):
     return pq.read_table(p).to_pylist()[:n]
 
 
+def svamp(n):
+    """Second qualified exact-match task; normalize to the GSM8K row schema."""
+    from huggingface_hub import hf_hub_download
+    p = hf_hub_download("ChilleD/SVAMP", "test.json", repo_type="dataset")
+    raw = json.load(open(p))[:n]
+    return [{"question": str(r["Body"]).strip() + "\n" +
+                         str(r["Question"]).strip(),
+             "answer": "#### " + str(r["Answer"]),
+             "source_id": r.get("ID", str(i))}
+            for i, r in enumerate(raw)]
+
+
 @torch.no_grad()
 def screen(model, tok, rows, cfg, pcfg, dev, K, micro):
     """Run K rollouts per prompt; classify as mixed / always-right / always-wrong."""
@@ -210,6 +222,7 @@ def main():
     ap.add_argument("--rollout_batch", type=int, default=32)
     ap.add_argument("--offset", type=int, default=0)
     ap.add_argument("--tag", default="task")
+    ap.add_argument("--dataset", choices=["gsm8k", "svamp"], default="gsm8k")
     ap.add_argument("--device", default="cuda")
     ap.add_argument("--resume", action="store_true",
                     help="append after complete existing shards, skipping their doc_ids")
@@ -226,7 +239,8 @@ def main():
     pcfg = cfg.pi()
     model, _ = load_nemotron(device=dev)
     tok = get_tokenizer()
-    rows = gsm8k(args.offset + args.n_screen)[args.offset:]
+    loader = gsm8k if args.dataset == "gsm8k" else svamp
+    rows = loader(args.offset + args.n_screen)[args.offset:]
     for i, r in enumerate(rows):
         r["_qi"] = args.offset + i
     if not (0 <= args.worker_index < args.num_workers):

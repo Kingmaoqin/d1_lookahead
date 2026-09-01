@@ -373,6 +373,14 @@ CI 仍覆盖 0，且后一套的 shuffled/Gaussian 控制显示非凸种子敏�
 Task C 支持“扩样”，尚不足以单独宣称“关系机制确认”。新一轮 Task D 已在
 `TASKD_PREREGISTRATION.md` 锁定后启动，目标把 taskC+taskD 补到 **3,000 states**。
 
+### 8.4 第二个 verifiable task：SVAMP 资格通过
+
+按任务书 §14 先做 substrate qualification：SVAMP test 前 100 题，每题 K=8
+完整生成，严格末尾数值 exact match。结果：总体准确率 **69.75%**，mixed prompt
+**23%**，always-wrong 18%、always-right 59%，平均题内 reward variance
+**0.0496**。准确率不接近 0/1、mixed 比例高于预定 10% 门槛、题内方差非退化，
+故 **QUALIFIED**。候选级 A_task 采集将在 Task D 筛选完成后启动。
+
 ## 9. Layer × timestep × horizon（§12 / §18）
 
 `rescue_audit/horizon_timestep_layer.py`，三个视界臂 × 6 个时间步 bin，
