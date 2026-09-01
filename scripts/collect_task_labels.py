@@ -224,6 +224,10 @@ def main():
     ap.add_argument("--tag", default="task")
     ap.add_argument("--dataset", choices=["gsm8k", "svamp"], default="gsm8k")
     ap.add_argument("--device", default="cuda")
+    ap.add_argument("--shard_model", action="store_true",
+                    help="split the frozen backbone across visible GPUs")
+    ap.add_argument("--reserve_gb", type=float, default=1.6,
+                    help="per-GPU memory held back when --shard_model is used")
     ap.add_argument("--resume", action="store_true",
                     help="append after complete existing shards, skipping their doc_ids")
     ap.add_argument("--shard_examples", type=int, default=96,
@@ -239,7 +243,8 @@ def main():
                                n_cand=args.n_cand, n_cand_conf=args.n_cand // 2,
                                rollout_batch=args.rollout_batch)
     pcfg = cfg.pi()
-    model, _ = load_nemotron(device=dev)
+    model, _ = load_nemotron(device=dev, shard=args.shard_model,
+                             reserve_gb=args.reserve_gb)
     tok = get_tokenizer()
     loader = gsm8k if args.dataset == "gsm8k" else svamp
     rows = loader(args.offset + args.n_screen)[args.offset:]
