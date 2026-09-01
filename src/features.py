@@ -112,6 +112,11 @@ def assemble_hidden(snap, cand_b, cand_i):
     """Per-layer [h_{i,t}] and [h_global,t]; h_global = mean over positions."""
     h_i, h_g = [], []
     for h in snap["hidden"]:                        # each (B, L, D)
-        h_i.append(h[cand_b, cand_i].float().cpu().numpy().astype(np.float16))
-        h_g.append(h.mean(1)[cand_b].float().cpu().numpy().astype(np.float16))
+        # With a device-mapped backbone, hidden layers can live on a different
+        # GPU from the candidate indices.  Index locally, then bring only the
+        # selected features to CPU.  The single-GPU path is unchanged.
+        hb = cand_b.to(h.device)
+        hi = cand_i.to(h.device)
+        h_i.append(h[hb, hi].float().cpu().numpy().astype(np.float16))
+        h_g.append(h.mean(1)[hb].float().cpu().numpy().astype(np.float16))
     return np.stack(h_i, 1), np.stack(h_g, 1)       # (N, n_layers, D) each
