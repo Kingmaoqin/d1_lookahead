@@ -226,6 +226,8 @@ def main():
     ap.add_argument("--device", default="cuda")
     ap.add_argument("--resume", action="store_true",
                     help="append after complete existing shards, skipping their doc_ids")
+    ap.add_argument("--shard_examples", type=int, default=96,
+                    help="checkpoint after this many candidate rows")
     ap.add_argument("--num_workers", type=int, default=1)
     ap.add_argument("--worker_index", type=int, default=0)
     args = ap.parse_args()
@@ -325,7 +327,7 @@ def main():
         print(f"  {k+1}/{len(todo)} prompts, {existing_examples + new_examples} "
               f"total examples, {el:.0f}s, "
               f"eta {el/(k+1)*(len(todo)-k-1):.0f}s", flush=True)
-        if shard and (sum(len(x['position']) for x in shard) >= 400
+        if shard and (sum(len(x['position']) for x in shard) >= args.shard_examples
                       or k == len(todo) - 1):
             d = {kk: np.concatenate([x[kk] for x in shard], 0) for kk in shard[0]}
             prefix = ("shard" if args.num_workers == 1
