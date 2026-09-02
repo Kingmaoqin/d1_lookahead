@@ -1,0 +1,45 @@
+=== MDLM_ancestral / A_pertok ===
+    seed 10/50
+    seed 20/50
+    seed 30/50
+    seed 40/50
+    seed 50/50
+    layer 9  ceiling 0.883
+=== MDLM_ancestral / A_future ===
+    seed 10/50
+    seed 20/50
+    seed 30/50
+    seed 40/50
+    seed 50/50
+/home/xqin5/.conda/envs/p08_skilloverload/lib/python3.12/site-packages/scipy/stats/_wilcoxon.py:181: RuntimeWarning: invalid value encountered in scalar divide
+  z = (r_plus - mn) / se
+    layer 9  ceiling 0.791
+=== MDLM_confidence / A_pertok ===
+    seed 10/50
+    seed 20/50
+    seed 30/50
+    seed 40/50
+    seed 50/50
+    layer 8  ceiling 0.854
+=== MDLM_confidence / A_future ===
+    seed 10/50
+    seed 20/50
+    seed 30/50
+    seed 40/50
+    seed 50/50
+    layer 8  ceiling 0.735
+=== SEDD_ancestral / A_pertok ===
+    seed 10/50
+    seed 20/50
+    seed 30/50
+    seed 40/50
+    seed 50/50
+    layer 9  ceiling 0.902
+=== SEDD_ancestral / A_future ===
+    seed 10/50
+    seed 20/50
+    seed 30/50
+    seed 40/50
+    seed 50/50
+    layer 9  ceiling 0.806
+wrote data/estimate_all.json

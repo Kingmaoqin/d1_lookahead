@@ -1,0 +1,222 @@
+{
+  "arrays": {
+    "A_full_seeds": {
+      "dtype": "float32",
+      "shape": [
+        408,
+        8
+      ]
+    },
+    "A_pertok": {
+      "dtype": "float32",
+      "shape": [
+        408
+      ]
+    },
+    "A_sem": {
+      "dtype": "float64",
+      "shape": [
+        408
+      ]
+    },
+    "A_task": {
+      "dtype": "float32",
+      "shape": [
+        408
+      ]
+    },
+    "A_task_seeds": {
+      "dtype": "float32",
+      "shape": [
+        408,
+        8
+      ]
+    },
+    "A_task_sem": {
+      "dtype": "float64",
+      "shape": [
+        408
+      ]
+    },
+    "C1": {
+      "dtype": "float32",
+      "shape": [
+        408,
+        8
+      ]
+    },
+    "C2": {
+      "dtype": "float32",
+      "shape": [
+        408,
+        12
+      ]
+    },
+    "C3": {
+      "dtype": "float32",
+      "shape": [
+        408,
+        80
+      ]
+    },
+    "H_g": {
+      "dtype": "float16",
+      "shape": [
+        408,
+        13,
+        3072
+      ]
+    },
+    "H_i": {
+      "dtype": "float16",
+      "shape": [
+        408,
+        13,
+        3072
+      ]
+    },
+    "Q_reward": {
+      "dtype": "float32",
+      "shape": [
+        408
+      ]
+    },
+    "V_pertok": {
+      "dtype": "float32",
+      "shape": [
+        408
+      ]
+    },
+    "V_reward": {
+      "dtype": "float32",
+      "shape": [
+        408
+      ]
+    },
+    "doc_id": {
+      "dtype": "int64",
+      "shape": [
+        408
+      ]
+    },
+    "logp_action": {
+      "dtype": "float32",
+      "shape": [
+        408
+      ]
+    },
+    "mask_ratio": {
+      "dtype": "float32",
+      "shape": [
+        408
+      ]
+    },
+    "position": {
+      "dtype": "int64",
+      "shape": [
+        408
+      ]
+    },
+    "prompt_row": {
+      "dtype": "int64",
+      "shape": [
+        408
+      ]
+    },
+    "prompt_stratum": {
+      "dtype": "int8",
+      "shape": [
+        408
+      ]
+    },
+    "proposed_token": {
+      "dtype": "int64",
+      "shape": [
+        408
+      ]
+    },
+    "step": {
+      "dtype": "int32",
+      "shape": [
+        408
+      ]
+    },
+    "stratum": {
+      "dtype": "int8",
+      "shape": [
+        408
+      ]
+    }
+  },
+  "batch": "shard_w1_000",
+  "bytes": 51064853,
+  "doc_id_max": 1289,
+  "doc_id_min": 701,
+  "n_docs": 17,
+  "n_rows": 408,
+  "n_states": 68,
+  "path": "data/labels_taskD/shard_w1_000.npz",
+  "prompt_row_max": 1289,
+  "prompt_row_min": 701,
+  "prompt_stratum_counts": {
+    "1": 408
+  },
+  "sha256": "80ff2aeaed764af413da1319056797f8d776141ae799561c061d71585138d7c5",
+  "statistics": {
+    "A_pertok": {
+      "max": 0.07423682510852814,
+      "mean": -0.013606644238305267,
+      "min": -0.12809914350509644,
+      "std": 0.02837728478094342
+    },
+    "A_sem": {
+      "max": 0.019849785339342355,
+      "mean": 0.002596866939739756,
+      "min": 0.0,
+      "std": 0.0036006060001903904
+    },
+    "A_task": {
+      "max": 1.0,
+      "mean": -0.010723039215686275,
+      "min": -1.0,
+      "std": 0.31736395766699355
+    },
+    "A_task_sem": {
+      "max": 0.3061862123523961,
+      "mean": 0.04130756449997457,
+      "min": 0.0,
+      "std": 0.07037400739542254
+    },
+    "Q_reward": {
+      "max": 1.0,
+      "mean": 0.38449754901960786,
+      "min": 0.0,
+      "std": 0.4516549687297887
+    },
+    "V_pertok": {
+      "max": -0.00021374225616455078,
+      "mean": -0.08074003880199812,
+      "min": -0.20883041620254517,
+      "std": 0.051112032755231074
+    },
+    "V_reward": {
+      "max": 1.0,
+      "mean": 0.3952205882352941,
+      "min": 0.0,
+      "std": 0.4489623934725437
+    },
+    "logp_action": {
+      "max": -2.47955322265625e-05,
+      "mean": -1.1585164747986139,
+      "min": -3.164942741394043,
+      "std": 0.9516284890016303
+    },
+    "mask_ratio": {
+      "max": 0.6044444441795349,
+      "mean": 0.34004949274308544,
+      "min": 0.12195122241973877,
+      "std": 0.14685384636919036
+    }
+  },
+  "tag": "taskD"
+}

@@ -1,0 +1,18 @@
+
+=== GSM8K(taskC) ===  states=720 docs=180 mean V_reward=0.6427 sd=0.4624 全对=0.596 全错=0.312
+    seed 10/50
+    seed 20/50
+    seed 30/50
+    seed 40/50
+    seed 50/50
+  层12  ΔR²=+0.0698  ΔAUC=+0.0252  安慰剂ΔAUC=-0.0022
+
+=== SVAMP(taskE) ===  states=800 docs=200 mean V_reward=0.7506 sd=0.4156 全对=0.708 全错=0.210
+    seed 10/50
+    seed 20/50
+    seed 30/50
+    seed 40/50
+    seed 50/50
+  层11  ΔR²=+0.0430  ΔAUC=+0.0398  安慰剂ΔAUC=-0.0030
+
+wrote data/task_state_readout.json

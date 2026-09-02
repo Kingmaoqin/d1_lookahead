@@ -1,0 +1,222 @@
+{
+  "arrays": {
+    "A_full_seeds": {
+      "dtype": "float32",
+      "shape": [
+        408,
+        8
+      ]
+    },
+    "A_pertok": {
+      "dtype": "float32",
+      "shape": [
+        408
+      ]
+    },
+    "A_sem": {
+      "dtype": "float64",
+      "shape": [
+        408
+      ]
+    },
+    "A_task": {
+      "dtype": "float32",
+      "shape": [
+        408
+      ]
+    },
+    "A_task_seeds": {
+      "dtype": "float32",
+      "shape": [
+        408,
+        8
+      ]
+    },
+    "A_task_sem": {
+      "dtype": "float64",
+      "shape": [
+        408
+      ]
+    },
+    "C1": {
+      "dtype": "float32",
+      "shape": [
+        408,
+        8
+      ]
+    },
+    "C2": {
+      "dtype": "float32",
+      "shape": [
+        408,
+        12
+      ]
+    },
+    "C3": {
+      "dtype": "float32",
+      "shape": [
+        408,
+        80
+      ]
+    },
+    "H_g": {
+      "dtype": "float16",
+      "shape": [
+        408,
+        13,
+        3072
+      ]
+    },
+    "H_i": {
+      "dtype": "float16",
+      "shape": [
+        408,
+        13,
+        3072
+      ]
+    },
+    "Q_reward": {
+      "dtype": "float32",
+      "shape": [
+        408
+      ]
+    },
+    "V_pertok": {
+      "dtype": "float32",
+      "shape": [
+        408
+      ]
+    },
+    "V_reward": {
+      "dtype": "float32",
+      "shape": [
+        408
+      ]
+    },
+    "doc_id": {
+      "dtype": "int64",
+      "shape": [
+        408
+      ]
+    },
+    "logp_action": {
+      "dtype": "float32",
+      "shape": [
+        408
+      ]
+    },
+    "mask_ratio": {
+      "dtype": "float32",
+      "shape": [
+        408
+      ]
+    },
+    "position": {
+      "dtype": "int64",
+      "shape": [
+        408
+      ]
+    },
+    "prompt_row": {
+      "dtype": "int64",
+      "shape": [
+        408
+      ]
+    },
+    "prompt_stratum": {
+      "dtype": "int8",
+      "shape": [
+        408
+      ]
+    },
+    "proposed_token": {
+      "dtype": "int64",
+      "shape": [
+        408
+      ]
+    },
+    "step": {
+      "dtype": "int32",
+      "shape": [
+        408
+      ]
+    },
+    "stratum": {
+      "dtype": "int8",
+      "shape": [
+        408
+      ]
+    }
+  },
+  "batch": "shard_w1_001",
+  "bytes": 51074313,
+  "doc_id_max": 1278,
+  "doc_id_min": 751,
+  "n_docs": 17,
+  "n_rows": 408,
+  "n_states": 68,
+  "path": "data/labels_taskD/shard_w1_001.npz",
+  "prompt_row_max": 1278,
+  "prompt_row_min": 751,
+  "prompt_stratum_counts": {
+    "1": 408
+  },
+  "sha256": "781453c6d57cb48399a22cc80fe864a2ddedfd2877884a688c0f0ccf38d6475c",
+  "statistics": {
+    "A_pertok": {
+      "max": 0.042061880230903625,
+      "mean": -0.011348330242770106,
+      "min": -0.12474864721298218,
+      "std": 0.02276989978897783
+    },
+    "A_sem": {
+      "max": 0.026067301602559604,
+      "mean": 0.0020633538469837565,
+      "min": 0.0,
+      "std": 0.0031950280721296286
+    },
+    "A_task": {
+      "max": 1.0,
+      "mean": 0.00857843137254902,
+      "min": -1.0,
+      "std": 0.2605082019059755
+    },
+    "A_task_sem": {
+      "max": 0.3061862123523961,
+      "mean": 0.030905867503006248,
+      "min": 0.0,
+      "std": 0.06470039888220043
+    },
+    "Q_reward": {
+      "max": 1.0,
+      "mean": 0.6390931372549019,
+      "min": 0.0,
+      "std": 0.44842853186232123
+    },
+    "V_pertok": {
+      "max": -8.195638656616211e-05,
+      "mean": -0.07427753519047708,
+      "min": -0.21911633014678955,
+      "std": 0.04595992763398737
+    },
+    "V_reward": {
+      "max": 1.0,
+      "mean": 0.6305147058823529,
+      "min": 0.0,
+      "std": 0.44527432035990167
+    },
+    "logp_action": {
+      "max": -1.9073486328125e-06,
+      "mean": -1.0177538278056126,
+      "min": -3.0272216796875,
+      "std": 0.8807825767545066
+    },
+    "mask_ratio": {
+      "max": 0.6098654866218567,
+      "mean": 0.3338580879875842,
+      "min": 0.10423452407121658,
+      "std": 0.14302643152572533
+    }
+  },
+  "tag": "taskD"
+}

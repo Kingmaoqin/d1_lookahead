@@ -1,0 +1,300 @@
+/home/xqin5/.conda/envs/p08_skilloverload/lib/python3.12/site-packages/transformers/modeling_rope_utils.py:1036: FutureWarning: `rope_config_validation` is deprecated and has been removed. Its functionality has been moved to RotaryEmbeddingConfigMixin.validate_rope method. PreTrainedConfig inherits this class, so please call self.validate_rope() instead. Also, make sure to use the new rope_parameters syntax. You can call self.standardize_rope_params() in the meantime.
+  warnings.warn(
+[transformers] Unrecognized keys in `rope_parameters` for 'rope_type'='yarn': {'llama_4_scaling_beta'}
+[transformers] Unrecognized keys in `rope_parameters` for 'rope_type'='yarn': {'llama_4_scaling_beta'}
+[transformers] Model config: mask_token_id must be `None` or an integer within the vocabulary (between 0 and 131071), got -1. This may result in unexpected behavior.
+[ERROR] `cache_position` is part of Ministral3Model.forward's signature, but not documented. Make sure to add it to the docstring of the function in /home/xqin5/.cache/huggingface/modules/transformers_modules/nvidia/Nemotron_hyphen_Labs_hyphen_Diffusion_hyphen_3B/0d51902da1f8869f83413ce642fab402fa5641e0/modeling_ministral.py.
+[transformers] The `check_model_inputs` decorator is deprecated in favor of `merge_with_config_defaults`.
+Loading weights:   0%|          | 0/237 [00:00<?, ?it/s]Loading weights: 100%|██████████| 237/237 [00:00<00:00, 10212.77it/s]
+[transformers] Unrecognized keys in `rope_parameters` for 'rope_type'='yarn': {'llama_4_scaling_beta'}
+[transformers] Unrecognized keys in `rope_parameters` for 'rope_type'='yarn': {'llama_4_scaling_beta'}
+[task] reusing cached screening of 600 prompts
+[task] screened: 182/600 mixed (30%); selected 182 mixed (oversampled) + 388 natural
+[task] worker 1/2: assigned 285 prompts
+[task] resume: 309 complete prompts / 7416 examples; next shard=39
+  1/285 prompt 1203 already complete; skip
+  2/285 prompt 1289 already complete; skip
+  3/285 prompt 701 already complete; skip
+  4/285 prompt 856 already complete; skip
+  5/285 prompt 1263 already complete; skip
+  6/285 prompt 1036 already complete; skip
+  7/285 prompt 951 already complete; skip
+  8/285 prompt 1059 already complete; skip
+  9/285 prompt 1101 already complete; skip
+  10/285 prompt 1200 already complete; skip
+  11/285 prompt 729 already complete; skip
+  12/285 prompt 740 already complete; skip
+  13/285 prompt 1193 already complete; skip
+  14/285 prompt 906 already complete; skip
+  15/285 prompt 847 already complete; skip
+  16/285 prompt 1026 already complete; skip
+  17/285 prompt 996 already complete; skip
+  18/285 prompt 986 already complete; skip
+  19/285 prompt 1208 already complete; skip
+  20/285 prompt 1238 already complete; skip
+  21/285 prompt 1275 already complete; skip
+  22/285 prompt 1244 already complete; skip
+  23/285 prompt 1278 already complete; skip
+  24/285 prompt 1191 already complete; skip
+  25/285 prompt 1044 already complete; skip
+  26/285 prompt 803 already complete; skip
+  27/285 prompt 837 already complete; skip
+  28/285 prompt 1023 already complete; skip
+  29/285 prompt 1006 already complete; skip
+  30/285 prompt 1198 already complete; skip
+  31/285 prompt 751 already complete; skip
+  32/285 prompt 854 already complete; skip
+  33/285 prompt 1072 already complete; skip
+  34/285 prompt 943 already complete; skip
+  35/285 prompt 958 already complete; skip
+  36/285 prompt 1058 already complete; skip
+  37/285 prompt 865 already complete; skip
+  38/285 prompt 1180 already complete; skip
+  39/285 prompt 1225 already complete; skip
+  40/285 prompt 738 already complete; skip
+  41/285 prompt 883 already complete; skip
+  42/285 prompt 891 already complete; skip
+  43/285 prompt 745 already complete; skip
+  44/285 prompt 785 already complete; skip
+  45/285 prompt 1041 already complete; skip
+  46/285 prompt 888 already complete; skip
+  47/285 prompt 765 already complete; skip
+  48/285 prompt 831 already complete; skip
+  49/285 prompt 799 already complete; skip
+  50/285 prompt 919 already complete; skip
+  51/285 prompt 793 already complete; skip
+  52/285 prompt 1172 already complete; skip
+  53/285 prompt 853 already complete; skip
+  54/285 prompt 882 already complete; skip
+  55/285 prompt 775 already complete; skip
+  56/285 prompt 1230 already complete; skip
+  57/285 prompt 1235 already complete; skip
+  58/285 prompt 1083 already complete; skip
+  59/285 prompt 712 already complete; skip
+  60/285 prompt 1211 already complete; skip
+  61/285 prompt 995 already complete; skip
+  62/285 prompt 1269 already complete; skip
+  63/285 prompt 1099 already complete; skip
+  64/285 prompt 924 already complete; skip
+  65/285 prompt 1205 already complete; skip
+  66/285 prompt 1177 already complete; skip
+  67/285 prompt 1255 already complete; skip
+  68/285 prompt 948 already complete; skip
+  69/285 prompt 787 already complete; skip
+  70/285 prompt 767 already complete; skip
+  71/285 prompt 1170 already complete; skip
+  72/285 prompt 872 already complete; skip
+  73/285 prompt 942 already complete; skip
+  74/285 prompt 797 already complete; skip
+  75/285 prompt 1063 already complete; skip
+  76/285 prompt 1236 already complete; skip
+  77/285 prompt 1252 already complete; skip
+  78/285 prompt 739 already complete; skip
+  79/285 prompt 917 already complete; skip
+  80/285 prompt 921 already complete; skip
+  81/285 prompt 973 already complete; skip
+  82/285 prompt 1271 already complete; skip
+  83/285 prompt 816 already complete; skip
+  84/285 prompt 991 already complete; skip
+  85/285 prompt 717 already complete; skip
+  86/285 prompt 955 already complete; skip
+  87/285 prompt 1169 already complete; skip
+  88/285 prompt 993 already complete; skip
+  89/285 prompt 922 already complete; skip
+  90/285 prompt 1256 already complete; skip
+  91/285 prompt 1052 already complete; skip
+  92/285 prompt 1034 already complete; skip
+  93/285 prompt 1288 already complete; skip
+  94/285 prompt 907 already complete; skip
+  95/285 prompt 1232 already complete; skip
+  96/285 prompt 826 already complete; skip
+  97/285 prompt 893 already complete; skip
+  98/285 prompt 1086 already complete; skip
+  99/285 prompt 1133 already complete; skip
+  100/285 prompt 759 already complete; skip
+  101/285 prompt 811 already complete; skip
+  102/285 prompt 1094 already complete; skip
+  103/285 prompt 855 already complete; skip
+  104/285 prompt 1216 already complete; skip
+  105/285 prompt 754 already complete; skip
+  106/285 prompt 984 already complete; skip
+  107/285 prompt 895 already complete; skip
+  108/285 prompt 1293 already complete; skip
+  109/285 prompt 868 already complete; skip
+  110/285 prompt 827 already complete; skip
+  111/285 prompt 1053 already complete; skip
+  112/285 prompt 1114 already complete; skip
+  113/285 prompt 1109 already complete; skip
+  114/285 prompt 781 already complete; skip
+  115/285 prompt 720 already complete; skip
+  116/285 prompt 1285 already complete; skip
+  117/285 prompt 1261 already complete; skip
+  118/285 prompt 1291 already complete; skip
+  119/285 prompt 1077 already complete; skip
+  120/285 prompt 810 already complete; skip
+  121/285 prompt 992 already complete; skip
+  122/285 prompt 794 already complete; skip
+  123/285 prompt 1136 already complete; skip
+  124/285 prompt 1183 already complete; skip
+  125/285 prompt 905 already complete; skip
+  126/285 prompt 1259 already complete; skip
+  127/285 prompt 822 already complete; skip
+  128/285 prompt 773 already complete; skip
+  129/285 prompt 1001 already complete; skip
+  130/285 prompt 1207 already complete; skip
+  131/285 prompt 708 already complete; skip
+  132/285 prompt 1163 already complete; skip
+  133/285 prompt 795 already complete; skip
+  134/285 prompt 849 already complete; skip
+  135/285 prompt 817 already complete; skip
+  136/285 prompt 1103 already complete; skip
+  137/285 prompt 1037 already complete; skip
+  138/285 prompt 760 already complete; skip
+  139/285 prompt 968 already complete; skip
+  140/285 prompt 1089 already complete; skip
+  141/285 prompt 974 already complete; skip
+  142/285 prompt 829 already complete; skip
+  143/285 prompt 1015 already complete; skip
+  144/285 prompt 988 already complete; skip
+  145/285 prompt 835 already complete; skip
+  146/285 prompt 1186 already complete; skip
+  147/285 prompt 851 already complete; skip
+  148/285 prompt 1138 already complete; skip
+  149/285 prompt 1260 already complete; skip
+  150/285 prompt 1154 already complete; skip
+  151/285 prompt 824 already complete; skip
+  152/285 prompt 741 already complete; skip
+  153/285 prompt 703 already complete; skip
+  154/285 prompts, 7440 total examples, 40s, eta 34s
+  155/285 prompts, 7464 total examples, 191s, eta 160s
+  156/285 prompts, 7488 total examples, 339s, eta 281s
+  157/285 prompts, 7512 total examples, 377s, eta 307s
+  158/285 prompts, 7536 total examples, 551s, eta 443s
+  159/285 prompts, 7560 total examples, 633s, eta 502s
+  160/285 prompts, 7584 total examples, 739s, eta 577s
+  161/285 prompts, 7608 total examples, 897s, eta 691s
+  162/285 prompts, 7632 total examples, 1066s, eta 809s
+  163/285 prompts, 7656 total examples, 1207s, eta 904s
+  164/285 prompts, 7680 total examples, 1339s, eta 988s
+  165/285 prompts, 7704 total examples, 1387s, eta 1009s
+  166/285 prompts, 7728 total examples, 1497s, eta 1073s
+  167/285 prompts, 7752 total examples, 1665s, eta 1177s
+  168/285 prompts, 7776 total examples, 1781s, eta 1240s
+  169/285 prompts, 7800 total examples, 2028s, eta 1392s
+  170/285 prompts, 7824 total examples, 2223s, eta 1504s
+  171/285 prompts, 7848 total examples, 2331s, eta 1554s
+  172/285 prompts, 7872 total examples, 2342s, eta 1539s
+  173/285 prompts, 7896 total examples, 2445s, eta 1583s
+  174/285 prompts, 7920 total examples, 2621s, eta 1672s
+  175/285 prompts, 7944 total examples, 2676s, eta 1682s
+  176/285 prompts, 7968 total examples, 2767s, eta 1714s
+  177/285 prompts, 7992 total examples, 2836s, eta 1730s
+  178/285 prompts, 8016 total examples, 2879s, eta 1731s
+  179/285 prompts, 8040 total examples, 3020s, eta 1788s
+  180/285 prompts, 8064 total examples, 3194s, eta 1863s
+  181/285 prompts, 8088 total examples, 3332s, eta 1914s
+  182/285 prompts, 8112 total examples, 3345s, eta 1893s
+  183/285 prompts, 8136 total examples, 3470s, eta 1934s
+  184/285 prompts, 8160 total examples, 3481s, eta 1911s
+  185/285 prompts, 8184 total examples, 3558s, eta 1923s
+  186/285 prompts, 8208 total examples, 3654s, eta 1945s
+  187/285 prompts, 8232 total examples, 3765s, eta 1973s
+  188/285 prompts, 8256 total examples, 3933s, eta 2029s
+  189/285 prompts, 8280 total examples, 3979s, eta 2021s
+  190/285 prompts, 8304 total examples, 4072s, eta 2036s
+  191/285 prompts, 8328 total examples, 4136s, eta 2035s
+  192/285 prompts, 8352 total examples, 4174s, eta 2022s
+  193/285 prompts, 8376 total examples, 4347s, eta 2072s
+  194/285 prompts, 8400 total examples, 4433s, eta 2079s
+  195/285 prompts, 8424 total examples, 4587s, eta 2117s
+  196/285 prompts, 8448 total examples, 4637s, eta 2106s
+  197/285 prompts, 8472 total examples, 4842s, eta 2163s
+  198/285 prompts, 8496 total examples, 5038s, eta 2214s
+  199/285 prompts, 8520 total examples, 5157s, eta 2229s
+  200/285 prompts, 8544 total examples, 5258s, eta 2235s
+  201/285 prompts, 8568 total examples, 5364s, eta 2242s
+  202/285 prompts, 8592 total examples, 5484s, eta 2253s
+  203/285 prompts, 8616 total examples, 5688s, eta 2298s
+  204/285 prompts, 8640 total examples, 5764s, eta 2288s
+  205/285 prompts, 8664 total examples, 5961s, eta 2326s
+  206/285 prompts, 8688 total examples, 6068s, eta 2327s
+  207/285 prompts, 8712 total examples, 6204s, eta 2338s
+  208/285 prompts, 8736 total examples, 6274s, eta 2323s
+  209/285 prompts, 8760 total examples, 6354s, eta 2311s
+  210/285 prompts, 8784 total examples, 6482s, eta 2315s
+  211/285 prompts, 8808 total examples, 6624s, eta 2323s
+  212/285 prompts, 8832 total examples, 6757s, eta 2327s
+  213/285 prompts, 8856 total examples, 6912s, eta 2336s
+  214/285 prompts, 8880 total examples, 7078s, eta 2348s
+  215/285 prompts, 8904 total examples, 7118s, eta 2318s
+  216/285 prompts, 8928 total examples, 7183s, eta 2295s
+  217/285 prompts, 8952 total examples, 7315s, eta 2292s
+  218/285 prompts, 8976 total examples, 7570s, eta 2327s
+  219/285 prompts, 9000 total examples, 7710s, eta 2324s
+  220/285 prompts, 9024 total examples, 7926s, eta 2342s
+  221/285 prompts, 9048 total examples, 8064s, eta 2335s
+  222/285 prompts, 9072 total examples, 8137s, eta 2309s
+  223/285 prompts, 9096 total examples, 8364s, eta 2325s
+  224/285 prompts, 9120 total examples, 8374s, eta 2280s
+  225/285 prompts, 9144 total examples, 8536s, eta 2276s
+  226/285 prompts, 9168 total examples, 8565s, eta 2236s
+  227/285 prompts, 9192 total examples, 8655s, eta 2211s
+  228/285 prompts, 9216 total examples, 8736s, eta 2184s
+  229/285 prompts, 9240 total examples, 8908s, eta 2178s
+  230/285 prompts, 9264 total examples, 9044s, eta 2163s
+  231/285 prompts, 9288 total examples, 9175s, eta 2145s
+  232/285 prompts, 9312 total examples, 9222s, eta 2107s
+  233/285 prompts, 9336 total examples, 9264s, eta 2068s
+  234/285 prompts, 9360 total examples, 9328s, eta 2033s
+  235/285 prompts, 9384 total examples, 9372s, eta 1994s
+  236/285 prompts, 9408 total examples, 9512s, eta 1975s
+  237/285 prompts, 9432 total examples, 9631s, eta 1951s
+  238/285 prompts, 9456 total examples, 9670s, eta 1910s
+  239/285 prompts, 9480 total examples, 9785s, eta 1883s
+  240/285 prompts, 9504 total examples, 9955s, eta 1867s
+  241/285 prompts, 9528 total examples, 10015s, eta 1828s
+  242/285 prompts, 9552 total examples, 10171s, eta 1807s
+  243/285 prompts, 9576 total examples, 10296s, eta 1780s
+  244/285 prompts, 9600 total examples, 10360s, eta 1741s
+  245/285 prompts, 9624 total examples, 10501s, eta 1714s
+  246/285 prompts, 9648 total examples, 10717s, eta 1699s
+  247/285 prompts, 9672 total examples, 10978s, eta 1689s
+  248/285 prompts, 9696 total examples, 11003s, eta 1642s
+  249/285 prompts, 9720 total examples, 11160s, eta 1614s
+  250/285 prompts, 9744 total examples, 11267s, eta 1577s
+  251/285 prompts, 9768 total examples, 11329s, eta 1535s
+  252/285 prompts, 9792 total examples, 11412s, eta 1494s
+  253/285 prompts, 9816 total examples, 11423s, eta 1445s
+  254/285 prompts, 9840 total examples, 11592s, eta 1415s
+  255/285 prompts, 9864 total examples, 11690s, eta 1375s
+  256/285 prompts, 9888 total examples, 11857s, eta 1343s
+  257/285 prompts, 9912 total examples, 11904s, eta 1297s
+  258/285 prompts, 9936 total examples, 11975s, eta 1253s
+  259/285 prompts, 9960 total examples, 12094s, eta 1214s
+  260/285 prompts, 9984 total examples, 12170s, eta 1170s
+  261/285 prompts, 10008 total examples, 12277s, eta 1129s
+  262/285 prompts, 10032 total examples, 12338s, eta 1083s
+  263/285 prompts, 10056 total examples, 12436s, eta 1040s
+  264/285 prompts, 10080 total examples, 12537s, eta 997s
+  265/285 prompts, 10104 total examples, 12693s, eta 958s
+  266/285 prompts, 10128 total examples, 12865s, eta 919s
+  267/285 prompts, 10152 total examples, 13015s, eta 877s
+  268/285 prompts, 10176 total examples, 13051s, eta 828s
+  269/285 prompts, 10200 total examples, 13183s, eta 784s
+  270/285 prompts, 10224 total examples, 13195s, eta 733s
+  271/285 prompts, 10248 total examples, 13267s, eta 685s
+  272/285 prompts, 10272 total examples, 13378s, eta 639s
+  273/285 prompts, 10296 total examples, 13502s, eta 593s
+  274/285 prompts, 10320 total examples, 13565s, eta 545s
+  275/285 prompts, 10344 total examples, 13670s, eta 497s
+  276/285 prompts, 10368 total examples, 13730s, eta 448s
+  277/285 prompts, 10392 total examples, 13770s, eta 398s
+  278/285 prompts, 10416 total examples, 13960s, eta 352s
+  279/285 prompts, 10440 total examples, 14031s, eta 302s
+  280/285 prompts, 10464 total examples, 14271s, eta 255s
+  281/285 prompts, 10488 total examples, 14330s, eta 204s
+  282/285 prompts, 10512 total examples, 14425s, eta 153s
+  283/285 prompts, 10536 total examples, 14537s, eta 103s
+  284/285 prompts, 10560 total examples, 14633s, eta 52s
+  285/285 prompts, 10584 total examples, 14845s, eta 0s
+[task] done: 10584 examples in 14846s -> /home/xqin5/diffusion_LLM/d1_lookahead/data/labels_taskD

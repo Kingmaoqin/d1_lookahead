@@ -1,0 +1,17 @@
+=== Nemotron_GSM8K / A_task ===
+    seed 10/50
+    seed 20/50
+    seed 30/50
+    seed 40/50
+    seed 50/50
+/home/xqin5/.conda/envs/p08_skilloverload/lib/python3.12/site-packages/scipy/stats/_wilcoxon.py:181: RuntimeWarning: invalid value encountered in scalar divide
+  z = (r_plus - mn) / se
+    layer 12  ceiling 0.943
+=== Nemotron_SVAMP / A_task ===
+    seed 10/50
+    seed 20/50
+    seed 30/50
+    seed 40/50
+    seed 50/50
+    layer 12  ceiling 0.910
+wrote data/estimate_task.json

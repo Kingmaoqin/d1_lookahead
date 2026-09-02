@@ -1,0 +1,222 @@
+{
+  "arrays": {
+    "A_full_seeds": {
+      "dtype": "float32",
+      "shape": [
+        408,
+        8
+      ]
+    },
+    "A_pertok": {
+      "dtype": "float32",
+      "shape": [
+        408
+      ]
+    },
+    "A_sem": {
+      "dtype": "float64",
+      "shape": [
+        408
+      ]
+    },
+    "A_task": {
+      "dtype": "float32",
+      "shape": [
+        408
+      ]
+    },
+    "A_task_seeds": {
+      "dtype": "float32",
+      "shape": [
+        408,
+        8
+      ]
+    },
+    "A_task_sem": {
+      "dtype": "float64",
+      "shape": [
+        408
+      ]
+    },
+    "C1": {
+      "dtype": "float32",
+      "shape": [
+        408,
+        8
+      ]
+    },
+    "C2": {
+      "dtype": "float32",
+      "shape": [
+        408,
+        12
+      ]
+    },
+    "C3": {
+      "dtype": "float32",
+      "shape": [
+        408,
+        80
+      ]
+    },
+    "H_g": {
+      "dtype": "float16",
+      "shape": [
+        408,
+        13,
+        3072
+      ]
+    },
+    "H_i": {
+      "dtype": "float16",
+      "shape": [
+        408,
+        13,
+        3072
+      ]
+    },
+    "Q_reward": {
+      "dtype": "float32",
+      "shape": [
+        408
+      ]
+    },
+    "V_pertok": {
+      "dtype": "float32",
+      "shape": [
+        408
+      ]
+    },
+    "V_reward": {
+      "dtype": "float32",
+      "shape": [
+        408
+      ]
+    },
+    "doc_id": {
+      "dtype": "int64",
+      "shape": [
+        408
+      ]
+    },
+    "logp_action": {
+      "dtype": "float32",
+      "shape": [
+        408
+      ]
+    },
+    "mask_ratio": {
+      "dtype": "float32",
+      "shape": [
+        408
+      ]
+    },
+    "position": {
+      "dtype": "int64",
+      "shape": [
+        408
+      ]
+    },
+    "prompt_row": {
+      "dtype": "int64",
+      "shape": [
+        408
+      ]
+    },
+    "prompt_stratum": {
+      "dtype": "int8",
+      "shape": [
+        408
+      ]
+    },
+    "proposed_token": {
+      "dtype": "int64",
+      "shape": [
+        408
+      ]
+    },
+    "step": {
+      "dtype": "int32",
+      "shape": [
+        408
+      ]
+    },
+    "stratum": {
+      "dtype": "int8",
+      "shape": [
+        408
+      ]
+    }
+  },
+  "batch": "shard_w0_006",
+  "bytes": 51033887,
+  "doc_id_max": 698,
+  "doc_id_min": 444,
+  "n_docs": 17,
+  "n_rows": 408,
+  "n_states": 68,
+  "path": "data/labels_taskC/shard_w0_006.npz",
+  "prompt_row_max": 698,
+  "prompt_row_min": 444,
+  "prompt_stratum_counts": {
+    "0": 408
+  },
+  "sha256": "04d0665291f28cf4677538d28968b854e49f8cdc3547f4d8951bcee7b9ca1d37",
+  "statistics": {
+    "A_pertok": {
+      "max": 0.027063798159360886,
+      "mean": -0.007006731606050571,
+      "min": -0.10339497774839401,
+      "std": 0.015529774076909454
+    },
+    "A_sem": {
+      "max": 0.018024730651322478,
+      "mean": 0.0008924800151022041,
+      "min": 0.0,
+      "std": 0.0017028952201811867
+    },
+    "A_task": {
+      "max": 0.25,
+      "mean": -0.034926470588235295,
+      "min": -1.0,
+      "std": 0.17937321287022318
+    },
+    "A_task_sem": {
+      "max": 0.17677669529663687,
+      "mean": 0.01073260267376695,
+      "min": 0.0,
+      "std": 0.036080247152360787
+    },
+    "Q_reward": {
+      "max": 1.0,
+      "mean": 0.7261029411764706,
+      "min": 0.0,
+      "std": 0.43464968900047796
+    },
+    "V_pertok": {
+      "max": -4.202127456665039e-05,
+      "mean": -0.04308890598194386,
+      "min": -0.12413937598466873,
+      "std": 0.037791133993971486
+    },
+    "V_reward": {
+      "max": 1.0,
+      "mean": 0.7610294117647058,
+      "min": 0.0,
+      "std": 0.4155387704212249
+    },
+    "logp_action": {
+      "max": -2.6702880859375e-05,
+      "mean": -0.6776570175208297,
+      "min": -2.873811721801758,
+      "std": 0.8195949515427022
+    },
+    "mask_ratio": {
+      "max": 0.6098654866218567,
+      "mean": 0.3492061512216049,
+      "min": 0.11552346497774124,
+      "std": 0.15472542751509524
+    }
+  },
+  "tag": "taskC"
+}

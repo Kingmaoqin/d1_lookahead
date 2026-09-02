@@ -1,0 +1,223 @@
+{
+  "arrays": {
+    "A_full_seeds": {
+      "dtype": "float32",
+      "shape": [
+        408,
+        8
+      ]
+    },
+    "A_pertok": {
+      "dtype": "float32",
+      "shape": [
+        408
+      ]
+    },
+    "A_sem": {
+      "dtype": "float64",
+      "shape": [
+        408
+      ]
+    },
+    "A_task": {
+      "dtype": "float32",
+      "shape": [
+        408
+      ]
+    },
+    "A_task_seeds": {
+      "dtype": "float32",
+      "shape": [
+        408,
+        8
+      ]
+    },
+    "A_task_sem": {
+      "dtype": "float64",
+      "shape": [
+        408
+      ]
+    },
+    "C1": {
+      "dtype": "float32",
+      "shape": [
+        408,
+        8
+      ]
+    },
+    "C2": {
+      "dtype": "float32",
+      "shape": [
+        408,
+        12
+      ]
+    },
+    "C3": {
+      "dtype": "float32",
+      "shape": [
+        408,
+        80
+      ]
+    },
+    "H_g": {
+      "dtype": "float16",
+      "shape": [
+        408,
+        13,
+        3072
+      ]
+    },
+    "H_i": {
+      "dtype": "float16",
+      "shape": [
+        408,
+        13,
+        3072
+      ]
+    },
+    "Q_reward": {
+      "dtype": "float32",
+      "shape": [
+        408
+      ]
+    },
+    "V_pertok": {
+      "dtype": "float32",
+      "shape": [
+        408
+      ]
+    },
+    "V_reward": {
+      "dtype": "float32",
+      "shape": [
+        408
+      ]
+    },
+    "doc_id": {
+      "dtype": "int64",
+      "shape": [
+        408
+      ]
+    },
+    "logp_action": {
+      "dtype": "float32",
+      "shape": [
+        408
+      ]
+    },
+    "mask_ratio": {
+      "dtype": "float32",
+      "shape": [
+        408
+      ]
+    },
+    "position": {
+      "dtype": "int64",
+      "shape": [
+        408
+      ]
+    },
+    "prompt_row": {
+      "dtype": "int64",
+      "shape": [
+        408
+      ]
+    },
+    "prompt_stratum": {
+      "dtype": "int8",
+      "shape": [
+        408
+      ]
+    },
+    "proposed_token": {
+      "dtype": "int64",
+      "shape": [
+        408
+      ]
+    },
+    "step": {
+      "dtype": "int32",
+      "shape": [
+        408
+      ]
+    },
+    "stratum": {
+      "dtype": "int8",
+      "shape": [
+        408
+      ]
+    }
+  },
+  "batch": "shard_w0_004",
+  "bytes": 51057287,
+  "doc_id_max": 694,
+  "doc_id_min": 446,
+  "n_docs": 17,
+  "n_rows": 408,
+  "n_states": 68,
+  "path": "data/labels_taskC/shard_w0_004.npz",
+  "prompt_row_max": 694,
+  "prompt_row_min": 446,
+  "prompt_stratum_counts": {
+    "0": 360,
+    "1": 48
+  },
+  "sha256": "7ef0610c690b39c62e14a69d983f48503e9b71b5f11a33e9d3a23ace87f1f554",
+  "statistics": {
+    "A_pertok": {
+      "max": 0.12052860856056213,
+      "mean": -0.0052243493567861975,
+      "min": -0.10442577302455902,
+      "std": 0.018293950735464345
+    },
+    "A_sem": {
+      "max": 0.030837007764976842,
+      "mean": 0.0016604085248861924,
+      "min": 0.0,
+      "std": 0.0034334285878818748
+    },
+    "A_task": {
+      "max": 1.0,
+      "mean": -0.02297794117647059,
+      "min": -1.0,
+      "std": 0.20684640034803056
+    },
+    "A_task_sem": {
+      "max": 0.17677669529663687,
+      "mean": 0.01094015330556763,
+      "min": 0.0,
+      "std": 0.039382747938863566
+    },
+    "Q_reward": {
+      "max": 1.0,
+      "mean": 0.7159926470588235,
+      "min": 0.0,
+      "std": 0.44214972559970567
+    },
+    "V_pertok": {
+      "max": -4.011392593383789e-05,
+      "mean": -0.05660411057803739,
+      "min": -0.3443061411380768,
+      "std": 0.06492494291834004
+    },
+    "V_reward": {
+      "max": 1.0,
+      "mean": 0.7389705882352942,
+      "min": 0.0,
+      "std": 0.42753100921550763
+    },
+    "logp_action": {
+      "max": -3.814697265625e-06,
+      "mean": -0.7497227752909941,
+      "min": -3.0768327713012695,
+      "std": 0.8955863812603789
+    },
+    "mask_ratio": {
+      "max": 0.6325581073760986,
+      "mean": 0.35380645633182106,
+      "min": 0.1235521212220192,
+      "std": 0.15607532837432414
+    }
+  },
+  "tag": "taskC"
+}

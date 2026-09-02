@@ -1,0 +1,222 @@
+{
+  "arrays": {
+    "A_full_seeds": {
+      "dtype": "float32",
+      "shape": [
+        408,
+        8
+      ]
+    },
+    "A_pertok": {
+      "dtype": "float32",
+      "shape": [
+        408
+      ]
+    },
+    "A_sem": {
+      "dtype": "float64",
+      "shape": [
+        408
+      ]
+    },
+    "A_task": {
+      "dtype": "float32",
+      "shape": [
+        408
+      ]
+    },
+    "A_task_seeds": {
+      "dtype": "float32",
+      "shape": [
+        408,
+        8
+      ]
+    },
+    "A_task_sem": {
+      "dtype": "float64",
+      "shape": [
+        408
+      ]
+    },
+    "C1": {
+      "dtype": "float32",
+      "shape": [
+        408,
+        8
+      ]
+    },
+    "C2": {
+      "dtype": "float32",
+      "shape": [
+        408,
+        12
+      ]
+    },
+    "C3": {
+      "dtype": "float32",
+      "shape": [
+        408,
+        80
+      ]
+    },
+    "H_g": {
+      "dtype": "float16",
+      "shape": [
+        408,
+        13,
+        3072
+      ]
+    },
+    "H_i": {
+      "dtype": "float16",
+      "shape": [
+        408,
+        13,
+        3072
+      ]
+    },
+    "Q_reward": {
+      "dtype": "float32",
+      "shape": [
+        408
+      ]
+    },
+    "V_pertok": {
+      "dtype": "float32",
+      "shape": [
+        408
+      ]
+    },
+    "V_reward": {
+      "dtype": "float32",
+      "shape": [
+        408
+      ]
+    },
+    "doc_id": {
+      "dtype": "int64",
+      "shape": [
+        408
+      ]
+    },
+    "logp_action": {
+      "dtype": "float32",
+      "shape": [
+        408
+      ]
+    },
+    "mask_ratio": {
+      "dtype": "float32",
+      "shape": [
+        408
+      ]
+    },
+    "position": {
+      "dtype": "int64",
+      "shape": [
+        408
+      ]
+    },
+    "prompt_row": {
+      "dtype": "int64",
+      "shape": [
+        408
+      ]
+    },
+    "prompt_stratum": {
+      "dtype": "int8",
+      "shape": [
+        408
+      ]
+    },
+    "proposed_token": {
+      "dtype": "int64",
+      "shape": [
+        408
+      ]
+    },
+    "step": {
+      "dtype": "int32",
+      "shape": [
+        408
+      ]
+    },
+    "stratum": {
+      "dtype": "int8",
+      "shape": [
+        408
+      ]
+    }
+  },
+  "batch": "shard_w0_005",
+  "bytes": 51048954,
+  "doc_id_max": 688,
+  "doc_id_min": 484,
+  "n_docs": 17,
+  "n_rows": 408,
+  "n_states": 68,
+  "path": "data/labels_taskC/shard_w0_005.npz",
+  "prompt_row_max": 688,
+  "prompt_row_min": 484,
+  "prompt_stratum_counts": {
+    "0": 408
+  },
+  "sha256": "4e43e42361c10c0d545238b373399e23d97d3387135c375dd6b286e46754d447",
+  "statistics": {
+    "A_pertok": {
+      "max": 0.04422345012426376,
+      "mean": -0.006339183073654954,
+      "min": -0.11885246634483337,
+      "std": 0.01719038274349825
+    },
+    "A_sem": {
+      "max": 0.035435073521011495,
+      "mean": 0.0018209967942442369,
+      "min": 0.0,
+      "std": 0.003708525977091259
+    },
+    "A_task": {
+      "max": 0.75,
+      "mean": -0.01685049019607843,
+      "min": -1.0,
+      "std": 0.1762979032377703
+    },
+    "A_task_sem": {
+      "max": 0.21194781891049283,
+      "mean": 0.012135945680064878,
+      "min": 0.0,
+      "std": 0.04047587340207449
+    },
+    "Q_reward": {
+      "max": 1.0,
+      "mean": 0.6761642156862745,
+      "min": 0.0,
+      "std": 0.4577192552871895
+    },
+    "V_pertok": {
+      "max": -5.0961971282958984e-05,
+      "mean": -0.06651766942612834,
+      "min": -0.259133517742157,
+      "std": 0.06477921713843957
+    },
+    "V_reward": {
+      "max": 1.0,
+      "mean": 0.6930147058823529,
+      "min": 0.0,
+      "std": 0.4534557988916261
+    },
+    "logp_action": {
+      "max": -5.7220458984375e-06,
+      "mean": -0.7663265116074506,
+      "min": -2.761406898498535,
+      "std": 0.8613204051697058
+    },
+    "mask_ratio": {
+      "max": 0.625,
+      "mean": 0.34856940586777296,
+      "min": 0.12403100728988647,
+      "std": 0.15226780208717886
+    }
+  },
+  "tag": "taskC"
+}
