@@ -1,0 +1,32 @@
+{
+  "status": "PASS",
+  "tag": "taskD",
+  "n_shards": 114,
+  "n_docs": 570,
+  "n_states": 2280,
+  "n_rows": 13680,
+  "states_per_doc": 4,
+  "candidates_per_state": 6,
+  "finite_keys": [
+    "A_task",
+    "A_task_seeds",
+    "A_task_sem",
+    "Q_reward",
+    "V_reward",
+    "A_pertok",
+    "A_full_seeds",
+    "A_sem",
+    "V_pertok",
+    "logp_action",
+    "C1",
+    "C2",
+    "C3",
+    "H_i",
+    "H_g"
+  ],
+  "nonfinite": {},
+  "no_overlap_tag": "taskC",
+  "overlap": [],
+  "duplicate_shard_docs": {},
+  "errors": []
+}

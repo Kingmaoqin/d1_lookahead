@@ -1,0 +1,35 @@
+{
+  "status": "validated_complete",
+  "tag": "taskE_svamp",
+  "n_docs": 200,
+  "n_states": 800,
+  "n_examples": 4800,
+  "validation": "validation.json",
+  "source_worker_meta": [
+    {
+      "n_screen": 300,
+      "n_prompts": 200,
+      "mixed_frac": 0.7,
+      "K": 8,
+      "n_cand": 6,
+      "gen_len": 160,
+      "rollout_batch": 8,
+      "offset": 0,
+      "tag": "taskE_svamp",
+      "dataset": "svamp",
+      "device": "cuda",
+      "shard_model": true,
+      "reserve_gb": 1.6,
+      "resume": true,
+      "shard_examples": 96,
+      "num_workers": 1,
+      "worker_index": 0,
+      "n_examples": 4800,
+      "n_existing_examples": 0,
+      "n_new_examples": 4800,
+      "resume_rng_note": "on resume, the candidate-selection generator restarts from the configured seed; completed documents are skipped, so the remaining prompts remain valid draws from the prespecified proposal but do not reproduce an uninterrupted RNG stream",
+      "seconds": 14249.218131065369,
+      "estimand": "A_task = P(correct|commit a_i, then pi_ref) - P(correct|pi_ref), CRN-paired, rollouts to completion"
+    }
+  ]
+}
