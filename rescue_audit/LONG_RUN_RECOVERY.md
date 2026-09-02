@@ -32,6 +32,11 @@ CUDA_VISIBLE_DEVICES=0,2 /home/xqin5/.conda/envs/p08_skilloverload/bin/python -u
 * `A_task`, cheap controls, and hidden features must all be finite.
 * Task D document IDs must not overlap Task C.
 
+Status at 2026-09-01 20: Task E collection is complete and the strict validator
+passes: 50 shards, 200 documents, 800 states, 4,800 rows, all finite, no duplicate
+documents, and no overlap with Task C.  Task D remains append-safe and running;
+do not start its analyses until it reaches the locked 570-document invariant.
+
 After Task D validates, run `rescue_audit/taskD_apply_frozen_primary.py` once
 before any Task-D refitting.  This preserves the preregistered frozen-transfer
 endpoint.

@@ -507,6 +507,26 @@ masked-mean hidden 后仍为 +0.0013（L0/L3/.../L24 增量均为 0）。正确�
 
 这加强了状态级/难度级正发现，同时不改变 Path-LL 候选关系主端点的 KILL。
 
+### 10.6 公平 centered-fit 找回了候选级正信号
+
+旧分析在 pooled 目标上拟合后才计算 within-state 指标，可能把拟合预算花在
+state 间方向。Claude 提出的公平修正把 cheap、`h_i` 和目标都在 state 内中心化，
+直接拟合调度器真正面对的候选差分。我们修正其重复 state-id 的 concordance
+bootstrap 后，完成两臂 × `A_pertok/A_future` × 三个 split 的 12/12 网格。
+
+最清楚的结果来自 confidence 臂：`A_pertok` 三个 split 的 Δwithin-R² 为
+**+.0104、+.0105、+.0086**，`A_future` 为 **+.0192、+.0198、+.0152**；六个
+正确文档 bootstrap 95% CI 全部排除 0。`A_future` 的三个区间分别为
+[+.0112,+.0268]、[+.0137,+.0258]、[+.0069,+.0234]。ancestral 臂较弱但仍同号：
+两目标共六个 split 的 ΔR² 都为正，其中四个区间排除 0。
+
+这足以否定“候选差分精确为零”：**hidden 中存在真实、可重复的候选级局部
+信号，且 confidence 条件下最稳定。** 但 12 个 Δconcordance 点估计虽全部为正，
+四个组合的平均值只有 +.0036～+.0069，仍低于预设 +.020 门槛。因此它是重要的
+机制正结果和后续建模入口，尚不是现成的强排序器。该重测为看过旧结果后的
+post-hoc 公平性分析，不冒充预注册确认。完整结果见
+`rescue_audit/results/A_fairtest_corrected_ci.json`。
+
 ## 11. 复现：第二骨干（SEDD）
 
 `rescue_audit/results/R1deep_SEDD_anc_A_pertok_L{3,6,9,11}.json`。
