@@ -527,6 +527,20 @@ bootstrap 后，完成两臂 × `A_pertok/A_future` × 三个 split 的 12/12 �
 post-hoc 公平性分析，不冒充预注册确认。完整结果见
 `rescue_audit/results/A_fairtest_corrected_ci.json`。
 
+### 10.7 Task D/E 完整采集、冻结迁移与域内广筛
+
+Task D 最终为 **570 文档 / 2,280 状态 / 13,680 行**，Task E 为
+**200 / 800 / 4,800**；两者严格验证均 PASS。Task D 的预封存零适配模型只运行
+一次：bilinear − cheap-only 的 Δconcordance **−0.0356**
+[−0.0567,−0.0151]，bilinear − no-state-interaction **−0.0131**
+[−0.0261,−0.0002]。所以旧域读出器不能直接搬到新 GSM8K 批次。
+
+域内 broad screen 则没有给出稳定的大排序增益：`cheap+h_local` 三划分相对 cheap
+的 Δconcordance，Task D 为 −.0047/−.0166/+.0128，Task E 为
++.0267/−.0338/+.0218。这里应得出的结论是 **A_task 映射强烈依赖划分与任务域**；
+它不能否定 §10.6 在 centered Path-LL 上已复算成立的候选差分信号，也尚不能替代
+正在进行的 C+D 与 Task E 五折 OOF 判断。
+
 ## 11. 复现：第二骨干（SEDD）
 
 `rescue_audit/results/R1deep_SEDD_anc_A_pertok_L{3,6,9,11}.json`。

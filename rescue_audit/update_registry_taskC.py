@@ -34,6 +34,19 @@ def main():
         rows.append(metric_row("Nemotron_taskC", x["seed"], x["layer"],
                                x["probe"], x["metrics"],
                                "taskC_exploratory", rel, "broad_quick"))
+    for tag, arm in (("taskD", "Nemotron_taskD_GSM8K"),
+                     ("taskE_svamp", "Nemotron_taskE_SVAMP")):
+        rel = f"rescue_audit/results/screen_{tag}_all_quick/report.json"
+        full = os.path.join(os.path.dirname(HERE), rel)
+        if not os.path.exists(full):
+            continue
+        d = json.load(open(full))
+        for x in d["results"]:
+            row = metric_row(arm, x["seed"], x["layer"], x["probe"],
+                             x["metrics"], f"{tag}_exploratory", rel,
+                             "broad_quick")
+            row["date"] = "2026-09-02"
+            rows.append(row)
     rel = "rescue_audit/results/taskC_locked_replication.json"
     d = json.load(open(os.path.join(os.path.dirname(HERE), rel)))
     for x in d["results"]:

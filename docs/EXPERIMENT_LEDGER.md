@@ -761,15 +761,26 @@ MDLM 祖先臂的 concordance 随 K（推演条数）增长，40 次重复：
 另外 within-R² 全是**强负值**（−0.11 ~ −0.21），意思是**模型比"永远猜平均值"
 还差**。
 
-## I3 / I4 未完成
+## I3 / I4 Task D 与 Task E 最新状态（09-02）
 
-| 项目 | 状态 | 细节 |
+| 项目 | 状态 | 严格验证 |
 |---|---|---|
-| **Task D 扩样** | 🚫 **未完成且已停止** | 309/570 题（7,416 行）。目标：570 题 / 2,280 状态 / 13,680 行。GPU 现在空闲，进程不存在 |
-| **Task E（SVAMP）** | ⏸ **数据齐了，分析没跑** | 200/200 题、800 状态、4,800 行，严格校验通过（50 分片、无重复、与 Task C 无重叠） |
+| **Task D 扩样（GSM8K）** | ✅ **570/570 题采集完成** | 114 分片、2,280 状态、13,680 行；全有限、无重复、与 Task C 无重叠 |
+| **Task E（SVAMP）** | ✅ **200/200 题采集完成** | 50 分片、800 状态、4,800 行；全有限、无重复、与 Task C 无重叠 |
 
-恢复命令在 `rescue_audit/LONG_RUN_RECOVERY.md`。采集器是**文档级 append-safe**
-（按文档追加、可断点续跑），用 `--resume` 原样重跑即可。
+Task D 的封存模型在标签完成前已固定。一次性 frozen-transfer 主检验为：bilinear
+相对 cheap-only 的 Δconcordance **−0.0356**，文档 bootstrap 95% CI
+**[−0.0567,−0.0151]**；bilinear 相对 no-state-interaction 为 **−0.0131**
+**[−0.0261,−0.0002]**。这确认的是 **Task C → Task D 零适配映射不能迁移**，
+不等同于“域内表征没有信号”。原始证据固定于
+`rescue_audit/results/CONFIRMATORY_taskD_frozen.json`。
+
+两个域内 broad screen 也已完成。`cheap+h_local` 相对 cheap ridge 的三划分
+Δconcordance 在 Task D 为 −0.0047、−0.0166、+0.0128（均值 −0.0029）；
+Task E 为 +0.0267、−0.0338、+0.0218（均值 +0.0049）。这是探索性广筛，显示
+`A_task` 的候选排序对划分敏感；最终仍以锁定的 C+D 五折和 Task E 五折为准。
+逐模型结果见 `screen_taskD_all_quick/report.json` 与
+`screen_taskE_svamp_all_quick/report.json`，全部行已进入实验注册表。
 
 ---
 
@@ -832,6 +843,12 @@ MDLM 祖先臂的 concordance 随 K（推演条数）增长，40 次重复：
 BCa 与聚类 bootstrap 几乎完全一致（偏移 z0 全在 ±0.05 内，说明 bootstrap 分布不偏）。
 两者都是 **Δwithin-R² 上 6/6 排除 0、Δconc 上仅 1/6 排除 0**——与 NB 修正的方向一致：
 **R² 上的效应稳，concordance 上的效应弱**。
+
+> **复算注记（09-02）**：生成这张表的首版通用 bootstrap 在同一文档被重复抽中时
+> 保留原 state id，会把副本合并并产生跨副本候选对。因此表内 Δconcordance 的
+> cluster/BCa 区间仅保留为历史结果，不能作为最终区间；Δwithin-R² 不受该分组缺陷
+> 影响。MDLM 的正确文档预聚合复算见
+> `rescue_audit/results/A_fairtest_corrected_ci.json`，SEDD concordance 区间待同法复算。
 
 ## J1-d · 四个控制组
 
