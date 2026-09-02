@@ -63,6 +63,21 @@ def main():
             rows.append(metric_row("Nemotron_taskC", "OOF5", "val_selected",
                                    name, metrics, "taskC_posthoc_crossfit", rel,
                                    "fivefold_oof"))
+    for fn, arm, phase in (
+            ("taskCD_crossfit_confirmatory.json", "Nemotron_taskCD_GSM8K",
+             "taskCD_posthoc_crossfit"),
+            ("taskE_svamp_crossfit.json", "Nemotron_taskE_SVAMP",
+             "taskE_posthoc_crossfit")):
+        rel = "rescue_audit/results/" + fn
+        full = os.path.join(os.path.dirname(HERE), rel)
+        if not os.path.exists(full):
+            continue
+        d = json.load(open(full))
+        for name, metrics in d["overall"].items():
+            row = metric_row(arm, "OOF5", "val_selected", name, metrics,
+                             phase, rel, "fivefold_oof")
+            row["date"] = "2026-09-02"
+            rows.append(row)
     old = list(csv.DictReader(open(REG)))
     keys = {(r["arm"], r["split_seed"], r["probe"], r["output_path"])
             for r in old}

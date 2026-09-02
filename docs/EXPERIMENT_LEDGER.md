@@ -778,9 +778,15 @@ Task D 的封存模型在标签完成前已固定。一次性 frozen-transfer �
 两个域内 broad screen 也已完成。`cheap+h_local` 相对 cheap ridge 的三划分
 Δconcordance 在 Task D 为 −0.0047、−0.0166、+0.0128（均值 −0.0029）；
 Task E 为 +0.0267、−0.0338、+0.0218（均值 +0.0049）。这是探索性广筛，显示
-`A_task` 的候选排序对划分敏感；最终仍以锁定的 C+D 五折和 Task E 五折为准。
+`A_task` 的候选排序对划分敏感。锁定的五折随后完成：C+D（750 文档 / 3,000
+状态）bilinear 相对 cheap-only 为 **+.0143 [−.0091,+.0369]**，相对无交互版
+**−.0022 [−.0220,+.0174]**；Task E 为 **+.0133 [−.0369,+.0654]** 和
+**+.0109 [−.0262,+.0499]**。因此两个域内五折都有小的正点估计，但不确定区间
+跨 0，且关系型交互没有稳定超过无交互模型。
 逐模型结果见 `screen_taskD_all_quick/report.json` 与
-`screen_taskE_svamp_all_quick/report.json`，全部行已进入实验注册表。
+`screen_taskE_svamp_all_quick/report.json`；五折结果见
+`taskCD_crossfit_confirmatory.json` 与 `taskE_svamp_crossfit.json`，全部行已进入
+实验注册表。
 
 ---
 

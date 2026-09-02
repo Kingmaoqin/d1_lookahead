@@ -1,0 +1,40 @@
+fold 0: bilinear 0.4437, no-interaction 0.4594, delta -0.0156
+fold 1: bilinear 0.4874, no-interaction 0.4748, delta +0.0126
+fold 2: bilinear 0.4314, no-interaction 0.4771, delta -0.0458
+fold 3: bilinear 0.4189, no-interaction 0.3333, delta +0.0856
+fold 4: bilinear 0.4900, no-interaction 0.4785, delta +0.0115
+{
+  "bilinear_vs_no_state_interaction": {
+    "observed": 0.010920436817472678,
+    "bootstrap_mean": 0.01113698200296579,
+    "ci_lo": -0.026170861055583722,
+    "ci_hi": 0.04985369885335416,
+    "p_le_zero": 0.2891,
+    "n_boot": 10000
+  },
+  "bilinear_vs_cheap_only": {
+    "observed": 0.013260530421216832,
+    "bootstrap_mean": 0.01341981078025114,
+    "ci_lo": -0.03687014111101163,
+    "ci_hi": 0.06539932198044775,
+    "p_le_zero": 0.3104,
+    "n_boot": 10000
+  },
+  "bilinear_vs_shuffled_hg": {
+    "observed": 0.002340093603744098,
+    "bootstrap_mean": 0.0025799459040233876,
+    "ci_lo": -0.041021771056600806,
+    "ci_hi": 0.04787774951463011,
+    "p_le_zero": 0.4699,
+    "n_boot": 10000
+  },
+  "bilinear_vs_gaussian_hg": {
+    "observed": -0.0374414976599064,
+    "bootstrap_mean": -0.037200877453430495,
+    "ci_lo": -0.08963823980394217,
+    "ci_hi": 0.01670390525275209,
+    "p_le_zero": 0.9154,
+    "n_boot": 10000
+  }
+}
+wrote rescue_audit/results/taskE_svamp_crossfit.json
