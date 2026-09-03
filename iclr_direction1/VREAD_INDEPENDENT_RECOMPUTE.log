@@ -1,0 +1,66 @@
+==============================================================================
+CHECK 3  -- is the within-prompt result a FINDING or a NON-MEASUREMENT?
+==============================================================================
+  prompts with >=2 states: 800
+  mean observed within-prompt variance : 0.014775
+  mean variance injected by label noise: 0.001922
+  => within-prompt SIGNAL variance      : +0.012853   (+5.57% of total observed variance)
+  between-prompt variance              : 0.216128
+  reading: if signal variance is ~0 or negative, V_reward is genuinely
+  CONSTANT within a prompt -- there is nothing there for ANY probe to
+  read, so the negative within-prompt R^2 is not a probe failure.
+
+==============================================================================
+CHECK 3b -- FIT A PROBE TO THE WITHIN-PROMPT TARGET DIRECTLY
+==============================================================================
+  The earlier within-prompt R^2 took a probe fitted to the GLOBAL target
+  and scored it on prompt-centred residuals. That is not what it was
+  optimised for, so a negative score there is not evidence of absence.
+  The honest test is to centre BOTH features and target per prompt and
+  fit the probe on that.
+  within-prompt noise ceiling: 0.8699  (a perfect probe caps here)
+    L 0  cheap-within R2=+0.0013   +hidden=+0.0013   delta=-0.0000   (ceiling 0.870)
+    L 3  cheap-within R2=+0.0013   +hidden=+0.0013   delta=-0.0000   (ceiling 0.870)
+    L 6  cheap-within R2=+0.0013   +hidden=+0.0013   delta=-0.0000   (ceiling 0.870)
+    L 9  cheap-within R2=+0.0013   +hidden=+0.0013   delta=-0.0000   (ceiling 0.870)
+    L12  cheap-within R2=+0.0013   +hidden=+0.0013   delta=-0.0000   (ceiling 0.870)
+    L15  cheap-within R2=+0.0013   +hidden=+0.0013   delta=-0.0000   (ceiling 0.870)
+    L18  cheap-within R2=+0.0013   +hidden=+0.0013   delta=-0.0000   (ceiling 0.870)
+    L21  cheap-within R2=+0.0013   +hidden=+0.0013   delta=-0.0000   (ceiling 0.870)
+    L24  cheap-within R2=+0.0013   +hidden=+0.0013   delta=-0.0000   (ceiling 0.870)
+
+==============================================================================
+CHECK 1+4 -- hidden alone, and whether ONE layer left signal on the table
+==============================================================================
+  selected layer 18 (H_m); ceiling R^2 = 0.9913
+  probe                          R2      AUC      rho     dR2 vs cheap       dAUC  % of ceiling
+  cheap                      0.3380   0.8229   0.5845           0.0000     0.0000         34.1%
+  hidden_1layer              0.4812   0.8896   0.6859           0.1433     0.0666         48.5%
+  hidden_3layers             0.4562   0.8747   0.6653           0.1182     0.0517         46.0%
+  hidden_5layers             0.4732   0.8823   0.6755           0.1353     0.0594         47.7%
+  hidden_9layers             0.4812   0.8871   0.6824           0.1433     0.0642         48.5%
+  cheap+hidden               0.4697   0.8885   0.6833           0.1317     0.0655         47.4%
+  cheap+hidden_5layers       0.4731   0.8817   0.6750           0.1351     0.0588         47.7%
+  best hidden probe = hidden_1layer:  dR2 95% CI [+0.0847,+0.2042]   dAUC 95% CI [+0.0378,+0.0982]
+
+==============================================================================
+CHECK 2  -- is the effect temporally consistent at every record point?
+==============================================================================
+   pt   prog     n      dR2               95% CI     dAUC               95% CI  sig
+    0  10.0%   800  +0.1171 [+0.0267,+0.2170]  +0.0643 [+0.0242,+0.1091]   **
+    1  25.6%   800  +0.0769 [+0.0045,+0.1547]  +0.0506 [+0.0186,+0.0857]   **
+    2  40.0%   800  +0.1303 [+0.0554,+0.2090]  +0.0511 [+0.0127,+0.0932]   **
+    3  55.6%   800  +0.1284 [+0.0679,+0.1891]  +0.0538 [+0.0243,+0.0858]   **
+    4  71.2%   770  +0.0774 [+0.0108,+0.1418]  +0.0300 [-0.0057,+0.0668]    *
+    5  85.6%   441  +0.1320 [+0.0724,+0.1935]  +0.0386 [+0.0092,+0.0747]   **
+  => dR2 CI excludes 0 at 6/6 record points
+
+==============================================================================
+CHECK 5  -- CI on the practical operating point
+==============================================================================
+  coverage 70%: hidden acc 0.7723 [0.6895,0.8412]   gain over cheap +0.0236 [+0.0025,+0.0423]
+  coverage 50%: hidden acc 0.8691 [0.8052,0.9215]   gain over cheap +0.0612 [+0.0247,+0.0926]
+  coverage 30%: hidden acc 0.9001 [0.8418,0.9542]   gain over cheap +0.0794 [+0.0299,+0.1368]
+  AURC gain over cheap: +0.0464  95% CI [+0.0171,+0.0812]
+
+wrote data/v_audit.json

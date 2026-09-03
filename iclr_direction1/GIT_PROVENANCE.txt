@@ -1,0 +1,49 @@
+Direction One ICLR 2027 evidence-freeze provenance
+Recorded: 2026-09-02 CDT
+
+Working tree at start:
+## main...origin/main
+
+Branch:
+main
+
+Remote:
+origin  git@github.com:Kingmaoqin/d1_lookahead.git (fetch)
+origin  git@github.com:Kingmaoqin/d1_lookahead.git (push)
+
+Starting HEAD:
+2bef7769f75f309152a238fcace598fd9e66416a
+
+Starting history (newest first):
+2bef776 Archive experiment ledger backup
+6c648d9 Archive all experiment data models results and logs
+5d00522 Add final Task CD and SVAMP five-fold results
+b6be9d0 Add completed Task D and E broad screens and update reports
+2624612 Add complete Task C D E recomputation shards via Git LFS
+85d844c Publish complete experiment ledger and batch-level result index
+11760ed Record frozen Task D transfer verdict
+ad6d3ad Preserve and correct Claude positive-signal audits
+7c81d27 Lock the post-collection analysis order and commands
+52dd991 Support combined Task C and D cross-fitting
+
+Initial status was clean and synchronized with origin/main.
+
+Evidence-freeze actions:
+- Indexed 1,249 pre-existing project files in FILE_INVENTORY.tsv (excluding .git).
+- Preserved the complete prior Claude report as CLAUDE_PRIOR_REPORT_SNAPSHOT.md.
+- Re-ran scripts/audit_v_confidence.py over the saved Nemotron features.
+- Independently recomputed A_task/A_pertok correlations and 10,000 document-cluster
+  bootstrap intervals from task A/B/C/E NPZ shards.
+- Built a 1,348-row all-result candidate pool and a 74-row paper-facing master table.
+- Re-searched prior art through 2026-09-02, including POKE, LookUM, AdaLook,
+  TraceLock, SAS, Ripple-Pivot Search, DLM functional-correctness probing,
+  Unsure but Certain, and neural pairwise-MI estimation.
+
+Reproduction commands:
+python scripts/audit_v_confidence.py
+python iclr_direction1/build_iclr_evidence.py
+
+Final commit identification:
+The commit containing this file is the evidence-freeze commit. Resolve it with
+`git log -1 --format=%H -- iclr_direction1/GIT_PROVENANCE.txt`. The source-tree
+starting point above is immutable and permits an exact before/after audit.
