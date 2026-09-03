@@ -1,0 +1,37 @@
+Fetching 6 files:   0%|          | 0/6 [00:00<?, ?it/s]Fetching 6 files: 100%|██████████| 6/6 [00:00<00:00, 87381.33it/s]
+[0A] prompts=200 K=24 n_cand=6 record_fracs=(0.1, 0.2, 0.3, 0.4, 0.5, 0.6) horizon=16
+  prompts 6/200  examples 216  204s  eta 6585s
+  prompts 12/200  examples 432  392s  eta 6146s
+  prompts 18/200  examples 648  569s  eta 5752s
+  prompts 24/200  examples 864  762s  eta 5587s
+  prompts 30/200  examples 1080  931s  eta 5278s
+  prompts 36/200  examples 1296  1088s  eta 4954s
+  prompts 42/200  examples 1512  1255s  eta 4722s
+  prompts 48/200  examples 1728  1413s  eta 4473s
+  prompts 54/200  examples 1944  1569s  eta 4242s
+  prompts 60/200  examples 2160  1725s  eta 4026s
+  prompts 66/200  examples 2376  1883s  eta 3824s
+  prompts 72/200  examples 2592  2039s  eta 3625s
+  prompts 78/200  examples 2808  2195s  eta 3433s
+  prompts 84/200  examples 3024  2364s  eta 3264s
+  prompts 90/200  examples 3240  2563s  eta 3132s
+  prompts 96/200  examples 3456  2754s  eta 2983s
+  prompts 102/200  examples 3672  2936s  eta 2820s
+  prompts 108/200  examples 3888  3119s  eta 2657s
+  prompts 114/200  examples 4104  3305s  eta 2493s
+  prompts 120/200  examples 4320  3487s  eta 2325s
+  prompts 126/200  examples 4536  3680s  eta 2161s
+  prompts 132/200  examples 4752  3871s  eta 1994s
+  prompts 138/200  examples 4968  4065s  eta 1826s
+  prompts 144/200  examples 5184  4258s  eta 1656s
+  prompts 150/200  examples 5400  4452s  eta 1484s
+  prompts 156/200  examples 5616  4637s  eta 1308s
+  prompts 162/200  examples 5832  4822s  eta 1131s
+  prompts 168/200  examples 6048  5005s  eta 953s
+  prompts 174/200  examples 6264  5184s  eta 775s
+  prompts 180/200  examples 6480  5372s  eta 597s
+  prompts 186/200  examples 6696  5559s  eta 418s
+  prompts 192/200  examples 6912  5745s  eta 239s
+  prompts 198/200  examples 7128  5921s  eta 60s
+  prompts 200/200  examples 7200  5985s  eta 0s
+[0A] done: 7200 examples in 5985s -> /home/xqin5/diffusion_LLM/d1_lookahead/data/labels_freshA

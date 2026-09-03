@@ -1,0 +1,23 @@
+[syn] loading ['a3', 'b3'] layer 9
+/home/xqin5/diffusion_LLM/d1_lookahead/rescue_audit/rlib/metrics.py:121: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  r = sps.spearmanr(y[g], p[g]).statistic
+  [A_linear/pooled_r2] 130s 17 probes
+  [A_linear/within_r2] 258s 17 probes
+[syn] A_linear done in 258s
+  [B_bilinear/pooled_r2] 161s 20 probes
+  [B_bilinear/within_r2] 322s 20 probes
+[syn] B_bilinear done in 536s
+  [D_rank_only/pooled_r2] 182s 22 probes
+  [D_rank_only/within_r2] 614s 22 probes
+[syn] D_rank_only done in 614s
+/home/xqin5/diffusion_LLM/d1_lookahead/rescue_audit/rlib/metrics.py:121: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  r = sps.spearmanr(y[g], p[g]).statistic
+  [E_nonlinear/pooled_r2] 138s 19 probes
+/home/xqin5/diffusion_LLM/d1_lookahead/rescue_audit/rlib/metrics.py:121: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  r = sps.spearmanr(y[g], p[g]).statistic
+  [E_nonlinear/within_r2] 198s 19 probes
+[syn] E_nonlinear done in 198s
+  [F_null/pooled_r2] 162s 19 probes
+  [F_null/within_r2] 335s 19 probes
+[syn] F_null done in 335s
+wrote /home/xqin5/diffusion_LLM/d1_lookahead/rescue_audit/synthetic/synthetic_results.json

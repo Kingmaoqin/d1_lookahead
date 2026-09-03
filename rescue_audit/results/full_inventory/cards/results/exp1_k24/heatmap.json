@@ -1,0 +1,56 @@
+{
+  "arrays": {
+    "abs_r2": {
+      "dtype": "float64",
+      "fortran_order": false,
+      "shape": [
+        13,
+        6
+      ]
+    },
+    "delta_r2": {
+      "dtype": "float64",
+      "fortran_order": false,
+      "shape": [
+        13,
+        6
+      ]
+    },
+    "steps": {
+      "dtype": "int64",
+      "fortran_order": false,
+      "shape": [
+        6
+      ]
+    }
+  },
+  "bytes": 2052,
+  "category": "derived_result",
+  "git_lfs": true,
+  "path": "results/exp1_k24/heatmap.npz",
+  "scalar_statistics": {
+    "abs_r2": {
+      "finite_fraction": 1.0,
+      "max": 0.4777544107804629,
+      "mean": 0.4209950581561327,
+      "min": 0.3453194340564285,
+      "std": 0.034356975418607966
+    },
+    "delta_r2": {
+      "finite_fraction": 1.0,
+      "max": 0.07443974796523989,
+      "mean": 0.03203696603485679,
+      "min": -0.005710198070602912,
+      "std": 0.01919172857042771
+    },
+    "steps": {
+      "finite_fraction": 1.0,
+      "max": 115.0,
+      "mean": 66.83333333333333,
+      "min": 19.0,
+      "std": 32.84010082539672
+    }
+  },
+  "sha256": "349f8cb4e0bc8ddaa66f30adceab4b916bedca4b29d73c16f7fc27189091594b",
+  "suffix": ".npz"
+}

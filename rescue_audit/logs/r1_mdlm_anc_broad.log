@@ -1,0 +1,186 @@
+[R1] arm=MDLM_anc tags=['a3', 'b3'] hg=hg
+
+[R1] === target=A_pertok split_seed=0 (3s) ===
+  [A] layer sweep
+    layer  0 pooled_r2: add +0.5155 kron +0.5134  within_r2: add +0.5730 kron +0.5587  concordance: add +0.7839 kron +0.7807
+    layer  1 pooled_r2: add +0.5162 kron +0.5032  within_r2: add +0.5660 kron +0.5579  concordance: add +0.7794 kron +0.7780
+    layer  2 pooled_r2: add +0.5232 kron +0.5043  within_r2: add +0.5693 kron +0.5573  concordance: add +0.7843 kron +0.7793
+    layer  3 pooled_r2: add +0.5298 kron +0.5049  within_r2: add +0.5697 kron +0.5565  concordance: add +0.7830 kron +0.7811
+    layer  4 pooled_r2: add +0.5375 kron +0.5111  within_r2: add +0.5713 kron +0.5571  concordance: add +0.7826 kron +0.7809
+    layer  5 pooled_r2: add +0.5464 kron +0.5134  within_r2: add +0.5717 kron +0.5567  concordance: add +0.7854 kron +0.7789
+    layer  6 pooled_r2: add +0.5471 kron +0.5168  within_r2: add +0.5721 kron +0.5568  concordance: add +0.7865 kron +0.7776
+    layer  7 pooled_r2: add +0.5459 kron +0.5172  within_r2: add +0.5715 kron +0.5560  concordance: add +0.7872 kron +0.7787
+    layer  8 pooled_r2: add +0.5466 kron +0.5184  within_r2: add +0.5745 kron +0.5569  concordance: add +0.7885 kron +0.7794
+    layer  9 pooled_r2: add +0.5479 kron +0.5181  within_r2: add +0.5741 kron +0.5591  concordance: add +0.7852 kron +0.7820
+    layer 10 pooled_r2: add +0.5447 kron +0.5222  within_r2: add +0.5733 kron +0.5594  concordance: add +0.7867 kron +0.7806
+    layer 11 pooled_r2: add +0.5405 kron +0.5104  within_r2: add +0.5734 kron +0.5596  concordance: add +0.7876 kron +0.7789
+    layer 12 pooled_r2: add +0.5358 kron +0.5127  within_r2: add +0.5721 kron +0.5625  concordance: add +0.7872 kron +0.7809
+  [A] chosen layers: {'pooled_r2': {'additive': 9, 'kron': 10}, 'within_r2': {'additive': 8, 'kron': 12}, 'concordance': {'additive': 8, 'kron': 9}}
+  [B] criterion=pooled_r2 layer=10
+/home/xqin5/diffusion_LLM/d1_lookahead/rescue_audit/rlib/metrics.py:121: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  r = sps.spearmanr(y[g], p[g]).statistic
+  [B] 17 probes scored (959s)
+  [B] criterion=within_r2 layer=12
+/home/xqin5/diffusion_LLM/d1_lookahead/rescue_audit/rlib/metrics.py:121: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  r = sps.spearmanr(y[g], p[g]).statistic
+  [B] 17 probes scored (1029s)
+  [B] criterion=concordance layer=9
+/home/xqin5/diffusion_LLM/d1_lookahead/rescue_audit/rlib/metrics.py:121: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  r = sps.spearmanr(y[g], p[g]).statistic
+  [B] 17 probes scored (1126s)
+  [C] control shuffle_hg done (1172s)
+  [C] control gauss_hg done (1196s)
+  [C] control gauss_hi done (1216s)
+  [C] label permutation done (1237s)
+
+[R1] === target=A_pertok split_seed=1 (1237s) ===
+  [A] layer sweep
+    layer  0 pooled_r2: add +0.5162 kron +0.5152  within_r2: add +0.5710 kron +0.5566  concordance: add +0.7778 kron +0.7770
+    layer  1 pooled_r2: add +0.5369 kron +0.5086  within_r2: add +0.5655 kron +0.5542  concordance: add +0.7717 kron +0.7711
+    layer  2 pooled_r2: add +0.5445 kron +0.5092  within_r2: add +0.5709 kron +0.5573  concordance: add +0.7737 kron +0.7746
+    layer  3 pooled_r2: add +0.5441 kron +0.5129  within_r2: add +0.5684 kron +0.5564  concordance: add +0.7733 kron +0.7733
+    layer  4 pooled_r2: add +0.5571 kron +0.5214  within_r2: add +0.5702 kron +0.5542  concordance: add +0.7737 kron +0.7726
+    layer  5 pooled_r2: add +0.5650 kron +0.5352  within_r2: add +0.5724 kron +0.5569  concordance: add +0.7763 kron +0.7711
+    layer  6 pooled_r2: add +0.5625 kron +0.5336  within_r2: add +0.5727 kron +0.5582  concordance: add +0.7759 kron +0.7715
+    layer  7 pooled_r2: add +0.5587 kron +0.5350  within_r2: add +0.5729 kron +0.5551  concordance: add +0.7748 kron +0.7711
+    layer  8 pooled_r2: add +0.5654 kron +0.5359  within_r2: add +0.5792 kron +0.5555  concordance: add +0.7798 kron +0.7717
+    layer  9 pooled_r2: add +0.5684 kron +0.5367  within_r2: add +0.5737 kron +0.5569  concordance: add +0.7759 kron +0.7761
+    layer 10 pooled_r2: add +0.5669 kron +0.5270  within_r2: add +0.5712 kron +0.5549  concordance: add +0.7739 kron +0.7756
+    layer 11 pooled_r2: add +0.5610 kron +0.5328  within_r2: add +0.5692 kron +0.5555  concordance: add +0.7750 kron +0.7750
+    layer 12 pooled_r2: add +0.5568 kron +0.5264  within_r2: add +0.5686 kron +0.5570  concordance: add +0.7769 kron +0.7731
+  [A] chosen layers: {'pooled_r2': {'additive': 9, 'kron': 9}, 'within_r2': {'additive': 8, 'kron': 6}, 'concordance': {'additive': 8, 'kron': 0}}
+  [B] criterion=pooled_r2 layer=9
+/home/xqin5/diffusion_LLM/d1_lookahead/rescue_audit/rlib/metrics.py:121: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  r = sps.spearmanr(y[g], p[g]).statistic
+  [B] 17 probes scored (1678s)
+  [B] criterion=within_r2 layer=6
+/home/xqin5/diffusion_LLM/d1_lookahead/rescue_audit/rlib/metrics.py:121: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  r = sps.spearmanr(y[g], p[g]).statistic
+  [B] 17 probes scored (1706s)
+  [B] criterion=concordance layer=0
+/home/xqin5/diffusion_LLM/d1_lookahead/rescue_audit/rlib/metrics.py:121: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  r = sps.spearmanr(y[g], p[g]).statistic
+  [B] 17 probes scored (1771s)
+
+[R1] === target=A_pertok split_seed=2 (1771s) ===
+  [A] layer sweep
+    layer  0 pooled_r2: add +0.5083 kron +0.5058  within_r2: add +0.5390 kron +0.5319  concordance: add +0.7765 kron +0.7731
+    layer  1 pooled_r2: add +0.5243 kron +0.5029  within_r2: add +0.5372 kron +0.5298  concordance: add +0.7706 kron +0.7730
+    layer  2 pooled_r2: add +0.5372 kron +0.5086  within_r2: add +0.5397 kron +0.5287  concordance: add +0.7735 kron +0.7700
+    layer  3 pooled_r2: add +0.5318 kron +0.5081  within_r2: add +0.5383 kron +0.5284  concordance: add +0.7731 kron +0.7691
+    layer  4 pooled_r2: add +0.5370 kron +0.5097  within_r2: add +0.5399 kron +0.5296  concordance: add +0.7741 kron +0.7681
+    layer  5 pooled_r2: add +0.5416 kron +0.5136  within_r2: add +0.5399 kron +0.5288  concordance: add +0.7733 kron +0.7674
+    layer  6 pooled_r2: add +0.5449 kron +0.5161  within_r2: add +0.5414 kron +0.5302  concordance: add +0.7750 kron +0.7681
+    layer  7 pooled_r2: add +0.5475 kron +0.5157  within_r2: add +0.5431 kron +0.5282  concordance: add +0.7741 kron +0.7681
+    layer  8 pooled_r2: add +0.5448 kron +0.5232  within_r2: add +0.5451 kron +0.5321  concordance: add +0.7776 kron +0.7741
+    layer  9 pooled_r2: add +0.5470 kron +0.5158  within_r2: add +0.5429 kron +0.5295  concordance: add +0.7769 kron +0.7746
+    layer 10 pooled_r2: add +0.5447 kron +0.5188  within_r2: add +0.5389 kron +0.5339  concordance: add +0.7741 kron +0.7741
+    layer 11 pooled_r2: add +0.5420 kron +0.5140  within_r2: add +0.5376 kron +0.5341  concordance: add +0.7769 kron +0.7737
+    layer 12 pooled_r2: add +0.5385 kron +0.5141  within_r2: add +0.5376 kron +0.5332  concordance: add +0.7783 kron +0.7724
+  [A] chosen layers: {'pooled_r2': {'additive': 7, 'kron': 8}, 'within_r2': {'additive': 8, 'kron': 11}, 'concordance': {'additive': 12, 'kron': 9}}
+  [B] criterion=pooled_r2 layer=8
+/home/xqin5/diffusion_LLM/d1_lookahead/rescue_audit/rlib/metrics.py:121: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  r = sps.spearmanr(y[g], p[g]).statistic
+  [B] 17 probes scored (2136s)
+  [B] criterion=within_r2 layer=11
+/home/xqin5/diffusion_LLM/d1_lookahead/rescue_audit/rlib/metrics.py:121: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  r = sps.spearmanr(y[g], p[g]).statistic
+  [B] 17 probes scored (2167s)
+  [B] criterion=concordance layer=9
+/home/xqin5/diffusion_LLM/d1_lookahead/rescue_audit/rlib/metrics.py:121: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  r = sps.spearmanr(y[g], p[g]).statistic
+  [B] 17 probes scored (2221s)
+
+[R1] === target=A_future split_seed=0 (2221s) ===
+  [A] layer sweep
+    layer  0 pooled_r2: add +0.1593 kron +0.1595  within_r2: add +0.2541 kron +0.2500  concordance: add +0.7072 kron +0.7022
+    layer  1 pooled_r2: add +0.1703 kron +0.1583  within_r2: add +0.2535 kron +0.2499  concordance: add +0.7059 kron +0.7015
+    layer  2 pooled_r2: add +0.1697 kron +0.1605  within_r2: add +0.2544 kron +0.2527  concordance: add +0.7080 kron +0.7087
+    layer  3 pooled_r2: add +0.1707 kron +0.1611  within_r2: add +0.2540 kron +0.2503  concordance: add +0.7111 kron +0.7080
+    layer  4 pooled_r2: add +0.1723 kron +0.1607  within_r2: add +0.2570 kron +0.2514  concordance: add +0.7050 kron +0.7074
+    layer  5 pooled_r2: add +0.1766 kron +0.1622  within_r2: add +0.2572 kron +0.2546  concordance: add +0.7056 kron +0.7076
+    layer  6 pooled_r2: add +0.1773 kron +0.1615  within_r2: add +0.2581 kron +0.2524  concordance: add +0.7072 kron +0.7031
+    layer  7 pooled_r2: add +0.1713 kron +0.1662  within_r2: add +0.2573 kron +0.2527  concordance: add +0.7072 kron +0.7043
+    layer  8 pooled_r2: add +0.1715 kron +0.1666  within_r2: add +0.2594 kron +0.2517  concordance: add +0.7054 kron +0.7030
+    layer  9 pooled_r2: add +0.1709 kron +0.1666  within_r2: add +0.2576 kron +0.2515  concordance: add +0.7059 kron +0.7052
+    layer 10 pooled_r2: add +0.1695 kron +0.1675  within_r2: add +0.2532 kron +0.2509  concordance: add +0.7033 kron +0.7048
+    layer 11 pooled_r2: add +0.1692 kron +0.1574  within_r2: add +0.2532 kron +0.2489  concordance: add +0.7043 kron +0.7020
+    layer 12 pooled_r2: add +0.1719 kron +0.1574  within_r2: add +0.2521 kron +0.2496  concordance: add +0.7050 kron +0.7041
+  [A] chosen layers: {'pooled_r2': {'additive': 6, 'kron': 10}, 'within_r2': {'additive': 8, 'kron': 5}, 'concordance': {'additive': 3, 'kron': 2}}
+  [B] criterion=pooled_r2 layer=10
+/home/xqin5/diffusion_LLM/d1_lookahead/rescue_audit/rlib/metrics.py:121: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  r = sps.spearmanr(y[g], p[g]).statistic
+  [B] 17 probes scored (2480s)
+  [B] criterion=within_r2 layer=5
+/home/xqin5/diffusion_LLM/d1_lookahead/rescue_audit/rlib/metrics.py:121: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  r = sps.spearmanr(y[g], p[g]).statistic
+  [B] 17 probes scored (2508s)
+  [B] criterion=concordance layer=2
+/home/xqin5/diffusion_LLM/d1_lookahead/rescue_audit/rlib/metrics.py:121: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  r = sps.spearmanr(y[g], p[g]).statistic
+  [B] 17 probes scored (2564s)
+  [C] control shuffle_hg done (2589s)
+  [C] control gauss_hg done (2608s)
+  [C] control gauss_hi done (2626s)
+  [C] label permutation done (2645s)
+
+[R1] === target=A_future split_seed=1 (2645s) ===
+  [A] layer sweep
+    layer  0 pooled_r2: add +0.1352 kron +0.1386  within_r2: add +0.2232 kron +0.2229  concordance: add +0.6787 kron +0.6754
+    layer  1 pooled_r2: add +0.1454 kron +0.1359  within_r2: add +0.2301 kron +0.2215  concordance: add +0.6813 kron +0.6791
+    layer  2 pooled_r2: add +0.1480 kron +0.1349  within_r2: add +0.2339 kron +0.2208  concordance: add +0.6806 kron +0.6744
+    layer  3 pooled_r2: add +0.1537 kron +0.1380  within_r2: add +0.2305 kron +0.2204  concordance: add +0.6824 kron +0.6744
+    layer  4 pooled_r2: add +0.1585 kron +0.1398  within_r2: add +0.2309 kron +0.2206  concordance: add +0.6837 kron +0.6763
+    layer  5 pooled_r2: add +0.1636 kron +0.1379  within_r2: add +0.2337 kron +0.2205  concordance: add +0.6817 kron +0.6774
+    layer  6 pooled_r2: add +0.1628 kron +0.1395  within_r2: add +0.2328 kron +0.2210  concordance: add +0.6807 kron +0.6806
+    layer  7 pooled_r2: add +0.1579 kron +0.1402  within_r2: add +0.2305 kron +0.2213  concordance: add +0.6822 kron +0.6746
+    layer  8 pooled_r2: add +0.1550 kron +0.1448  within_r2: add +0.2396 kron +0.2234  concordance: add +0.6861 kron +0.6743
+    layer  9 pooled_r2: add +0.1546 kron +0.1465  within_r2: add +0.2324 kron +0.2238  concordance: add +0.6843 kron +0.6744
+    layer 10 pooled_r2: add +0.1477 kron +0.1369  within_r2: add +0.2299 kron +0.2215  concordance: add +0.6826 kron +0.6743
+    layer 11 pooled_r2: add +0.1446 kron +0.1342  within_r2: add +0.2304 kron +0.2204  concordance: add +0.6813 kron +0.6743
+    layer 12 pooled_r2: add +0.1401 kron +0.1342  within_r2: add +0.2292 kron +0.2207  concordance: add +0.6807 kron +0.6750
+  [A] chosen layers: {'pooled_r2': {'additive': 5, 'kron': 9}, 'within_r2': {'additive': 8, 'kron': 9}, 'concordance': {'additive': 8, 'kron': 6}}
+  [B] criterion=pooled_r2 layer=9
+/home/xqin5/diffusion_LLM/d1_lookahead/rescue_audit/rlib/metrics.py:121: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  r = sps.spearmanr(y[g], p[g]).statistic
+  [B] 17 probes scored (2904s)
+  [B] criterion=within_r2 layer=9
+/home/xqin5/diffusion_LLM/d1_lookahead/rescue_audit/rlib/metrics.py:121: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  r = sps.spearmanr(y[g], p[g]).statistic
+  [B] 17 probes scored (2933s)
+  [B] criterion=concordance layer=6
+/home/xqin5/diffusion_LLM/d1_lookahead/rescue_audit/rlib/metrics.py:121: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  r = sps.spearmanr(y[g], p[g]).statistic
+  [B] 17 probes scored (3002s)
+
+[R1] === target=A_future split_seed=2 (3002s) ===
+  [A] layer sweep
+    layer  0 pooled_r2: add +0.1264 kron +0.1274  within_r2: add +0.2148 kron +0.2091  concordance: add +0.6876 kron +0.6856
+    layer  1 pooled_r2: add +0.1317 kron +0.1235  within_r2: add +0.2167 kron +0.2109  concordance: add +0.6854 kron +0.6843
+    layer  2 pooled_r2: add +0.1353 kron +0.1214  within_r2: add +0.2191 kron +0.2075  concordance: add +0.6870 kron +0.6841
+    layer  3 pooled_r2: add +0.1370 kron +0.1239  within_r2: add +0.2175 kron +0.2086  concordance: add +0.6893 kron +0.6841
+    layer  4 pooled_r2: add +0.1381 kron +0.1284  within_r2: add +0.2178 kron +0.2089  concordance: add +0.6893 kron +0.6841
+    layer  5 pooled_r2: add +0.1429 kron +0.1270  within_r2: add +0.2189 kron +0.2085  concordance: add +0.6900 kron +0.6846
+    layer  6 pooled_r2: add +0.1425 kron +0.1282  within_r2: add +0.2231 kron +0.2083  concordance: add +0.6913 kron +0.6843
+    layer  7 pooled_r2: add +0.1444 kron +0.1278  within_r2: add +0.2251 kron +0.2068  concordance: add +0.6933 kron +0.6841
+    layer  8 pooled_r2: add +0.1411 kron +0.1268  within_r2: add +0.2290 kron +0.2082  concordance: add +0.6907 kron +0.6841
+    layer  9 pooled_r2: add +0.1397 kron +0.1288  within_r2: add +0.2253 kron +0.2103  concordance: add +0.6937 kron +0.6863
+    layer 10 pooled_r2: add +0.1307 kron +0.1268  within_r2: add +0.2155 kron +0.2124  concordance: add +0.6878 kron +0.6887
+    layer 11 pooled_r2: add +0.1272 kron +0.1202  within_r2: add +0.2140 kron +0.2086  concordance: add +0.6859 kron +0.6841
+    layer 12 pooled_r2: add +0.1239 kron +0.1193  within_r2: add +0.2136 kron +0.2078  concordance: add +0.6859 kron +0.6848
+  [A] chosen layers: {'pooled_r2': {'additive': 7, 'kron': 9}, 'within_r2': {'additive': 8, 'kron': 10}, 'concordance': {'additive': 9, 'kron': 10}}
+  [B] criterion=pooled_r2 layer=9
+/home/xqin5/diffusion_LLM/d1_lookahead/rescue_audit/rlib/metrics.py:121: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  r = sps.spearmanr(y[g], p[g]).statistic
+  [B] 17 probes scored (4026s)
+  [B] criterion=within_r2 layer=10
+/home/xqin5/diffusion_LLM/d1_lookahead/rescue_audit/rlib/metrics.py:121: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  r = sps.spearmanr(y[g], p[g]).statistic
+  [B] 17 probes scored (4147s)
+  [B] criterion=concordance layer=10
+/home/xqin5/diffusion_LLM/d1_lookahead/rescue_audit/rlib/metrics.py:121: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  r = sps.spearmanr(y[g], p[g]).statistic
+  [B] 17 probes scored (4275s)
+
+[R1] done in 4275s -> rescue_audit/results/R1_MDLM_anc_broad.json
+[R1] registry rows appended: 306 -> /home/xqin5/diffusion_LLM/d1_lookahead/rescue_audit/EXPERIMENT_REGISTRY.csv

@@ -1,0 +1,64 @@
+[exp1] 14400 examples, 400 docs, 2400 states, 13 layers
+[exp1] noise ceiling for A_pertok: max attainable R2 = 0.842 (label noise var 5.46e-04 of observed 3.46e-03)
+
+==========================================================================
+TARGET A_pertok
+==========================================================================
+    gamma (hidden-block scale) = 0.03
+  seed 0: probe layer chosen on val = 9
+    gamma (hidden-block scale) = 0.03
+  seed 1: probe layer chosen on val = 9
+    gamma (hidden-block scale) = 0.01
+  seed 2: probe layer chosen on val = 7
+
+feature block                            R2  Spearman  within-R2  concord
+confidence scalars                   0.2857    0.5404     0.4877   0.7566
+confidence + trajectory              0.5093    0.7138     0.5681   0.7809
+output distribution                  0.3523    0.6011     0.4729   0.7526
+ALL cheap controls (C1+C2+C3)        0.5180    0.7206     0.5622   0.7739
+h_global only (cannot rank within a state)   0.1659    0.3961    -0.0000   0.5000
+h_i only (candidate position)        0.2148    0.4628     0.1337   0.6243
+hidden only [h_i; h_global]          0.2925    0.5283     0.1957   0.6536
+cheap + h_i only                     0.5343    0.7324     0.5658   0.7763
+cheap + HIDDEN  <-- primary          0.5680    0.7541     0.5847   0.7857
+cheap + hidden, MLP (secondary)      0.4504    0.6784     0.4534   0.7421
+
+  PRIMARY: Delta = (cheap + hidden) - (cheap)
+    Delta_r2           per-seed [0.0502, 0.0448, 0.0547]  mean +0.0499  boot 95% CI [+0.0312, +0.0696]  EXCLUDES 0
+    Delta_spearman     per-seed [0.0342, 0.0315, 0.0348]  mean +0.0335  boot 95% CI [+0.0212, +0.0480]  EXCLUDES 0
+    Delta_within_r2    per-seed [0.0232, 0.0184, 0.0259]  mean +0.0225  boot 95% CI [+0.0163, +0.0293]  EXCLUDES 0
+    Delta_concordance  per-seed [0.0106, 0.0123, 0.0127]  mean +0.0119  boot 95% CI [+0.0024, +0.0191]  EXCLUDES 0
+  calibration of predicted advantage (decile bins), slope of actual on predicted = 0.989 (1.0 = calibrated)
+     pred  -0.0042 +0.0302 +0.0461 +0.0573 +0.0669 +0.0772 +0.0884 +0.1022 +0.1214 +0.1531
+     true  -0.0049 +0.0305 +0.0443 +0.0524 +0.0626 +0.0721 +0.0847 +0.0947 +0.1168 +0.1544
+  [secondary, non-decisive] Gaussian I(A ; hidden | cheap) ~ 0.0547 nats
+  held-out NATURAL stratum only (n=1800): R2 cheap 0.4263 -> cheap+hidden 0.4827 (Delta +0.0564)
+
+  REFIT bootstrap (200 replicates, re-split + re-fit, layer 9) -- includes fitting variability
+    Delta_r2           +0.0506  95% CI [+0.0293, +0.0708]  EXCLUDES 0
+    Delta_within_r2    +0.0249  95% CI [+0.0140, +0.0402]  EXCLUDES 0
+    Delta_concordance  +0.0076  95% CI [-0.0019, +0.0169]  includes 0
+
+==========================================================================
+layer x diffusion-timestep decodability (Delta R2 over cheap controls)
+==========================================================================
+layer      t=19     t=38     t=57     t=76     t=96    t=115
+    0    -0.002    0.011    0.018    0.005    0.013    0.015
+    1     0.001    0.020    0.016    0.010    0.022    0.019
+    2     0.008    0.034    0.022    0.015    0.029    0.030
+    3     0.010    0.034    0.020    0.021    0.041    0.020
+    4     0.014    0.056    0.037    0.027    0.055    0.035
+    5     0.013    0.054    0.041    0.030    0.057    0.033
+    6     0.016    0.052    0.044    0.032    0.068    0.032
+    7     0.014    0.045    0.066    0.031    0.062    0.037
+    8     0.012    0.074    0.056    0.038    0.059    0.038
+    9     0.010    0.072    0.058    0.035    0.056    0.040
+   10     0.006    0.070    0.047    0.034    0.051    0.031
+   11     0.004    0.060    0.027    0.026    0.038    0.023
+   12    -0.006    0.057    0.022    0.020    0.033    0.022
+
+[secondary] per-timestep-bin probes, held-out predictions pooled
+   A_pertok   Delta_R2 +0.0274   Delta_within_R2 +0.0120   Delta_concord +0.0076
+
+wrote results/refit_fixed_anc/exp1_report.json
+

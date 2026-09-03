@@ -1,0 +1,41 @@
+
+Fetching 6 files:   0%|          | 0/6 [00:00<?, ?it/s]
+Fetching 6 files: 100%|██████████| 6/6 [00:00<00:00, 102717.65it/s]
+
+[0A] prompts=200 K=24 n_cand=6 record_fracs=(0.1, 0.2, 0.3, 0.4, 0.5, 0.6) horizon=16
+  prompts 6/200  examples 216  356s  eta 11525s
+  prompts 12/200  examples 432  713s  eta 11172s
+  prompts 18/200  examples 648  1069s  eta 10808s
+  prompts 24/200  examples 864  1424s  eta 10446s
+  prompts 30/200  examples 1080  1766s  eta 10008s
+  prompts 36/200  examples 1296  2121s  eta 9663s
+  prompts 42/200  examples 1512  2476s  eta 9316s
+  prompts 48/200  examples 1728  2831s  eta 8966s
+  prompts 54/200  examples 1944  3187s  eta 8617s
+  prompts 60/200  examples 2160  3542s  eta 8265s
+  prompts 66/200  examples 2376  3900s  eta 7919s
+  prompts 72/200  examples 2592  4256s  eta 7566s
+  prompts 78/200  examples 2808  4611s  eta 7213s
+  prompts 84/200  examples 3024  4954s  eta 6841s
+  prompts 90/200  examples 3240  5309s  eta 6489s
+  prompts 96/200  examples 3456  5664s  eta 6136s
+  prompts 102/200  examples 3672  6019s  eta 5783s
+  prompts 108/200  examples 3888  6374s  eta 5430s
+  prompts 114/200  examples 4104  6729s  eta 5076s
+  prompts 120/200  examples 4320  7083s  eta 4722s
+  prompts 126/200  examples 4536  7440s  eta 4370s
+  prompts 132/200  examples 4752  7795s  eta 4016s
+  prompts 138/200  examples 4968  8139s  eta 3657s
+  prompts 144/200  examples 5184  8492s  eta 3303s
+  prompts 150/200  examples 5400  8847s  eta 2949s
+  prompts 156/200  examples 5616  9202s  eta 2596s
+  prompts 162/200  examples 5832  9557s  eta 2242s
+  prompts 168/200  examples 6048  9912s  eta 1888s
+  prompts 174/200  examples 6264  10267s  eta 1534s
+  prompts 180/200  examples 6480  10622s  eta 1180s
+  prompts 186/200  examples 6696  10978s  eta 826s
+  prompts 192/200  examples 6912  11334s  eta 472s
+  prompts 198/200  examples 7128  11673s  eta 118s
+  prompts 200/200  examples 7200  11794s  eta 0s
+[0A] done: 7200 examples in 11795s -> /home/xqin5/diffusion_LLM/d1_lookahead/data/labels_b3
+

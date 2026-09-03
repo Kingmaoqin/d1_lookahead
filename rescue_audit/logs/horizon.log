@@ -1,0 +1,23 @@
+[H8] pooled: layer 7 Dconc(hidden) +0.0141 Dconc(relational) -0.0081
+  [H8] t/T=0.10 layer  5 Dconc_h +0.0033  Dtop1_h -0.0100  Dconc_rel +0.0040 (41s)
+  [H8] t/T=0.20 layer 11 Dconc_h +0.0020  Dtop1_h +0.0300  Dconc_rel +0.0047 (55s)
+  [H8] t/T=0.30 layer  7 Dconc_h +0.0087  Dtop1_h +0.0400  Dconc_rel -0.0013 (68s)
+  [H8] t/T=0.40 layer  0 Dconc_h +0.0067  Dtop1_h +0.0500  Dconc_rel +0.0000 (81s)
+  [H8] t/T=0.50 layer  5 Dconc_h +0.0073  Dtop1_h +0.0100  Dconc_rel -0.0093 (94s)
+  [H8] t/T=0.60 layer  8 Dconc_h +0.0087  Dtop1_h +0.0700  Dconc_rel -0.0087 (107s)
+[H16] pooled: layer 6 Dconc(hidden) +0.0139 Dconc(relational) -0.0129
+  [H16] t/T=0.10 layer  5 Dconc_h +0.0027  Dtop1_h -0.0100  Dconc_rel +0.0080 (147s)
+  [H16] t/T=0.20 layer 10 Dconc_h -0.0040  Dtop1_h -0.0500  Dconc_rel +0.0113 (159s)
+  [H16] t/T=0.30 layer  6 Dconc_h -0.0013  Dtop1_h -0.0200  Dconc_rel +0.0013 (172s)
+  [H16] t/T=0.40 layer 12 Dconc_h +0.0040  Dtop1_h -0.0100  Dconc_rel -0.0093 (185s)
+  [H16] t/T=0.50 layer  9 Dconc_h +0.0153  Dtop1_h +0.0400  Dconc_rel -0.0133 (198s)
+  [H16] t/T=0.60 layer  6 Dconc_h +0.0093  Dtop1_h +0.0900  Dconc_rel -0.0060 (211s)
+[H32] pooled: layer 7 Dconc(hidden) +0.0050 Dconc(relational) -0.0050
+  [H32] t/T=0.10 layer  3 Dconc_h +0.0007  Dtop1_h +0.0200  Dconc_rel +0.0027 (251s)
+  [H32] t/T=0.20 layer 10 Dconc_h -0.0093  Dtop1_h +0.0000  Dconc_rel +0.0093 (264s)
+  [H32] t/T=0.30 layer 10 Dconc_h +0.0047  Dtop1_h +0.0400  Dconc_rel -0.0047 (277s)
+  [H32] t/T=0.40 layer  8 Dconc_h -0.0013  Dtop1_h +0.0800  Dconc_rel +0.0000 (290s)
+  [H32] t/T=0.50 layer  2 Dconc_h +0.0067  Dtop1_h +0.0600  Dconc_rel -0.0033 (303s)
+  [H32] t/T=0.60 layer  6 Dconc_h +0.0007  Dtop1_h -0.0200  Dconc_rel -0.0020 (315s)
+
+done in 315s -> /home/xqin5/diffusion_LLM/d1_lookahead/rescue_audit/results/horizon_timestep_layer.json

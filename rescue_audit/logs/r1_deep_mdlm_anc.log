@@ -1,0 +1,57 @@
+############ layer 3 ############
+[R1] arm=MDLM_anc tags=['a3', 'b3'] hg=hg
+
+[R1] === target=A_pertok split_seed=0 (4s) ===
+  [A] layer sweep
+    layer  3 within_r2: add +0.5697 kron +0.5565
+  [A] chosen layers: {'within_r2': {'additive': 3, 'kron': 3}}
+  [B] criterion=within_r2 layer=3
+/home/xqin5/diffusion_LLM/d1_lookahead/rescue_audit/rlib/metrics.py:121: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  r = sps.spearmanr(y[g], p[g]).statistic
+  [B] 49 probes scored (495s)
+
+[R1] done in 495s -> rescue_audit/results/R1deep_MDLM_anc_A_pertok_L3.json
+[R1] registry rows appended: 49 -> /home/xqin5/diffusion_LLM/d1_lookahead/rescue_audit/EXPERIMENT_REGISTRY.csv
+############ layer 6 ############
+[R1] arm=MDLM_anc tags=['a3', 'b3'] hg=hg
+
+[R1] === target=A_pertok split_seed=0 (4s) ===
+  [A] layer sweep
+    layer  6 within_r2: add +0.5721 kron +0.5568
+  [A] chosen layers: {'within_r2': {'additive': 6, 'kron': 6}}
+  [B] criterion=within_r2 layer=6
+/home/xqin5/diffusion_LLM/d1_lookahead/rescue_audit/rlib/metrics.py:121: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  r = sps.spearmanr(y[g], p[g]).statistic
+  [B] 49 probes scored (345s)
+
+[R1] done in 345s -> rescue_audit/results/R1deep_MDLM_anc_A_pertok_L6.json
+[R1] registry rows appended: 49 -> /home/xqin5/diffusion_LLM/d1_lookahead/rescue_audit/EXPERIMENT_REGISTRY.csv
+############ layer 9 ############
+[R1] arm=MDLM_anc tags=['a3', 'b3'] hg=hg
+
+[R1] === target=A_pertok split_seed=0 (2s) ===
+  [A] layer sweep
+    layer  9 within_r2: add +0.5741 kron +0.5591
+  [A] chosen layers: {'within_r2': {'additive': 9, 'kron': 9}}
+  [B] criterion=within_r2 layer=9
+/home/xqin5/diffusion_LLM/d1_lookahead/rescue_audit/rlib/metrics.py:121: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  r = sps.spearmanr(y[g], p[g]).statistic
+  [B] 49 probes scored (389s)
+
+[R1] done in 389s -> rescue_audit/results/R1deep_MDLM_anc_A_pertok_L9.json
+[R1] registry rows appended: 49 -> /home/xqin5/diffusion_LLM/d1_lookahead/rescue_audit/EXPERIMENT_REGISTRY.csv
+############ layer 11 ############
+[R1] arm=MDLM_anc tags=['a3', 'b3'] hg=hg
+
+[R1] === target=A_pertok split_seed=0 (2s) ===
+  [A] layer sweep
+    layer 11 within_r2: add +0.5734 kron +0.5596
+  [A] chosen layers: {'within_r2': {'additive': 11, 'kron': 11}}
+  [B] criterion=within_r2 layer=11
+/home/xqin5/diffusion_LLM/d1_lookahead/rescue_audit/rlib/metrics.py:121: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  r = sps.spearmanr(y[g], p[g]).statistic
+  [B] 49 probes scored (369s)
+
+[R1] done in 369s -> rescue_audit/results/R1deep_MDLM_anc_A_pertok_L11.json
+[R1] registry rows appended: 49 -> /home/xqin5/diffusion_LLM/d1_lookahead/rescue_audit/EXPERIMENT_REGISTRY.csv
+ALL DEEP DONE

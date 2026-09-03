@@ -1,0 +1,178 @@
+[ERROR] `cache_position` is part of Ministral3Model.forward's signature, but not documented. Make sure to add it to the docstring of the function in /home/xqin5/.cache/huggingface/modules/transformers_modules/nvidia/Nemotron_hyphen_Labs_hyphen_Diffusion_hyphen_3B/0d51902da1f8869f83413ce642fab402fa5641e0/modeling_ministral.py.
+[task] screening 220 prompts with K=8
+  screened 20/220  mixed 4 (20%)  148s
+  screened 40/220  mixed 10 (25%)  300s
+  screened 60/220  mixed 11 (18%)  445s
+  screened 80/220  mixed 22 (28%)  619s
+  screened 100/220  mixed 31 (31%)  801s
+  screened 120/220  mixed 37 (31%)  991s
+  screened 140/220  mixed 45 (32%)  1176s
+  screened 160/220  mixed 52 (32%)  1353s
+  screened 180/220  mixed 60 (33%)  1513s
+  screened 200/220  mixed 69 (34%)  1715s
+  screened 220/220  mixed 75 (34%)  1894s
+[task] screened: 75/220 mixed (34%); selected 75 mixed (oversampled) + 75 natural
+  1/150 prompts, 8 examples, 63s, eta 9414s
+  2/150 prompts, 16 examples, 91s, eta 6735s
+  3/150 prompts, 24 examples, 152s, eta 7438s
+  4/150 prompts, 36 examples, 194s, eta 7066s
+  5/150 prompts, 48 examples, 260s, eta 7530s
+  6/150 prompts, 56 examples, 306s, eta 7353s
+  7/150 prompts, 68 examples, 374s, eta 7643s
+  8/150 prompts, 76 examples, 423s, eta 7507s
+  9/150 prompts, 84 examples, 484s, eta 7580s
+  10/150 prompts, 92 examples, 542s, eta 7589s
+  11/150 prompts, 108 examples, 675s, eta 8527s
+  12/150 prompts, 116 examples, 717s, eta 8251s
+  13/150 prompts, 128 examples, 817s, eta 8612s
+  14/150 prompts, 140 examples, 906s, eta 8805s
+  15/150 prompts, 152 examples, 964s, eta 8675s
+  16/150 prompts, 156 examples, 980s, eta 8204s
+  17/150 prompts, 168 examples, 1010s, eta 7900s
+  18/150 prompts, 176 examples, 1083s, eta 7940s
+  19/150 prompts, 184 examples, 1158s, eta 7986s
+  20/150 prompts, 188 examples, 1191s, eta 7741s
+  21/150 prompts, 200 examples, 1278s, eta 7849s
+  22/150 prompts, 208 examples, 1296s, eta 7542s
+  23/150 prompts, 220 examples, 1399s, eta 7726s
+  24/150 prompts, 228 examples, 1439s, eta 7557s
+  25/150 prompts, 232 examples, 1472s, eta 7360s
+  26/150 prompts, 244 examples, 1592s, eta 7591s
+  27/150 prompts, 256 examples, 1693s, eta 7714s
+  28/150 prompts, 268 examples, 1731s, eta 7540s
+  29/150 prompts, 276 examples, 1744s, eta 7278s
+  30/150 prompts, 288 examples, 1828s, eta 7311s
+  31/150 prompts, 292 examples, 1869s, eta 7176s
+  32/150 prompts, 296 examples, 1885s, eta 6951s
+  33/150 prompts, 308 examples, 1988s, eta 7050s
+  34/150 prompts, 312 examples, 2006s, eta 6844s
+  35/150 prompts, 316 examples, 2045s, eta 6719s
+  36/150 prompts, 320 examples, 2080s, eta 6587s
+  37/150 prompts, 328 examples, 2122s, eta 6482s
+  38/150 prompts, 344 examples, 2234s, eta 6585s
+  39/150 prompts, 352 examples, 2301s, eta 6549s
+  40/150 prompts, 352 examples, 2301s, eta 6329s
+  41/150 prompts, 360 examples, 2362s, eta 6281s
+  42/150 prompts, 368 examples, 2447s, eta 6293s
+  43/150 prompts, 380 examples, 2554s, eta 6355s
+  44/150 prompts, 384 examples, 2566s, eta 6182s
+  45/150 prompts, 392 examples, 2596s, eta 6058s
+  46/150 prompts, 404 examples, 2766s, eta 6254s
+  47/150 prompts, 416 examples, 2851s, eta 6249s
+  48/150 prompts, 424 examples, 2927s, eta 6219s
+  49/150 prompts, 428 examples, 2931s, eta 6041s
+  50/150 prompts, 436 examples, 2972s, eta 5943s
+  51/150 prompts, 436 examples, 2972s, eta 5769s
+  52/150 prompts, 444 examples, 3011s, eta 5674s
+  53/150 prompts, 448 examples, 3028s, eta 5541s
+  54/150 prompts, 456 examples, 3059s, eta 5439s
+  55/150 prompts, 464 examples, 3102s, eta 5358s
+  56/150 prompts, 480 examples, 3237s, eta 5434s
+  57/150 prompts, 480 examples, 3239s, eta 5284s
+  58/150 prompts, 484 examples, 3280s, eta 5203s
+  59/150 prompts, 484 examples, 3282s, eta 5062s
+  60/150 prompts, 484 examples, 3284s, eta 4925s
+  61/150 prompts, 492 examples, 3332s, eta 4861s
+  62/150 prompts, 496 examples, 3379s, eta 4796s
+  63/150 prompts, 504 examples, 3412s, eta 4712s
+  64/150 prompts, 512 examples, 3491s, eta 4691s
+  65/150 prompts, 524 examples, 3577s, eta 4677s
+  66/150 prompts, 528 examples, 3606s, eta 4590s
+  67/150 prompts, 532 examples, 3615s, eta 4479s
+  68/150 prompts, 536 examples, 3618s, eta 4363s
+  69/150 prompts, 544 examples, 3674s, eta 4313s
+  70/150 prompts, 548 examples, 3713s, eta 4244s
+  71/150 prompts, 552 examples, 3722s, eta 4141s
+  72/150 prompts, 564 examples, 3820s, eta 4138s
+  73/150 prompts, 568 examples, 3853s, eta 4064s
+  74/150 prompts, 572 examples, 3860s, eta 3965s
+  75/150 prompts, 588 examples, 4004s, eta 4004s
+  76/150 prompts, 600 examples, 4074s, eta 3967s
+  77/150 prompts, 612 examples, 4163s, eta 3946s
+  78/150 prompts, 624 examples, 4207s, eta 3884s
+  79/150 prompts, 628 examples, 4231s, eta 3802s
+  80/150 prompts, 640 examples, 4268s, eta 3735s
+  81/150 prompts, 652 examples, 4306s, eta 3668s
+  82/150 prompts, 668 examples, 4439s, eta 3681s
+  83/150 prompts, 680 examples, 4469s, eta 3607s
+  84/150 prompts, 688 examples, 4510s, eta 3544s
+  85/150 prompts, 696 examples, 4519s, eta 3456s
+  86/150 prompts, 712 examples, 4661s, eta 3469s
+  87/150 prompts, 724 examples, 4790s, eta 3469s
+  88/150 prompts, 736 examples, 4888s, eta 3444s
+  89/150 prompts, 740 examples, 4908s, eta 3364s
+  90/150 prompts, 756 examples, 5026s, eta 3351s
+  91/150 prompts, 760 examples, 5045s, eta 3271s
+  92/150 prompts, 760 examples, 5047s, eta 3182s
+  93/150 prompts, 776 examples, 5114s, eta 3134s
+  94/150 prompts, 792 examples, 5240s, eta 3122s
+  95/150 prompts, 800 examples, 5278s, eta 3056s
+  96/150 prompts, 808 examples, 5301s, eta 2982s
+  97/150 prompts, 816 examples, 5339s, eta 2917s
+  98/150 prompts, 828 examples, 5440s, eta 2887s
+  99/150 prompts, 832 examples, 5445s, eta 2805s
+  100/150 prompts, 840 examples, 5462s, eta 2731s
+  101/150 prompts, 852 examples, 5567s, eta 2701s
+  102/150 prompts, 856 examples, 5579s, eta 2626s
+  103/150 prompts, 860 examples, 5594s, eta 2552s
+  104/150 prompts, 872 examples, 5637s, eta 2494s
+  105/150 prompts, 876 examples, 5658s, eta 2425s
+  106/150 prompts, 880 examples, 5688s, eta 2361s
+  107/150 prompts, 888 examples, 5713s, eta 2296s
+  108/150 prompts, 892 examples, 5719s, eta 2224s
+  109/150 prompts, 892 examples, 5720s, eta 2152s
+  110/150 prompts, 904 examples, 5766s, eta 2097s
+  111/150 prompts, 916 examples, 5892s, eta 2070s
+  112/150 prompts, 916 examples, 5893s, eta 1999s
+  113/150 prompts, 924 examples, 5940s, eta 1945s
+  114/150 prompts, 932 examples, 5974s, eta 1887s
+  115/150 prompts, 940 examples, 6034s, eta 1836s
+  116/150 prompts, 944 examples, 6051s, eta 1774s
+  117/150 prompts, 952 examples, 6125s, eta 1728s
+  118/150 prompts, 960 examples, 6174s, eta 1674s
+  119/150 prompts, 968 examples, 6232s, eta 1623s
+  120/150 prompts, 976 examples, 6275s, eta 1569s
+  121/150 prompts, 980 examples, 6279s, eta 1505s
+  122/150 prompts, 992 examples, 6397s, eta 1468s
+  123/150 prompts, 996 examples, 6403s, eta 1406s
+  124/150 prompts, 1012 examples, 6491s, eta 1361s
+  125/150 prompts, 1020 examples, 6507s, eta 1301s
+  126/150 prompts, 1024 examples, 6558s, eta 1249s
+  127/150 prompts, 1028 examples, 6562s, eta 1188s
+  128/150 prompts, 1044 examples, 6670s, eta 1146s
+  129/150 prompts, 1044 examples, 6672s, eta 1086s
+  130/150 prompts, 1056 examples, 6721s, eta 1034s
+  131/150 prompts, 1064 examples, 6746s, eta 978s
+  132/150 prompts, 1072 examples, 6825s, eta 931s
+  133/150 prompts, 1088 examples, 6923s, eta 885s
+  134/150 prompts, 1096 examples, 7000s, eta 836s
+  135/150 prompts, 1100 examples, 7016s, eta 780s
+  136/150 prompts, 1112 examples, 7061s, eta 727s
+  137/150 prompts, 1116 examples, 7072s, eta 671s
+  138/150 prompts, 1124 examples, 7120s, eta 619s
+  139/150 prompts, 1132 examples, 7160s, eta 567s
+  140/150 prompts, 1136 examples, 7185s, eta 513s
+  141/150 prompts, 1144 examples, 7246s, eta 463s
+  142/150 prompts, 1152 examples, 7334s, eta 413s
+  143/150 prompts, 1156 examples, 7349s, eta 360s
+  144/150 prompts, 1164 examples, 7377s, eta 307s
+  145/150 prompts, 1164 examples, 7378s, eta 254s
+  146/150 prompts, 1172 examples, 7395s, eta 203s
+  147/150 prompts, 1172 examples, 7397s, eta 151s
+  148/150 prompts, 1172 examples, 7398s, eta 100s
+  149/150 prompts, 1176 examples, 7436s, eta 50s
+  150/150 prompts, 1184 examples, 7479s, eta 0s
+[task] done: 1184 examples in 7484s -> /home/xqin5/diffusion_LLM/d1_lookahead/data/labels_taskB
+/home/xqin5/.conda/envs/p08_skilloverload/lib/python3.12/site-packages/transformers/modeling_rope_utils.py:1036: FutureWarning: `rope_config_validation` is deprecated and has been removed. Its functionality has been moved to RotaryEmbeddingConfigMixin.validate_rope method. PreTrainedConfig inherits this class, so please call self.validate_rope() instead. Also, make sure to use the new rope_parameters syntax. You can call self.standardize_rope_params() in the meantime.
+  warnings.warn(
+[transformers] Unrecognized keys in `rope_parameters` for 'rope_type'='yarn': {'llama_4_scaling_beta'}
+[transformers] Unrecognized keys in `rope_parameters` for 'rope_type'='yarn': {'llama_4_scaling_beta'}
+[transformers] Model config: mask_token_id must be `None` or an integer within the vocabulary (between 0 and 131071), got -1. This may result in unexpected behavior.
+[transformers] The `check_model_inputs` decorator is deprecated in favor of `merge_with_config_defaults`.
+
+Loading weights:   0%|          | 0/237 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 237/237 [00:00<00:00, 10534.10it/s]
+[transformers] Unrecognized keys in `rope_parameters` for 'rope_type'='yarn': {'llama_4_scaling_beta'}
+[transformers] Unrecognized keys in `rope_parameters` for 'rope_type'='yarn': {'llama_4_scaling_beta'}
+
+

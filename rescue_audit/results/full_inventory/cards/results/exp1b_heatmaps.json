@@ -1,0 +1,71 @@
+{
+  "arrays": {
+    "concordance_h_local": {
+      "dtype": "float64",
+      "fortran_order": false,
+      "shape": [
+        13,
+        6
+      ]
+    },
+    "r2_h_global": {
+      "dtype": "float64",
+      "fortran_order": false,
+      "shape": [
+        13,
+        6
+      ]
+    },
+    "steps": {
+      "dtype": "int64",
+      "fortran_order": false,
+      "shape": [
+        6
+      ]
+    },
+    "within_r2_h_local": {
+      "dtype": "float64",
+      "fortran_order": false,
+      "shape": [
+        13,
+        6
+      ]
+    }
+  },
+  "bytes": 2974,
+  "category": "derived_result",
+  "git_lfs": true,
+  "path": "results/exp1b_heatmaps.npz",
+  "scalar_statistics": {
+    "concordance_h_local": {
+      "finite_fraction": 1.0,
+      "max": 0.013999999999999901,
+      "mean": -0.0018290598290598282,
+      "min": -0.04533333333333334,
+      "std": 0.010362894522128562
+    },
+    "r2_h_global": {
+      "finite_fraction": 1.0,
+      "max": 0.1120981118119938,
+      "mean": 0.03519606108269631,
+      "min": -0.016470198533674707,
+      "std": 0.02935120420817328
+    },
+    "steps": {
+      "finite_fraction": 1.0,
+      "max": 163.0,
+      "mean": 90.83333333333333,
+      "min": 19.0,
+      "std": 49.13727935307593
+    },
+    "within_r2_h_local": {
+      "finite_fraction": 1.0,
+      "max": 0.027898820403791103,
+      "mean": -0.002308850010762121,
+      "min": -0.07112821601211727,
+      "std": 0.015108479451914974
+    }
+  },
+  "sha256": "f261803c3b714ca9bf01fc5d178bce2a47fa0eadf7725d4c30a4d636512f81a6",
+  "suffix": ".npz"
+}

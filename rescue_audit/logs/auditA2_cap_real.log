@@ -1,0 +1,12 @@
+[MDLM_anc real L8] cheap ridge conc=0.7786 within=+0.5594
+    relmlp_w128__real            n_par=  94977 val=+0.4535 conc=0.7587 within=+0.4675 top1=0.4467 ep=30
+    relmlp_w128__shuffle_hg      n_par=  94977 val=+0.4041 conc=0.7373 within=+0.4180 top1=0.3950 ep=30
+    relmlp_w128__gauss           n_par=  94977 val=+0.3515 conc=0.7167 within=+0.3551 top1=0.3400 ep=30
+    >> w128 容量完全匹配=True  Δconc(real−shufHg)=+0.0213  Δconc(real−gauss)=+0.0420
+    relmlp_w512__real            n_par= 379905 val=+0.4830 conc=0.7603 within=+0.4927 top1=0.4067 ep=50
+    relmlp_w512__shuffle_hg      n_par= 379905 val=+0.4295 conc=0.7452 within=+0.4417 top1=0.4050 ep=50
+    relmlp_w512__gauss           n_par= 379905 val=+0.3410 conc=0.7099 within=+0.3263 top1=0.3717 ep=50
+    >> w512 容量完全匹配=True  Δconc(real−shufHg)=+0.0151  Δconc(real−gauss)=+0.0504
+
+done in 206s -> /home/xqin5/diffusion_LLM/d1_lookahead/rescue_audit/results/auditA2_capacity_MDLM_anc_real.json
+

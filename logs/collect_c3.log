@@ -1,0 +1,41 @@
+
+Fetching 6 files:   0%|          | 0/6 [00:00<?, ?it/s]
+Fetching 6 files: 100%|██████████| 6/6 [00:00<00:00, 26743.70it/s]
+
+[0A] prompts=200 K=24 n_cand=6 record_fracs=(0.1, 0.2, 0.3, 0.4, 0.5, 0.6) horizon=16
+  prompts 6/200  examples 216  157s  eta 5072s
+  prompts 12/200  examples 432  315s  eta 4931s
+  prompts 18/200  examples 648  473s  eta 4781s
+  prompts 24/200  examples 864  631s  eta 4631s
+  prompts 30/200  examples 1080  789s  eta 4472s
+  prompts 36/200  examples 1296  948s  eta 4317s
+  prompts 42/200  examples 1512  1106s  eta 4160s
+  prompts 48/200  examples 1728  1262s  eta 3997s
+  prompts 54/200  examples 1944  1418s  eta 3833s
+  prompts 60/200  examples 2160  1573s  eta 3671s
+  prompts 66/200  examples 2376  1731s  eta 3514s
+  prompts 72/200  examples 2592  1886s  eta 3353s
+  prompts 78/200  examples 2808  2042s  eta 3193s
+  prompts 84/200  examples 3024  2197s  eta 3034s
+  prompts 90/200  examples 3240  2352s  eta 2875s
+  prompts 96/200  examples 3456  2508s  eta 2717s
+  prompts 102/200  examples 3672  2663s  eta 2559s
+  prompts 108/200  examples 3888  2819s  eta 2401s
+  prompts 114/200  examples 4104  2974s  eta 2244s
+  prompts 120/200  examples 4320  3130s  eta 2087s
+  prompts 126/200  examples 4536  3287s  eta 1931s
+  prompts 132/200  examples 4752  3443s  eta 1773s
+  prompts 138/200  examples 4968  3598s  eta 1616s
+  prompts 144/200  examples 5184  3754s  eta 1460s
+  prompts 150/200  examples 5400  3909s  eta 1303s
+  prompts 156/200  examples 5616  4064s  eta 1146s
+  prompts 162/200  examples 5832  4220s  eta 990s
+  prompts 168/200  examples 6048  4375s  eta 833s
+  prompts 174/200  examples 6264  4530s  eta 677s
+  prompts 180/200  examples 6480  4685s  eta 521s
+  prompts 186/200  examples 6696  4842s  eta 364s
+  prompts 192/200  examples 6912  4997s  eta 208s
+  prompts 198/200  examples 7128  5152s  eta 52s
+  prompts 200/200  examples 7200  5206s  eta 0s
+[0A] done: 7200 examples in 5206s -> /home/xqin5/diffusion_LLM/d1_lookahead/data/labels_c3
+

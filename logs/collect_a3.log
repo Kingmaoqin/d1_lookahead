@@ -1,0 +1,41 @@
+
+Fetching 6 files:   0%|          | 0/6 [00:00<?, ?it/s]
+Fetching 6 files: 100%|██████████| 6/6 [00:00<00:00, 115439.56it/s]
+
+[0A] prompts=200 K=24 n_cand=6 record_fracs=(0.1, 0.2, 0.3, 0.4, 0.5, 0.6) horizon=16
+  prompts 6/200  examples 216  354s  eta 11440s
+  prompts 12/200  examples 432  709s  eta 11109s
+  prompts 18/200  examples 648  1065s  eta 10768s
+  prompts 24/200  examples 864  1410s  eta 10337s
+  prompts 30/200  examples 1080  1737s  eta 9840s
+  prompts 36/200  examples 1296  2077s  eta 9463s
+  prompts 42/200  examples 1512  2418s  eta 9098s
+  prompts 48/200  examples 1728  2760s  eta 8739s
+  prompts 54/200  examples 1944  3100s  eta 8382s
+  prompts 60/200  examples 2160  3442s  eta 8031s
+  prompts 66/200  examples 2376  3785s  eta 7684s
+  prompts 72/200  examples 2592  4126s  eta 7335s
+  prompts 78/200  examples 2808  4467s  eta 6986s
+  prompts 84/200  examples 3024  4795s  eta 6621s
+  prompts 90/200  examples 3240  5135s  eta 6277s
+  prompts 96/200  examples 3456  5477s  eta 5933s
+  prompts 102/200  examples 3672  5818s  eta 5590s
+  prompts 108/200  examples 3888  6158s  eta 5246s
+  prompts 114/200  examples 4104  6500s  eta 4903s
+  prompts 120/200  examples 4320  6841s  eta 4560s
+  prompts 126/200  examples 4536  7184s  eta 4219s
+  prompts 132/200  examples 4752  7524s  eta 3876s
+  prompts 138/200  examples 4968  7852s  eta 3528s
+  prompts 144/200  examples 5184  8193s  eta 3186s
+  prompts 150/200  examples 5400  8534s  eta 2845s
+  prompts 156/200  examples 5616  8875s  eta 2503s
+  prompts 162/200  examples 5832  9215s  eta 2162s
+  prompts 168/200  examples 6048  9557s  eta 1820s
+  prompts 174/200  examples 6264  9897s  eta 1479s
+  prompts 180/200  examples 6480  10238s  eta 1138s
+  prompts 186/200  examples 6696  10581s  eta 796s
+  prompts 192/200  examples 6912  10908s  eta 455s
+  prompts 198/200  examples 7128  11248s  eta 114s
+  prompts 200/200  examples 7200  11365s  eta 0s
+[0A] done: 7200 examples in 11365s -> /home/xqin5/diffusion_LLM/d1_lookahead/data/labels_a3
+

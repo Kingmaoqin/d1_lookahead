@@ -1,0 +1,96 @@
+[task] 2240 rows / 560 states / 273 prompts, group sizes {4: 560}
+[task] corr(A_PathLL, A_task) pooled +0.037  within-state +0.062
+[task] Path-LL 作为 A_task 排序器: concordance 0.5670
+[task] A_task: ceiling 0.923 SNR 11.91 | within ceiling 0.930 SNR 13.27
+[task] A_PathLL: ceiling 0.944 SNR 16.78 | within ceiling 0.957 SNR 22.36
+  prepared 13 layers
+/home/xqin5/diffusion_LLM/d1_lookahead/rescue_audit/rlib/metrics.py:121: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  r = sps.spearmanr(y[g], p[g]).statistic
+
+[task] target=A_task crit=pooled_r2 layer=2
+   P0_hi                  within=+0.0000 conc=0.5247 Dconc=+0.0179
+   P0_hi_hg               within=+0.0000 conc=0.5247 Dconc=+0.0179
+   P7k_pair_kron_d32      within=-0.0321 conc=0.5112 Dconc=+0.0045
+   P13_pls                within=-0.0144 conc=0.5112 Dconc=+0.0045
+   P0_cheap               within=-0.0000 conc=0.5067 Dconc=+0.0000
+   P0_cheap+hi            within=-0.0000 conc=0.5067 Dconc=+0.0000
+   P0_cheap+H             within=-0.0000 conc=0.5067 Dconc=+0.0000
+   P2k_kron_d16           within=-0.0000 conc=0.5067 Dconc=+0.0000
+   P2k_kroneOnly_d16      within=-0.0000 conc=0.5067 Dconc=+0.0000
+   P2k_additive_d16       within=-0.0000 conc=0.5067 Dconc=+0.0000
+   P2k_kron_d32           within=-0.0000 conc=0.5067 Dconc=+0.0000
+   P2k_kroneOnly_d32      within=-0.0000 conc=0.5067 Dconc=+0.0000
+   P2k_additive_d32       within=-0.0000 conc=0.5067 Dconc=+0.0000
+   P7k_pair_hi_d32        within=-0.0042 conc=0.5067 Dconc=+0.0000
+   P0_hg                  within=+0.0000 conc=0.5000 Dconc=-0.0067
+   P2k_additive_wc_d16    within=-0.0178 conc=0.4843 Dconc=-0.0224
+   P2k_additive_wc_d32    within=-0.0136 conc=0.4664 Dconc=-0.0404
+   P2k_kron_wc_d32        within=-0.0153 conc=0.4574 Dconc=-0.0493
+   P2k_kron_wc_d16        within=-0.0399 conc=0.4439 Dconc=-0.0628
+/home/xqin5/diffusion_LLM/d1_lookahead/rescue_audit/rlib/metrics.py:121: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  r = sps.spearmanr(y[g], p[g]).statistic
+
+[task] target=A_task crit=within_r2 layer=12
+   P7k_pair_hi_d32        within=+0.0064 conc=0.5650 Dconc=+0.0538
+   P13_pls                within=-0.0070 conc=0.5381 Dconc=+0.0269
+   P7k_pair_kron_d32      within=-0.0029 conc=0.5202 Dconc=+0.0090
+   P0_hi_hg               within=+0.0050 conc=0.5157 Dconc=+0.0045
+   P0_cheap               within=-0.0122 conc=0.5112 Dconc=+0.0000
+   P2k_kron_d16           within=-0.0122 conc=0.5112 Dconc=+0.0000
+   P2k_kroneOnly_d16      within=-0.0122 conc=0.5112 Dconc=+0.0000
+   P2k_additive_d16       within=-0.0100 conc=0.5112 Dconc=+0.0000
+   P2k_kron_d32           within=-0.0122 conc=0.5112 Dconc=+0.0000
+   P2k_kroneOnly_d32      within=-0.0122 conc=0.5112 Dconc=+0.0000
+   P2k_additive_wc_d32    within=-0.0061 conc=0.5022 Dconc=-0.0090
+   P0_hg                  within=+0.0000 conc=0.5000 Dconc=-0.0112
+   P0_hi                  within=+0.0040 conc=0.4978 Dconc=-0.0135
+   P0_cheap+H             within=-0.0014 conc=0.4933 Dconc=-0.0179
+   P0_cheap+hi            within=-0.0026 conc=0.4843 Dconc=-0.0269
+   P2k_kron_wc_d16        within=-0.0135 conc=0.4709 Dconc=-0.0404
+   P2k_additive_wc_d16    within=-0.0135 conc=0.4709 Dconc=-0.0404
+   P2k_kron_wc_d32        within=-0.0135 conc=0.4709 Dconc=-0.0404
+   P2k_additive_d32       within=-0.0101 conc=0.4529 Dconc=-0.0583
+
+[task] target=A_pertok crit=pooled_r2 layer=12
+   P2k_kron_wc_d16        within=+0.2037 conc=0.7211 Dconc=+0.0196
+   P2k_kroneOnly_d32      within=+0.1895 conc=0.7146 Dconc=+0.0131
+   P2k_kron_d32           within=+0.1901 conc=0.7135 Dconc=+0.0120
+   P2k_kron_d16           within=+0.1894 conc=0.7124 Dconc=+0.0109
+   P2k_kroneOnly_d16      within=+0.1891 conc=0.7081 Dconc=+0.0065
+   P2k_kron_wc_d32        within=+0.1895 conc=0.7048 Dconc=+0.0033
+   P0_cheap               within=+0.1861 conc=0.7015 Dconc=+0.0000
+   P2k_additive_d16       within=+0.1861 conc=0.7015 Dconc=+0.0000
+   P2k_additive_d32       within=+0.1861 conc=0.7015 Dconc=+0.0000
+   P0_cheap+hi            within=+0.1881 conc=0.7004 Dconc=-0.0011
+   P0_cheap+H             within=+0.1883 conc=0.7004 Dconc=-0.0011
+   P2k_additive_wc_d32    within=+0.1979 conc=0.7004 Dconc=-0.0011
+   P2k_additive_wc_d16    within=+0.1999 conc=0.6993 Dconc=-0.0022
+   P7k_pair_hi_d32        within=+0.1681 conc=0.6841 Dconc=-0.0174
+   P0_hi                  within=+0.1519 conc=0.6623 Dconc=-0.0392
+   P0_hi_hg               within=+0.1639 conc=0.6601 Dconc=-0.0414
+   P13_pls                within=+0.1452 conc=0.6558 Dconc=-0.0458
+   P7k_pair_kron_d32      within=+0.1084 conc=0.6220 Dconc=-0.0795
+   P0_hg                  within=+0.0000 conc=0.5000 Dconc=-0.2015
+
+[task] target=A_pertok crit=within_r2 layer=2
+   P2k_kron_wc_d16        within=+0.1872 conc=0.7081 Dconc=+0.0065
+   P2k_additive_wc_d16    within=+0.1938 conc=0.7070 Dconc=+0.0054
+   P2k_kron_d16           within=+0.1630 conc=0.7048 Dconc=+0.0033
+   P2k_kron_wc_d32        within=+0.1835 conc=0.7048 Dconc=+0.0033
+   P2k_kroneOnly_d16      within=+0.1598 conc=0.7037 Dconc=+0.0022
+   P0_cheap               within=+0.1861 conc=0.7015 Dconc=+0.0000
+   P2k_kron_d32           within=+0.1628 conc=0.6983 Dconc=-0.0033
+   P2k_additive_wc_d32    within=+0.2010 conc=0.6961 Dconc=-0.0054
+   P2k_kroneOnly_d32      within=+0.1574 conc=0.6939 Dconc=-0.0076
+   P0_cheap+hi            within=+0.2002 conc=0.6885 Dconc=-0.0131
+   P0_cheap+H             within=+0.2027 conc=0.6841 Dconc=-0.0174
+   P2k_additive_d32       within=+0.1916 conc=0.6776 Dconc=-0.0240
+   P2k_additive_d16       within=+0.1865 conc=0.6721 Dconc=-0.0294
+   P0_hi_hg               within=+0.1362 conc=0.6525 Dconc=-0.0490
+   P7k_pair_hi_d32        within=+0.0777 conc=0.6503 Dconc=-0.0512
+   P13_pls                within=+0.1384 conc=0.6471 Dconc=-0.0545
+   P0_hi                  within=+0.1291 conc=0.6394 Dconc=-0.0621
+   P7k_pair_kron_d32      within=+0.0150 conc=0.6111 Dconc=-0.0904
+   P0_hg                  within=+0.0000 conc=0.5000 Dconc=-0.2015
+
+wrote /home/xqin5/diffusion_LLM/d1_lookahead/rescue_audit/results/task_utility_analysis.json

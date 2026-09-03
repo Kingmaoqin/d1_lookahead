@@ -1,0 +1,98 @@
+[exp1] 2240 examples, 273 docs, 560 states, 13 layers
+[exp1] noise ceiling for A_task: n/a (no per-seed replicates stored)
+[exp1] noise ceiling for A_pertok: max attainable R2 = 0.944 (label noise var 3.60e-05 of observed 6.40e-04)
+
+==========================================================================
+TARGET A_task
+==========================================================================
+    gamma (hidden-block scale) = 0
+  seed 0: probe layer chosen on val = 0  (NB layer 0 h_i is the MASK embedding: constant across masked positions, so it can carry no per-candidate signal)
+    gamma (hidden-block scale) = 1
+  seed 1: probe layer chosen on val = 8
+    gamma (hidden-block scale) = 3
+  seed 2: probe layer chosen on val = 2
+
+feature block                            R2  Spearman  within-R2  concord
+confidence scalars                  -0.0052   -0.0016     0.0000   0.5032
+confidence + trajectory             -0.0104    0.0024    -0.0025   0.4936
+output distribution                 -0.0060    0.0252     0.0005   0.5384
+ALL cheap controls (C1+C2+C3)       -0.0051    0.0162     0.0001   0.5185
+h_global only (cannot rank within a state)  -0.0256   -0.0414     0.0000   0.5000
+h_i only (candidate position)       -0.0087    0.0119     0.0040   0.5255
+hidden only [h_i; h_global]         -0.0186   -0.0285     0.0026   0.5283
+cheap + h_i only                    -0.0083   -0.0039     0.0039   0.5149
+cheap + HIDDEN  <-- primary         -0.0186    0.0007     0.0026   0.5178
+cheap + hidden, MLP (secondary)     -0.0565   -0.0233    -0.0061   0.5186
+
+  PRIMARY: Delta = (cheap + hidden) - (cheap)
+    Delta_r2           per-seed [0.0, -0.0417, 0.0014]  mean -0.0134  boot 95% CI [+0.0000, +0.0000]  includes 0
+    Delta_spearman     per-seed [0.0, -0.037, -0.0095]  mean -0.0155  boot 95% CI [+0.0000, +0.0000]  includes 0
+    Delta_within_r2    per-seed [0.0, 0.007, 0.0005]  mean +0.0025  boot 95% CI [+0.0000, +0.0000]  includes 0
+    Delta_concordance  per-seed [0.0, 0.032, -0.0339]  mean -0.0006  boot 95% CI [+0.0000, +0.0000]  includes 0
+  calibration of predicted advantage (decile bins), slope of actual on predicted = 84708.592 (1.0 = calibrated)
+     pred  -0.0164 -0.0164 -0.0164 -0.0164 -0.0164 -0.0164 -0.0164 -0.0164 -0.0164 -0.0164
+     true  -0.1310 +0.0574 +0.0102 +0.0574 -0.0410 -0.0123 -0.0123 +0.0184 +0.0123 +0.0222
+  [secondary, non-decisive] Gaussian I(A ; hidden | cheap) ~ 0.0000 nats
+  held-out NATURAL stratum only (n=306): R2 cheap -0.0056 -> cheap+hidden -0.0056 (Delta +0.0000)
+
+==========================================================================
+TARGET A_pertok
+==========================================================================
+    gamma (hidden-block scale) = 0.1
+  seed 0: probe layer chosen on val = 12
+    gamma (hidden-block scale) = 0.3
+  seed 1: probe layer chosen on val = 2
+    gamma (hidden-block scale) = 0.3
+  seed 2: probe layer chosen on val = 2
+
+feature block                            R2  Spearman  within-R2  concord
+confidence scalars                   0.1955    0.5894     0.2258   0.6976
+confidence + trajectory              0.2388    0.5938     0.2226   0.6857
+output distribution                  0.1830    0.5657     0.1739   0.6935
+ALL cheap controls (C1+C2+C3)        0.2291    0.5939     0.1934   0.6940
+h_global only (cannot rank within a state)   0.0393    0.2666     0.0000   0.5000
+h_i only (candidate position)        0.1464    0.4808     0.1284   0.6344
+hidden only [h_i; h_global]          0.1281    0.4716     0.1246   0.6345
+cheap + h_i only                     0.2231    0.5858     0.1931   0.6828
+cheap + HIDDEN  <-- primary          0.1822    0.5633     0.1901   0.6844
+cheap + hidden, MLP (secondary)      0.1364    0.4914     0.1361   0.6359
+
+  PRIMARY: Delta = (cheap + hidden) - (cheap)
+    Delta_r2           per-seed [0.0004, -0.0961, -0.045]  mean -0.0469  boot 95% CI [-0.0110, +0.0095]  includes 0
+    Delta_spearman     per-seed [-0.0045, -0.0326, -0.0548]  mean -0.0306  boot 95% CI [-0.0162, +0.0074]  includes 0
+    Delta_within_r2    per-seed [0.0022, 0.0044, -0.0165]  mean -0.0033  boot 95% CI [-0.0031, +0.0078]  includes 0
+    Delta_concordance  per-seed [-0.0011, 0.0098, -0.0374]  mean -0.0096  boot 95% CI [-0.0275, +0.0238]  includes 0
+  calibration of predicted advantage (decile bins), slope of actual on predicted = 1.177 (1.0 = calibrated)
+     pred  -0.0291 -0.0242 -0.0202 -0.0161 -0.0128 -0.0099 -0.0057 -0.0020 +0.0006 +0.0045
+     true  -0.0377 -0.0292 -0.0215 -0.0138 -0.0164 -0.0038 -0.0012 +0.0017 +0.0003 -0.0003
+  [secondary, non-decisive] Gaussian I(A ; hidden | cheap) ~ 0.0000 nats
+  held-out NATURAL stratum only (n=306): R2 cheap 0.2405 -> cheap+hidden 0.2352 (Delta -0.0053)
+
+  REFIT bootstrap (200 replicates, re-split + re-fit, layer 2) -- includes fitting variability
+    Delta_r2           -0.0124  95% CI [-0.1108, +0.0219]  includes 0
+    Delta_within_r2    -0.0050  95% CI [-0.0489, +0.0071]  includes 0
+    Delta_concordance  +0.0027  95% CI [-0.1294, +0.1467]  includes 0
+
+==========================================================================
+layer x diffusion-timestep decodability (Delta R2 over cheap controls)
+==========================================================================
+layer      t=24     t=56     t=88    t=120
+    0    -0.029    0.000    0.017    0.000
+    1    -0.013    0.000    0.001    0.000
+    2    -0.005    0.015   -0.002    0.000
+    3    -0.026   -0.040   -0.011    0.000
+    4    -0.149   -0.011   -0.007    0.000
+    5    -0.046   -0.006   -0.000    0.000
+    6    -0.094   -0.005   -0.002    0.000
+    7    -0.201    0.027    0.001    0.000
+    8    -0.099   -0.027   -0.004    0.000
+    9    -0.136    0.013   -0.000    0.000
+   10    -0.172   -0.005   -0.000    0.000
+   11    -0.083    0.018    0.001    0.000
+   12    -0.049   -0.082    0.000    0.000
+
+[secondary] per-timestep-bin probes, held-out predictions pooled
+   A_task     Delta_R2 -0.0776   Delta_within_R2 -0.0283   Delta_concord -0.0047
+   A_pertok   Delta_R2 -0.0150   Delta_within_R2 +0.0022   Delta_concord -0.0127
+
+wrote results/exp1_task/exp1_report.json

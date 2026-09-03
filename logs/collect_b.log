@@ -1,0 +1,41 @@
+
+Fetching 6 files:   0%|          | 0/6 [00:00<?, ?it/s]
+Fetching 6 files: 100%|██████████| 6/6 [00:00<00:00, 88301.14it/s]
+
+[0A] prompts=200 K=8 n_cand=6 record_fracs=(0.1, 0.25, 0.4, 0.55, 0.7, 0.85) horizon=16
+  prompts 6/200  examples 216  96s  eta 3099s
+  prompts 12/200  examples 432  211s  eta 3312s
+  prompts 18/200  examples 648  328s  eta 3317s
+  prompts 24/200  examples 864  444s  eta 3259s
+  prompts 30/200  examples 1080  560s  eta 3173s
+  prompts 36/200  examples 1296  675s  eta 3075s
+  prompts 42/200  examples 1512  792s  eta 2979s
+  prompts 48/200  examples 1728  908s  eta 2876s
+  prompts 54/200  examples 1944  1011s  eta 2733s
+  prompts 60/200  examples 2160  1128s  eta 2633s
+  prompts 66/200  examples 2376  1247s  eta 2532s
+  prompts 72/200  examples 2592  1366s  eta 2428s
+  prompts 78/200  examples 2808  1482s  eta 2318s
+  prompts 84/200  examples 3024  1597s  eta 2205s
+  prompts 90/200  examples 3240  1713s  eta 2094s
+  prompts 96/200  examples 3456  1811s  eta 1962s
+  prompts 102/200  examples 3672  1927s  eta 1851s
+  prompts 108/200  examples 3888  2044s  eta 1741s
+  prompts 114/200  examples 4104  2159s  eta 1629s
+  prompts 120/200  examples 4320  2268s  eta 1512s
+  prompts 126/200  examples 4536  2371s  eta 1392s
+  prompts 132/200  examples 4752  2488s  eta 1281s
+  prompts 138/200  examples 4968  2604s  eta 1170s
+  prompts 144/200  examples 5184  2720s  eta 1058s
+  prompts 150/200  examples 5400  2836s  eta 945s
+  prompts 156/200  examples 5616  2952s  eta 833s
+  prompts 162/200  examples 5832  3067s  eta 719s
+  prompts 168/200  examples 6048  3183s  eta 606s
+  prompts 174/200  examples 6264  3284s  eta 491s
+  prompts 180/200  examples 6480  3338s  eta 371s
+  prompts 186/200  examples 6696  3394s  eta 255s
+  prompts 192/200  examples 6912  3447s  eta 144s
+  prompts 198/200  examples 7128  3501s  eta 35s
+  prompts 200/200  examples 7200  3521s  eta 0s
+[0A] done: 7200 examples in 3521s -> /home/xqin5/diffusion_LLM/d1_lookahead/data/labels_b
+

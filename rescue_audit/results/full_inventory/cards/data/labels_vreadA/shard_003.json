@@ -1,0 +1,116 @@
+{
+  "arrays": {
+    "H_g": {
+      "dtype": "float16",
+      "fortran_order": false,
+      "shape": [
+        304,
+        26,
+        3072
+      ]
+    },
+    "H_m": {
+      "dtype": "float16",
+      "fortran_order": false,
+      "shape": [
+        304,
+        26,
+        3072
+      ]
+    },
+    "V_reward": {
+      "dtype": "float32",
+      "fortran_order": false,
+      "shape": [
+        304
+      ]
+    },
+    "V_seeds": {
+      "dtype": "float32",
+      "fortran_order": false,
+      "shape": [
+        304,
+        8
+      ]
+    },
+    "cheap": {
+      "dtype": "float32",
+      "fortran_order": false,
+      "shape": [
+        304,
+        82
+      ]
+    },
+    "doc_id": {
+      "dtype": "int64",
+      "fortran_order": false,
+      "shape": [
+        304
+      ]
+    },
+    "n_masked": {
+      "dtype": "int32",
+      "fortran_order": false,
+      "shape": [
+        304
+      ]
+    },
+    "step": {
+      "dtype": "int32",
+      "fortran_order": false,
+      "shape": [
+        304
+      ]
+    }
+  },
+  "bytes": 90457392,
+  "category": "raw_label_batch",
+  "git_lfs": true,
+  "path": "data/labels_vreadA/shard_003.npz",
+  "scalar_statistics": {
+    "V_reward": {
+      "finite_fraction": 1.0,
+      "max": 1.0,
+      "mean": 0.5476973684210527,
+      "min": 0.0,
+      "std": 0.48272676072431553
+    },
+    "V_seeds": {
+      "finite_fraction": 1.0,
+      "max": 1.0,
+      "mean": 0.5476973684210527,
+      "min": 0.0,
+      "std": 0.4977197615583556
+    },
+    "cheap": {
+      "finite_fraction": 1.0,
+      "max": 1996.9427490234375,
+      "mean": -35.02133721894026,
+      "min": -3715.387939453125,
+      "std": 816.5619931058042
+    },
+    "doc_id": {
+      "finite_fraction": 1.0,
+      "max": 217.0,
+      "mean": 190.77631578947367,
+      "min": 164.0,
+      "std": 15.560449767050713
+    },
+    "n_masked": {
+      "finite_fraction": 1.0,
+      "max": 144.0,
+      "mean": 84.86513157894737,
+      "min": 3.0,
+      "std": 40.81809254399396
+    },
+    "step": {
+      "finite_fraction": 1.0,
+      "max": 157.0,
+      "mean": 75.13486842105263,
+      "min": 16.0,
+      "std": 40.81809254399396
+    }
+  },
+  "sha256": "47c6e531bd2cecfc8dc7b5f372529599bf6ba98de12d1bddec199f62eb722590",
+  "suffix": ".npz"
+}

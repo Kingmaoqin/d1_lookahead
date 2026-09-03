@@ -1,0 +1,115 @@
+/home/xqin5/.conda/envs/p08_skilloverload/lib/python3.12/site-packages/transformers/modeling_rope_utils.py:1036: FutureWarning: `rope_config_validation` is deprecated and has been removed. Its functionality has been moved to RotaryEmbeddingConfigMixin.validate_rope method. PreTrainedConfig inherits this class, so please call self.validate_rope() instead. Also, make sure to use the new rope_parameters syntax. You can call self.standardize_rope_params() in the meantime.
+  warnings.warn(
+[transformers] Unrecognized keys in `rope_parameters` for 'rope_type'='yarn': {'llama_4_scaling_beta'}
+[transformers] Unrecognized keys in `rope_parameters` for 'rope_type'='yarn': {'llama_4_scaling_beta'}
+[transformers] Model config: mask_token_id must be `None` or an integer within the vocabulary (between 0 and 131071), got -1. This may result in unexpected behavior.
+[ERROR] `cache_position` is part of Ministral3Model.forward's signature, but not documented. Make sure to add it to the docstring of the function in /home/xqin5/.cache/huggingface/modules/transformers_modules/nvidia/Nemotron_hyphen_Labs_hyphen_Diffusion_hyphen_3B/0d51902da1f8869f83413ce642fab402fa5641e0/modeling_ministral.py.
+[transformers] The `check_model_inputs` decorator is deprecated in favor of `merge_with_config_defaults`.
+Loading weights:   0%|          | 0/237 [00:00<?, ?it/s]Loading weights: 100%|██████████| 237/237 [00:00<00:00, 30814.66it/s]
+[transformers] Unrecognized keys in `rope_parameters` for 'rope_type'='yarn': {'llama_4_scaling_beta'}
+[transformers] Unrecognized keys in `rope_parameters` for 'rope_type'='yarn': {'llama_4_scaling_beta'}
+[task] screening 260 prompts with K=8
+  screened 20/260  mixed 4 (20%)  188s
+  screened 40/260  mixed 11 (28%)  362s
+  screened 60/260  mixed 12 (20%)  525s
+  screened 80/260  mixed 16 (20%)  698s
+  screened 100/260  mixed 27 (27%)  909s
+  screened 120/260  mixed 33 (28%)  1133s
+  screened 140/260  mixed 38 (27%)  1394s
+  screened 160/260  mixed 44 (28%)  1677s
+  screened 180/260  mixed 53 (29%)  1935s
+  screened 200/260  mixed 57 (28%)  2136s
+  screened 220/260  mixed 63 (29%)  2313s
+  screened 240/260  mixed 71 (30%)  2479s
+  screened 260/260  mixed 72 (28%)  2638s
+[task] screened: 72/260 mixed (28%); selected 72 mixed (oversampled) + 108 natural
+Traceback (most recent call last):
+  File "/home/xqin5/diffusion_LLM/d1_lookahead/scripts/collect_task_labels.py", line 286, in <module>
+    main()
+  File "/home/xqin5/diffusion_LLM/d1_lookahead/scripts/collect_task_labels.py", line 261, in main
+    r = rows[o["qi"] - args.offset]
+        ~~~~^^^^^^^^^^^^^^^^^^^^^^^
+IndexError: list index out of range
+ERROR conda.cli.main_run:execute(125): `conda run python -u scripts/collect_task_labels.py --n_screen 260 --n_prompts 180 --offset 440 --K 8 --n_cand 6 --rollout_batch 32 --tag taskC` failed. (See above for error)
+/home/xqin5/.conda/envs/p08_skilloverload/lib/python3.12/site-packages/transformers/modeling_rope_utils.py:1036: FutureWarning: `rope_config_validation` is deprecated and has been removed. Its functionality has been moved to RotaryEmbeddingConfigMixin.validate_rope method. PreTrainedConfig inherits this class, so please call self.validate_rope() instead. Also, make sure to use the new rope_parameters syntax. You can call self.standardize_rope_params() in the meantime.
+  warnings.warn(
+[transformers] Unrecognized keys in `rope_parameters` for 'rope_type'='yarn': {'llama_4_scaling_beta'}
+[transformers] Unrecognized keys in `rope_parameters` for 'rope_type'='yarn': {'llama_4_scaling_beta'}
+[transformers] Model config: mask_token_id must be `None` or an integer within the vocabulary (between 0 and 131071), got -1. This may result in unexpected behavior.
+[ERROR] `cache_position` is part of Ministral3Model.forward's signature, but not documented. Make sure to add it to the docstring of the function in /home/xqin5/.cache/huggingface/modules/transformers_modules/nvidia/Nemotron_hyphen_Labs_hyphen_Diffusion_hyphen_3B/0d51902da1f8869f83413ce642fab402fa5641e0/modeling_ministral.py.
+[transformers] The `check_model_inputs` decorator is deprecated in favor of `merge_with_config_defaults`.
+Loading weights:   0%|          | 0/237 [00:00<?, ?it/s]Loading weights: 100%|██████████| 237/237 [00:00<00:00, 10698.26it/s]
+[transformers] Unrecognized keys in `rope_parameters` for 'rope_type'='yarn': {'llama_4_scaling_beta'}
+[transformers] Unrecognized keys in `rope_parameters` for 'rope_type'='yarn': {'llama_4_scaling_beta'}
+[task] reusing cached screening of 260 prompts
+[task] screened: 72/260 mixed (28%); selected 72 mixed (oversampled) + 108 natural
+  1/180 prompts, 24 examples, 111s, eta 19867s
+  2/180 prompts, 48 examples, 251s, eta 22341s
+  3/180 prompts, 72 examples, 344s, eta 20278s
+  4/180 prompts, 96 examples, 448s, eta 19720s
+  5/180 prompts, 120 examples, 628s, eta 21975s
+  6/180 prompts, 144 examples, 767s, eta 22244s
+  7/180 prompts, 168 examples, 892s, eta 22052s
+  8/180 prompts, 192 examples, 1046s, eta 22492s
+  9/180 prompts, 216 examples, 1127s, eta 21411s
+  10/180 prompts, 240 examples, 1235s, eta 20997s
+  11/180 prompts, 264 examples, 1420s, eta 21813s
+  12/180 prompts, 288 examples, 1496s, eta 20943s
+  13/180 prompts, 312 examples, 1624s, eta 20860s
+  14/180 prompts, 336 examples, 1715s, eta 20332s
+  15/180 prompts, 360 examples, 1868s, eta 20549s
+  16/180 prompts, 384 examples, 1955s, eta 20040s
+  17/180 prompts, 408 examples, 2086s, eta 20003s
+  18/180 prompts, 432 examples, 2143s, eta 19287s
+  19/180 prompts, 456 examples, 2295s, eta 19446s
+  20/180 prompts, 480 examples, 2446s, eta 19564s
+  21/180 prompts, 504 examples, 2596s, eta 19653s
+  22/180 prompts, 528 examples, 2642s, eta 18971s
+  23/180 prompts, 552 examples, 2783s, eta 18998s
+  24/180 prompts, 576 examples, 2855s, eta 18560s
+  25/180 prompts, 600 examples, 2988s, eta 18528s
+  26/180 prompts, 624 examples, 3130s, eta 18540s
+  27/180 prompts, 648 examples, 3320s, eta 18812s
+  28/180 prompts, 672 examples, 3481s, eta 18895s
+  29/180 prompts, 696 examples, 3630s, eta 18900s
+  30/180 prompts, 720 examples, 3775s, eta 18874s
+  31/180 prompts, 744 examples, 3935s, eta 18911s
+  32/180 prompts, 768 examples, 4088s, eta 18906s
+  33/180 prompts, 792 examples, 4244s, eta 18907s
+  34/180 prompts, 816 examples, 4278s, eta 18371s
+  35/180 prompts, 840 examples, 4514s, eta 18699s
+  36/180 prompts, 864 examples, 4575s, eta 18300s
+  37/180 prompts, 888 examples, 4669s, eta 18044s
+  38/180 prompts, 912 examples, 4824s, eta 18027s
+  39/180 prompts, 936 examples, 4986s, eta 18026s
+  40/180 prompts, 960 examples, 5130s, eta 17954s
+  41/180 prompts, 984 examples, 5225s, eta 17714s
+  42/180 prompts, 1008 examples, 5370s, eta 17643s
+  43/180 prompts, 1032 examples, 5544s, eta 17663s
+  44/180 prompts, 1056 examples, 5756s, eta 17790s
+  45/180 prompts, 1080 examples, 5870s, eta 17611s
+  46/180 prompts, 1104 examples, 5917s, eta 17237s
+  47/180 prompts, 1128 examples, 5955s, eta 16852s
+  48/180 prompts, 1152 examples, 6082s, eta 16725s
+  49/180 prompts, 1176 examples, 6197s, eta 16567s
+  50/180 prompts, 1200 examples, 6311s, eta 16408s
+  51/180 prompts, 1224 examples, 6416s, eta 16230s
+  52/180 prompts, 1248 examples, 6457s, eta 15895s
+  53/180 prompts, 1272 examples, 6508s, eta 15594s
+  54/180 prompts, 1296 examples, 6641s, eta 15496s
+  55/180 prompts, 1320 examples, 6734s, eta 15305s
+  56/180 prompts, 1344 examples, 6912s, eta 15304s
+  57/180 prompts, 1368 examples, 6988s, eta 15080s
+  58/180 prompts, 1392 examples, 7077s, eta 14886s
+  59/180 prompts, 1416 examples, 7209s, eta 14784s
+  60/180 prompts, 1440 examples, 7232s, eta 14465s
+  61/180 prompts, 1464 examples, 7323s, eta 14286s
+  62/180 prompts, 1488 examples, 7475s, eta 14227s
+  63/180 prompts, 1512 examples, 7668s, eta 14240s
+  64/180 prompts, 1536 examples, 7716s, eta 13985s
+  65/180 prompts, 1560 examples, 7804s, eta 13807s
+  66/180 prompts, 1584 examples, 7944s, eta 13722s
+  67/180 prompts, 1608 examples, 8000s, eta 13492s
+  68/180 prompts, 1632 examples, 8051s, eta 13260s
+Terminated
+ERROR conda.cli.main_run:execute(125): `conda run python -u scripts/collect_task_labels.py --n_screen 260 --n_prompts 180 --offset 440 --K 8 --n_cand 6 --rollout_batch 32 --tag taskC` failed. (See above for error)

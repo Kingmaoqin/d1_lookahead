@@ -1,0 +1,19 @@
+{
+  "arrays": {
+    "rewards": {
+      "dtype": "float32",
+      "fortran_order": false,
+      "shape": [
+        48,
+        8
+      ]
+    }
+  },
+  "bytes": 1664,
+  "category": "derived_result",
+  "git_lfs": true,
+  "path": "results/phase_s_nemotron/rewards.npy",
+  "scalar_statistics": {},
+  "sha256": "89bc3bb7bd57c1d124d4e140a08d7e984f6143b1d58773cdf258b8443404b5b1",
+  "suffix": ".npy"
+}

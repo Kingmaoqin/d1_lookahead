@@ -1,0 +1,26 @@
+/home/xqin5/.conda/envs/llm/lib/python3.10/site-packages/numpy/_core/_methods.py:194: RuntimeWarning: overflow encountered in multiply
+  x = um.multiply(x, x, out=x)
+/home/xqin5/.conda/envs/llm/lib/python3.10/site-packages/numpy/_core/_methods.py:194: RuntimeWarning: overflow encountered in multiply
+  x = um.multiply(x, x, out=x)
+
+[exp2] 14400 examples, target=A_pertok, match_tol=0.25 sd, min_gap=0.5 sd
+  seed 0: layer 7, 322 matched pairs on held-out test (caliper matching, tol=0.25)
+  seed 1: layer 7, 410 matched pairs on held-out test (caliper matching, tol=0.25)
+  seed 2: layer 8, 328 matched pairs on held-out test (caliper matching, tol=0.25)
+
+score used to order the matched pair      accuracy                    per-seed
+confidence (p1)                             0.5553   [0.5963, 0.5268, 0.5427]
+logp1                                       0.5553   [0.5963, 0.5268, 0.5427]
+scalar+history controls                     0.5721   [0.6553, 0.5122, 0.5488]
+output-distribution controls                0.5183   [0.5342, 0.5268, 0.4939]
+ALL cheap controls                          0.5614   [0.6304, 0.5171, 0.5366]
+future-stability (persist - flips)          0.4510   [0.4938, 0.4537, 0.4055]
+HIDDEN [h_i; h_global]                      0.6345   [0.6646, 0.6049, 0.6341]
+HIDDEN linear probe                         0.6340   [0.6398, 0.6098, 0.6524]
+
+  hidden probe accuracy above chance: 0.6531 (excess +0.1531)  95% CI on excess [+0.0854, +0.2183]  EXCLUDES 0
+  matched-pair accuracy gap (hidden - cheap): +0.1176  95% CI [+0.0331, +0.1951]  EXCLUDES 0
+  gap over the BEST single control (scalar+history controls): +0.1051  95% CI [+0.0353, +0.1782]  EXCLUDES 0
+
+wrote /home/xqin5/diffusion_LLM/d1_lookahead/results/exp2_sedd/exp2_report.json
+

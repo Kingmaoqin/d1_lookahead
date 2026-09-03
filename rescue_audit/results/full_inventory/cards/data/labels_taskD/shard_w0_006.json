@@ -1,0 +1,329 @@
+{
+  "arrays": {
+    "A_full_seeds": {
+      "dtype": "float32",
+      "fortran_order": false,
+      "shape": [
+        96,
+        8
+      ]
+    },
+    "A_pertok": {
+      "dtype": "float32",
+      "fortran_order": false,
+      "shape": [
+        96
+      ]
+    },
+    "A_sem": {
+      "dtype": "float64",
+      "fortran_order": false,
+      "shape": [
+        96
+      ]
+    },
+    "A_task": {
+      "dtype": "float32",
+      "fortran_order": false,
+      "shape": [
+        96
+      ]
+    },
+    "A_task_seeds": {
+      "dtype": "float32",
+      "fortran_order": false,
+      "shape": [
+        96,
+        8
+      ]
+    },
+    "A_task_sem": {
+      "dtype": "float64",
+      "fortran_order": false,
+      "shape": [
+        96
+      ]
+    },
+    "C1": {
+      "dtype": "float32",
+      "fortran_order": false,
+      "shape": [
+        96,
+        8
+      ]
+    },
+    "C2": {
+      "dtype": "float32",
+      "fortran_order": false,
+      "shape": [
+        96,
+        12
+      ]
+    },
+    "C3": {
+      "dtype": "float32",
+      "fortran_order": false,
+      "shape": [
+        96,
+        80
+      ]
+    },
+    "H_g": {
+      "dtype": "float16",
+      "fortran_order": false,
+      "shape": [
+        96,
+        13,
+        3072
+      ]
+    },
+    "H_i": {
+      "dtype": "float16",
+      "fortran_order": false,
+      "shape": [
+        96,
+        13,
+        3072
+      ]
+    },
+    "Q_reward": {
+      "dtype": "float32",
+      "fortran_order": false,
+      "shape": [
+        96
+      ]
+    },
+    "V_pertok": {
+      "dtype": "float32",
+      "fortran_order": false,
+      "shape": [
+        96
+      ]
+    },
+    "V_reward": {
+      "dtype": "float32",
+      "fortran_order": false,
+      "shape": [
+        96
+      ]
+    },
+    "doc_id": {
+      "dtype": "int64",
+      "fortran_order": false,
+      "shape": [
+        96
+      ]
+    },
+    "logp_action": {
+      "dtype": "float32",
+      "fortran_order": false,
+      "shape": [
+        96
+      ]
+    },
+    "mask_ratio": {
+      "dtype": "float32",
+      "fortran_order": false,
+      "shape": [
+        96
+      ]
+    },
+    "position": {
+      "dtype": "int64",
+      "fortran_order": false,
+      "shape": [
+        96
+      ]
+    },
+    "prompt_row": {
+      "dtype": "int64",
+      "fortran_order": false,
+      "shape": [
+        96
+      ]
+    },
+    "prompt_stratum": {
+      "dtype": "int8",
+      "fortran_order": false,
+      "shape": [
+        96
+      ]
+    },
+    "proposed_token": {
+      "dtype": "int64",
+      "fortran_order": false,
+      "shape": [
+        96
+      ]
+    },
+    "step": {
+      "dtype": "int32",
+      "fortran_order": false,
+      "shape": [
+        96
+      ]
+    },
+    "stratum": {
+      "dtype": "int8",
+      "fortran_order": false,
+      "shape": [
+        96
+      ]
+    }
+  },
+  "bytes": 12013980,
+  "category": "raw_label_batch",
+  "git_lfs": true,
+  "path": "data/labels_taskD/shard_w0_006.npz",
+  "scalar_statistics": {
+    "A_full_seeds": {
+      "finite_fraction": 1.0,
+      "max": 0.06977639347314835,
+      "mean": -0.007398540331222596,
+      "min": -0.12569433450698853,
+      "std": 0.024539376417605067
+    },
+    "A_pertok": {
+      "finite_fraction": 1.0,
+      "max": 0.06301132589578629,
+      "mean": -0.00739854026475939,
+      "min": -0.11604428291320801,
+      "std": 0.023609820948258982
+    },
+    "A_sem": {
+      "finite_fraction": 1.0,
+      "max": 0.006835551064335917,
+      "mean": 0.0013941137706802251,
+      "min": 0.0,
+      "std": 0.0019107887333391243
+    },
+    "A_task": {
+      "finite_fraction": 1.0,
+      "max": 0.625,
+      "mean": -0.04296875,
+      "min": -1.0,
+      "std": 0.2638285606982386
+    },
+    "A_task_seeds": {
+      "finite_fraction": 1.0,
+      "max": 1.0,
+      "mean": -0.04296875,
+      "min": -1.0,
+      "std": 0.3453222212998137
+    },
+    "A_task_sem": {
+      "finite_fraction": 1.0,
+      "max": 0.3061862123523961,
+      "mean": 0.036325401110142506,
+      "min": 0.0,
+      "std": 0.06989782638942461
+    },
+    "C1": {
+      "finite_fraction": 1.0,
+      "max": 28.625,
+      "mean": 3.2182076392671504,
+      "min": -2.7297515869140625,
+      "std": 6.335735452699459
+    },
+    "C2": {
+      "finite_fraction": 1.0,
+      "max": 135.0,
+      "mean": 9.325725793173685,
+      "min": -0.17021781206130981,
+      "std": 20.712810230031675
+    },
+    "C3": {
+      "finite_fraction": 1.0,
+      "max": 2717.168701171875,
+      "mean": -41.987249035884936,
+      "min": -5023.91943359375,
+      "std": 891.4500834645337
+    },
+    "Q_reward": {
+      "finite_fraction": 1.0,
+      "max": 1.0,
+      "mean": 0.44140625,
+      "min": 0.0,
+      "std": 0.4680387398968923
+    },
+    "V_pertok": {
+      "finite_fraction": 1.0,
+      "max": -0.00010463595390319824,
+      "mean": -0.06311676204950345,
+      "min": -0.1643913835287094,
+      "std": 0.04719544356881462
+    },
+    "V_reward": {
+      "finite_fraction": 1.0,
+      "max": 1.0,
+      "mean": 0.484375,
+      "min": 0.0,
+      "std": 0.4653522691198572
+    },
+    "doc_id": {
+      "finite_fraction": 1.0,
+      "max": 1228.0,
+      "mean": 1127.5,
+      "min": 1040.0,
+      "std": 76.93016313514485
+    },
+    "logp_action": {
+      "finite_fraction": 1.0,
+      "max": -1.9073486328125e-06,
+      "mean": -0.8872814774513245,
+      "min": -2.7297515869140625,
+      "std": 0.8992349173152702
+    },
+    "mask_ratio": {
+      "finite_fraction": 1.0,
+      "max": 0.5947136282920837,
+      "mean": 0.34135260432958603,
+      "min": 0.11985018849372864,
+      "std": 0.14995995345288043
+    },
+    "position": {
+      "finite_fraction": 1.0,
+      "max": 254.0,
+      "mean": 195.125,
+      "min": 74.0,
+      "std": 43.942256143716605
+    },
+    "prompt_row": {
+      "finite_fraction": 1.0,
+      "max": 1228.0,
+      "mean": 1127.5,
+      "min": 1040.0,
+      "std": 76.93016313514485
+    },
+    "prompt_stratum": {
+      "finite_fraction": 1.0,
+      "max": 1.0,
+      "mean": 1.0,
+      "min": 1.0,
+      "std": 0.0
+    },
+    "proposed_token": {
+      "finite_fraction": 1.0,
+      "max": 32188.0,
+      "mean": 2190.2083333333335,
+      "min": 11.0,
+      "std": 4741.005879374533
+    },
+    "step": {
+      "finite_fraction": 1.0,
+      "max": 128.0,
+      "mean": 75.125,
+      "min": 24.0,
+      "std": 37.00823388112435
+    },
+    "stratum": {
+      "finite_fraction": 1.0,
+      "max": 1.0,
+      "mean": 0.5,
+      "min": 0.0,
+      "std": 0.5
+    }
+  },
+  "sha256": "3bc36d64a51278622d48ba4ab7b7aca5c147ef79ce95281924717aae69b0e081",
+  "suffix": ".npz"
+}

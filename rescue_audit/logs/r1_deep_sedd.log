@@ -1,0 +1,65 @@
+############ layer 3 ############
+[R1] arm=SEDD_anc tags=['s1', 's2'] hg=hg
+
+[R1] === target=A_pertok split_seed=0 (2s) ===
+  [A] layer sweep
+/home/xqin5/.conda/envs/llm/lib/python3.10/site-packages/numpy/_core/_methods.py:194: RuntimeWarning: overflow encountered in multiply
+  x = um.multiply(x, x, out=x)
+    layer  3 within_r2: add +0.6206 kron +0.6092
+  [A] chosen layers: {'within_r2': {'additive': 3, 'kron': 3}}
+  [B] criterion=within_r2 layer=3
+/home/xqin5/diffusion_LLM/d1_lookahead/rescue_audit/rlib/metrics.py:121: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  r = sps.spearmanr(y[g], p[g]).statistic
+  [B] 49 probes scored (1723s)
+
+[R1] done in 1724s -> rescue_audit/results/R1deep_SEDD_anc_A_pertok_L3.json
+[R1] registry rows appended: 49 -> /home/xqin5/diffusion_LLM/d1_lookahead/rescue_audit/EXPERIMENT_REGISTRY.csv
+############ layer 6 ############
+[R1] arm=SEDD_anc tags=['s1', 's2'] hg=hg
+
+[R1] === target=A_pertok split_seed=0 (7s) ===
+  [A] layer sweep
+/home/xqin5/.conda/envs/llm/lib/python3.10/site-packages/numpy/_core/_methods.py:194: RuntimeWarning: overflow encountered in multiply
+  x = um.multiply(x, x, out=x)
+    layer  6 within_r2: add +0.6207 kron +0.6075
+  [A] chosen layers: {'within_r2': {'additive': 6, 'kron': 6}}
+  [B] criterion=within_r2 layer=6
+/home/xqin5/diffusion_LLM/d1_lookahead/rescue_audit/rlib/metrics.py:121: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  r = sps.spearmanr(y[g], p[g]).statistic
+  [B] 49 probes scored (913s)
+
+[R1] done in 913s -> rescue_audit/results/R1deep_SEDD_anc_A_pertok_L6.json
+[R1] registry rows appended: 49 -> /home/xqin5/diffusion_LLM/d1_lookahead/rescue_audit/EXPERIMENT_REGISTRY.csv
+############ layer 9 ############
+[R1] arm=SEDD_anc tags=['s1', 's2'] hg=hg
+
+[R1] === target=A_pertok split_seed=0 (2s) ===
+  [A] layer sweep
+/home/xqin5/.conda/envs/llm/lib/python3.10/site-packages/numpy/_core/_methods.py:194: RuntimeWarning: overflow encountered in multiply
+  x = um.multiply(x, x, out=x)
+    layer  9 within_r2: add +0.6237 kron +0.6119
+  [A] chosen layers: {'within_r2': {'additive': 9, 'kron': 9}}
+  [B] criterion=within_r2 layer=9
+/home/xqin5/diffusion_LLM/d1_lookahead/rescue_audit/rlib/metrics.py:121: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  r = sps.spearmanr(y[g], p[g]).statistic
+  [B] 49 probes scored (830s)
+
+[R1] done in 830s -> rescue_audit/results/R1deep_SEDD_anc_A_pertok_L9.json
+[R1] registry rows appended: 49 -> /home/xqin5/diffusion_LLM/d1_lookahead/rescue_audit/EXPERIMENT_REGISTRY.csv
+############ layer 11 ############
+[R1] arm=SEDD_anc tags=['s1', 's2'] hg=hg
+
+[R1] === target=A_pertok split_seed=0 (2s) ===
+  [A] layer sweep
+/home/xqin5/.conda/envs/llm/lib/python3.10/site-packages/numpy/_core/_methods.py:194: RuntimeWarning: overflow encountered in multiply
+  x = um.multiply(x, x, out=x)
+    layer 11 within_r2: add +0.6209 kron +0.6120
+  [A] chosen layers: {'within_r2': {'additive': 11, 'kron': 11}}
+  [B] criterion=within_r2 layer=11
+/home/xqin5/diffusion_LLM/d1_lookahead/rescue_audit/rlib/metrics.py:121: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  r = sps.spearmanr(y[g], p[g]).statistic
+  [B] 49 probes scored (439s)
+
+[R1] done in 439s -> rescue_audit/results/R1deep_SEDD_anc_A_pertok_L11.json
+[R1] registry rows appended: 49 -> /home/xqin5/diffusion_LLM/d1_lookahead/rescue_audit/EXPERIMENT_REGISTRY.csv
+ALL DEEP DONE

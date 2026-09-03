@@ -1,0 +1,15 @@
+{
+  "n_screen": 220,
+  "n_prompts": 150,
+  "mixed_frac": 0.7,
+  "K": 8,
+  "n_cand": 4,
+  "gen_len": 160,
+  "rollout_batch": 32,
+  "offset": 220,
+  "tag": "taskB",
+  "device": "cuda",
+  "n_examples": 1184,
+  "seconds": 7484.420856714249,
+  "estimand": "A_task = P(correct|commit a_i, then pi_ref) - P(correct|pi_ref), CRN-paired, rollouts to completion"
+}

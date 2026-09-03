@@ -1,0 +1,9 @@
+[syn] loading ['a3', 'b3'] layer 9
+/home/xqin5/diffusion_LLM/d1_lookahead/rescue_audit/rlib/metrics.py:121: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  r = sps.spearmanr(y[g], p[g]).statistic
+  [E_nonlinear/pooled_r2] 122s 19 probes
+/home/xqin5/diffusion_LLM/d1_lookahead/rescue_audit/rlib/metrics.py:121: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  r = sps.spearmanr(y[g], p[g]).statistic
+  [E_nonlinear/within_r2] 1231s 19 probes
+[syn] E_nonlinear done in 1231s
+wrote rescue_audit/synthetic/synthetic_E_fixed.json

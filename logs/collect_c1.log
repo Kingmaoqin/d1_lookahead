@@ -1,0 +1,41 @@
+
+Fetching 6 files:   0%|          | 0/6 [00:00<?, ?it/s]
+Fetching 6 files: 100%|██████████| 6/6 [00:00<00:00, 26973.02it/s]
+
+[0A] prompts=200 K=8 n_cand=6 record_fracs=(0.1, 0.25, 0.4, 0.55, 0.7, 0.85) horizon=16
+  prompts 6/200  examples 216  57s  eta 1832s
+  prompts 12/200  examples 432  112s  eta 1756s
+  prompts 18/200  examples 648  169s  eta 1710s
+  prompts 24/200  examples 864  226s  eta 1658s
+  prompts 30/200  examples 1080  281s  eta 1591s
+  prompts 36/200  examples 1296  338s  eta 1538s
+  prompts 42/200  examples 1512  394s  eta 1481s
+  prompts 48/200  examples 1728  450s  eta 1423s
+  prompts 54/200  examples 1944  506s  eta 1369s
+  prompts 60/200  examples 2160  561s  eta 1309s
+  prompts 66/200  examples 2376  618s  eta 1255s
+  prompts 72/200  examples 2592  674s  eta 1198s
+  prompts 78/200  examples 2808  729s  eta 1141s
+  prompts 84/200  examples 3024  785s  eta 1083s
+  prompts 90/200  examples 3240  840s  eta 1027s
+  prompts 96/200  examples 3456  895s  eta 970s
+  prompts 102/200  examples 3672  951s  eta 914s
+  prompts 108/200  examples 3888  1007s  eta 857s
+  prompts 114/200  examples 4104  1062s  eta 801s
+  prompts 120/200  examples 4320  1118s  eta 745s
+  prompts 126/200  examples 4536  1176s  eta 691s
+  prompts 132/200  examples 4752  1232s  eta 635s
+  prompts 138/200  examples 4968  1288s  eta 579s
+  prompts 144/200  examples 5184  1344s  eta 523s
+  prompts 150/200  examples 5400  1400s  eta 467s
+  prompts 156/200  examples 5616  1455s  eta 410s
+  prompts 162/200  examples 5832  1512s  eta 355s
+  prompts 168/200  examples 6048  1567s  eta 299s
+  prompts 174/200  examples 6264  1623s  eta 243s
+  prompts 180/200  examples 6480  1679s  eta 187s
+  prompts 186/200  examples 6696  1738s  eta 131s
+  prompts 192/200  examples 6912  1793s  eta 75s
+  prompts 198/200  examples 7128  1849s  eta 19s
+  prompts 200/200  examples 7200  1871s  eta 0s
+[0A] done: 7200 examples in 1872s -> /home/xqin5/diffusion_LLM/d1_lookahead/data/labels_c1
+

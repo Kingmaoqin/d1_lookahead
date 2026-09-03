@@ -1,0 +1,554 @@
+[
+ {
+  "arm": "MDLM_ancestral",
+  "target": "A_pertok",
+  "split_seed": 0,
+  "layer": 9,
+  "ceiling": 0.8827238256774601,
+  "cheap_r2": 0.5818403975983846,
+  "cheap_conc": 0.7881111111111111,
+  "probes": {
+   "cheap+h_local": {
+    "d_r2": 0.006528952615249883,
+    "d_conc": 0.005333333333333301,
+    "gamma": 0.03
+   },
+   "cheap+h_local_3layer": {
+    "d_r2": 0.009477065446233723,
+    "d_conc": 0.006000000000000005,
+    "gamma": 0.01
+   },
+   "cheap+h_local+h_global": {
+    "d_r2": 0.00652902044857917,
+    "d_conc": 0.005333333333333301,
+    "gamma": 0.03
+   },
+   "cheap+interaction(kron)": {
+    "d_r2": -2.6275947062615046e-07,
+    "d_conc": 0.0,
+    "gamma": 0.003
+   },
+   "CONTROL:gaussian_h_local": {
+    "d_r2": 0.0,
+    "d_conc": 0.0,
+    "gamma": 0.0
+   },
+   "CONTROL:shuffled_h_local": {
+    "d_r2": 5.849715992711779e-06,
+    "d_conc": 0.0005555555555555314,
+    "gamma": 0.003
+   },
+   "CONTROL:label_permutation": {
+    "d_r2": -0.5687837217515842,
+    "d_conc": -0.2543333333333333,
+    "gamma": 0.03
+   }
+  }
+ },
+ {
+  "arm": "MDLM_ancestral",
+  "target": "A_pertok",
+  "split_seed": 1,
+  "layer": 9,
+  "ceiling": 0.8827238256774601,
+  "cheap_r2": 0.5882942787395169,
+  "cheap_conc": 0.7781111111111111,
+  "probes": {
+   "cheap+h_local": {
+    "d_r2": 0.0039951320776480115,
+    "d_conc": 0.006111111111111178,
+    "gamma": 0.03
+   },
+   "cheap+h_local_3layer": {
+    "d_r2": 0.004692741877026951,
+    "d_conc": 0.006555555555555537,
+    "gamma": 0.01
+   },
+   "cheap+h_local+h_global": {
+    "d_r2": 0.0039950685696086286,
+    "d_conc": 0.006111111111111178,
+    "gamma": 0.03
+   },
+   "cheap+interaction(kron)": {
+    "d_r2": 3.2436777708255704e-09,
+    "d_conc": 0.0,
+    "gamma": 0.003
+   },
+   "CONTROL:gaussian_h_local": {
+    "d_r2": -0.0002449118448952792,
+    "d_conc": 0.0015555555555555323,
+    "gamma": 0.01
+   },
+   "CONTROL:shuffled_h_local": {
+    "d_r2": 0.0,
+    "d_conc": 0.0,
+    "gamma": 0.0
+   },
+   "CONTROL:label_permutation": {
+    "d_r2": -0.5871450671123953,
+    "d_conc": -0.2684444444444444,
+    "gamma": 0.0
+   }
+  }
+ },
+ {
+  "arm": "MDLM_ancestral",
+  "target": "A_future",
+  "split_seed": 0,
+  "layer": 9,
+  "ceiling": 0.7914173852701576,
+  "cheap_r2": 0.23964046356189506,
+  "cheap_conc": 0.6861111111111111,
+  "probes": {
+   "cheap+h_local": {
+    "d_r2": 0.012418282693371863,
+    "d_conc": 0.008888888888888835,
+    "gamma": 0.03
+   },
+   "cheap+h_local_3layer": {
+    "d_r2": 0.016540204867286912,
+    "d_conc": 0.00477777777777777,
+    "gamma": 0.03
+   },
+   "cheap+h_local+h_global": {
+    "d_r2": 0.012418325941423447,
+    "d_conc": 0.008888888888888835,
+    "gamma": 0.03
+   },
+   "cheap+interaction(kron)": {
+    "d_r2": -1.0629746560741893e-07,
+    "d_conc": 0.0,
+    "gamma": 0.003
+   },
+   "CONTROL:gaussian_h_local": {
+    "d_r2": 0.0,
+    "d_conc": 0.0,
+    "gamma": 0.0
+   },
+   "CONTROL:shuffled_h_local": {
+    "d_r2": 2.5791594108426352e-05,
+    "d_conc": -0.0006666666666667043,
+    "gamma": 0.003
+   },
+   "CONTROL:label_permutation": {
+    "d_r2": -0.22870413229755493,
+    "d_conc": -0.11755555555555552,
+    "gamma": 0.0
+   }
+  }
+ },
+ {
+  "arm": "MDLM_ancestral",
+  "target": "A_future",
+  "split_seed": 1,
+  "layer": 9,
+  "ceiling": 0.7914173852701576,
+  "cheap_r2": 0.20768417676855466,
+  "cheap_conc": 0.6752222222222222,
+  "probes": {
+   "cheap+h_local": {
+    "d_r2": 0.008385929870610265,
+    "d_conc": 0.009222222222222243,
+    "gamma": 0.1
+   },
+   "cheap+h_local_3layer": {
+    "d_r2": 0.011511312163814513,
+    "d_conc": 0.010777777777777886,
+    "gamma": 0.1
+   },
+   "cheap+h_local+h_global": {
+    "d_r2": 0.008385939597454928,
+    "d_conc": 0.009222222222222243,
+    "gamma": 0.1
+   },
+   "cheap+interaction(kron)": {
+    "d_r2": 0.0,
+    "d_conc": 0.0,
+    "gamma": 0.0
+   },
+   "CONTROL:gaussian_h_local": {
+    "d_r2": -0.0009102421898935509,
+    "d_conc": 0.0011111111111111738,
+    "gamma": 0.1
+   },
+   "CONTROL:shuffled_h_local": {
+    "d_r2": 0.0,
+    "d_conc": 0.0,
+    "gamma": 0.0
+   },
+   "CONTROL:label_permutation": {
+    "d_r2": -0.19429197338420956,
+    "d_conc": -0.09955555555555551,
+    "gamma": 0.0
+   }
+  }
+ },
+ {
+  "arm": "MDLM_confidence",
+  "target": "A_pertok",
+  "split_seed": 0,
+  "layer": 8,
+  "ceiling": 0.8537972932593259,
+  "cheap_r2": 0.5352090659303663,
+  "cheap_conc": 0.776,
+  "probes": {
+   "cheap+h_local": {
+    "d_r2": 0.010430999989682221,
+    "d_conc": 0.006000000000000005,
+    "gamma": 0.03
+   },
+   "cheap+h_local_3layer": {
+    "d_r2": 0.010370336307149675,
+    "d_conc": 0.007777777777777772,
+    "gamma": 0.03
+   },
+   "cheap+h_local+h_global": {
+    "d_r2": 0.010431018782786294,
+    "d_conc": 0.006000000000000005,
+    "gamma": 0.03
+   },
+   "cheap+interaction(kron)": {
+    "d_r2": 0.0,
+    "d_conc": 0.0,
+    "gamma": 0.0
+   },
+   "CONTROL:gaussian_h_local": {
+    "d_r2": 0.0,
+    "d_conc": 0.0,
+    "gamma": 0.0
+   },
+   "CONTROL:shuffled_h_local": {
+    "d_r2": 0.0,
+    "d_conc": 0.0,
+    "gamma": 0.0
+   },
+   "CONTROL:label_permutation": {
+    "d_r2": -0.5352119399111328,
+    "d_conc": -0.43333333333333335,
+    "gamma": 0.0
+   }
+  }
+ },
+ {
+  "arm": "MDLM_confidence",
+  "target": "A_pertok",
+  "split_seed": 1,
+  "layer": 8,
+  "ceiling": 0.8537972932593259,
+  "cheap_r2": 0.5732311770191382,
+  "cheap_conc": 0.778,
+  "probes": {
+   "cheap+h_local": {
+    "d_r2": 0.010481693011696325,
+    "d_conc": 0.002555555555555533,
+    "gamma": 0.03
+   },
+   "cheap+h_local_3layer": {
+    "d_r2": 0.011790390078164403,
+    "d_conc": 0.002666666666666595,
+    "gamma": 0.03
+   },
+   "cheap+h_local+h_global": {
+    "d_r2": 0.010481689492447654,
+    "d_conc": 0.002555555555555533,
+    "gamma": 0.03
+   },
+   "cheap+interaction(kron)": {
+    "d_r2": 6.638879190834501e-08,
+    "d_conc": 0.0,
+    "gamma": 0.003
+   },
+   "CONTROL:gaussian_h_local": {
+    "d_r2": -6.618819243164875e-05,
+    "d_conc": 0.00022222222222223476,
+    "gamma": 0.01
+   },
+   "CONTROL:shuffled_h_local": {
+    "d_r2": 0.0,
+    "d_conc": 0.0,
+    "gamma": 0.0
+   },
+   "CONTROL:label_permutation": {
+    "d_r2": -0.5649210387548036,
+    "d_conc": -0.16988888888888887,
+    "gamma": 0.0
+   }
+  }
+ },
+ {
+  "arm": "MDLM_confidence",
+  "target": "A_future",
+  "split_seed": 0,
+  "layer": 8,
+  "ceiling": 0.7351903299252975,
+  "cheap_r2": 0.17120669244517628,
+  "cheap_conc": 0.664,
+  "probes": {
+   "cheap+h_local": {
+    "d_r2": 0.019200775409904836,
+    "d_conc": 0.010000000000000009,
+    "gamma": 0.1
+   },
+   "cheap+h_local_3layer": {
+    "d_r2": 0.022759190971069265,
+    "d_conc": 0.009444444444444366,
+    "gamma": 0.03
+   },
+   "cheap+h_local+h_global": {
+    "d_r2": 0.01920076497815648,
+    "d_conc": 0.010000000000000009,
+    "gamma": 0.1
+   },
+   "cheap+interaction(kron)": {
+    "d_r2": 0.0,
+    "d_conc": 0.0,
+    "gamma": 0.0
+   },
+   "CONTROL:gaussian_h_local": {
+    "d_r2": 0.0,
+    "d_conc": 0.0,
+    "gamma": 0.0
+   },
+   "CONTROL:shuffled_h_local": {
+    "d_r2": 0.0,
+    "d_conc": 0.0,
+    "gamma": 0.0
+   },
+   "CONTROL:label_permutation": {
+    "d_r2": -0.16911974307311306,
+    "d_conc": -0.1464444444444445,
+    "gamma": 0.0
+   }
+  }
+ },
+ {
+  "arm": "MDLM_confidence",
+  "target": "A_future",
+  "split_seed": 1,
+  "layer": 8,
+  "ceiling": 0.7351903299252975,
+  "cheap_r2": 0.18980642176409157,
+  "cheap_conc": 0.6644444444444444,
+  "probes": {
+   "cheap+h_local": {
+    "d_r2": 0.019819323446287118,
+    "d_conc": 0.0031111111111111756,
+    "gamma": 0.03
+   },
+   "cheap+h_local_3layer": {
+    "d_r2": 0.02187353377391954,
+    "d_conc": 0.0023333333333334094,
+    "gamma": 0.03
+   },
+   "cheap+h_local+h_global": {
+    "d_r2": 0.019819314651284836,
+    "d_conc": 0.0031111111111111756,
+    "gamma": 0.03
+   },
+   "cheap+interaction(kron)": {
+    "d_r2": 7.475953012203718e-08,
+    "d_conc": 0.0,
+    "gamma": 0.003
+   },
+   "CONTROL:gaussian_h_local": {
+    "d_r2": -0.0001263337036793155,
+    "d_conc": -0.0013333333333332975,
+    "gamma": 0.01
+   },
+   "CONTROL:shuffled_h_local": {
+    "d_r2": 0.0,
+    "d_conc": 0.0,
+    "gamma": 0.0
+   },
+   "CONTROL:label_permutation": {
+    "d_r2": -0.18802539043018374,
+    "d_conc": -0.15066666666666662,
+    "gamma": 3.0
+   }
+  }
+ },
+ {
+  "arm": "SEDD_ancestral",
+  "target": "A_pertok",
+  "split_seed": 0,
+  "layer": 9,
+  "ceiling": 0.9022614019910672,
+  "cheap_r2": 0.6531579459894574,
+  "cheap_conc": 0.8123333333333334,
+  "probes": {
+   "cheap+h_local": {
+    "d_r2": 0.007669749271926429,
+    "d_conc": 0.0011111111111110628,
+    "gamma": 0.01
+   },
+   "cheap+h_local_3layer": {
+    "d_r2": 0.008863716246689357,
+    "d_conc": 0.000888888888888828,
+    "gamma": 0.003
+   },
+   "cheap+h_local+h_global": {
+    "d_r2": 0.007669763307391997,
+    "d_conc": 0.0011111111111110628,
+    "gamma": 0.01
+   },
+   "cheap+interaction(kron)": {
+    "d_r2": 1.251578449767976e-07,
+    "d_conc": 0.0,
+    "gamma": 0.003
+   },
+   "CONTROL:gaussian_h_local": {
+    "d_r2": -0.0005105074356583916,
+    "d_conc": -0.0003333333333332966,
+    "gamma": 0.003
+   },
+   "CONTROL:shuffled_h_local": {
+    "d_r2": 0.0,
+    "d_conc": 0.0,
+    "gamma": 0.0
+   },
+   "CONTROL:label_permutation": {
+    "d_r2": -0.6531593413098864,
+    "d_conc": -0.5437777777777778,
+    "gamma": 0.0
+   }
+  }
+ },
+ {
+  "arm": "SEDD_ancestral",
+  "target": "A_pertok",
+  "split_seed": 1,
+  "layer": 9,
+  "ceiling": 0.9022614019910672,
+  "cheap_r2": 0.6099571513697338,
+  "cheap_conc": 0.808,
+  "probes": {
+   "cheap+h_local": {
+    "d_r2": 0.013203853530368792,
+    "d_conc": 0.0020000000000000018,
+    "gamma": 0.003
+   },
+   "cheap+h_local_3layer": {
+    "d_r2": 0.01412622120543039,
+    "d_conc": 0.0006666666666665932,
+    "gamma": 0.003
+   },
+   "cheap+h_local+h_global": {
+    "d_r2": 0.013203890263422058,
+    "d_conc": 0.0020000000000000018,
+    "gamma": 0.003
+   },
+   "cheap+interaction(kron)": {
+    "d_r2": 3.649596526100751e-07,
+    "d_conc": 0.0,
+    "gamma": 0.003
+   },
+   "CONTROL:gaussian_h_local": {
+    "d_r2": 0.0,
+    "d_conc": 0.0,
+    "gamma": 0.0
+   },
+   "CONTROL:shuffled_h_local": {
+    "d_r2": 0.0,
+    "d_conc": 0.0,
+    "gamma": 0.0
+   },
+   "CONTROL:label_permutation": {
+    "d_r2": -0.6099611451348336,
+    "d_conc": -0.552,
+    "gamma": 0.0
+   }
+  }
+ },
+ {
+  "arm": "SEDD_ancestral",
+  "target": "A_future",
+  "split_seed": 0,
+  "layer": 9,
+  "ceiling": 0.8056262402000003,
+  "cheap_r2": 0.24781576814938733,
+  "cheap_conc": 0.6985555555555556,
+  "probes": {
+   "cheap+h_local": {
+    "d_r2": 0.0168492179019738,
+    "d_conc": 0.008888888888888835,
+    "gamma": 0.03
+   },
+   "cheap+h_local_3layer": {
+    "d_r2": 0.01900901589569326,
+    "d_conc": 0.011111111111111072,
+    "gamma": 0.003
+   },
+   "cheap+h_local+h_global": {
+    "d_r2": 0.01684917842429179,
+    "d_conc": 0.008888888888888835,
+    "gamma": 0.03
+   },
+   "cheap+interaction(kron)": {
+    "d_r2": 1.3501304629848221e-08,
+    "d_conc": 0.0,
+    "gamma": 0.003
+   },
+   "CONTROL:gaussian_h_local": {
+    "d_r2": -0.0012178096134736194,
+    "d_conc": -0.003555555555555645,
+    "gamma": 0.01
+   },
+   "CONTROL:shuffled_h_local": {
+    "d_r2": 0.0,
+    "d_conc": 0.0,
+    "gamma": 0.0
+   },
+   "CONTROL:label_permutation": {
+    "d_r2": -0.2376214920685339,
+    "d_conc": -0.1594444444444445,
+    "gamma": 0.0
+   }
+  }
+ },
+ {
+  "arm": "SEDD_ancestral",
+  "target": "A_future",
+  "split_seed": 1,
+  "layer": 9,
+  "ceiling": 0.8056262402000003,
+  "cheap_r2": 0.22630853841100163,
+  "cheap_conc": 0.6887777777777778,
+  "probes": {
+   "cheap+h_local": {
+    "d_r2": 0.026191499631126658,
+    "d_conc": 0.015999999999999903,
+    "gamma": 0.003
+   },
+   "cheap+h_local_3layer": {
+    "d_r2": 0.026227878777081437,
+    "d_conc": 0.015555555555555545,
+    "gamma": 0.01
+   },
+   "cheap+h_local+h_global": {
+    "d_r2": 0.026191659360861985,
+    "d_conc": 0.015999999999999903,
+    "gamma": 0.003
+   },
+   "cheap+interaction(kron)": {
+    "d_r2": -2.3969911833177093e-08,
+    "d_conc": 0.0,
+    "gamma": 0.003
+   },
+   "CONTROL:gaussian_h_local": {
+    "d_r2": 0.0,
+    "d_conc": 0.0,
+    "gamma": 0.0
+   },
+   "CONTROL:shuffled_h_local": {
+    "d_r2": 0.0,
+    "d_conc": 0.0,
+    "gamma": 0.0
+   },
+   "CONTROL:label_permutation": {
+    "d_r2": -0.2222776637524161,
+    "d_conc": -0.14355555555555555,
+    "gamma": 0.03
+   }
+  }
+ }
+]

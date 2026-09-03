@@ -1,0 +1,39 @@
+[prev] b3: 1200 states, steps=[19, 38, 57, 76, 96, 115]
+Fetching 6 files:   0%|          | 0/6 [00:00<?, ?it/s]Fetching 6 files: 100%|██████████| 6/6 [00:00<00:00, 66225.85it/s]
+  prompts 6/200  12s  eta 396s
+  prompts 12/200  24s  eta 378s
+  prompts 18/200  36s  eta 362s
+  prompts 24/200  47s  eta 345s
+  prompts 30/200  59s  eta 332s
+  prompts 36/200  69s  eta 316s
+  prompts 42/200  82s  eta 310s
+  prompts 48/200  96s  eta 303s
+  prompts 54/200  109s  eta 295s
+  prompts 60/200  122s  eta 285s
+  prompts 66/200  134s  eta 273s
+  prompts 72/200  146s  eta 260s
+  prompts 78/200  158s  eta 247s
+  prompts 84/200  169s  eta 234s
+  prompts 90/200  180s  eta 221s
+  prompts 96/200  192s  eta 208s
+  prompts 102/200  203s  eta 195s
+  prompts 108/200  214s  eta 182s
+  prompts 114/200  224s  eta 169s
+  prompts 120/200  235s  eta 157s
+  prompts 126/200  247s  eta 145s
+  prompts 132/200  258s  eta 133s
+  prompts 138/200  269s  eta 121s
+  prompts 144/200  279s  eta 109s
+  prompts 150/200  290s  eta 97s
+  prompts 156/200  301s  eta 85s
+  prompts 162/200  312s  eta 73s
+  prompts 168/200  323s  eta 62s
+  prompts 174/200  334s  eta 50s
+  prompts 180/200  345s  eta 38s
+  prompts 186/200  356s  eta 27s
+  prompts 192/200  367s  eta 15s
+  prompts 198/200  379s  eta 4s
+  prompts 200/200  388s  eta 0s
+
+[prev] 自校验：匹配 7200/7200 行；max|ΔH_i| = 0，max|ΔH_g| = 0  -> PASS
+[prev] wrote /home/xqin5/diffusion_LLM/d1_lookahead/data/labels_prev_b3 in 416s

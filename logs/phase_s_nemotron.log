@@ -1,0 +1,30 @@
+/home/xqin5/.conda/envs/p08_skilloverload/lib/python3.12/site-packages/transformers/modeling_rope_utils.py:1036: FutureWarning: `rope_config_validation` is deprecated and has been removed. Its functionality has been moved to RotaryEmbeddingConfigMixin.validate_rope method. PreTrainedConfig inherits this class, so please call self.validate_rope() instead. Also, make sure to use the new rope_parameters syntax. You can call self.standardize_rope_params() in the meantime.
+  warnings.warn(
+[transformers] Unrecognized keys in `rope_parameters` for 'rope_type'='yarn': {'llama_4_scaling_beta'}
+[transformers] Unrecognized keys in `rope_parameters` for 'rope_type'='yarn': {'llama_4_scaling_beta'}
+[transformers] Model config: mask_token_id must be `None` or an integer within the vocabulary (between 0 and 131071), got -1. This may result in unexpected behavior.
+[transformers] The `check_model_inputs` decorator is deprecated in favor of `merge_with_config_defaults`.
+
+Loading weights:   0%|          | 0/237 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 237/237 [00:00<00:00, 9628.26it/s]
+[transformers] Unrecognized keys in `rope_parameters` for 'rope_type'='yarn': {'llama_4_scaling_beta'}
+[transformers] Unrecognized keys in `rope_parameters` for 'rope_type'='yarn': {'llama_4_scaling_beta'}
+
+[ERROR] `cache_position` is part of Ministral3Model.forward's signature, but not documented. Make sure to add it to the docstring of the function in /home/xqin5/.cache/huggingface/modules/transformers_modules/nvidia/Nemotron_hyphen_Labs_hyphen_Diffusion_hyphen_3B/0d51902da1f8869f83413ce642fab402fa5641e0/modeling_ministral.py.
+  8/48  running acc 0.719  100s
+  16/48  running acc 0.539  222s
+  24/48  running acc 0.547  294s
+  32/48  running acc 0.586  384s
+  40/48  running acc 0.606  473s
+  48/48  running acc 0.599  557s
+
+[S1] GSM8K accuracy = 59.9% over 48 prompts x 8 rollouts  (native generate reference 66.7%)
+[S3] within-prompt reward variance = 0.0534
+     prompts with MIXED outcomes (not always right / always wrong) = 31.2%
+     between-prompt variance = 0.1868
+[S5] incomplete rollouts = 0; mean NFE 386
+[S4] hidden states consistent: True  (26, (1, 129, 3072))
+
+=== NEMOTRON PHASE S === {"S1_pass": true, "S3_pass": true, "S4_pass": true, "S5_pass": true}
+SUBSTRATE QUALIFIED
+

@@ -1,0 +1,20 @@
+[exp2] 14400 examples, target=A_pertok, match_tol=0.25 sd, min_gap=1.0 sd
+  seed 0: layer 8, 166 matched pairs on held-out test (caliper matching, tol=0.25)
+  seed 1: layer 9, 132 matched pairs on held-out test (caliper matching, tol=0.25)
+  seed 2: layer 8, 146 matched pairs on held-out test (caliper matching, tol=0.25)
+
+score used to order the matched pair      accuracy                    per-seed
+confidence (p1)                             0.5131   [0.6024, 0.4848, 0.4521]
+logp1                                       0.5131   [0.6024, 0.4848, 0.4521]
+scalar+history controls                     0.5301   [0.6988, 0.4394, 0.4521]
+output-distribution controls                0.5106   [0.5783, 0.5152, 0.4384]
+ALL cheap controls                          0.5276   [0.6627, 0.4545, 0.4658]
+future-stability (persist - flips)          0.4853   [0.5181, 0.4242, 0.5137]
+HIDDEN linear probe                         0.5357   [0.6747, 0.4394, 0.4932]
+
+  hidden probe accuracy above chance: 0.4945 (excess -0.0055)  95% CI on excess [-0.1177, +0.1087]  includes 0
+  matched-pair accuracy gap (hidden - cheap): +0.0251  95% CI [-0.0986, +0.1528]  includes 0
+  gap over the BEST single control (scalar+history controls): +0.0421  95% CI [-0.0986, +0.1843]  includes 0
+
+wrote /home/xqin5/diffusion_LLM/d1_lookahead/results/exp2_conf/exp2_report.json
+

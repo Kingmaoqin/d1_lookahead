@@ -1,0 +1,60 @@
+/home/xqin5/.conda/envs/p08_skilloverload/lib/python3.12/site-packages/transformers/modeling_rope_utils.py:1036: FutureWarning: `rope_config_validation` is deprecated and has been removed. Its functionality has been moved to RotaryEmbeddingConfigMixin.validate_rope method. PreTrainedConfig inherits this class, so please call self.validate_rope() instead. Also, make sure to use the new rope_parameters syntax. You can call self.standardize_rope_params() in the meantime.
+  warnings.warn(
+[transformers] Unrecognized keys in `rope_parameters` for 'rope_type'='yarn': {'llama_4_scaling_beta'}
+[transformers] Unrecognized keys in `rope_parameters` for 'rope_type'='yarn': {'llama_4_scaling_beta'}
+[transformers] Model config: mask_token_id must be `None` or an integer within the vocabulary (between 0 and 131071), got -1. This may result in unexpected behavior.
+[ERROR] `cache_position` is part of Ministral3Model.forward's signature, but not documented. Make sure to add it to the docstring of the function in /home/xqin5/.cache/huggingface/modules/transformers_modules/nvidia/Nemotron_hyphen_Labs_hyphen_Diffusion_hyphen_3B/0d51902da1f8869f83413ce642fab402fa5641e0/modeling_ministral.py.
+[transformers] The `check_model_inputs` decorator is deprecated in favor of `merge_with_config_defaults`.
+Loading weights:   0%|          | 0/237 [00:00<?, ?it/s]Loading weights: 100%|██████████| 237/237 [00:00<00:00, 8669.17it/s]
+[transformers] Unrecognized keys in `rope_parameters` for 'rope_type'='yarn': {'llama_4_scaling_beta'}
+[transformers] Unrecognized keys in `rope_parameters` for 'rope_type'='yarn': {'llama_4_scaling_beta'}
+[vread] 400 prompts x 6 record points, K=8
+  10/400 prompts, 57 states, 318s, eta 12411s
+  20/400 prompts, 113 states, 626s, eta 11903s
+  30/400 prompts, 167 states, 870s, eta 10729s
+  40/400 prompts, 224 states, 1134s, eta 10202s
+  50/400 prompts, 280 states, 1374s, eta 9617s
+  60/400 prompts, 34 states, 1625s, eta 9210s
+  70/400 prompts, 89 states, 1825s, eta 8602s
+  80/400 prompts, 145 states, 2069s, eta 8277s
+  90/400 prompts, 197 states, 2206s, eta 7598s
+  100/400 prompts, 251 states, 2429s, eta 7288s
+  110/400 prompts, 4 states, 2659s, eta 7011s
+  120/400 prompts, 57 states, 2828s, eta 6599s
+  130/400 prompts, 113 states, 3097s, eta 6431s
+  140/400 prompts, 167 states, 3333s, eta 6190s
+  150/400 prompts, 219 states, 3506s, eta 5843s
+/home/xqin5/diffusion_LLM/d1_lookahead/scripts/collect_v_readout.py:70: UserWarning: std(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at /pytorch/aten/src/ATen/native/ReduceOps.cpp:1858.)
+  conf.mean(), conf.std().nan_to_num(), conf.min(), conf.max(), q[0], q[1],
+/home/xqin5/diffusion_LLM/d1_lookahead/scripts/collect_v_readout.py:71: UserWarning: std(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at /pytorch/aten/src/ATen/native/ReduceOps.cpp:1858.)
+  ent.mean(), ent.std().nan_to_num(),
+/home/xqin5/diffusion_LLM/d1_lookahead/scripts/collect_v_readout.py:72: UserWarning: std(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at /pytorch/aten/src/ATen/native/ReduceOps.cpp:1858.)
+  margin.mean(), margin.std().nan_to_num(),
+/home/xqin5/diffusion_LLM/d1_lookahead/scripts/collect_v_readout.py:73: UserWarning: std(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at /pytorch/aten/src/ATen/native/ReduceOps.cpp:1858.)
+  lp[:, 0].mean(), lp[:, 0].std().nan_to_num(), lp[:, 1].exp().mean(),
+  160/400 prompts, 273 states, 3707s, eta 5560s
+  170/400 prompts, 27 states, 3905s, eta 5283s
+  180/400 prompts, 83 states, 4131s, eta 5049s
+  190/400 prompts, 141 states, 4402s, eta 4866s
+  200/400 prompts, 194 states, 4611s, eta 4611s
+  210/400 prompts, 251 states, 4836s, eta 4376s
+  220/400 prompts, 305 states, 5056s, eta 4136s
+  230/400 prompts, 54 states, 5239s, eta 3872s
+  240/400 prompts, 108 states, 5434s, eta 3623s
+  250/400 prompts, 161 states, 5634s, eta 3380s
+  260/400 prompts, 216 states, 5873s, eta 3163s
+  270/400 prompts, 270 states, 6078s, eta 2927s
+  280/400 prompts, 22 states, 6328s, eta 2712s
+  290/400 prompts, 75 states, 6515s, eta 2471s
+  300/400 prompts, 133 states, 6749s, eta 2250s
+  310/400 prompts, 189 states, 7007s, eta 2034s
+  320/400 prompts, 244 states, 7220s, eta 1805s
+  330/400 prompts, 301 states, 7460s, eta 1582s
+  340/400 prompts, 54 states, 7652s, eta 1350s
+  350/400 prompts, 107 states, 7842s, eta 1120s
+  360/400 prompts, 162 states, 8094s, eta 899s
+  370/400 prompts, 217 states, 8299s, eta 673s
+  380/400 prompts, 272 states, 8525s, eta 449s
+  390/400 prompts, 23 states, 8805s, eta 226s
+  400/400 prompts, 76 states, 9023s, eta 0s
+[vread] done in 9024s -> /home/xqin5/diffusion_LLM/d1_lookahead/data/labels_vreadB

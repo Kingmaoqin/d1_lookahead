@@ -1,0 +1,92 @@
+/home/xqin5/.conda/envs/p08_skilloverload/lib/python3.12/site-packages/transformers/modeling_rope_utils.py:1036: FutureWarning: `rope_config_validation` is deprecated and has been removed. Its functionality has been moved to RotaryEmbeddingConfigMixin.validate_rope method. PreTrainedConfig inherits this class, so please call self.validate_rope() instead. Also, make sure to use the new rope_parameters syntax. You can call self.standardize_rope_params() in the meantime.
+  warnings.warn(
+[transformers] Unrecognized keys in `rope_parameters` for 'rope_type'='yarn': {'llama_4_scaling_beta'}
+[transformers] Unrecognized keys in `rope_parameters` for 'rope_type'='yarn': {'llama_4_scaling_beta'}
+[transformers] Model config: mask_token_id must be `None` or an integer within the vocabulary (between 0 and 131071), got -1. This may result in unexpected behavior.
+[ERROR] `cache_position` is part of Ministral3Model.forward's signature, but not documented. Make sure to add it to the docstring of the function in /home/xqin5/.cache/huggingface/modules/transformers_modules/nvidia/Nemotron_hyphen_Labs_hyphen_Diffusion_hyphen_3B/0d51902da1f8869f83413ce642fab402fa5641e0/modeling_ministral.py.
+[transformers] The `check_model_inputs` decorator is deprecated in favor of `merge_with_config_defaults`.
+Loading weights:   0%|          | 0/237 [00:00<?, ?it/s]Loading weights: 100%|██████████| 237/237 [00:00<00:00, 10175.35it/s]
+[transformers] Unrecognized keys in `rope_parameters` for 'rope_type'='yarn': {'llama_4_scaling_beta'}
+[transformers] Unrecognized keys in `rope_parameters` for 'rope_type'='yarn': {'llama_4_scaling_beta'}
+[task] reusing cached screening of 260 prompts
+[task] screened: 72/260 mixed (28%); selected 72 mixed (oversampled) + 108 natural
+[task] worker 0/1: assigned 180 prompts
+[task] resume: 85 complete prompts / 2040 examples; next shard=5
+  1/180 prompt 572 already complete; skip
+  2/180 prompt 528 already complete; skip
+  3/180 prompt 468 already complete; skip
+  4/180 prompt 620 already complete; skip
+  5/180 prompt 520 already complete; skip
+  6/180 prompt 674 already complete; skip
+  7/180 prompt 650 already complete; skip
+  8/180 prompt 552 already complete; skip
+  9/180 prompt 473 already complete; skip
+  10/180 prompt 603 already complete; skip
+  11/180 prompt 596 already complete; skip
+  12/180 prompt 602 already complete; skip
+  13/180 prompt 467 already complete; skip
+  14/180 prompt 665 already complete; skip
+  15/180 prompt 622 already complete; skip
+  16/180 prompt 571 already complete; skip
+  17/180 prompt 540 already complete; skip
+  18/180 prompt 595 already complete; skip
+  19/180 prompt 526 already complete; skip
+  20/180 prompt 533 already complete; skip
+  21/180 prompt 479 already complete; skip
+  22/180 prompt 664 already complete; skip
+  23/180 prompt 455 already complete; skip
+  24/180 prompt 699 already complete; skip
+  25/180 prompt 668 already complete; skip
+  26/180 prompt 659 already complete; skip
+  27/180 prompt 493 already complete; skip
+  28/180 prompt 521 already complete; skip
+  29/180 prompt 608 already complete; skip
+  30/180 prompt 546 already complete; skip
+  31/180 prompt 651 already complete; skip
+  32/180 prompt 524 already complete; skip
+  33/180 prompt 586 already complete; skip
+  34/180 prompt 457 already complete; skip
+  35/180 prompt 450 already complete; skip
+  36/180 prompt 573 already complete; skip
+  37/180 prompt 537 already complete; skip
+  38/180 prompt 531 already complete; skip
+  39/180 prompt 442 already complete; skip
+  40/180 prompt 471 already complete; skip
+  41/180 prompt 532 already complete; skip
+  42/180 prompt 539 already complete; skip
+  43/180 prompt 578 already complete; skip
+  44/180 prompt 672 already complete; skip
+  45/180 prompt 619 already complete; skip
+  46/180 prompt 614 already complete; skip
+  47/180 prompt 655 already complete; skip
+  48/180 prompt 662 already complete; skip
+  49/180 prompt 518 already complete; skip
+  50/180 prompt 613 already complete; skip
+  51/180 prompt 557 already complete; skip
+  52/180 prompt 538 already complete; skip
+  53/180 prompt 604 already complete; skip
+  54/180 prompt 508 already complete; skip
+  55/180 prompt 476 already complete; skip
+  56/180 prompt 584 already complete; skip
+  57/180 prompt 661 already complete; skip
+  58/180 prompt 615 already complete; skip
+  59/180 prompt 554 already complete; skip
+  60/180 prompt 656 already complete; skip
+  61/180 prompt 592 already complete; skip
+  62/180 prompt 609 already complete; skip
+  63/180 prompt 506 already complete; skip
+  64/180 prompt 501 already complete; skip
+  65/180 prompt 472 already complete; skip
+  66/180 prompt 660 already complete; skip
+  67/180 prompt 654 already complete; skip
+  68/180 prompt 621 already complete; skip
+  69/180 prompt 547 already complete; skip
+  70/180 prompts, 2064 total examples, 283s, eta 444s
+  71/180 prompt 623 already complete; skip
+  72/180 prompts, 2088 total examples, 601s, eta 902s
+  73/180 prompt 446 already complete; skip
+  74/180 prompts, 2112 total examples, 809s, eta 1159s
+  75/180 prompt 666 already complete; skip
+  76/180 prompts, 2136 total examples, 1153s, eta 1578s
+  77/180 prompt 687 already complete; skip
+Terminated

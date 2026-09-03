@@ -1,0 +1,4 @@
+SEALED — 本目录 (data/labels_freshA) 是 rescue 轮的 fresh confirmatory holdout。
+采集于 2026-08-31，prompt offset 400-599（历史上所有采集只用了 offset 0-399）。
+在 rescue_audit/RESCUE_PREREGISTRATION.md 写死并 commit 之前，
+任何分析脚本都不得读取本目录。

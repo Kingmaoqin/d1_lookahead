@@ -1,0 +1,41 @@
+
+Fetching 6 files:   0%|          | 0/6 [00:00<?, ?it/s]
+Fetching 6 files: 100%|██████████| 6/6 [00:00<00:00, 87685.80it/s]
+
+[0A] prompts=200 K=16 n_cand=6 record_fracs=(0.1, 0.2, 0.3, 0.4, 0.5, 0.6) horizon=32
+  prompts 6/200  examples 216  211s  eta 6829s
+  prompts 12/200  examples 432  414s  eta 6485s
+  prompts 18/200  examples 648  617s  eta 6239s
+  prompts 24/200  examples 864  820s  eta 6014s
+  prompts 30/200  examples 1080  1023s  eta 5798s
+  prompts 36/200  examples 1296  1226s  eta 5586s
+  prompts 42/200  examples 1512  1429s  eta 5377s
+  prompts 48/200  examples 1728  1632s  eta 5168s
+  prompts 54/200  examples 1944  1835s  eta 4962s
+  prompts 60/200  examples 2160  2038s  eta 4756s
+  prompts 66/200  examples 2376  2244s  eta 4555s
+  prompts 72/200  examples 2592  2446s  eta 4349s
+  prompts 78/200  examples 2808  2650s  eta 4144s
+  prompts 84/200  examples 3024  2853s  eta 3939s
+  prompts 90/200  examples 3240  3056s  eta 3735s
+  prompts 96/200  examples 3456  3269s  eta 3542s
+  prompts 102/200  examples 3672  3475s  eta 3339s
+  prompts 108/200  examples 3888  3678s  eta 3133s
+  prompts 114/200  examples 4104  3881s  eta 2928s
+  prompts 120/200  examples 4320  4084s  eta 2723s
+  prompts 126/200  examples 4536  4290s  eta 2520s
+  prompts 132/200  examples 4752  4494s  eta 2315s
+  prompts 138/200  examples 4968  4697s  eta 2110s
+  prompts 144/200  examples 5184  4900s  eta 1906s
+  prompts 150/200  examples 5400  5103s  eta 1701s
+  prompts 156/200  examples 5616  5306s  eta 1497s
+  prompts 162/200  examples 5832  5525s  eta 1296s
+  prompts 168/200  examples 6048  5741s  eta 1094s
+  prompts 174/200  examples 6264  5945s  eta 888s
+  prompts 180/200  examples 6480  6148s  eta 683s
+  prompts 186/200  examples 6696  6353s  eta 478s
+  prompts 192/200  examples 6912  6576s  eta 274s
+  prompts 198/200  examples 7128  6779s  eta 68s
+  prompts 200/200  examples 7200  6849s  eta 0s
+[0A] done: 7200 examples in 6850s -> /home/xqin5/diffusion_LLM/d1_lookahead/data/labels_h32a
+

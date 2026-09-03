@@ -1,0 +1,41 @@
+{
+  "arrays": {
+    "doc_ids": {
+      "dtype": "int64",
+      "fortran_order": false,
+      "shape": [
+        3000
+      ]
+    },
+    "windows": {
+      "dtype": "int64",
+      "fortran_order": false,
+      "shape": [
+        3000,
+        256
+      ]
+    }
+  },
+  "bytes": 1486776,
+  "category": "data_asset",
+  "git_lfs": true,
+  "path": "data/owt_windows_L256.npz",
+  "scalar_statistics": {
+    "doc_ids": {
+      "finite_fraction": 1.0,
+      "max": 9990.0,
+      "mean": 5059.715666666667,
+      "min": 1.0,
+      "std": 2859.0380312536167
+    },
+    "windows": {
+      "finite_fraction": 1.0,
+      "max": 50249.0,
+      "mean": 4261.45320703125,
+      "min": 0.0,
+      "std": 8277.361256442271
+    }
+  },
+  "sha256": "d92d3bda74270ea619d582fa4c2a0e0351696766ce3f9213d84fc6835d94d2a1",
+  "suffix": ".npz"
+}

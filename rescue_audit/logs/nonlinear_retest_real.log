@@ -1,0 +1,16 @@
+[MDLM_anc L8] cheap ridge conc=0.7786 within=+0.5594
+    bilinear_r2                val=+0.5239 hp={'lr': 0.03, 'wd': 0.0, 'seed': 1, 'epochs_budget': 3000} best_ep=110
+    bilinear_r4                val=+0.4766 hp={'lr': 0.01, 'wd': 0.01, 'seed': 1, 'epochs_budget': 3000} best_ep=40
+    bilinear_r8                val=+0.4313 hp={'lr': 0.01, 'wd': 0.01, 'seed': 0, 'epochs_budget': 3000} best_ep=50
+    bilinear_r16               val=+0.3030 hp={'lr': 0.01, 'wd': 0.01, 'seed': 1, 'epochs_budget': 3000} best_ep=50
+    film                       val=+0.4584 hp={'lr': 0.03, 'wd': 0.01, 'seed': 1, 'epochs_budget': 3000} best_ep=30
+    relmlp_w128                val=+0.4535 hp={'lr': 0.003, 'wd': 0.01, 'seed': 0, 'epochs_budget': 3000} best_ep=30
+    cheaponly_mlp_w128         val=+0.5582 hp={'lr': 0.003, 'wd': 0.01, 'seed': 1, 'epochs_budget': 3000} best_ep=40
+    relmlp_w512                val=+0.4830 hp={'lr': 0.003, 'wd': 0.01, 'seed': 1, 'epochs_budget': 3000} best_ep=50
+    cheaponly_mlp_w512         val=+0.5574 hp={'lr': 0.003, 'wd': 0.01, 'seed': 1, 'epochs_budget': 3000} best_ep=60
+    rank_cand                  val=+0.1740 hp={'lr': 0.01, 'wd': 0.01, 'seed': 0, 'epochs_budget': 3000} best_ep=10
+    rank_cand_state            val=+0.1571 hp={'lr': 0.003, 'wd': 0.01, 'seed': 1, 'epochs_budget': 3000} best_ep=20
+    rank_cheap                 val=+0.5421 hp={'lr': 0.003, 'wd': 0.01, 'seed': 0, 'epochs_budget': 3000} best_ep=40
+    rank_cheap_hidden          val=+0.4915 hp={'lr': 0.003, 'wd': 0.01, 'seed': 1, 'epochs_budget': 3000} best_ep=30
+
+done in 933s -> /home/xqin5/diffusion_LLM/d1_lookahead/rescue_audit/results/nonlinear_retest_real_MDLM_anc.json

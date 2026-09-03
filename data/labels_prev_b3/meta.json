@@ -1,0 +1,20 @@
+{
+  "tag": "b3",
+  "out_tag": "prev_b3",
+  "spec": {
+    "offset": 200,
+    "backbone": "mdlm",
+    "order": "ancestral",
+    "order_temp": 1.0
+  },
+  "n_prompts": 200,
+  "selfcheck": {
+    "n_rows_new": 7200,
+    "n_matched": 7200,
+    "max_abs_diff_H_i": 0.0,
+    "max_abs_diff_H_g": 0.0,
+    "frac_exact_H_i": 1.0,
+    "verdict": "PASS"
+  },
+  "seconds": 415.52161955833435
+}

@@ -1,0 +1,32 @@
+
+=== synthetic B_bilinear ===
+    bilinear_r2                val=+0.3025 hp={'lr': 0.01, 'wd': 0.0, 'seed': 0, 'epochs_budget': 3000} best_ep=280
+    bilinear_r4                val=+0.4716 hp={'lr': 0.03, 'wd': 0.01, 'seed': 1, 'epochs_budget': 3000} best_ep=150
+    bilinear_r8                val=+0.3751 hp={'lr': 0.01, 'wd': 0.01, 'seed': 0, 'epochs_budget': 3000} best_ep=90
+    bilinear_r16               val=+0.2051 hp={'lr': 0.03, 'wd': 0.01, 'seed': 0, 'epochs_budget': 3000} best_ep=60
+    film                       val=+0.1359 hp={'lr': 0.01, 'wd': 0.01, 'seed': 1, 'epochs_budget': 3000} best_ep=40
+    relmlp_w128                val=-0.0001 hp={'lr': 0.003, 'wd': 0.01, 'seed': 1, 'epochs_budget': 3000} best_ep=30
+    cheaponly_mlp_w128         val=+0.0012 hp={'lr': 0.003, 'wd': 0.01, 'seed': 0, 'epochs_budget': 3000} best_ep=20
+    relmlp_w512                val=+0.0322 hp={'lr': 0.003, 'wd': 0.01, 'seed': 1, 'epochs_budget': 3000} best_ep=50
+    cheaponly_mlp_w512         val=+0.0027 hp={'lr': 0.003, 'wd': 0.01, 'seed': 1, 'epochs_budget': 3000} best_ep=30
+    rank_cand                  val=+0.0129 hp={'lr': 0.01, 'wd': 0.01, 'seed': 0, 'epochs_budget': 3000} best_ep=20
+    rank_cand_state            val=+0.1348 hp={'lr': 0.03, 'wd': 0.01, 'seed': 1, 'epochs_budget': 3000} best_ep=30
+    rank_cheap                 val=+0.0060 hp={'lr': 0.01, 'wd': 0.0, 'seed': 1, 'epochs_budget': 3000} best_ep=80
+    rank_cheap_hidden          val=+0.1304 hp={'lr': 0.01, 'wd': 0.01, 'seed': 0, 'epochs_budget': 3000} best_ep=30
+
+=== synthetic F_null ===
+    bilinear_r2                val=-0.0566 hp={'lr': 0.01, 'wd': 0.01, 'seed': 1, 'epochs_budget': 3000} best_ep=40
+    bilinear_r4                val=-0.1141 hp={'lr': 0.01, 'wd': 0.01, 'seed': 0, 'epochs_budget': 3000} best_ep=40
+    bilinear_r8                val=-0.2124 hp={'lr': 0.03, 'wd': 0.01, 'seed': 1, 'epochs_budget': 3000} best_ep=30
+    bilinear_r16               val=-0.3617 hp={'lr': 0.03, 'wd': 0.01, 'seed': 0, 'epochs_budget': 3000} best_ep=30
+    film                       val=-0.0227 hp={'lr': 0.003, 'wd': 0.01, 'seed': 0, 'epochs_budget': 3000} best_ep=30
+    relmlp_w128                val=-0.0081 hp={'lr': 0.01, 'wd': 0.01, 'seed': 1, 'epochs_budget': 3000} best_ep=10
+    cheaponly_mlp_w128         val=-0.0002 hp={'lr': 0.01, 'wd': 0.01, 'seed': 1, 'epochs_budget': 3000} best_ep=30
+    relmlp_w512                val=-0.0064 hp={'lr': 0.003, 'wd': 0.01, 'seed': 0, 'epochs_budget': 3000} best_ep=20
+    cheaponly_mlp_w512         val=-0.0055 hp={'lr': 0.01, 'wd': 0.0, 'seed': 0, 'epochs_budget': 3000} best_ep=70
+    rank_cand                  val=+0.0017 hp={'lr': 0.003, 'wd': 0.01, 'seed': 0, 'epochs_budget': 3000} best_ep=10
+    rank_cand_state            val=+0.0015 hp={'lr': 0.03, 'wd': 0.0, 'seed': 1, 'epochs_budget': 3000} best_ep=0
+    rank_cheap                 val=+0.0032 hp={'lr': 0.01, 'wd': 0.01, 'seed': 1, 'epochs_budget': 3000} best_ep=170
+    rank_cheap_hidden          val=+0.0015 hp={'lr': 0.01, 'wd': 0.01, 'seed': 1, 'epochs_budget': 3000} best_ep=30
+
+done in 2015s -> /home/xqin5/diffusion_LLM/d1_lookahead/rescue_audit/results/nonlinear_retest_synthetic_MDLM_anc.json

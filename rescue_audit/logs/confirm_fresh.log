@@ -1,0 +1,28 @@
+[confirm] loading old + fresh
+[confirm] old n=14400 fresh n=7200 fresh states=1200 fresh docs=200
+[confirm] prompt 无重叠 ✓
+[confirm] fresh 天花板 pooled 0.837 (SNR 5.13) within 0.878
+
+[confirm] === D1 冻结迁移 (fit on old, eval on ALL fresh) ===
+  [D1/PRIMARY_additive_vs_bestcheap] Dconc=+0.0084 CI[+0.0010,+0.0161] p=0.0002 | Dtop1=+0.0133 CI[-0.0040,+0.0295]
+  [D1/additive_vs_cheapridge] Dconc=+0.0084 CI[+0.0010,+0.0161] p=0.0002 | Dtop1=+0.0133 CI[-0.0040,+0.0295]
+  [D1/cheapH_vs_cheapridge] Dconc=+0.0088 CI[+0.0020,+0.0153] p=0.0001 | Dtop1=+0.0067 CI[-0.0097,+0.0213]
+  [D1/RELATIONAL_kron_vs_additive] Dconc=-0.0073 CI[-0.0148,-0.0006] p=0.9994 | Dtop1=-0.0075 CI[-0.0240,+0.0079]
+  [D1/bilinear_vs_bestcheap] Dconc=+0.0008 CI[-0.0088,+0.0102] p=0.3860 | Dtop1=+0.0067 CI[-0.0126,+0.0248]
+  [D1/rankcheap_vs_cheapridge] Dconc=+0.0081 CI[-0.0010,+0.0169] p=0.0019 | Dtop1=+0.0217 CI[+0.0027,+0.0401]
+
+[confirm] === D2 同协议重拟合 (fresh 自己的划分) ===
+  [D2/PRIMARY_additive_vs_bestcheap] Dconc=+0.0093 CI[-0.0048,+0.0252] p=0.0175 | Dtop1=+0.0667 CI[+0.0323,+0.1000]
+  [D2/additive_vs_cheapridge] Dconc=+0.0093 CI[-0.0048,+0.0252] p=0.0175 | Dtop1=+0.0667 CI[+0.0323,+0.1000]
+  [D2/cheapH_vs_cheapridge] Dconc=+0.0062 CI[-0.0079,+0.0200] p=0.0572 | Dtop1=+0.0500 CI[+0.0161,+0.0857]
+  [D2/RELATIONAL_kron_vs_additive] Dconc=-0.0042 CI[-0.0208,+0.0098] p=0.8412 | Dtop1=-0.0333 CI[-0.0645,-0.0052]
+  [D2/bilinear_vs_bestcheap] Dconc=+0.0053 CI[-0.0168,+0.0258] p=0.1655 | Dtop1=+0.0433 CI[+0.0101,+0.0806]
+  [D2/rankcheap_vs_cheapridge] Dconc=+0.0093 CI[-0.0083,+0.0284] p=0.0499 | Dtop1=+0.0533 CI[+0.0115,+0.0968]
+
+[confirm] === 证伪对照 ===
+  [ctl shuffle_hg] Dconc=+0.0040
+  [ctl gauss_hg] Dconc=+0.0042
+  [ctl gauss_hi] Dconc=+0.0091
+  [ctl label_perm_within] Dconc=-0.0122
+
+[confirm] done in 2329s -> /home/xqin5/diffusion_LLM/d1_lookahead/rescue_audit/results/CONFIRMATORY_freshA.json

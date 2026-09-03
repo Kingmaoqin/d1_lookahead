@@ -1,0 +1,23 @@
+
+Fetching 6 files:   0%|          | 0/6 [00:00<?, ?it/s]
+Fetching 6 files: 100%|██████████| 6/6 [00:00<00:00, 86778.70it/s]
+
+[S0] loading MDLM-owt (Cornell / Kuleshov group, Apache-2.0)
+      windows=(3000, 256) splits={'train': 1800, 'val': 450, 'test': 750}
+[S1] NELBO ppl = 34.90 (nats/token 3.5525)  [published MDLM-owt test ppl <= 23.21]  11s
+[S2/S3/S5] 48 prompts x 3 seeds  78s
+[S2] generated  distinct-1/2/3 = 0.403/0.700/0.826  max-rep-4gram = 0.021
+     real text  distinct-1/2/3 = 0.625/0.897/0.957  max-rep-4gram = 0.010
+[S3] per-token Path-LL: mean -1.9967  between-prompt sd 0.2326  within-prompt(seed) sd 0.2241
+[S5] incomplete trajectories: 0
+[S4] hidden states consistent across steps: True  (13, (2, 256, 768))
+
+--- sample generations (prefix ||>> continuation) ---
+ Americans and 30 percent of African Americans.  Yet this is still in many ways a bittersweet victory, given that the 2016 election is the first in 50 years without the full protections of the Voting Rights Act. We’re seeing the clear impact of that decision this year, with five-hour lines in Arizona ||>>  and six-hour lines in other elections across the country. Out of all Arizona Elections in Phoenix County, and the all Arizona Elections in Ohio, we’re seeing lines. Many coming out of the Commonwealth for Arizona 
+
+s guest post by Zarathustra, of the excellent Mental Nurse blog, flagged up the existence of a right-wing campaign group calling itself ‘Nurses for Reform’, and as Lib Con’s resident data hound that naturally prompted me to ask a very pertinant question:  Just ||>>  what do I do about the idea of Reform?  So what did I give my answer to that question, Zarathustra’s answer, “National Students for Reform is a serious right-wing political lobby group focused on not to be anything about electoral politics in the U.S.,  
+
+=== PHASE S GATES === {"S1_pass": true, "S2_pass": true, "S3_pass": true, "S5_pass": true, "S4_pass": true}
+SUBSTRATE QUALIFIED
+wrote /home/xqin5/diffusion_LLM/d1_lookahead/results/phase_s/phase_s_report.json
+

@@ -14,6 +14,10 @@ and raw recomputation inputs separate.
 - `rescue_audit/results/batch_exports/trend_summary.csv`: summaries by generation step and
   prompt stratum for quick trend filtering.
 - `rescue_audit/results/batch_exports/cards/`: one JSON result card per raw shard.
+- `rescue_audit/results/full_inventory/asset_manifest.csv`: SHA-256 inventory of
+  every data file, derived result, sealed probe model, and run log in the project.
+- `rescue_audit/results/full_inventory/cards/`: lightweight schema/statistics cards
+  for every NPZ/NPY asset, including historical, ablation, smoke, and model files.
 
 ## Raw recomputation inputs
 
@@ -39,6 +43,11 @@ Core analyses load these shards through `src/dataset.py`. The frozen Task D resu
 is `rescue_audit/results/CONFIRMATORY_taskD_frozen.json`; its sealed pre-label models
 and preregistration are under `rescue_audit/sealed_taskD_primary/` and
 `rescue_audit/TASKD_PREREGISTRATION.md`.
+
+Project-trained probe weights are included, notably the three sealed Task D models
+under `rescue_audit/sealed_taskD_primary/`. Foundation-model checkpoints are not
+redistributed: they remain third-party Hugging Face assets and are identified by
+the pinned model IDs/revisions in collection metadata and scripts.
 
 ## Provenance rule
 

@@ -1,0 +1,90 @@
+{
+  "arrays": {
+    "H_g_now": {
+      "dtype": "float16",
+      "fortran_order": false,
+      "shape": [
+        7200,
+        13,
+        768
+      ]
+    },
+    "H_g_prev": {
+      "dtype": "float16",
+      "fortran_order": false,
+      "shape": [
+        7200,
+        13,
+        768
+      ]
+    },
+    "H_i_now": {
+      "dtype": "float16",
+      "fortran_order": false,
+      "shape": [
+        7200,
+        13,
+        768
+      ]
+    },
+    "H_i_prev": {
+      "dtype": "float16",
+      "fortran_order": false,
+      "shape": [
+        7200,
+        13,
+        768
+      ]
+    },
+    "position": {
+      "dtype": "int64",
+      "fortran_order": false,
+      "shape": [
+        7200
+      ]
+    },
+    "prompt_row": {
+      "dtype": "int64",
+      "fortran_order": false,
+      "shape": [
+        7200
+      ]
+    },
+    "step": {
+      "dtype": "int32",
+      "fortran_order": false,
+      "shape": [
+        7200
+      ]
+    }
+  },
+  "bytes": 305042214,
+  "category": "raw_label_batch",
+  "git_lfs": true,
+  "path": "data/labels_prev_a3/shard_000.npz",
+  "scalar_statistics": {
+    "position": {
+      "finite_fraction": 1.0,
+      "max": 255.0,
+      "mean": 162.41972222222222,
+      "min": 64.0,
+      "std": 54.182758634607865
+    },
+    "prompt_row": {
+      "finite_fraction": 1.0,
+      "max": 340.0,
+      "mean": 174.46,
+      "min": 3.0,
+      "std": 98.66427114209074
+    },
+    "step": {
+      "finite_fraction": 1.0,
+      "max": 115.0,
+      "mean": 66.83333333333333,
+      "min": 19.0,
+      "std": 32.84010082539672
+    }
+  },
+  "sha256": "b13f2b4bb734e3e43459b74804804bf3c2729c36f4156556107aa168b8abeeec",
+  "suffix": ".npz"
+}

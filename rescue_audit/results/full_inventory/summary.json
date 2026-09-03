@@ -1,0 +1,36 @@
+{
+  "by_category": {
+    "data_asset": {
+      "bytes": 8843555,
+      "files": 12
+    },
+    "derived_result": {
+      "bytes": 10820277,
+      "files": 343
+    },
+    "raw_label_batch": {
+      "bytes": 7757390131,
+      "files": 324
+    },
+    "run_log": {
+      "bytes": 247833,
+      "files": 71
+    },
+    "sealed_probe_model": {
+      "bytes": 4471622,
+      "files": 7
+    }
+  },
+  "by_suffix": {
+    ".csv": 2,
+    ".json": 357,
+    ".log": 70,
+    ".npy": 1,
+    ".npz": 307,
+    ".png": 18,
+    ".txt": 2
+  },
+  "lfs_objects": 308,
+  "n_assets": 757,
+  "total_bytes": 7781773418
+}
